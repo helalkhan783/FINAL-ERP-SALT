@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "403125359244",
+    "project_id": "salt-erp-8f85e",
+    "storage_bucket": "salt-erp-8f85e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:403125359244:android:eb61b2a0698a260c2ee1a9",
+        "android_client_info": {
+          "package_name": "com.ismos_salt_erp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "403125359244-adreop0fqruo7cbp6fntdm3bns81ugds.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZGKdWsVUkNF5FFUGcsZQRgVPg8LjJUVs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "403125359244-adreop0fqruo7cbp6fntdm3bns81ugds.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

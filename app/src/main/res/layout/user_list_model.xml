@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="clickHandle"
+            type="com.ismos_salt_erp.clickHandle.UserListClickHandle" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="2dp"
+                android:backgroundTint="@color/white"
+                android:elevation="4dp"
+                app:cardCornerRadius="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="3dp"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="2.4"
+                            android:orientation="vertical"
+                            android:weightSum="2">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".5"
+                                android:orientation="horizontal"
+                                android:weightSum="2">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginBottom="30dp"
+                                    android:layout_weight=".8"
+                                    android:gravity="center_vertical"
+                                    android:singleLine="true"
+                                    android:text="Name"
+                                    android:textColor="@color/black"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/name"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginBottom="30dp"
+                                    android:layout_weight="1.2"
+                                    android:gravity="center_vertical"
+                                    android:singleLine="true"
+                                    android:textColor="@color/black" />
+
+
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".5"
+                                android:orientation="horizontal"
+                                android:weightSum="2">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight=".8"
+                                    android:gravity="center_vertical"
+                                    android:singleLine="true"
+                                    android:text="User Name"
+                                    android:textColor="@color/black"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/userName"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1.2"
+                                    android:gravity="center_vertical"
+                                    android:singleLine="true"
+                                    android:textColor="@color/black" />
+
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".6"
+                            android:orientation="vertical">
+
+                            <!--                            <TextView-->
+                            <!--                                android:id="@+id/status"-->
+                            <!--                                android:layout_width="50dp"-->
+                            <!--                                android:layout_height="wrap_content"-->
+                            <!--                                android:layout_gravity="center_horizontal"-->
+                            <!--                                android:background="@drawable/success_shape"-->
+                            <!--                                android:gravity="center"-->
+                            <!--                                android:padding="2dp"-->
+                            <!--                                android:text="Active"-->
+                            <!--                                android:textSize="11sp" />-->
+
+                            <androidx.appcompat.widget.SwitchCompat
+                                 android:id="@+id/userSwitch"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                 android:padding="2dp"
+                                app:trackTint="@color/app_color" />
+
+                            <ImageButton
+                                android:id="@+id/edit"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="5dp"
+                                android:background="@color/cardview_light_background"
+                                android:onClick="@{()->clickHandle.edit()}"
+                                android:scaleType="center"
+                                android:src="@drawable/edit" />
+
+
+
+
+                            <ImageButton
+                                 android:id="@+id/delete"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="5dp"
+                                android:background="@color/cardview_light_background"
+                                 android:scaleType="centerCrop"
+                                android:src="@drawable/ic_baseline_delete_forever_24" />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+    </LinearLayout>
+</layout>

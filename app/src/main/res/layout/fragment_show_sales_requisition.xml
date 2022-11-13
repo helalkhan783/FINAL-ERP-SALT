@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="com.ismos_salt_erp.view.fragment.ShowSalesRequisition">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/management_toolbar" />
+
+
+    <androidx.core.widget.NestedScrollView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:background="@color/app_color"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="5dp"
+                        android:text="Customer Information"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/sixteen_sp_size" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:orientation="vertical">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="2.5">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:text="Requisition"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/fifteen_sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/riquisitionNumber"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.5"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:text="#000"
+                                android:textColor="@color/gray"
+                                android:textSize="@dimen/fifteen_sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="2.5">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:text="Company Name"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/fifteen_sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/companyName"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.5"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:text="#000"
+                                android:textColor="@color/gray"
+                                android:textSize="@dimen/fifteen_sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="2.5">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:text="Customer"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/fifteen_sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/customerName"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.5"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:text="#000"
+                                android:textColor="@color/gray"
+                                android:textSize="@dimen/fifteen_sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="2.5">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:text="Phone"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/fifteen_sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/phone"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.5"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:text="#000"
+                                android:textColor="@color/gray"
+                                android:textSize="@dimen/fifteen_sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="2.5">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:text="Date"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/fifteen_sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/date"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.5"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:text="#000"
+                                android:textColor="@color/gray"
+                                android:textSize="@dimen/fifteen_sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:background="@color/app_color"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="5dp"
+                    android:text="Requisition"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sixteen_sp_size" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/itemRv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="5dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="2.5">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:text="Amount"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/fifteen_sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/amount"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.5"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:text="#000"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/fifteen_sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="2.5">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:text="Discount"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/fifteen_sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/discount"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.5"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:text="#000"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/fifteen_sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="2.5">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:text="Sub Total"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/fifteen_sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/subTotal"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.5"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:text="#000"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/fifteen_sp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Note"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/fifteen_sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/noteEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/border"
+                    android:hint="Note"
+                    android:imeOptions="actionDone"
+                    android:maxLines="2"
+                    android:paddingLeft="5dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray"
+
+                    android:textSize="@dimen/fifteen_sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="2">
+
+                    <Button
+                        android:id="@+id/declineBtn"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/fourty_dp_btn"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_toolbar"
+                        android:text="Decline"
+                        android:textAllCaps="false"
+                        android:textColor="@color/black" />
+
+                    <Button
+                        android:id="@+id/approveBtn"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/fourty_dp_btn"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_toolbar"
+                        android:text="Approve"
+                        android:textAllCaps="false"
+                        android:textColor="@color/black" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</LinearLayout>

@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:layout_margin="1dp"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:id="@+id/linear_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_serial_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/five"
+                android:text="Complain:"
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_complain_subject"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:justificationMode="inter_word"
+                android:padding="@dimen/five"
+                android:paddingEnd="32dp"
+                android:text="Cash on delivery"
+                android:textColor="@color/black"
+                android:textSize="@dimen/thirteen" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/linear_layout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linear_layout"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:padding="@dimen/five"
+                android:text="Complain Type:"
+                android:textColor="@color/black"
+                android:textSize="@dimen/thirteen" />
+
+            <TextView
+                android:id="@+id/tv_complain_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:padding="@dimen/five"
+                android:text="Payment"
+                android:textColor="@color/black"
+                android:textSize="@dimen/thirteen" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_layout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linear_layout2"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:padding="@dimen/five"
+                android:text="Complain Category:"
+                android:textColor="@color/black"
+                android:textSize="@dimen/thirteen" />
+
+            <TextView
+                android:id="@+id/tv_complain_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:padding="@dimen/five"
+                android:text="Online Payment"
+                android:textColor="@color/black"
+                android:textSize="@dimen/thirteen" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_layout4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linear_layout3"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/complain_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:padding="@dimen/five"
+                android:text="Complain Status:"
+                android:textColor="@color/black"
+                android:textSize="@dimen/thirteen" />
+
+            <TextView
+                android:id="@+id/tv_complain_not_solved"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/failed"
+                android:fontFamily="sans-serif-light"
+                android:paddingStart="@dimen/ten"
+                android:paddingTop="2dp"
+                android:paddingEnd="@dimen/ten"
+                android:paddingBottom="2dp"
+                android:text="Not Solved Yet"
+                android:textColor="@color/white"
+                android:textSize="@dimen/thirteen"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tv_complain_solved"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/success"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center"
+                android:paddingStart="@dimen/ten"
+                android:paddingTop="2dp"
+                android:paddingEnd="@dimen/ten"
+                android:paddingBottom="2dp"
+                android:text="Solved"
+                android:textColor="@color/white"
+                android:textSize="@dimen/thirteen"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_layout5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linear_layout4"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:padding="@dimen/five"
+                android:text="Created at:"
+                android:textColor="@color/black"
+                android:textSize="@dimen/thirteen" />
+
+            <TextView
+                android:id="@+id/tv_complain_created_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:padding="@dimen/five"
+                android:text="02-12-2020 09:57:07 am"
+                android:textColor="@color/black"
+                android:textSize="@dimen/thirteen" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_layout6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linear_layout5"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:padding="@dimen/five"
+                android:text="Solved at:"
+                android:textColor="@color/black"
+                android:textSize="@dimen/thirteen" />
+
+            <TextView
+                android:id="@+id/tv_complain_solved_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:padding="@dimen/five"
+                android:text="02-12-2020 09:57:07 am"
+                android:textColor="@color/black"
+                android:textSize="@dimen/thirteen" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_layout7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linear_layout6"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:padding="@dimen/five"
+                android:text="Status:"
+                android:textColor="@color/black"
+                android:textSize="@dimen/thirteen" />
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:padding="@dimen/five"
+                android:src="@drawable/check_double_fill"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/complain_solver"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="-10dp"
+                android:fontFamily="sans-serif-light"
+                android:padding="@dimen/five"
+                android:text="Mark as completed by Authority"
+                android:textColor="@color/typing"
+                android:textSize="@dimen/thirteen"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+
+        <ImageView
+            android:id="@+id/iv_complain_solved"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:padding="@dimen/five"
+            android:src="@drawable/icon_done"
+            android:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/iv_complain_not_solved"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:padding="@dimen/five"
+            android:src="@drawable/cross"
+            android:visibility="visible" />
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/addStoreTvLevel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                     android:text="Assign Packet Tag"
+                    android:gravity="center_horizontal"
+                    android:textColor="@color/Indigo_color"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:id="@+id/itemNameTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text=""
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/fourteen_sp_text_size"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/spinner"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/lato_regular"
+                            android:text="Select Packet Item*"
+                            android:textColor="@color/switch_color"
+                            android:textSize="@dimen/fifteen_sp_txt" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:layout_marginTop="1dp"
+                            android:background="@drawable/edittext_shape">
+
+                            <ScrollView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+
+                                <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                                    android:id="@+id/itemTagList"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="1dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginRight="1dp"
+                                    android:layout_marginBottom="1dp"
+                                    android:defaultFocusHighlightEnabled="false"
+                                    android:paddingLeft="5dp"
+                                    android:soundEffectsEnabled="false"
+                                    android:textSize="@dimen/twelve_sp_txt_size"
+                                    app:smsp_enableErrorLabel="false"
+                                    app:smsp_enableFloatingLabel="false"
+                                    app:smsp_floatingLabelColor="@color/white"
+                                    app:smsp_hint="Select"
+                                    app:smsp_itemListColor="#808080"
+
+                                    app:smsp_itemListHintBackgroundColor="#808080"
+                                    app:smsp_itemListHintColor="#FFFFFF"
+                                    app:smsp_multilineError="false"
+                                    app:smsp_selectedItemListColor="#FF5252"
+                                    app:smsp_underlineSize="0dp" />
+
+
+                            </ScrollView>
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="end"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <Button
+                        android:id="@+id/btn_ok"
+                        android:layout_width="0dp"
+                        android:layout_height="35dp"
+                        android:layout_margin="10dp"
+                        android:layout_weight=".6"
+                        android:background="@drawable/search_btn_ripple"
+                        android:text="Save"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="@color/white" />
+
+                    <Button
+                        android:id="@+id/cancel"
+                        android:layout_width="0dp"
+                        android:layout_height="35dp"
+                        android:layout_margin="10dp"
+                        android:layout_weight=".6"
+                        android:background="@drawable/reset_btn_ripple"
+                        android:text="Cancel"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="@color/white" />
+
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

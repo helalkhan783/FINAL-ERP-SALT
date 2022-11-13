@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    android:background="@drawable/border">
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Date"
+        android:textColor="@color/black"
+        android:textSize="@dimen/thirteen"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/date_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="8dp"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:text="Notification Date"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/date"
+        app:layout_constraintTop_toTopOf="@+id/date"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/reference"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Reference No: "
+        android:textColor="@color/black"
+        android:textSize="@dimen/thirteen"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/date"
+        app:layout_constraintTop_toBottomOf="@id/date" />
+
+    <TextView
+        android:id="@+id/reference_tv"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:maxLines="2"
+        android:text="Notification DateNotification DateNotification Date"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/reference"
+        app:layout_constraintEnd_toStartOf="@+id/detailsBtn"
+        app:layout_constraintHorizontal_bias="0.048"
+        app:layout_constraintStart_toEndOf="@+id/reference"
+        app:layout_constraintTop_toTopOf="@+id/reference"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/note"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Note: "
+        android:textColor="@color/black"
+        android:textSize="@dimen/thirteen"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/reference"
+        app:layout_constraintTop_toBottomOf="@id/reference" />
+
+    <TextView
+        android:id="@+id/note_tv"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="8dp"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:text="Exp. Payment Approval Pending"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/note"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/note"
+        app:layout_constraintTop_toTopOf="@+id/note"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/approved_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/success"
+        android:gravity="center"
+        android:paddingStart="@dimen/ten"
+        android:paddingTop="2dp"
+        android:paddingEnd="@dimen/ten"
+        android:paddingBottom="2dp"
+        android:text="Approved"
+        android:textColor="@color/white"
+        android:textSize="@dimen/thirteen"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="@id/note"
+        app:layout_constraintTop_toBottomOf="@id/note" />
+
+    <TextView
+        android:id="@+id/pending_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/failed"
+        android:fontFamily="sans-serif-light"
+        android:paddingStart="@dimen/ten"
+        android:paddingTop="2dp"
+        android:paddingEnd="@dimen/ten"
+        android:paddingBottom="4dp"
+        android:text="Pending"
+        android:textColor="@color/white"
+        android:textSize="@dimen/thirteen"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/note"
+        app:layout_constraintTop_toBottomOf="@id/note" />
+
+    <TextView
+        android:id="@+id/approved_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Approved Date: "
+        android:textColor="@color/black"
+        android:textSize="@dimen/thirteen"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/approved_tv"
+        app:layout_constraintTop_toBottomOf="@id/approved_tv" />
+
+    <TextView
+        android:id="@+id/approved_date_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="8dp"
+        android:text="Approved Date"
+        android:textColor="@color/black"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/approved_date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/approved_date"
+        app:layout_constraintTop_toTopOf="@+id/approved_date"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+    <ImageButton
+        android:id="@+id/detailsBtn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@null"
+        android:padding="2dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/eye1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.955"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.447" />
+</androidx.constraintlayout.widget.ConstraintLayout>

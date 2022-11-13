@@ -1,0 +1,1145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="clickhandle"
+            type="com.ismos_salt_erp.clickHandle.AddNewUserClickHandle" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        tools:context="com.ismos_salt_erp.view.fragment.user.addnew.AddNewUser">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_binding" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/totalQuantity"
+            android:layout_below="@+id/toolbar">
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/toolbar"
+                android:layout_marginBottom="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:layout_marginBottom="90dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:baselineAligned="false"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/enterPrice"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.7"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:text="Title*"
+                                android:textColor="@color/switch_color"
+                                android:textSize="@dimen/fourteen_sp_text_size" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/et_and_spinner_height"
+                                android:layout_marginTop="1dp"
+                                android:background="@drawable/edittext_shape">
+
+                                <ScrollView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+
+                                    <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                                        android:id="@+id/title"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="1dp"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginRight="1dp"
+                                        android:layout_marginBottom="1dp"
+                                        android:defaultFocusHighlightEnabled="false"
+                                        android:paddingLeft="5dp"
+                                        android:soundEffectsEnabled="false"
+                                        app:smsp_enableErrorLabel="false"
+                                        app:smsp_enableFloatingLabel="false"
+                                        app:smsp_floatingLabelColor="@color/white"
+                                        app:smsp_hint=" Select"
+                                        app:smsp_itemListColor="#808080"
+
+                                        app:smsp_itemListHintBackgroundColor="#808080"
+                                        app:smsp_itemListHintColor="#FFFFFF"
+                                        app:smsp_multilineError="false"
+                                        app:smsp_selectedItemListColor="#FF5252"
+                                        app:smsp_underlineSize="0dp" />
+
+
+                                </ScrollView>
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="5dp"
+                                android:layout_weight="0.7"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:text="Full Name*"
+                                android:textColor="@color/switch_color"
+                                android:textSize="@dimen/fourteen_sp_text_size" />
+
+                            <EditText
+                                android:id="@+id/fullName"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/et_and_spinner_height"
+                                android:layout_marginTop="1dp"
+                                android:background="@drawable/edittext_shape"
+                                android:hint="Full Name"
+                                android:paddingLeft="5dp"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/gray"
+                                android:textSize="@dimen/fourteen_sp_text_size" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="5dp"
+                                android:layout_weight="0.7"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:text="Gender"
+                                android:textColor="@color/switch_color"
+                                android:textSize="@dimen/fourteen_sp_text_size" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/et_and_spinner_height"
+                                android:layout_marginTop="1dp"
+                                android:background="@drawable/edittext_shape">
+
+                                <ScrollView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+
+                                    <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                                        android:id="@+id/gender"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="1dp"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginRight="1dp"
+                                        android:layout_marginBottom="1dp"
+                                        android:defaultFocusHighlightEnabled="false"
+                                        android:paddingLeft="5dp"
+                                        android:soundEffectsEnabled="false"
+                                        app:smsp_enableErrorLabel="false"
+                                        app:smsp_enableFloatingLabel="false"
+                                        app:smsp_floatingLabelColor="@color/white"
+                                        app:smsp_hint=" Select"
+                                        app:smsp_itemListColor="#808080"
+
+                                        app:smsp_itemListHintBackgroundColor="#808080"
+                                        app:smsp_itemListHintColor="#FFFFFF"
+                                        app:smsp_multilineError="false"
+                                        app:smsp_selectedItemListColor="#FF5252"
+                                        app:smsp_underlineSize="0dp" />
+
+
+                                </ScrollView>
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="5dp"
+                                android:layout_weight="0.7"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:text="Display Name *"
+                                android:textColor="@color/switch_color"
+                                android:textSize="@dimen/fourteen_sp_text_size" />
+
+                            <EditText
+                                android:id="@+id/displayName"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/et_and_spinner_height"
+                                android:layout_marginTop="1dp"
+                                android:background="@drawable/edittext_shape"
+                                android:hint="Display Name"
+                                android:paddingLeft="5dp"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/gray"
+                                android:textSize="@dimen/fourteen_sp_text_size" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="5dp"
+                                android:layout_weight="0.7"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:text="Date Of Birth"
+                                android:textColor="@color/switch_color"
+                                android:textSize="@dimen/fourteen_sp_text_size" />
+
+                            <EditText
+                                android:id="@+id/dateOfBirth"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/et_and_spinner_height"
+                                android:layout_marginTop="1dp"
+                                android:layout_weight="1.3"
+                                android:background="@drawable/edittext_shape"
+                                android:editable="false"
+                                android:focusable="false"
+                                android:onClick="@{()->clickhandle.dateOfBirth()}"
+                                android:paddingLeft="5dp"
+                                android:text=" dd/mm/yy"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/gray"
+                                android:textSize="@dimen/fourteen_sp_text_size"
+                                tools:ignore="TouchTargetSizeCheck" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="5dp"
+                                android:layout_weight="0.7"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:text="Primary Email"
+                                android:textColor="@color/switch_color"
+                                android:textSize="@dimen/fourteen_sp_text_size" />
+
+                            <EditText
+                                android:id="@+id/email"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/et_and_spinner_height"
+                                android:layout_marginTop="1dp"
+                                android:layout_weight="1.3"
+                                android:background="@drawable/edittext_shape"
+                                android:hint="Primary Email"
+                                android:inputType="textEmailAddress"
+                                android:paddingLeft="5dp"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/gray"
+                                android:textSize="@dimen/fourteen_sp_text_size" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.7"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:text="Joining Date"
+                                android:textColor="@color/switch_color"
+                                android:textSize="@dimen/fourteen_sp_text_size" />
+
+                            <EditText
+                                android:id="@+id/joiningDate"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/et_and_spinner_height"
+                                android:layout_marginTop="1dp"
+                                android:layout_weight="1.3"
+                                android:background="@drawable/edittext_shape"
+                                android:editable="false"
+                                android:focusable="false"
+                                android:hint="dd/mm/yy"
+                                android:onClick="@{()->clickhandle.joiningDate()}"
+                                android:paddingLeft="5dp"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/gray"
+                                android:textSize="@dimen/fourteen_sp_text_size" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.7"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.32"
+                                    android:maxLines="1"
+                                    android:singleLine="true"
+                                    android:text="Primary Mobile*"
+                                    android:textColor="@color/switch_color"
+                                    android:textSize="@dimen/fourteen_sp_text_size" />
+
+                                <TextView
+                                    android:id="@+id/verificationBtn"
+                                    android:layout_width="0dp"
+                                    android:layout_height="19dp"
+                                    android:layout_marginEnd="5dp"
+                                    android:layout_marginBottom="1dp"
+                                    android:layout_weight="0.18"
+                                    android:background="@drawable/submit_button"
+                                    android:gravity="center_vertical"
+                                    android:maxLines="1"
+                                    android:paddingLeft="10dp"
+                                    android:paddingBottom="1dp"
+                                    android:singleLine="true"
+                                    android:text="Verify"
+                                    android:textColor="@color/white"
+                                    android:textSize="11sp" />
+
+
+                            </LinearLayout>
+
+
+                            <EditText
+                                android:id="@+id/primaryMobile"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/et_and_spinner_height"
+                                android:layout_weight="1.3"
+                                android:background="@drawable/edittext_shape"
+                                android:hint="Primary Mobile"
+                                android:inputType="number"
+                                android:paddingLeft="5dp"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/gray"
+                                android:textSize="@dimen/fourteen_sp_text_size" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="5dp"
+                                android:layout_weight="0.7"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:text="Department"
+                                android:textColor="@color/switch_color"
+                                android:textSize="@dimen/fourteen_sp_text_size" />
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/et_and_spinner_height"
+                                android:layout_marginTop="1dp"
+                                android:background="@drawable/edittext_shape">
+
+                                <ScrollView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+
+                                    <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                                        android:id="@+id/department"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="1dp"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginRight="1dp"
+                                        android:layout_marginBottom="1dp"
+                                        android:defaultFocusHighlightEnabled="false"
+                                        android:paddingLeft="5dp"
+                                        android:soundEffectsEnabled="false"
+                                        app:smsp_enableErrorLabel="false"
+                                        app:smsp_enableFloatingLabel="false"
+                                        app:smsp_floatingLabelColor="@color/white"
+                                        app:smsp_hint=" Select"
+                                        app:smsp_itemListColor="#808080"
+
+                                        app:smsp_itemListHintBackgroundColor="#808080"
+                                        app:smsp_itemListHintColor="#FFFFFF"
+                                        app:smsp_multilineError="false"
+                                        app:smsp_selectedItemListColor="#FF5252"
+                                        app:smsp_underlineSize="0dp" />
+
+
+                                </ScrollView>
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="5dp"
+                                android:layout_weight="0.7"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:text="Designation"
+                                android:textColor="@color/switch_color"
+                                android:textSize="@dimen/fourteen_sp_text_size" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/et_and_spinner_height"
+                                android:layout_marginTop="1dp"
+                                android:background="@drawable/edittext_shape">
+
+                                <ScrollView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+
+                                    <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                                        android:id="@+id/designation"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="1dp"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginRight="1dp"
+                                        android:layout_marginBottom="1dp"
+                                        android:defaultFocusHighlightEnabled="false"
+                                        android:paddingLeft="5dp"
+                                        android:soundEffectsEnabled="false"
+                                        app:smsp_enableErrorLabel="false"
+                                        app:smsp_enableFloatingLabel="false"
+                                        app:smsp_floatingLabelColor="@color/white"
+                                        app:smsp_hint=" Select"
+                                        app:smsp_itemListColor="#808080"
+
+                                        app:smsp_itemListHintBackgroundColor="#808080"
+                                        app:smsp_itemListHintColor="#FFFFFF"
+                                        app:smsp_multilineError="false"
+                                        app:smsp_selectedItemListColor="#FF5252"
+                                        app:smsp_underlineSize="0dp" />
+
+
+                                </ScrollView>
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="5dp"
+                                android:layout_weight="0.7"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:text="Enterprise*"
+                                android:textColor="@color/switch_color"
+                                android:textSize="@dimen/fourteen_sp_text_size" />
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/et_and_spinner_height"
+                                android:layout_marginTop="1dp"
+                                android:background="@drawable/edittext_shape">
+
+                                <ScrollView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+
+                                    <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                                        android:id="@+id/enterprise"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="1dp"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginRight="1dp"
+                                        android:layout_marginBottom="1dp"
+                                        android:defaultFocusHighlightEnabled="false"
+                                        android:paddingLeft="5dp"
+                                        android:soundEffectsEnabled="false"
+                                        app:smsp_enableErrorLabel="false"
+                                        app:smsp_enableFloatingLabel="false"
+                                        app:smsp_floatingLabelColor="@color/white"
+                                        app:smsp_hint=" Select"
+                                        app:smsp_itemListColor="#808080"
+
+                                        app:smsp_itemListHintBackgroundColor="#808080"
+                                        app:smsp_itemListHintColor="#FFFFFF"
+                                        app:smsp_multilineError="false"
+                                        app:smsp_selectedItemListColor="#FF5252"
+                                        app:smsp_underlineSize="0dp" />
+
+
+                                </ScrollView>
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="5dp"
+                                android:layout_weight="0.7"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:text="Nationality"
+                                android:textColor="@color/switch_color"
+                                android:textSize="@dimen/fourteen_sp_text_size" />
+
+                            <EditText
+                                android:id="@+id/nationality"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/et_and_spinner_height"
+                                android:layout_marginTop="1dp"
+                                android:background="@drawable/edittext_shape"
+                                android:hint="Nationality"
+                                android:paddingLeft="5dp"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/gray"
+                                android:textSize="@dimen/fourteen_sp_text_size" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="5dp"
+                                android:layout_weight="0.7"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:text="Blood Group"
+                                android:textColor="@color/switch_color"
+                                android:textSize="@dimen/fourteen_sp_text_size" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/et_and_spinner_height"
+                                android:layout_marginTop="1dp"
+                                android:background="@drawable/edittext_shape">
+
+                                <ScrollView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+
+                                    <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                                        android:id="@+id/bloodGroup"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="1dp"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginRight="1dp"
+                                        android:layout_marginBottom="1dp"
+                                        android:defaultFocusHighlightEnabled="false"
+                                        android:paddingLeft="5dp"
+                                        android:soundEffectsEnabled="false"
+                                        app:smsp_enableErrorLabel="false"
+                                        app:smsp_enableFloatingLabel="false"
+                                        app:smsp_floatingLabelColor="@color/white"
+                                        app:smsp_hint=" Select"
+                                        app:smsp_itemListColor="#808080"
+
+                                        app:smsp_itemListHintBackgroundColor="#808080"
+                                        app:smsp_itemListHintColor="#FFFFFF"
+                                        app:smsp_multilineError="false"
+                                        app:smsp_selectedItemListColor="#FF5252"
+                                        app:smsp_underlineSize="0dp" />
+
+
+                                </ScrollView>
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="5dp"
+                                android:layout_weight="0.7"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:text="Alt. Email"
+                                android:textColor="@color/switch_color"
+                                android:textSize="@dimen/fourteen_sp_text_size" />
+
+                            <EditText
+                                android:id="@+id/altEmail"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/et_and_spinner_height"
+                                android:layout_marginTop="1dp"
+                                android:background="@drawable/edittext_shape"
+                                android:hint="Alt Email"
+                                android:paddingLeft="5dp"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/gray"
+                                android:textSize="@dimen/fourteen_sp_text_size" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="5dp"
+                                android:layout_weight="0.7"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:text="Website"
+                                android:textColor="@color/switch_color"
+                                android:textSize="@dimen/fourteen_sp_text_size" />
+
+                            <EditText
+                                android:id="@+id/website"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/et_and_spinner_height"
+                                android:layout_weight="1.3"
+                                android:background="@drawable/edittext_shape"
+                                android:hint="website"
+                                android:paddingLeft="5dp"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/gray"
+                                android:textSize="@dimen/fourteen_sp_text_size" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="5dp"
+                                android:layout_weight="0.7"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:text="Alt. Mobile"
+                                android:textColor="@color/switch_color"
+                                android:textSize="@dimen/fourteen_sp_text_size" />
+
+                            <EditText
+                                android:id="@+id/altMobile"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/et_and_spinner_height"
+                                android:layout_marginTop="1dp"
+                                android:layout_weight="1.3"
+                                android:background="@drawable/edittext_shape"
+                                android:hint="Alt Mobile"
+                                android:inputType="number"
+                                android:paddingLeft="5dp"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/gray"
+                                android:textSize="@dimen/fourteen_sp_text_size" />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.7"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:text="Password*"
+                                android:textColor="@color/switch_color"
+                                android:textSize="@dimen/fourteen_sp_text_size" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/et_and_spinner_height"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="1dp"
+                                android:background="@drawable/edittext_shape"
+                                android:orientation="horizontal">
+
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical">
+
+                                    <ImageButton
+                                        android:id="@+id/passwordVisibilityImgBtn"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentEnd="true"
+                                        android:layout_centerVertical="true"
+                                        android:layout_marginRight="2dp"
+                                        android:background="@android:color/transparent"
+                                        app:srcCompat="@drawable/ic_visibility_off_grey_24dp"
+                                        tools:ignore="ContentDescription" />
+
+                                    <EditText
+                                        android:id="@+id/password"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_alignParentStart="true"
+                                        android:layout_centerVertical="true"
+                                        android:layout_toStartOf="@id/passwordVisibilityImgBtn"
+                                        android:background="@android:color/transparent"
+                                        android:ellipsize="end"
+                                        android:gravity="center_vertical"
+                                        android:hint="Enter Password"
+                                        android:imeOptions="actionDone"
+                                        android:inputType="textPassword"
+                                        android:maxLines="1"
+                                        android:minHeight="35dp"
+                                        android:padding="5dp"
+                                        android:singleLine="true"
+                                        android:textAppearance="?android:attr/textAppearanceMedium"
+                                        android:textColor="@color/md_grey_800"
+                                        android:textColorHint="@color/grey_color_two"
+                                        android:textSize="@dimen/fourteen_sp_text_size" />
+
+                                </RelativeLayout>
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.7"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:text="Confirm Password*"
+                                android:textColor="@color/switch_color"
+                                android:textSize="@dimen/fourteen_sp_text_size" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/et_and_spinner_height"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="1dp"
+                                android:background="@drawable/edittext_shape"
+                                android:orientation="horizontal">
+
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical">
+
+                                    <ImageButton
+                                        android:id="@+id/passwordVisibilityImgBtn1"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentEnd="true"
+                                        android:layout_centerVertical="true"
+                                        android:layout_marginRight="2dp"
+                                        android:background="@android:color/transparent"
+                                        app:srcCompat="@drawable/ic_visibility_off_grey_24dp"
+                                        tools:ignore="ContentDescription" />
+
+                                    <EditText
+                                        android:id="@+id/password1"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_alignParentStart="true"
+                                        android:layout_centerVertical="true"
+                                        android:layout_toStartOf="@id/passwordVisibilityImgBtn1"
+                                        android:background="@android:color/transparent"
+                                        android:ellipsize="end"
+                                        android:gravity="center_vertical"
+                                        android:hint="Confirm Password"
+                                        android:imeOptions="actionDone"
+                                        android:inputType="textPassword"
+                                        android:maxLines="1"
+                                        android:minHeight="35dp"
+                                        android:padding="5dp"
+                                        android:singleLine="true"
+                                        android:textAppearance="?android:attr/textAppearanceMedium"
+                                        android:textColor="@color/md_grey_800"
+                                        android:textColorHint="@color/grey_color_two"
+                                        android:textSize="@dimen/fourteen_sp_text_size" />
+
+                                </RelativeLayout>
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="5dp"
+                                android:layout_weight="0.7"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:text="Store Access*"
+                                android:textColor="@color/switch_color"
+                                android:textSize="@dimen/fourteen_sp_text_size" />
+
+                            <com.sayantan.advancedspinner.MultiSpinner
+                                android:id="@+id/storeAccess"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/et_and_spinner_height"
+                                android:layout_weight="1.2"
+                                android:background="@color/white"
+                                android:backgroundTint="@color/white"
+                                android:outlineSpotShadowColor="@color/gray"
+                                android:popupBackground="@color/white"
+                                android:shadowColor="@color/white"
+                                android:textSize="@dimen/fourteen_sp_text_size"
+                                app:title="Select Store Access" />
+
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:weightSum="2">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="5dp"
+                                android:layout_weight="0.7"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:text="Profile Image"
+                                android:textColor="@color/switch_color"
+                                android:textSize="@dimen/fourteen_sp_text_size" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="1dp"
+                                android:layout_weight="1.2"
+                                android:background="@drawable/edittext_shape"
+                                android:onClick="@{()->clickhandle.getProfileImage()}"
+                                android:orientation="horizontal"
+                                android:weightSum="2">
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5">
+
+                                    <ImageView
+                                        android:id="@+id/image"
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
+                                        android:layout_marginLeft="5dp"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginRight="5dp"
+                                        android:layout_marginBottom="5dp"
+                                        android:background="@drawable/file"
+                                        android:scaleType="fitXY" />
+                                </LinearLayout>
+
+                                <TextView
+                                    android:id="@+id/imageName"
+                                    android:layout_width="0dp"
+                                    android:layout_height="40dp"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginEnd="2dp"
+                                    android:layout_weight="1.5"
+                                    android:gravity="center_vertical"
+                                    android:hint="Browse (Please select 200px * 200px Image)"
+                                    android:maxLines="1"
+                                    android:paddingLeft="3dp"
+                                    android:singleLine="true"
+                                    android:textColor="@color/black"
+                                    android:textColorHint="#808080"
+                                    android:textSize="@dimen/twelve_sp_txt_size" />
+
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="5dp"
+                                android:layout_weight="0.7"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:text="Description"
+                                android:textColor="@color/switch_color"
+                                android:textSize="@dimen/fourteen_sp_text_size" />
+
+                            <EditText
+                                android:id="@+id/description"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:layout_marginTop="1dp"
+                                android:layout_weight="1.3"
+                                android:background="@drawable/edittext_shape"
+                                android:gravity="start"
+                                android:hint="Description"
+                                android:padding="5dp"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/gray"
+                                android:textSize="@dimen/fourteen_sp_text_size" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </androidx.core.widget.NestedScrollView>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/totalQuantity"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/fourty_dp_btn"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:elevation="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/submit_button"
+            android:onClick="@{()->clickhandle.submit()}"
+            android:text="Save"
+            android:textAlignment="center"
+            android:textAllCaps="true" />
+
+
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="com.ismos_salt_erp.view.fragment.notificationsManage.PendingIodizationDetailsFragment">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/management_toolbar" />
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginTop="1dp"
+                android:background="@color/head_tv_color"
+                android:gravity="center_vertical"
+                android:paddingLeft="5dp"
+                android:text="Information"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".7"
+                        android:text="Iodization No"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/fifteen_sp_txt" />
+
+                    <TextView
+                        android:id="@+id/iodizationNumberTV"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/fourteen_sp_text_size" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".7"
+                        android:text="Date"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/fifteen_sp_txt" />
+
+                    <TextView
+                        android:id="@+id/iodizationDateTv"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/gray"
+
+                        android:textSize="@dimen/fourteen_sp_text_size" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".7"
+                        android:text="Processed By"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/fifteen_sp_txt" />
+
+                    <TextView
+                        android:id="@+id/processbyTv"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/gray"
+
+                        android:textSize="@dimen/fourteen_sp_text_size" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".7"
+                        android:text="Output Item"
+                        android:textColor="@color/switch_color"
+                        android:textSize="@dimen/fifteen_sp_txt" />
+
+                    <TextView
+                        android:id="@+id/outputItemTv"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/fourteen_sp_text_size" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:background="@color/head_tv_color"
+                android:gravity="center_vertical"
+                android:paddingLeft="5dp"
+                android:text="Reference Person Details"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".7"
+                        android:text="Referrer Name"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/fifteen_sp_txt" />
+
+                    <TextView
+                        android:id="@+id/refferName"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/gray"
+
+                        android:textSize="@dimen/fourteen_sp_text_size" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".7"
+                        android:text="Phone"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/fifteen_sp_txt" />
+
+                    <TextView
+                        android:id="@+id/phoneNumber"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/gray"
+
+                        android:textSize="@dimen/fourteen_sp_text_size" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".7"
+                        android:text="Note"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/fifteen_sp_txt" />
+
+                    <TextView
+                        android:id="@+id/noteTV"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/gray"
+
+                        android:textSize="@dimen/fourteen_sp_text_size" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/gray" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:background="@color/head_tv_color"
+                android:gravity="center_vertical"
+                android:paddingLeft="5dp"
+                android:text="Item List"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/iodizationRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp" />
+
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+    <LinearLayout
+        android:id="@+id/approveDeclineOption"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:text="Note"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/iodizationNote"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/edittext_shape"
+            android:hint="Note"
+            android:imeOptions="actionDone"
+            android:maxLines="2"
+            android:paddingLeft="5dp"
+            android:textColor="@color/md_grey_800"
+            android:textColorHint="@color/gray"
+            android:textSize="14sp" />
+
+
+        <LinearLayout
+            android:id="@+id/pendingView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:gravity="right"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <Button
+                android:id="@+id/approveIodization"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/filter_btn_shape"
+                android:text="Approve"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/declineIodization"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:background="@drawable/filter_reset_btn_shape"
+                android:text="Decline"
+                android:textAllCaps="false" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

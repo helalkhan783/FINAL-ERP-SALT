@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <data>
+        <variable
+            name="clickHandle"
+            type="com.ismos_salt_erp.clickHandle.MillerQcInformationEditClickHandle" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        tools:context="com.ismos_salt_erp.view.fragment.miller.editmiller.MillerQcInformationEdit">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal"
+                        android:weightSum="2.3">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1.6"
+                            android:paddingLeft="3dp"
+                            android:singleLine="true"
+                            android:text="Do You Follow Standard Operating Procedure ? :"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".7">
+
+                            <RadioGroup
+                                android:id="@+id/procedureRadioGroup"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@color/white"
+                                android:orientation="horizontal">
+
+                                <RadioButton
+                                    android:id="@+id/radio_pirates"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:buttonTint="@color/black"
+                                    android:text="Yes"
+                                    android:textColor="@color/black" />
+
+                                <RadioButton
+                                    android:id="@+id/radio_ninjas"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:buttonTint="@color/black"
+                                    android:text="No"
+                                    android:textColor="@color/black" />
+                            </RadioGroup>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal"
+                        android:weightSum="2.3">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1.6"
+                            android:paddingLeft="3dp"
+                            android:singleLine="true"
+                            android:text="Do You Have Trained Laboratory Person ? :"
+                            android:textColor="@color/black" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".7">
+
+                            <RadioGroup
+                                android:id="@+id/laboratoryPersonRadioGroup"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@color/white"
+                                android:orientation="horizontal">
+
+                                <RadioButton
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:buttonTint="@color/black"
+                                    android:text="Yes"
+                                    android:textColor="@color/black" />
+
+                                <RadioButton
+
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:buttonTint="@color/black"
+                                    android:text="No"
+                                    android:textColor="@color/black" />
+                            </RadioGroup>
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal"
+                        android:weightSum="2.3">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1.6"
+                            android:paddingLeft="3dp"
+                            android:singleLine="true"
+                            android:text="Does Laboratory Use Test Kit ? :"
+                            android:textColor="@color/black" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".7">
+
+                            <RadioGroup
+                                android:id="@+id/testKitRadioGroup"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@color/white"
+                                android:orientation="horizontal">
+
+                                <RadioButton
+                                    android:id="@+id/yes"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:buttonTint="@color/black"
+                                    android:text="Yes"
+                                    android:textColor="@color/black" />
+
+                                <RadioButton
+                                    android:id="@+id/no"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:buttonTint="@color/black"
+                                    android:text="No"
+                                    android:textColor="@color/black" />
+                            </RadioGroup>
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal"
+                        android:weightSum="2.3">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1.6"
+                            android:paddingLeft="3dp"
+                            android:singleLine="true"
+                            android:text="Have a Laboratory ? :"
+                            android:textColor="@color/black" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".7">
+
+                            <RadioGroup
+                                android:id="@+id/haveLaboratoryRadioGroup"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@color/white"
+                                android:orientation="horizontal">
+
+                                <RadioButton
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:buttonTint="@color/black"
+                                    android:text="Yes"
+                                    android:textColor="@color/black" />
+
+                                <RadioButton
+
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:buttonTint="@color/black"
+                                    android:text="No"
+                                    android:textColor="@color/black" />
+                            </RadioGroup>
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="50dp"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:singleLine="true"
+                                android:text="Laboratory Person Number"
+                                android:textColor="@color/switch_color"
+                                android:fontFamily="@font/lato_regular"
+                                android:textSize="@dimen/fifteen_sp_txt"/>
+
+                            <EditText
+                                android:id="@+id/number"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:background="@drawable/edittext_shape"
+                                android:hint="Number"
+                                android:inputType="number"
+                                android:maxLines="1"
+                                android:paddingLeft="5dp"
+                                android:singleLine="true"
+                                android:textColor="@color/black"
+                                android:textColorHint="#808080"
+                                android:textSize="@dimen/fourteen_sp_text_size" />
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:singleLine="true"
+                                android:text="Remarks"
+                                android:textColor="@color/switch_color"
+                                android:fontFamily="@font/lato_regular"
+                                android:textSize="@dimen/fifteen_sp_txt"/>
+
+                            <EditText
+                                android:id="@+id/remarks"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:background="@drawable/edittext_shape"
+                                android:hint="Remarks"
+                                android:maxLines="1"
+                                android:paddingLeft="5dp"
+                                android:singleLine="true"
+                                android:textColor="@color/black"
+                                android:textColorHint="#808080"
+                                android:textSize="@dimen/fourteen_sp_text_size" />
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+
+
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{()->clickHandle.update()}"
+                        android:layout_marginTop="30dp"
+                        android:background="@drawable/submit_button"
+                        android:text="Update" />
+
+
+                </LinearLayout>
+
+            </androidx.core.widget.NestedScrollView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>
+

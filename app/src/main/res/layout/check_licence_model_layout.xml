@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:visibility="gone"
+                 android:id="@+id/upEnterPriseName"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/thirty_five_tv_size"
+                android:text="MYN"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textSize="@dimen/sixteen_sp_tx_size"
+                android:textColor="@color/black"
+
+                />
+            <LinearLayout
+                android:id="@+id/ok"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3.1">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".3"
+                    android:background="#C5DAF5"
+                    android:gravity="center_horizontal"
+                    android:padding="6dp"
+                    android:singleLine="true"
+                    android:text="SL"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/fourteen_sp_text_size"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".01">
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.95"
+                    android:background="#C5DAF5"
+                    android:gravity="center_horizontal"
+                    android:padding="6dp"
+                    android:singleLine="true"
+                    android:text="Licence Name"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/fourteen_sp_text_size"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".01">
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".85"
+                    android:background="#C5DAF5"
+                    android:gravity="center_horizontal"
+                    android:padding="6dp"
+                    android:singleLine="true"
+                    android:text="Expire Date"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/thirteen_sp_size"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/mainlayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                 android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="3.1"
+                     android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/sl"
+                         android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".3"
+                        android:gravity="center_horizontal"
+                        android:padding="3dp"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textColor="@color/black"
+                        android:background="@color/color_blue_gray"
+
+                        android:textSize="@dimen/fourteen_sp_text_size" />
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight=".01"
+                        android:layout_height="match_parent">
+
+                    </LinearLayout>
+                    <TextView
+                        android:id="@+id/name"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.95"
+                                              android:gravity="center_horizontal"
+                        android:padding="3dp"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textColor="@color/black"
+                        android:background="@color/color_blue_gray"
+
+
+                        android:textSize="@dimen/thirteen_sp_size" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight=".01"
+                        android:layout_height="match_parent">
+
+                    </LinearLayout>
+                    <TextView
+                        android:id="@+id/date"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".85"
+                        android:background="@color/color_blue_gray"
+                        android:gravity="center_horizontal"
+                        android:padding="3dp"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textColor="@color/red"
+                        android:textSize="@dimen/thirteen_sp_size" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height=".5dp"
+            android:background="@color/white"/>
+
+    </LinearLayout>
+
+</layout>
+

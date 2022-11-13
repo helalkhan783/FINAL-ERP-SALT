@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        tools:context="com.ismos_salt_erp.view.fragment.QC_QA.QcQaDetailsFragment">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_binding" />
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="1dp"
+                    android:background="@color/app_color"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="5dp"
+                    android:text="QC/QA Information"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sixteen_sp_tx_size"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:weightSum="2">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.7"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:text="Test Date"
+                            android:textColor="@color/switch_color"
+                            android:textSize="@dimen/fifteen_sp_txt" />
+
+                        <TextView
+                            android:id="@+id/testDate"
+                            android:layout_width="0dp"
+                            android:layout_height="20dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1.3"
+                            android:gravity="center_vertical"
+                            android:inputType="number"
+                            android:paddingLeft="5dp"
+                            android:text=":"
+                            android:textColor="@color/gray"
+
+                            android:textSize="@dimen/fourteen_sp_text_size" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="1dp"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.7"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:text="Model"
+                            android:textColor="@color/switch_color"
+                            android:textSize="@dimen/fifteen_sp_txt" />
+
+                        <TextView
+                            android:id="@+id/model"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1.3"
+                            android:gravity="center_vertical"
+                            android:inputType="number"
+                            android:paddingLeft="5dp"
+                            android:text=":"
+                            android:textColor="@color/gray"
+                             android:textSize="@dimen/fourteen_sp_text_size" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="1dp"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.7"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:text="Process By"
+                            android:textColor="@color/switch_color"
+                            android:textSize="@dimen/fifteen_sp_txt" />
+
+                        <TextView
+                            android:id="@+id/processBy"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1.3"
+                            android:gravity="center_vertical"
+                            android:inputType="number"
+                            android:paddingLeft="5dp"
+                            android:text=":"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/fourteen_sp_text_size" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="1dp"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.7"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:text="Review By"
+                            android:textColor="@color/switch_color"
+                            android:textSize="@dimen/fifteen_sp_txt" />
+
+                        <TextView
+                            android:id="@+id/reviewBy"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1.3"
+                            android:gravity="center_vertical"
+                            android:inputType="number"
+                            android:paddingLeft="5dp"
+                            android:text=":"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/fourteen_sp_text_size" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="1dp"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.7"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:text="Note"
+                            android:textColor="@color/switch_color"
+                            android:textSize="@dimen/fifteen_sp_txt" />
+
+                        <TextView
+                            android:id="@+id/note"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1.3"
+                            android:gravity="center_vertical"
+                            android:inputType="number"
+                            android:paddingLeft="5dp"
+                            android:text=":"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/fourteen_sp_text_size" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+                <!--                Down Portion-->
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="0.7"
+                    android:background="@color/app_color"
+                    android:gravity="center_vertical"
+                    android:maxLines="1"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:text="Test Parameter"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sixteen_sp_tx_size"
+                    android:textStyle="bold" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/qcqaTestRV"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="2dp" />
+
+
+                <LinearLayout
+                    android:id="@+id/approveDeclineOption"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="30dp"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:id="@+id/aprovalStatus"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="vertical">
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/switch_color"/>
+
+                        <TextView
+                            android:layout_marginTop="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:layout_weight="0.7"
+                            android:maxLines="1"
+                            android:paddingLeft="10dp"
+                            android:singleLine="true"
+                            android:text="Approve/Declined"
+                            android:textColor="@color/switch_color"
+                            android:textStyle="bold" />
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_margin="5dp"
+                            android:background="@drawable/edittext_shape">
+
+                            <ScrollView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+
+                                <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                                    android:id="@+id/approveDeclineDDown"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="1dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginRight="1dp"
+                                    android:layout_marginBottom="1dp"
+                                    android:defaultFocusHighlightEnabled="false"
+                                    android:paddingLeft="5dp"
+                                    android:soundEffectsEnabled="false"
+                                    app:smsp_enableErrorLabel="false"
+                                    app:smsp_enableFloatingLabel="false"
+                                    app:smsp_floatingLabelColor="@color/white"
+                                    app:smsp_hint=" Select"
+                                    app:smsp_itemListColor="#808080"
+
+                                    app:smsp_itemListHintBackgroundColor="#808080"
+                                    app:smsp_itemListHintColor="#FFFFFF"
+                                    app:smsp_multilineError="false"
+                                    app:smsp_selectedItemListColor="#FF5252"
+                                    app:smsp_underlineSize="0dp" />
+
+
+                            </ScrollView>
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/declineReasonOption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:layout_weight="0.7"
+                            android:maxLines="5"
+                            android:paddingLeft="5dp"
+                            android:singleLine="true"
+                            android:text="Decline Reason"
+                            android:textColor="@color/switch_color"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/declineReason"
+                            android:layout_width="match_parent"
+                            android:layout_height="55dp"
+                            android:layout_marginTop="1dp"
+                            android:layout_weight="1.3"
+                            android:background="@drawable/edittext_shape"
+                            android:gravity="start"
+                            android:hint="Decline Reason"
+                            android:maxLines="5"
+                            android:paddingLeft="5dp"
+                            android:paddingTop="5dp"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray"
+                            android:textSize="14sp" />
+
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/save"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:layout_margin="20dp"
+                        android:background="@drawable/submit_button"
+                        android:text="Save"
+                        android:textAllCaps="true" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+
+    </LinearLayout>
+</layout>

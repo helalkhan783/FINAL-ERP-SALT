@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height=".5dp"
+                android:background="@color/gray" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginRight="5dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lato_regular"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:text="Transport"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/fifteen_sp_txt" />
+
+                    <AutoCompleteTextView
+                        android:id="@+id/searchTransport"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/et_and_spinner_height"
+                        android:layout_marginTop="1dp"
+                        android:background="@drawable/edittext_shape"
+                        android:gravity="center_vertical"
+                        android:hint="Search by name"
+                        android:paddingLeft="10dp"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray"
+                        android:textSize="14sp" />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lato_regular"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:text="Driver Name"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/fifteen_sp_txt" />
+
+                    <EditText
+                        android:id="@+id/driverName"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/et_and_spinner_height"
+                        android:layout_marginTop="1dp"
+                        android:background="@drawable/add_new_packaging_shape"
+                        android:focusable="false"
+                        android:gravity="center_vertical"
+                        android:hint="Driver Name"
+                        android:paddingLeft="10dp"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lato_regular"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:text="Driver Phone Number"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/fifteen_sp_txt" />
+
+                    <EditText
+                        android:id="@+id/driverPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/et_and_spinner_height"
+                        android:layout_marginTop="1dp"
+                        android:background="@drawable/add_new_packaging_shape"
+                        android:gravity="center_vertical"
+                        android:hint="Driver Mobile No"
+                        android:inputType="number"
+                        android:paddingLeft="10dp"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray"
+                        android:textSize="@dimen/fourteen_sp_text_size" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+               android:layout_margin="5dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lato_regular"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:text="Vehicle/Ship No"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/fifteen_sp_txt" />
+
+                    <EditText
+                        android:id="@+id/transportName"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/et_and_spinner_height"
+                        android:layout_marginTop="1dp"
+                        android:background="@drawable/add_new_packaging_shape"
+                        android:focusable="false"
+                        android:gravity="center_vertical"
+                        android:hint="Vehicle/Ship No"
+                        android:paddingLeft="10dp"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lato_regular"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:text="Transport Fare"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/fifteen_sp_txt" />
+
+                    <EditText
+                        android:id="@+id/fare"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/et_and_spinner_height"
+                        android:layout_marginTop="1dp"
+                        android:background="@drawable/edittext_shape"
+                        android:gravity="center_vertical"
+                        android:hint="Transport Fare"
+                        android:inputType="numberDecimal"
+                        android:paddingLeft="10dp"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray"
+                        android:textSize="@dimen/fourteen_sp_text_size" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</layout>

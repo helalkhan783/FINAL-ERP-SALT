@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="com.ismos_salt_erp.view.fragment.notificationsManage.GetPendingWashingAndCrushingDetails">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/management_toolbar" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollPortion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="152dp"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/white" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:background="@color/app_color"
+                android:gravity="center_vertical"
+                android:paddingLeft="5dp"
+                android:text="Previous Production Details"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1.4"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:text="SL. No."
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/fifteen_sp_txt"
+                        tools:ignore="HardcodedText,TooDeepLayout" />
+
+                    <TextView
+                        android:id="@+id/washingAndCrushingNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="0.6"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical"
+                        android:maxLines="1"
+                        android:text=":"
+                        android:padding="1dp"
+                        android:singleLine="true"
+                        android:textColor="@color/md_grey_800"
+                        android:textSize="@dimen/fourteen_sp_text_size"
+                        tools:ignore="HardcodedText" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1.4"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:text="Date"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/fifteen_sp_txt"
+                        tools:ignore="HardcodedText,TooDeepLayout" />
+
+                    <TextView
+                        android:id="@+id/dateTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="0.6"
+                        android:ellipsize="end"
+                        android:text=":"
+
+                        android:gravity="center_vertical"
+                        android:maxLines="1"
+                        android:padding="1dp"
+                        android:singleLine="true"
+
+                        android:textColor="@color/md_grey_800"
+                        android:textSize="@dimen/fourteen_sp_text_size"
+                        tools:ignore="HardcodedText" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1.4"
+                        android:maxLines="1"
+                        android:paddingStart="0dp"
+
+                        android:paddingTop="0dp"
+                        android:paddingEnd="2dp"
+
+                        android:paddingBottom="0dp"
+                        android:singleLine="true"
+                        android:text="Processed By"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/fifteen_sp_txt"
+                        tools:ignore="HardcodedText,TooDeepLayout" />
+
+                    <TextView
+                        android:id="@+id/processByName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"                        android:text=":"
+
+                        android:layout_weight="0.6"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical"
+                        android:maxLines="2"
+                        android:padding="1dp"
+                        android:textColor="@color/md_grey_800"
+                        android:textSize="@dimen/fourteen_sp_text_size"
+                        tools:ignore="HardcodedText" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1.4"
+                        android:maxLines="1"
+                        android:paddingStart="0dp"
+                        android:paddingTop="0dp"
+                        android:paddingEnd="2dp"
+                        android:paddingBottom="0dp"
+                        android:singleLine="true"
+                        android:text="Output Item"
+                        android:textColor="@color/switch_color"
+                        android:textSize="@dimen/fifteen_sp_txt"
+                        tools:ignore="HardcodedText,TooDeepLayout" />
+
+                    <TextView
+                        android:id="@+id/outputItem"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="0.6"
+                        android:ellipsize="end"
+                        android:text=":"
+
+                        android:gravity="center_vertical"
+                        android:maxLines="2"
+                        android:padding="1dp"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/fourteen_sp_text_size"
+                        tools:ignore="HardcodedText" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="10dp"
+                android:background="@color/gray" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:background="@color/app_color"
+                android:gravity="center_vertical"
+                android:paddingLeft="5dp"
+                android:text="Reference Person Details"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1.4"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:text="Referrer Name"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/fifteen_sp_txt"
+                        tools:ignore="HardcodedText,TooDeepLayout" />
+
+                    <TextView
+                        android:id="@+id/refferName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="0.6"
+                        android:ellipsize="end"
+                        android:text=":"
+
+                        android:gravity="center_vertical"
+                        android:maxLines="2"
+                        android:padding="1dp"
+                        android:textColor="@color/md_grey_800"
+
+                        android:textSize="@dimen/fourteen_sp_text_size"
+                        tools:ignore="HardcodedText" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1.4"
+                        android:maxLines="1"
+                        android:paddingStart="0dp"
+
+                        android:paddingTop="0dp"
+                        android:paddingEnd="2dp"
+
+                        android:paddingBottom="0dp"
+                        android:singleLine="true"
+                        android:text="Phone"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/fifteen_sp_txt"
+                        tools:ignore="HardcodedText,TooDeepLayout" />
+
+                    <TextView
+                        android:id="@+id/phoneNum"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="0.6"
+                        android:text=":"
+
+                        android:ellipsize="end"
+                        android:gravity="center_vertical"
+                        android:maxLines="2"
+                        android:padding="1dp"
+                        android:textColor="@color/md_grey_800"
+                        android:textSize="@dimen/fourteen_sp_text_size"
+
+                        tools:ignore="HardcodedText" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1.4"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:text="Note"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/fifteen_sp_txt"
+                        tools:ignore="HardcodedText,TooDeepLayout" />
+
+                    <TextView
+                        android:id="@+id/noteETT"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="0.6"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical"
+                        android:maxLines="2"
+                        android:padding="1dp"
+                        android:text=":"
+
+                        android:textColor="@color/md_grey_800"
+                        android:textSize="@dimen/fourteen_sp_text_size"
+                        tools:ignore="HardcodedText" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="10dp"
+                android:background="@color/gray" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/app_color"
+                android:gravity="center_vertical"
+                android:paddingLeft="5dp"
+                android:text="List"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/ItemRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+               />
+
+            <LinearLayout
+                android:id="@+id/approveDeclineOption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:text="Note"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/noteEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/edittext_shape"
+                    android:hint="Note"
+                    android:imeOptions="actionDone"
+                    android:maxLines="2"
+                    android:paddingLeft="5dp"
+                    android:textColor="@color/md_grey_800"
+                    android:textColorHint="@color/gray"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="2">
+
+                    <LinearLayout
+                        android:id="@+id/pendingView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:gravity="right"
+                        android:orientation="horizontal"
+                        android:padding="5dp">
+
+                        <Button
+                            android:id="@+id/approveWashingAndCrushingDetails"
+                            style="@style/Widget.AppCompat.Button.Borderless"
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dp"
+                            android:layout_marginRight="5dp"
+                            android:background="@drawable/filter_btn_shape"
+                            android:text="Approve"
+                            android:textAllCaps="false" />
+
+                        <Button
+                            android:id="@+id/WashingAndCrushingDetailsDeclineBtn"
+                            style="@style/Widget.AppCompat.Button.Borderless"
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dp"
+
+                            android:background="@drawable/filter_reset_btn_shape"
+                            android:text="Decline"
+                            android:textAllCaps="false" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</RelativeLayout>

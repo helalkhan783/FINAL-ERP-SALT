@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/updateDueLimitTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="Update Due Limit"
+                android:gravity="center_horizontal"
+
+                android:textColor="@color/switch_color"
+                android:textSize="@dimen/sixteen_sp_tx_size"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/company"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:gravity="center_horizontal"
+                android:textColor="@color/switch_color"
+                android:textSize="@dimen/sixteen_sp_tx_size"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="5dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/levelTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lato_regular"
+                        android:text="Set Due Limit"
+                        android:textColor="@color/switch_color"
+                        android:textSize="@dimen/fifteen_sp_txt" />
+
+
+                    <EditText
+                        android:id="@+id/dueLimitEt"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:background="@drawable/edittext_shape"
+                        android:imeOptions="actionNext"
+                        android:inputType="numberDecimal"
+                        android:paddingLeft="5dp"
+                        android:singleLine="true"
+                        android:textColor="@color/gray"
+                        android:textColorHint="@color/gray"
+                        android:textSize="@dimen/fourteen_sp_text_size" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+
+                android:layout_marginBottom="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal"
+                     >
+
+                    <Button
+                        android:id="@+id/btn_ok"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/thirty_dp_et_size"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/search_btn_ripple"
+                        android:text="Update"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="@color/white" />
+
+                    <Button
+                        android:id="@+id/cancel"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/thirty_dp_et_size"
+                        android:layout_margin="10dp"
+                        android:layout_toRightOf="@+id/btn_ok"
+                        android:layout_weight="1"
+                        android:background="@drawable/reset_btn_ripple"
+                        android:text="Cancel"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="@color/white" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</layout>

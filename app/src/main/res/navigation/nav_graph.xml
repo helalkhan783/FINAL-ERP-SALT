@@ -1,0 +1,2757 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashScreen">
+    <fragment
+        android:id="@+id/splashScreen"
+        android:name="com.ismos_salt_erp.view.fragment.SplashScreen"
+        android:label="fragment_splash_screen"
+        tools:layout="@layout/fragment_splash_screen">
+        <action
+            android:id="@+id/action_splashScreen_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+        <action
+            android:id="@+id/action_splashScreen_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+        <action
+            android:id="@+id/action_splashScreen_to_internetConnectionFaildFragment"
+            app:destination="@id/internetConnectionFaildFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.ismos_salt_erp.view.fragment.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home">
+
+
+        <action
+            android:id="@+id/action_homeFragment_self"
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+        <action
+            android:id="@+id/action_homeFragment_to_appWebViewFragmnet"
+            app:destination="@id/appWebViewFragmnet"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_homeFragment_to_managementFragment"
+            app:destination="@id/managementFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_homeFragment_to_transactionListFragment"
+            app:destination="@id/transactionListFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+        <action
+            android:id="@+id/action_homeFragment_to_purchaseReturnListFragment"
+            app:destination="@id/purchaseReturnListFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_homeFragment_to_accountsListFragment"
+            app:destination="@id/accountsListFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+
+        <action
+            android:id="@+id/action_homeFragment_to_accountsListFragment2"
+            app:destination="@id/accountsListFragment2"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_homeFragment_to_profileFragment"
+            app:destination="@id/profileFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_homeFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+        <action
+            android:id="@+id/action_homeFragment_to_homePageListFragment"
+            app:destination="@id/homePageListFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+        <action
+            android:id="@+id/action_homeFragment_to_allPurchaseListFragment"
+            app:destination="@id/allPurchaseListFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+
+        <action
+            android:id="@+id/action_homeFragment_to_saleAllListFragment"
+            app:destination="@id/saleAllListFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+
+        <action
+            android:id="@+id/action_homeFragment_to_millerDetailsViewFragment"
+            app:destination="@id/millerDetailsViewFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+
+        <action
+            android:id="@+id/action_homeFragment_to_millerAllListFragment"
+            app:destination="@id/millerAllListFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+
+        <action
+            android:id="@+id/action_homeFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+
+
+        <action
+            android:id="@+id/action_homeFragment_to_notificationFragment"
+            app:destination="@id/notificationFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_homeFragment_to_internetConnectionFaildFragment"
+            app:destination="@id/internetConnectionFaildFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_homeFragment_to_creditorsFragment"
+            app:destination="@id/creditorsFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_homeFragment_to_qrScanFragment"
+            app:destination="@id/qrScanFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_homeFragment_to_cashBookDayBookFragment"
+            app:destination="@id/cashBookDayBookFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_homeFragment_to_dashBoardExpenseList"
+            app:destination="@id/dashBoardExpenseList"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_homeFragment_to_addNewMiller"
+            app:destination="@id/addNewMiller"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/signupFragment"
+        android:name="com.ismos_salt_erp.view.fragment.auth.sign_up.SignupFragment"
+        android:label="fragment_signup"
+        tools:layout="@layout/fragment_signup">
+        <action
+            android:id="@+id/action_signupFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_signupFragment_to_termsAndPrivacyFragment"
+            app:destination="@id/termsAndPrivacyFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_signupFragment_to_internetConnectionFaildFragment"
+            app:destination="@id/internetConnectionFaildFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_signupFragment_to_numberVerificationFragment"
+            app:destination="@id/numberVerificationFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_signupFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.ismos_salt_erp.view.fragment.auth.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_signupFragment"
+            app:destination="@id/signupFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_loginFragment_to_forgotpassword"
+            app:destination="@id/forgotPasswordFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_loginFragment_to_internetConnectionFaildFragment"
+            app:destination="@id/internetConnectionFaildFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/managementFragment"
+        android:name="com.ismos_salt_erp.view.fragment.ManagementFragment"
+        android:label="fragment_management"
+        tools:layout="@layout/fragment_management">
+
+        <action
+            android:id="@+id/action_managementFragment_to_transactionListFragmentt"
+            app:destination="@id/transactionListFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_managementFragmentSelf"
+            app:destination="@id/managementFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+        <action
+            android:id="@+id/action_managementFragment_to_newSaleFragment"
+            app:destination="@id/newSaleFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+        <action
+            android:id="@+id/action_managementFragment_to_declinedRequisitionListFragment"
+            app:destination="@id/declinedRequisitionListFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_managementFragment_to_pendingRequisitionListFragment"
+            app:destination="@id/pendingRequisitionListFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+        <action
+            android:id="@+id/action_managementFragment_to_salesRequisitionList"
+            app:destination="@id/salesRequisitionList"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_managementFragment_to_iodinesetFragment"
+            app:destination="@id/iodinesetFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_managementFragment_to_bankAllListFragment"
+            app:destination="@id/bankAllListFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_managementFragment_to_creditVoucherFragment"
+            app:destination="@id/creditVoucherFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_managementFragment_to_salesReturnFragment"
+            app:destination="@id/salesRetunFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+        <action
+            android:id="@+id/action_managementFragment_to_purchaseRequisitonFragment"
+            app:destination="@id/purchaseRequisitonFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+
+        <action
+            android:id="@+id/action_managementFragment_to_accountsListFragment2t"
+            app:destination="@id/accountsListFragment2"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+
+        <action
+            android:id="@+id/action_managementFragment_to_transactionListFragment"
+            app:destination="@id/transactionListFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+        <action
+            android:id="@+id/action_managementFragment_to_accountsListFragment2"
+            app:destination="@id/accountsListFragment2"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+
+        <action
+            android:id="@+id/action_managementFragment_to_customerReportFragment"
+            app:destination="@id/customerReportFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_managementFragment_to_accountsListFragment"
+            app:destination="@id/accountsListFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+        <action
+            android:id="@+id/action_managementFragment_to_purchaseReturnFragment"
+            app:destination="@id/purchaseReturnFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+
+        <action
+            android:id="@+id/action_managementFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_managementFragment_self"
+            app:destination="@id/managementFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_managementFragment_to_storeListFragment"
+            app:destination="@id/storeListFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+
+        <action
+            android:id="@+id/action_managementFragment_to_addNewReconcilation"
+            app:destination="@id/addNewReconcilation"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+        <action
+            android:id="@+id/action_managementFragment_to_addNewTransfer"
+            app:destination="@id/addNewTransfer"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+        <action
+            android:id="@+id/action_managementFragment_to_packetingReportFragment"
+            app:destination="@id/packetingReportFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+        <action
+            android:id="@+id/action_managementFragment_to_userAllListFragment"
+            app:destination="@id/userAllListFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+        <action
+            android:id="@+id/action_managementFragment_to_add_new_user"
+            app:destination="@id/addNewUser"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+
+        <action
+            android:id="@+id/action_managementFragment_to_addNewForeignSupplierFragment"
+            app:destination="@id/addNewForeignSupplierFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_managementFragment_to_addNewLocalSupplierFragment"
+            app:destination="@id/addNewLocalSupplierFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_managementFragment_to_stockAllListFragment"
+            app:destination="@id/stockAllListFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+
+        <action
+            android:id="@+id/action_managementFragment_to_reconciliationReportFragment"
+            app:destination="@id/reconciliationReportFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+
+        <action
+            android:id="@+id/action_managementFragment_to_reportLicenceFragment2t"
+            app:destination="@id/reportLicenceFragment2"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+
+        <action
+            android:id="@+id/action_managementFragment_to_addNewPurchase"
+            app:destination="@id/addNewPurchase"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_managementFragment_to_dueCollectionFragment"
+            app:destination="@id/dueCollectionFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_managementFragment_to_payDueToSupplier"
+            app:destination="@id/payDueToSupplier"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_managementFragment_to_searchExpenseDue"
+            app:destination="@id/searchExpenseDue"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+        <action
+            android:id="@+id/action_managementFragment_to_paymentInstruction"
+            app:destination="@id/paymentInstructionFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_managementFragment_to_paymentInstructionList"
+            app:destination="@id/paymentInstructionListFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_managementFragment_to_internetConnectionFaildFragment"
+            app:destination="@id/internetConnectionFaildFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_managementFragment_to_addQc_Qa"
+            app:destination="@id/addQc_Qa"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_managementFragment_to_qcQaPendingFragment"
+            app:destination="@id/qcQaPendingFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_managementFragment_to_addNewMonitoring"
+            app:destination="@id/addNewMonitoring"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_managementFragment_to_monitoringListFragment"
+            app:destination="@id/monitoringListFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_managementFragment_to_addNewCustomer"
+            app:destination="@id/addNewCustomer"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_managementFragment_to_addNewSale"
+            app:destination="@id/addNewSale"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_managementFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_managementFragment_to_reportListFragment"
+            app:destination="@id/reportListFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+        <action
+            android:id="@+id/action_managementFragment_to_addNewPurchase2"
+            app:destination="@id/addNewPurchase2"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_managementFragment_to_addNewMiller"
+            app:destination="@id/addNewMiller"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_managementFragment_to_millerAllListFragment"
+            app:destination="@id/millerAllListFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_managementFragment_to_itemListFragment"
+            app:destination="@id/itemListFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_managementFragment_to_saleAllListFragment"
+            app:destination="@id/saleAllListFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_managementFragment_to_allPurchaseListFragment"
+            app:destination="@id/allPurchaseListFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_managementFragment_to_productionAllListFragment"
+            app:destination="@id/productionAllListFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_managementFragment_to_washingAndCrushing"
+            app:destination="@id/washingAndCrushing"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_managementFragment_to_unPackCartoningFragment"
+            app:destination="@id/unPackCartoningFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_managementFragment_to_iodizationFragment"
+            app:destination="@id/iodizationFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_managementFragment_to_addNewPackaging"
+            app:destination="@id/addNewPackaging"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_managementFragment_to_addNewPackating"
+            app:destination="@id/addNewPackating"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+        <action
+            android:id="@+id/action_managementFragment_to_addNewItem"
+            app:destination="@id/addNewItem"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/addNewPurchase"
+        android:name="com.ismos_salt_erp.view.fragment.AddNewPurchaseFragment"
+        android:label="fragment_add_new_purchase"
+        tools:layout="@layout/fragment_add_new_purchase">
+        <action
+            android:id="@+id/action_addNewPurchase_to_managementFragment"
+            app:destination="@id/managementFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_addNewPurchase_to_managementFragment2"
+            app:destination="@id/managementFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_addNewPurchase_to_internetConnectionFaildFragment"
+            app:destination="@id/internetConnectionFaildFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/dueCollectionFragment"
+        android:name="com.ismos_salt_erp.view.fragment.accounts.receiveDue.DueCollectionFragment"
+        android:label="fragment_due_collection"
+        tools:layout="@layout/fragment_due_collection">
+        <action
+            android:id="@+id/action_dueCollectionFragment_to_managementFragment"
+            app:destination="@id/managementFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_dueCollectionFragment_to_duePaymentReceivedFragment"
+            app:destination="@id/duePaymentReceivedFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_dueCollectionFragment_to_internetConnectionFaildFragment"
+            app:destination="@id/internetConnectionFaildFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/duePaymentReceivedFragment"
+        android:name="com.ismos_salt_erp.view.fragment.accounts.receiveDue.DuePaymentReceivedFragment"
+        android:label="fragment_due_payment_received"
+        tools:layout="@layout/fragment_due_payment_received">
+        <action
+            android:id="@+id/action_duePaymentReceivedFragment_to_managementFragment"
+            app:destination="@id/managementFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_duePaymentReceivedFragment_to_internetConnectionFaildFragment"
+            app:destination="@id/internetConnectionFaildFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/payDueToSupplier"
+        android:name="com.ismos_salt_erp.view.fragment.accounts.payDue.PayDueToSupplierSearchFragment"
+        android:label="fragment_pay_due_to_supplier"
+        tools:layout="@layout/fragment_pay_due_to_supplier_search_fragment">
+        <action
+            android:id="@+id/action_payDueToSupplier_to_supplierDuePaymentReceiveFragment"
+            app:destination="@id/supplierDuePaymentReceiveFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_payDueToSupplier_to_internetConnectionFaildFragment"
+            app:destination="@id/internetConnectionFaildFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/supplierDuePaymentReceiveFragment"
+        android:name="com.ismos_salt_erp.view.fragment.accounts.payDue.SupplierDuePaymentReceiveFragment"
+        android:label="fragment_supplier_due_payment_receive"
+        tools:layout="@layout/fragment_supplier_due_payment_receive">
+        <action
+            android:id="@+id/action_supplierDuePaymentReceiveFragment_to_internetConnectionFaildFragment"
+            app:destination="@id/internetConnectionFaildFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchExpenseDue"
+        android:name="com.ismos_salt_erp.view.fragment.accounts.payDueExpense.SearchExpenseDue"
+        android:label="fragment_search_expense_due"
+        tools:layout="@layout/fragment_search_expense_due">
+        <action
+            android:id="@+id/action_searchExpenseDue_to_expenseDuePaymentReceivedFragment"
+            app:destination="@id/expenseDuePaymentReceivedFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_searchExpenseDue_to_internetConnectionFaildFragment"
+            app:destination="@id/internetConnectionFaildFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_searchExpenseDue_to_internetConnectionFaildFragment2"
+            app:destination="@id/internetConnectionFaildFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/expenseDuePaymentReceivedFragment"
+        android:name="com.ismos_salt_erp.view.fragment.accounts.payDueExpense.ExpenseDuePaymentReceivedFragment"
+        android:label="fragment_expense_due_payment_received"
+        tools:layout="@layout/fragment_expense_due_payment_received">
+        <action
+            android:id="@+id/action_expenseDuePaymentReceivedFragment_to_internetConnectionFaildFragment"
+            app:destination="@id/internetConnectionFaildFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/newSaleFragment"
+        android:name="com.ismos_salt_erp.view.fragment.salesRequisition.NewSaleFragment"
+        android:label="fragment_new_sale"
+        tools:layout="@layout/fragment_new_sale">
+        <action
+            android:id="@+id/action_newSaleFragment_to_newSalesRequisitionFragment2"
+            app:destination="@id/newSalesRequisitionFragment2"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_newSaleFragment_to_internetConnectionFaildFragment"
+            app:destination="@id/internetConnectionFaildFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/newSalesRequisitionFragment2"
+        android:name="com.ismos_salt_erp.view.fragment.salesRequisition.NewSalesRequisitionFragmentInfo"
+        android:label="fragment_new_sales_requisition2"
+        tools:layout="@layout/fragment_new_sales_requisition2">
+        <action
+            android:id="@+id/action_newSalesRequisitionFragment2_to_newSaleFragment"
+            app:destination="@id/newSaleFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/salesRequisitionList"
+        android:name="com.ismos_salt_erp.view.fragment.salesRequisition.SalesRequisitionListFragment"
+        android:label="fragment_sales_requisition_list"
+        tools:layout="@layout/fragment_sales_requisition_list">
+        <action
+            android:id="@+id/action_salesRequisitionList_to_singleSalesRequisitionDetails"
+            app:destination="@id/singleSalesRequisitionDetails"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_salesRequisitionList_to_internetConnectionFaildFragment"
+            app:destination="@id/internetConnectionFaildFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_salesRequisitionList_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/singleSalesRequisitionDetails"
+        android:name="com.ismos_salt_erp.view.fragment.salesRequisition.SingleSalesRequisitionDetails"
+        android:label="fragment_single_sales_requisition_details"
+        tools:layout="@layout/single_sales_requisition">
+        <action
+            android:id="@+id/action_singleSalesRequisitionDetails_to_internetConnectionFaildFragment"
+            app:destination="@id/internetConnectionFaildFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_singleSalesRequisitionDetails_to_internetConnectionFaildFragment2"
+            app:destination="@id/internetConnectionFaildFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/paymentInstructionFragment"
+        android:name="com.ismos_salt_erp.view.fragment.accounts.paymentInstruction.PaymentInstructionFragment"
+        android:label="fragment_payment_instruction"
+        tools:layout="@layout/fragment_payment_instruction">
+        <action
+            android:id="@+id/action_paymentInstructionFragment_to_internetConnectionFaildFragment"
+            app:destination="@id/internetConnectionFaildFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/paymentInstructionListFragment"
+        android:name="com.ismos_salt_erp.view.fragment.accounts.PaymentInstructionListFragment"
+        android:label="fragment_payment_instruction_list"
+        tools:layout="@layout/fragment_payment_instruction_list">
+        <action
+            android:id="@+id/action_paymentInstructionListFragment_to_internetConnectionFaildFragment"
+            app:destination="@id/internetConnectionFaildFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.ismos_salt_erp.view.fragment.NotificationFragment"
+        android:label="fragment_notification"
+        tools:layout="@layout/fragment_notification">
+
+
+        <action
+            android:id="@+id/notificationListFragment_to_pendingPurchaseDetailsFragment"
+            app:destination="@id/pendingPurchaseDetailsFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/notificationListFragment_to_blankFragment"
+            app:destination="@id/blankFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+
+        <action
+            android:id="@+id/notificationListFragment_to_customerDetailsFragment"
+            app:destination="@id/customerDetailsFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+        <action
+            android:id="@+id/action_notificationFragment_to_internetConnectionFaildFragment"
+            app:destination="@id/internetConnectionFaildFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_notificationFragment_to_pendingPurchaseDetailsFragment4"
+            app:destination="@id/pendingPurchaseDetailsFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+        <action
+            android:id="@+id/action_notificationFragment_to_purchaseAndSalesReturnDetailsFragment"
+            app:destination="@id/purchaseAndSaleReturnDetailsFragment2"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_notificationFragment_to_purchaseAndSaleReturnDetailsFragment2"
+            app:destination="@id/purchaseAndSaleReturnDetailsFragment2"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_notificationFragment_to_purchaseReturnPendingDetailsFragment"
+            app:destination="@id/purchaseReturnPendingDetailsFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+        <action
+            android:id="@+id/action_notificationFragment_to_purchase_return_pending_details"
+            app:destination="@id/purchaseReturnPendingDetailsFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+
+        <action
+            android:id="@+id/action_notificationFragment_to_qcqaDetailsFragment"
+            app:destination="@id/qcQaDetailsFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+
+        <action
+            android:id="@+id/action_notificationFragment_to_purchaseEditDetails"
+            app:destination="@id/purchaseEditDetails"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_notificationFragment_to_getPendingWashingAndCrushingDetails"
+            app:destination="@id/getPendingWashingAndCrushingDetails"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_notificationFragment_to_editedWashigAndCrushingDetails"
+            app:destination="@id/editedWashigAndCrushingDetails"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_notificationFragment_to_pendingIodizationDetailsFragment"
+            app:destination="@id/pendingIodizationDetailsFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_notificationFragment_to_iodizationEditDetailsFragment"
+            app:destination="@id/iodizationEditDetailsFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_notificationFragment_to_pendingQuotationDetails"
+            app:destination="@id/pendingQuotationDetails"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_notificationFragment_to_transferDetailsFragment"
+            app:destination="@id/transferDetailsFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_notificationFragment_to_pendingExpenseDetails"
+            app:destination="@id/pendingExpenseDetails"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_notificationFragment_to_pendingEditedPurchasePendingDetails"
+            app:destination="@id/pendingEditedPurchasePendingDetails"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_notificationFragment_to_reconciliationDetailsFragment"
+            app:destination="@id/reconciliationDetailsFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_notificationFragment_to_pendingSalesReturnDetails"
+            app:destination="@id/pendingSalesReturnDetails"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_notificationFragment_to_showSalesRequisition"
+            app:destination="@id/showSalesRequisition"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_notificationFragment_to_expenseDuePaymentApproveDetails"
+            app:destination="@id/expenseDuePaymentApproveDetails"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/pendingRequisitionListFragment"
+        android:name="com.ismos_salt_erp.view.fragment.salesRequisition.PendingRequisitionListFragment"
+        android:label="fragment_pending_requisition_list"
+        tools:layout="@layout/fragment_pending_requisition_list">
+        <action
+            android:id="@+id/action_pendingRequisitionListFragment_to_internetConnectionFaildFragment"
+            app:destination="@id/internetConnectionFaildFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_pendingRequisitionListFragment_to_singleSalesRequisitionDetails"
+            app:destination="@id/singleSalesRequisitionDetails"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/declinedRequisitionListFragment"
+        android:name="com.ismos_salt_erp.view.fragment.DeclinedRequisitionListFragment"
+        android:label="fragment_declined_requisition_list"
+        tools:layout="@layout/fragment_declined_requisition_list">
+        <action
+            android:id="@+id/action_declinedRequisitionListFragment_to_internetConnectionFaildFragment"
+            app:destination="@id/internetConnectionFaildFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/internetConnectionFaildFragment"
+        android:name="com.ismos_salt_erp.view.fragment.InternetConnectionFaildFragment"
+        android:label="fragment_internet_connection_faild"
+        tools:layout="@layout/fragment_internet_connection_faild" />
+    <fragment
+        android:id="@+id/pendingPurchaseDetailsFragment"
+        android:name="com.ismos_salt_erp.view.fragment.notificationsManage.PendingPurchaseDetailsFragment"
+        android:label="fragment_pending_purchase_details"
+        tools:layout="@layout/fragment_pending_purchase_details" />
+    <fragment
+        android:id="@+id/showSalesRequisition"
+        android:name="com.ismos_salt_erp.view.fragment.ShowSalesRequisition"
+        android:label="fragment_show_sales_requisition"
+        tools:layout="@layout/fragment_show_sales_requisition" />
+    <fragment
+        android:id="@+id/purchaseEditDetails"
+        android:name="com.ismos_salt_erp.view.fragment.PurchaseEditDetails"
+        android:label="fragment_purchase_edit_details"
+        tools:layout="@layout/fragment_purchase_edit_details" />
+    <fragment
+        android:id="@+id/getPendingWashingAndCrushingDetails"
+        android:name="com.ismos_salt_erp.view.fragment.notificationsManage.GetPendingWashingAndCrushingDetails"
+        android:label="fragment_get_pending_washing_and_crushing_details"
+        tools:layout="@layout/fragment_get_pending_washing_and_crushing_details" />
+    <fragment
+        android:id="@+id/editedWashigAndCrushingDetails"
+        android:name="com.ismos_salt_erp.view.fragment.EditedWashingAndCrushingDetails"
+        android:label="fragment_edited_washing_and_crushing_details"
+        tools:layout="@layout/edited_washing_crushing_details" />
+    <fragment
+        android:id="@+id/pendingIodizationDetailsFragment"
+        android:name="com.ismos_salt_erp.view.fragment.notificationsManage.PendingIodizationDetailsFragment"
+        android:label="fragment_pending_iodization_details"
+        tools:layout="@layout/fragment_pending_iodization_details" />
+    <fragment
+        android:id="@+id/iodizationEditDetailsFragment"
+        android:name="com.ismos_salt_erp.view.fragment.IodizationEditDetailsFragment"
+        android:label="fragment_iodization_edit_details"
+        tools:layout="@layout/fragment_iodization_edit_details" />
+    <fragment
+        android:id="@+id/pendingQuotationDetails"
+        android:name="com.ismos_salt_erp.view.fragment.PendingQuotationDetails"
+        android:label="fragment_pending_quotation_details"
+        tools:layout="@layout/fragment_pending_quotation_details" />
+    <fragment
+        android:id="@+id/transferDetailsFragment"
+        android:name="com.ismos_salt_erp.view.fragment.notificationsManage.TransferDetailsFragment"
+        android:label="fragment_transfer_details"
+        tools:layout="@layout/fragment_transfer_details" />
+    <fragment
+        android:id="@+id/pendingExpenseDetails"
+        android:name="com.ismos_salt_erp.view.fragment.PendingExpenseDetails"
+        android:label="fragment_pending_expense_details"
+        tools:layout="@layout/fragment_pending_expense_details" />
+    <fragment
+        android:id="@+id/creditorsFragment"
+        android:name="com.ismos_salt_erp.view.fragment.CreditorsDebitorsFragment"
+        android:label="fragment_creditors"
+        tools:layout="@layout/fragment_creditors" />
+
+    <fragment
+        android:id="@+id/qrScanFragment"
+        android:name="com.ismos_salt_erp.view.fragment.QrScanFragment"
+        android:label="fragment_qr_scan"
+        tools:layout="@layout/fragment_qr_scan">
+        <action
+            android:id="@+id/action_qrScanFragment_to_internetConnectionFaildFragment"
+            app:destination="@id/internetConnectionFaildFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/pendingEditedPurchasePendingDetails"
+        android:name="com.ismos_salt_erp.view.fragment.PendingEditedPurchasePendingDetails"
+        android:label="fragment_pending_edited_purchase_pending_details"
+        tools:layout="@layout/fragment_pending_edited_purchase_pending_details" />
+    <fragment
+        android:id="@+id/reconciliationDetailsFragment"
+        android:name="com.ismos_salt_erp.view.fragment.notificationsManage.ReconciliationDetailsFragment"
+        android:label="fragment_reconciliation_details"
+        tools:layout="@layout/fragment_reconciliation_details" />
+    <fragment
+        android:id="@+id/pendingSalesReturnDetails"
+        android:name="com.ismos_salt_erp.view.fragment.notificationsManage.PendingSalesReturnDetails"
+        android:label="fragment_pending_sales_return_details"
+        tools:layout="@layout/fragment_pending_sales_return_details" />
+    <fragment
+        android:id="@+id/cashBookDayBookFragment"
+        android:name="com.ismos_salt_erp.view.fragment.CashBookDayBookFragment"
+        android:label="fragment_cash_book_day_book"
+        tools:layout="@layout/fragment_cash_book_day_book" />
+    <fragment
+        android:id="@+id/expenseDuePaymentApproveDetails"
+        android:name="com.ismos_salt_erp.view.fragment.ExpenseDuePaymentApproveDetails"
+        android:label="fragment_expense_due_payment_approve_details"
+        tools:layout="@layout/fragment_expense_due_payment_approve_details" />
+    <fragment
+        android:id="@+id/dashBoardExpenseList"
+        android:name="com.ismos_salt_erp.view.fragment.DashBoardExpenseList"
+        android:label="fragment_dash_board_expense_list"
+        tools:layout="@layout/fragment_dash_board_expense_list" />
+    <fragment
+        android:id="@+id/addNewMiller"
+        android:name="com.ismos_salt_erp.view.fragment.miller.addNewMiller.AddNewMiller"
+        android:label="fragment_add_new_miller"
+        tools:layout="@layout/fragment_add_new_miller" />
+    <fragment
+        android:id="@+id/millerProfileInformation"
+        android:name="com.ismos_salt_erp.view.fragment.miller.addNewMiller.MillerProfileInformation"
+        android:label="fragment_miller_profile_information"
+        tools:layout="@layout/fragment_miller_profile_information">
+        <action
+            android:id="@+id/action_millerProfileInformation_to_companyOwnerInfo"
+            app:destination="@id/companyOwnerInfo"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/companyOwnerInfo"
+        android:name="com.ismos_salt_erp.view.fragment.miller.addNewMiller.CompanyOwnerInfo"
+        android:label="fragment_company_owner_info"
+        tools:layout="@layout/fragment_company_owner_info" />
+    <fragment
+        android:id="@+id/millerLicenseInfo"
+        android:name="com.ismos_salt_erp.view.fragment.miller.addNewMiller.MillerLicenseInfo"
+        android:label="fragment_miller_license_info"
+        tools:layout="@layout/fragment_miller_license_info" />
+    <fragment
+        android:id="@+id/millerQcInformation"
+        android:name="com.ismos_salt_erp.view.fragment.miller.addNewMiller.MillerQcInformation"
+        android:label="fragment_miller_qc_information"
+        tools:layout="@layout/fragment_miller_qc_information" />
+    <fragment
+        android:id="@+id/millerEmployeeInformation"
+        android:name="com.ismos_salt_erp.view.fragment.miller.addNewMiller.MillerEmployeeInformation"
+        android:label="fragment_miller_employee_information"
+        tools:layout="@layout/fragment_miller_employee_information">
+
+
+        <action
+            android:id="@+id/action_millerEmployeeInformation_to_onlinePaymentPagee"
+            app:destination="@id/onlinePaymentPage"
+            app:enterAnim="@anim/bottom_top"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/top_bottom" /><action
+            android:id="@+id/action_millerEmployeeInformation_to_addNewCustomer"
+            app:destination="@id/addNewCustomer"
+            app:enterAnim="@anim/bottom_top"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/top_bottom" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/addQc_Qa"
+        android:name="com.ismos_salt_erp.view.fragment.QC_QA.AddQc_Qa"
+        android:label="fragment_add_qc__qa"
+        tools:layout="@layout/fragment_add_qc__qa" />
+    <fragment
+        android:id="@+id/qcQaPendingFragment"
+        android:name="com.ismos_salt_erp.view.fragment.QC_QA.QcQaPendingFragment"
+        android:label="fragment_qc_qa_pending"
+        tools:layout="@layout/fragment_qc_qa_pending">
+        <action
+            android:id="@+id/action_qcQaPendingFragment_to_edit_QCQAFragment"
+            app:destination="@id/edit_QCQAFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_qcQaPendingFragment_to_qcqaDetailsFragment"
+            app:destination="@id/qcQaDetailsFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/addNewMonitoring"
+        android:name="com.ismos_salt_erp.view.fragment.monitoring.AddNewMonitoring"
+        android:label="fragment_add_new_monitoring"
+        tools:layout="@layout/fragment_add_new_monitoring" />
+    <fragment
+        android:id="@+id/monitoringListFragment"
+        android:name="com.ismos_salt_erp.view.fragment.monitoring.MonitoringListFragment"
+        android:label="fragment_monitoring_list"
+        tools:layout="@layout/fragment_monitoring_list">
+        <action
+            android:id="@+id/action_monitoringListFragment_to_editMonitoringFragment"
+            app:destination="@id/editMonitoringFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_monitoringListFragment_to_editForeignSupplierFragment"
+            app:destination="@id/editForeignSupplierFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+        <action
+            android:id="@+id/action_monitoringListFragment_to_editLocalSupplierFragment"
+            app:destination="@id/editLocalSupplierFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+        <action
+            android:id="@+id/action_monitoringListFragment_to_editCustomerFragment"
+            app:destination="@id/editCustomerFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_monitoringListFragment_to_monitoringViewFragment"
+            app:destination="@id/monitoringViewFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/addNewCustomer"
+        android:name="com.ismos_salt_erp.view.fragment.customers.AddNewCustomer"
+        android:label="fragment_add_new_customer"
+        tools:layout="@layout/fragment_add_new_customer" />
+    <fragment
+        android:id="@+id/editMonitoringFragment"
+        android:name="com.ismos_salt_erp.view.fragment.monitoring.EditMonitoringFragment"
+        android:label="fragment_edit_monitoring"
+        tools:layout="@layout/fragment_edit_monitoring" />
+    <fragment
+        android:id="@+id/addNewSale"
+        android:name="com.ismos_salt_erp.view.fragment.sale.newSale.AddNewSale"
+        android:label="fragment_add_new_sale"
+        tools:layout="@layout/fragment_add_new_sale">
+        <action
+            android:id="@+id/action_addNewSale_to_confirmNewSale"
+            app:destination="@id/confirmNewSale"
+            app:enterAnim="@anim/bottom_top"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/top_bottom" />
+    </fragment>
+    <fragment
+        android:id="@+id/confirmNewSale"
+        android:name="com.ismos_salt_erp.view.fragment.sale.newSale.ConfirmNewSale"
+        android:label="fragment_confirm_new_sale"
+        tools:layout="@layout/fragment_confirm_new_sale">
+        <action
+            android:id="@+id/action_confirmNewSale_to_addNewCustomer"
+            app:destination="@id/addNewCustomer"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_confirmNewSale_to_millerEmployeeInformation"
+            app:destination="@id/millerEmployeeInformation"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+        <action
+            android:id="@+id/action_confirmNewSale_to_onlinePaymentPage"
+            app:destination="@id/onlinePaymentPage"
+            app:enterAnim="@anim/bottom_top"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/top_bottom" />
+    </fragment>
+    <fragment
+        android:id="@+id/addNewPurchase2"
+        android:name="com.ismos_salt_erp.view.fragment.purchase.newPurchase.AddNewPurchase"
+        android:label="fragment_add_new_purchase2"
+        tools:layout="@layout/fragment_add_new_purchase2">
+        <action
+            android:id="@+id/action_addNewPurchase2_to_confirmPurchase"
+            app:destination="@id/confirmPurchase"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/confirmPurchase"
+        android:name="com.ismos_salt_erp.view.fragment.purchase.newPurchase.ConfirmPurchase"
+        android:label="fragment_confirm_purchase"
+        tools:layout="@layout/fragment_confirm_purchase">
+        <action
+            android:id="@+id/action_confirmPurchase_to_addNewCustomer"
+            app:destination="@id/addNewCustomer"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_confirmPurchase_to_companyOwnerInfo"
+            app:destination="@id/companyOwnerInfo"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_confirmPurchase_to_addNewLocalSupplier"
+            app:destination="@id/addNewLocalSupplierFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_confirmPurchase_to_addNewForignSupplier"
+            app:destination="@id/addNewForeignSupplierFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/millerAllListFragment"
+        android:name="com.ismos_salt_erp.view.fragment.miller.MillerAllListFragment"
+        android:label="MillerAllListFragment">
+        <action
+            android:id="@+id/action_millerAllListFragment_to_editMillerFragment"
+            app:destination="@id/editMillerFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+        <action
+            android:id="@+id/action_millerAllListFragment_to_millerDetailsViewFragment"
+            app:destination="@id/millerDetailsViewFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemListFragment"
+        android:name="com.ismos_salt_erp.view.fragment.items.ItemListFragment"
+        android:label="ItemListFragment">
+
+
+        <action
+            android:id="@+id/itemListFragment_to_editItem"
+            app:destination="@id/editItem"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/itemListFragment_to_addInitialQuantity"
+            app:destination="@id/addInitialQuantity"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/itemListFragment_to_varientlistFragment"
+            app:destination="@id/varientlistFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/itemListFragment_to_addItemPacketFragment"
+            app:destination="@id/addItemPacketFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+        <action
+            android:id="@+id/itemListFragment_to_addNewItem"
+            app:destination="@id/addNewItem"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+
+        <action
+            android:id="@+id/itemListFragment_to_confirm_edit_editItem"
+            app:destination="@id/confirmAddNewItem"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/saleAllListFragment"
+        android:name="com.ismos_salt_erp.view.fragment.sale.SaleAllListFragment"
+        android:label="SaleAllListFragment">
+
+
+        <action
+            android:id="@+id/action_saleAllListFragment_to_pendingPurchaseDetailsFragment"
+            app:destination="@id/pendingPurchaseDetailsFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+
+        <action
+            android:id="@+id/action_saleAllListFragment_to_purchaseReturnPendingDetailsFragment"
+            app:destination="@id/purchaseReturnPendingDetailsFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+        <action
+            android:id="@+id/action_saleAllListFragment_to_purchaseAndSaleReturnDetailsFragment2"
+            app:destination="@id/purchaseAndSaleReturnDetailsFragment2"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+
+        <action
+            android:id="@+id/action_saleAllListFragment_to_millerAllListFragment"
+            app:destination="@id/millerAllListFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <!-- <action
+             android:id="@+id/action_saleAllListFragment_to_pendingPurchaseDetailsFragment"
+             app:destination="@id/pendingPurchaseDetailsFragment"
+             app:enterAnim="@anim/slide_left"
+             app:exitAnim="@anim/wait_anim"
+             app:popEnterAnim="@anim/wait_anim"
+             app:popExitAnim="@anim/slide_right" />-->
+
+        <action
+            android:id="@+id/action_saleAllListFragment_to_pendingSalesReturnDetails"
+            app:destination="@id/pendingSalesReturnDetails"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+
+        <action
+            android:id="@+id/action_saleAllListFragment_to_editSaleData"
+            app:destination="@id/editSaleData"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/allPurchaseListFragment"
+        android:name="com.ismos_salt_erp.view.fragment.purchase.AllPurchaseListFragment"
+        android:label="AllPurchaseListFragment">
+        <action
+            android:id="@+id/action_allPurchaseListFragment_to_editPurchaseData"
+            app:destination="@id/editPurchaseData"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_allPurchaseListFragment_to_purchaseReturnPendingDetailsFragment"
+            app:destination="@id/purchaseReturnPendingDetailsFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_allPurchaseListFragment_to_purchaseAndSaleReturnDetailsFragment2"
+            app:destination="@id/purchaseAndSaleReturnDetailsFragment2"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_allPurchaseListFragment_to_pendingPurchaseDetailsFragment"
+            app:destination="@id/pendingPurchaseDetailsFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/monitoringViewFragment"
+        android:name="com.ismos_salt_erp.view.fragment.monitoring.MonitoringViewFragment"
+        android:label="MonitoringViewFragment" />
+    <fragment
+        android:id="@+id/numberVerificationFragment"
+        android:name="com.ismos_salt_erp.view.fragment.auth.NumberVerificationFragment"
+        android:label="fragment_number_verification"
+        tools:layout="@layout/fragment_number_verification">
+
+        <action
+            android:id="@+id/action_numberVerificationFragment_to_updatePasswordFragment"
+            app:destination="@id/updatePasswordFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_numberVerificationFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/productionAllListFragment"
+        android:name="com.ismos_salt_erp.view.fragment.production.ProductionAllListFragment"
+        android:label="ProductionAllListFragment">
+        <action
+            android:id="@+id/action_productionAllListFragment_to_editWashingCrushing"
+            app:destination="@id/editWashingCrushing"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+        <action
+            android:id="@+id/action_productionAllListFragment_to_WashingCrushongDetails"
+            app:destination="@id/getPendingWashingAndCrushingDetails"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+        <action
+            android:id="@+id/action_productionAllListFragment_to_editIodization"
+            app:destination="@id/editIodization"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+
+        <action
+            android:id="@+id/action_productionAllListFragment_to_pending_iodizationDetailsFragment"
+            app:destination="@id/pendingIodizationDetailsFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/washingAndCrushing"
+        android:name="com.ismos_salt_erp.view.fragment.production.washingAndCrushing.addNew.WashingAndCrushing"
+        android:label="fragment_washing_and_crushing"
+        tools:layout="@layout/fragment_washing_and_crushing">
+        <action
+            android:id="@+id/action_washingAndCrushing_to_confirmWashingAndCrushing"
+            app:destination="@id/confirmWashingAndCrushing"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/confirmWashingAndCrushing"
+        android:name="com.ismos_salt_erp.view.fragment.production.washingAndCrushing.addNew.ConfirmWashingAndCrushing"
+        android:label="fragment_confirm_washing_and_crushing"
+        tools:layout="@layout/fragment_confirm_washing_and_crushing" />
+    <fragment
+        android:id="@+id/iodizationFragment"
+        android:name="com.ismos_salt_erp.view.fragment.production.iodization.addNew.IodizationFragment"
+        android:label="fragment_iodization"
+        tools:layout="@layout/fragment_iodization">
+        <action
+            android:id="@+id/action_iodizationFragment_to_confirmIodizationFragment"
+            app:destination="@id/confirmIodizationFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/updatePasswordFragment"
+        android:name="com.ismos_salt_erp.view.fragment.auth.forgot_password.UpdatePasswordFragment"
+        android:label="UpdatePasswordFragment">
+
+        <action
+            android:id="@+id/action_updatePasswordFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/forgotPasswordFragment"
+        android:name="com.ismos_salt_erp.view.fragment.auth.forgot_password.ForgotPasswordFragment"
+        android:label="ForgotPasswordFragment">
+
+
+        <action
+            android:id="@+id/action_forgotPasswordFragment_to_numberVerificationFragment"
+            app:destination="@id/numberVerificationFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_forgotPasswordFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/confirmIodizationFragment"
+        android:name="com.ismos_salt_erp.view.fragment.production.iodization.addNew.ConfirmIodizationFragment"
+        android:label="fragment_confirm_iodization"
+        tools:layout="@layout/fragment_confirm_iodization">
+
+    </fragment>
+    <fragment
+        android:id="@+id/addNewPackaging"
+        android:name="com.ismos_salt_erp.view.fragment.production.packaging.AddNewPackaging"
+        android:label="fragment_add_new_packaging"
+        tools:layout="@layout/fragment_add_new_packaging">
+        <action
+            android:id="@+id/action_addNewPackaging_to_confirmPackaging"
+            app:destination="@id/confirmPackaging"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/confirmPackaging"
+        android:name="com.ismos_salt_erp.view.fragment.production.packaging.ConfirmPackaging"
+        android:label="fragment_confirm_packaging"
+        tools:layout="@layout/fragment_confirm_packaging" />
+    <fragment
+        android:id="@+id/addNewPackating"
+        android:name="com.ismos_salt_erp.view.fragment.production.packating.AddNewPackating"
+        android:label="fragment_add_new_packating"
+        tools:layout="@layout/fragment_add_new_packating">
+        <action
+            android:id="@+id/action_addNewPackating_to_confirmPackating"
+            app:destination="@id/confirmPackating"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/confirmPackating"
+        android:name="com.ismos_salt_erp.view.fragment.production.packating.ConfirmPackating"
+        android:label="fragment_confirm_packating"
+        tools:layout="@layout/fragment_confirm_packating" />
+    <fragment
+        android:id="@+id/unPacketFragment"
+        android:name="com.ismos_salt_erp.view.fragment.production.unpacket.UnPacketFragment"
+        android:label="fragment_un_packet"
+        tools:layout="@layout/fragment_un_packet" />
+    <fragment
+        android:id="@+id/editMillerFragment"
+        android:name="com.ismos_salt_erp.view.fragment.miller.editmiller.EditMillerFragment"
+        android:label="fragment_edit_miller"
+        tools:layout="@layout/fragment_edit_miller">
+
+        <action
+            android:id="@+id/fragment_edit_miller_to_fragment_miller_company_owner_info_edit"
+            app:destination="@id/millerCompanyOwnerInfoEdit"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+        <action
+            android:id="@+id/fragment_edit_miller_to_fragment_millerLicenseinfoEdit"
+            app:destination="@id/millerLicenseinfoEdit"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/millerProfileinformationEdit"
+        android:name="com.ismos_salt_erp.view.fragment.miller.editmiller.MillerProfileInformationEdit"
+        android:label="fragment_miller_profileinformation_edit"
+        tools:layout="@layout/fragment_miller_profileinformation_edit">
+
+        <action
+            android:id="@+id/millerProfileinformationEdit_to_millerCompanyOwnerInfoEdit"
+            app:destination="@id/millerCompanyOwnerInfoEdit"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/millerCompanyOwnerInfoEdit"
+        android:name="com.ismos_salt_erp.view.fragment.miller.editmiller.MillerCompanyOwnerInfoEdit"
+        android:label="fragment_miller_company_owner_info_edit"
+        tools:layout="@layout/fragment_miller_company_owner_info_edit" />
+    <fragment
+        android:id="@+id/millerLicenseinfoEdit"
+        android:name="com.ismos_salt_erp.view.fragment.miller.editmiller.MillerLicenseInfoEdit"
+        android:label="fragment_miller_licenseinfo_edit"
+        tools:layout="@layout/fragment_miller_licenseinfo_edit" />
+    <fragment
+        android:id="@+id/millerQcInformationEdit"
+        android:name="com.ismos_salt_erp.view.fragment.miller.editmiller.MillerQcInformationEdit"
+        android:label="fragment_miller_qc_information_edit"
+        tools:layout="@layout/fragment_miller_qc_information_edit" />
+    <fragment
+        android:id="@+id/millerEmployeeInformationEdit"
+        android:name="com.ismos_salt_erp.view.fragment.miller.editmiller.MillerEmployeeInformationEdit"
+        android:label="fragment_miller_employee_information_edit"
+        tools:layout="@layout/fragment_miller_employee_information_edit" />
+    <fragment
+        android:id="@+id/edit_QCQAFragment"
+        android:name="com.ismos_salt_erp.view.fragment.QC_QA.Edit_QCQAFragment"
+        android:label="fragment_edit__q_c_q_a"
+        tools:layout="@layout/fragment_edit__q_c_q_a" />
+    <fragment
+        android:id="@+id/editSaleData"
+        android:name="com.ismos_salt_erp.view.fragment.sale.editSale.EditSaleData"
+        android:label="fragment_edit_sale_data"
+        tools:layout="@layout/fragment_edit_sale_data">
+        <action
+            android:id="@+id/action_editSaleData_to_confirmSaleEdit"
+            app:destination="@id/confirmSaleEdit"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/confirmSaleEdit"
+        android:name="com.ismos_salt_erp.view.fragment.sale.editSale.ConfirmSaleEdit"
+        android:label="fragment_confirm_sale_edit"
+        tools:layout="@layout/fragment_confirm_sale_edit">
+        <action
+            android:id="@+id/action_confirmSaleEdit_to_addNewCustomer"
+            app:destination="@id/addNewCustomer"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/editPurchaseData"
+        android:name="com.ismos_salt_erp.view.fragment.purchase.editPurchase.EditPurchaseData"
+        android:label="fragment_edit_purchase_data"
+        tools:layout="@layout/fragment_edit_purchase_data">
+        <action
+            android:id="@+id/action_editPurchaseData_to_confirmEditPurchase"
+            app:destination="@id/confirmEditPurchase"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/confirmEditPurchase"
+        android:name="com.ismos_salt_erp.view.fragment.purchase.editPurchase.ConfirmEditPurchase"
+        android:label="fragment_confirm_edit_purchase"
+        tools:layout="@layout/fragment_confirm_edit_purchase">
+        <action
+            android:id="@+id/action_confirmEditPurchase_to_addNewCustomer"
+            app:destination="@id/addNewCustomer"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+
+
+    <!-- <fragment
+         android:id="@+id/millerEmployeeReportFragment"
+         android:name="com.miserp.view.fragment.all_report.employee_report.MillerEmployeeReportFragment"
+         android:label="MillerEmployeeReportFragment">
+         <action
+             android:id="@+id/action_millerEmployeeReportFragment_to_purchaseReturnListFragment"
+             app:destination="@id/purchaseReturnListFragment"
+             app:enterAnim="@anim/slide_left"
+             app:exitAnim="@anim/wait_anim"
+             app:popEnterAnim="@anim/wait_anim"
+             app:popExitAnim="@anim/slide_right" />
+     </fragment>
+ -->
+
+    <fragment
+        android:id="@+id/purchaseReturnListFragment"
+        android:name="com.ismos_salt_erp.view.fragment.all_report.sale_and_purchase_report.purchase_report.PurchaseReturnListFragment"
+        android:label="fragment_purchase_return_list"
+        tools:layout="@layout/fragment_purchase_return_list" />
+
+
+    <!--<fragment
+        android:id="@+id/millerLicenceExpireReportFragment"
+        android:name="com.miserp.view.fragment.all_report.licence_expire_report.MillerLicenceExpireReportFragment"
+        android:label="MillerLicenceExpireReportFragment">
+        <action
+            android:id="@+id/action_millerLicenceExpireReportFragment_to_purchaseReturnListFragment"
+            app:destination="@id/purchaseReturnListFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+-->
+
+    <fragment
+        android:id="@+id/reportLicenceFragment2"
+        android:name="com.ismos_salt_erp.view.fragment.all_report.lisence_report.ReportLicenceFragment"
+        android:label="ReportLicenceFragment">
+        <action
+            android:id="@+id/action_reportLicenceFragment2_to_purchaseReturnListFragment"
+            app:destination="@id/purchaseReturnListFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+
+
+    <!--<fragment
+        android:id="@+id/purchaseReturnReportFragment"
+        android:name="com.miserp.view.fragment.all_report.sale_and_purchase_report.purchase_return_report.PurchaseReturnReportFragment"
+        android:label="fragment_purchase_return_report"
+        tools:layout="@layout/fragment_purchase_return_report">
+        <action
+            android:id="@+id/action_purchaseReturnReportFragment_to_purchaseReturnListFragment"
+            app:destination="@id/purchaseReturnListFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+
+    </fragment>
+-->
+    <fragment
+        android:id="@+id/reconciliationReportFragment"
+        android:name="com.ismos_salt_erp.view.fragment.all_report.reconcilation_report.ReconciliationReportFragment"
+        android:label="ReconciliationReportFragment">
+        <action
+            android:id="@+id/action_reconciliationReportFragment_to_purchaseReturnListFragment"
+            app:destination="@id/purchaseReturnListFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/reportListFragment"
+        android:name="com.ismos_salt_erp.view.fragment.all_report.sale_and_purchase_report.purchase_report.ReportListFragment"
+        android:label="fragment_report_list"
+        tools:layout="@layout/fragment_report_list">
+
+        <action
+            android:id="@+id/action_reportListFragment_to_purchaseReturnListFragment"
+            app:destination="@id/purchaseReturnListFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+
+    </fragment>
+
+    <!--
+        <fragment
+            android:id="@+id/allReportListFragment"
+            android:name="com.miserp.view.fragment.all_report.sale_and_purchase_report.purchase_report.AllReportListFragment"
+            android:label="fragment_all_report_list"
+            tools:layout="@layout/fragment_all_report_list" />
+    -->
+
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.ismos_salt_erp.view.fragment.DashboardFragment"
+        android:label="DashboardFragment">
+
+        <action
+            android:id="@+id/action_dashboardFragment_to_accountsListFragment2"
+            app:destination="@id/accountsListFragment2"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_transactionListFragment"
+            app:destination="@id/transactionListFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+    </fragment>
+
+
+    <!--   <fragment
+            android:id="@+id/saleReportFragment"
+            android:name="com.miserp.view.fragment.all_report.sale_and_purchase_report.sale_report.SaleReportFragment"
+            android:label="SaleReportFragment"
+            tools:layout="@layout/fragment_sale_report">
+            <action
+                android:id="@+id/action_saleReportFragment_to_saleReportListFragment"
+                app:destination="@id/saleReportListFragment"
+                app:enterAnim="@anim/slide_left"
+                app:exitAnim="@anim/wait_anim"
+                app:popEnterAnim="@anim/wait_anim"
+                app:popExitAnim="@anim/slide_right"/>
+        </fragment>
+     -->
+
+    <!--<fragment
+        android:id="@+id/saleReturnReportFragment"
+        android:name="com.miserp.view.fragment.all_report.sale_and_purchase_report.sale_return_report.SaleReturnReportFragment"
+        android:label="SaleReturnReportFragment">
+
+        <action
+            android:id="@+id/action_saleReturnReportFragment_to_saleReturnReportList"
+            app:destination="@id/saleReturnReportList"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+-->
+    <!-- <fragment
+         android:id="@+id/saleReportListFragment"
+         android:name="com.miserp.view.fragment.all_report.sale_and_purchase_report.sale_report.SaleReportListFragment"
+         android:label="fragment_sale_report_list"
+         tools:layout="@layout/fragment_sale_report_list" />
+ -->
+
+    <!--  <fragment
+          android:id="@+id/saleReturnReportList"
+          android:name="com.miserp.view.fragment.all_report.sale_and_purchase_report.sale_return_report.SaleReturnReportList"
+          android:label="SaleReturnReportList">
+
+      </fragment>-->
+
+
+    <!--  <fragment
+          android:id="@+id/stockInOutReportFragment"
+          android:name="com.miserp.view.fragment.all_report.stock_in_out_report.StockInOutReportFragment"
+          android:label="StockInOutReportFragment">
+          <action
+              android:id="@+id/action_stockInOutReportFragment_to_stockIOReportListFragment"
+              app:destination="@id/stockIOReportListFragment"
+              app:enterAnim="@anim/slide_left"
+              app:exitAnim="@anim/wait_anim"
+              app:popEnterAnim="@anim/wait_anim"
+              app:popExitAnim="@anim/slide_right" />
+      </fragment>
+  -->
+    <!--    <fragment
+            android:id="@+id/stockIOReportListFragment"
+            android:name="com.miserp.view.fragment.all_report.stock_in_out_report.StockIOReportListFragment"
+            android:label="fragment_stock_i_o_report_list"
+            tools:layout="@layout/fragment_stock_i_o_report_list" />-->
+    <fragment
+        android:id="@+id/editWashingCrushing"
+        android:name="com.ismos_salt_erp.view.fragment.production.washingAndCrushing.edit.EditWashingCrushing"
+        android:label="fragment_edit_washing_crushing"
+        tools:layout="@layout/fragment_edit_washing_crushing">
+        <action
+            android:id="@+id/action_editWashingCrushing_to_confirmEditWashingAndCrushing"
+            app:destination="@id/confirmEditWashingAndCrushing"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/confirmEditWashingAndCrushing"
+        android:name="com.ismos_salt_erp.view.fragment.production.washingAndCrushing.edit.ConfirmEditWashingAndCrushing"
+        android:label="fragment_confirm_edit_washing_and_crushing"
+        tools:layout="@layout/fragment_confirm_edit_washing_and_crushing" />
+    <fragment
+        android:id="@+id/editIodization"
+        android:name="com.ismos_salt_erp.view.fragment.production.iodization.edit.EditIodization"
+        android:label="fragment_edit_iodization"
+        tools:layout="@layout/fragment_edit_iodization">
+        <action
+            android:id="@+id/action_editIodization_to_confirmEditIodization"
+            app:destination="@id/confirmEditIodization"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/confirmEditIodization"
+        android:name="com.ismos_salt_erp.view.fragment.production.iodization.edit.ConfirmEditIodization"
+        android:label="fragment_confirm_edit_iodization"
+        tools:layout="@layout/fragment_confirm_edit_iodization" />
+
+
+    <fragment
+        android:id="@+id/stockAllListFragment"
+        android:name="com.ismos_salt_erp.view.fragment.stock.StockAllListFragment"
+        android:label="StockAllListFragment">
+
+        <action
+            android:id="@+id/action_stockAllListFragment_to_transferDetailsFragment"
+            app:destination="@id/transferDetailsFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+        <action
+            android:id="@+id/action_stockAllListFragment_to_reconciliationDetailsFragment"
+            app:destination="@id/reconciliationDetailsFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+
+        <action
+            android:id="@+id/action_stockAllListFragment_to_editReconciliation"
+            app:destination="@id/editReconcilationData"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+
+        <action
+            android:id="@+id/action_stockAllListFragment_to_EditTransferDate"
+            app:destination="@id/editTransferData"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/addNewLocalSupplierFragment"
+        android:name="com.ismos_salt_erp.view.fragment.supplier.AddNewLocalSupplierFragment"
+        android:label="AddNewLocalSupplierFragment" />
+    <fragment
+        android:id="@+id/addNewForeignSupplierFragment"
+        android:name="com.ismos_salt_erp.view.fragment.supplier.AddNewForeignSupplierFragment"
+        android:label="AddNewForeignSupplierFragment" />
+    <fragment
+        android:id="@+id/addNewItem"
+        android:name="com.ismos_salt_erp.view.fragment.items.addNew.AddNewItem"
+        android:label="fragment_add_new_item"
+        tools:layout="@layout/fragment_add_new_item">
+        <action
+            android:id="@+id/action_addNewItem_to_confirmAddNewItem"
+            app:destination="@id/confirmAddNewItem"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+        <action
+            android:id="@+id/action_addNewItem_to_addInitialQuantity"
+            app:destination="@id/addInitialQuantity"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/confirmAddNewItem"
+        android:name="com.ismos_salt_erp.view.fragment.items.addNew.ConfirmAddNewItem"
+        android:label="fragment_confirm_add_new_item"
+        tools:layout="@layout/fragment_confirm_add_new_item" />
+    <fragment
+        android:id="@+id/editItem"
+        android:name="com.ismos_salt_erp.view.fragment.items.edit.EditItem"
+        android:label="fragment_edit_item"
+        tools:layout="@layout/fragment_edit_item" />
+    <fragment
+        android:id="@+id/addNewUser"
+        android:name="com.ismos_salt_erp.view.fragment.user.addnew.AddNewUser"
+        android:label="fragment_add_new_user"
+        tools:layout="@layout/fragment_add_new_user" />
+    <fragment
+        android:id="@+id/millerDetailsViewFragment"
+        android:name="com.ismos_salt_erp.view.fragment.miller.MillerDetailsViewFragment"
+        android:label="fragment_miller_details_view"
+        tools:layout="@layout/fragment_miller_details_view" />
+    <fragment
+        android:id="@+id/userAllListFragment"
+        android:name="com.ismos_salt_erp.view.fragment.user.UserAllListFragment"
+        android:label="fragment_user_all_list"
+        tools:layout="@layout/fragment_user_all_list">
+
+        <action
+            android:id="@+id/action_userAllListFragment_to_editUserFragment"
+            app:destination="@id/editUserFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+        <action
+            android:id="@+id/action_userAllListFragment_to_addNewUser"
+            app:destination="@id/addNewUser"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_userAllListFragment_self"
+            app:destination="@id/userAllListFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/editUserFragment"
+        android:name="com.ismos_salt_erp.view.fragment.user.edit.EditUserFragment"
+        android:label="fragment_edit_user"
+        tools:layout="@layout/fragment_edit_user" />
+    <fragment
+        android:id="@+id/packetingReportFragment"
+        android:name="com.ismos_salt_erp.view.fragment.all_report.packeting_report.PacketingReportFragment"
+        android:label="PacketingReportFragment">
+
+        <action
+            android:id="@+id/action_packetingReportFragment_to_purchaseReturnListFragment"
+            app:destination="@id/purchaseReturnListFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+    </fragment>
+    <!--<fragment
+        android:id="@+id/packagingReportFragment"
+        android:name="com.miserp.view.fragment.all_report.packaging_report.PackagingReportFragment"
+        android:label="fragment_packaging_report"
+        tools:layout="@layout/fragment_packaging_report">
+        <action
+            android:id="@+id/action_packagingReportFragment_to_packaetPackegIodineReportListFragment"
+            app:destination="@id/packaetPackegIodineReportListFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>-->
+
+    <!-- <fragment
+         android:id="@+id/iodineUsedReportFragment"
+         android:name="com.miserp.view.fragment.all_report.iodine_used_report.IodineUsedReportFragment"
+         android:label="fragment_iodine_used_report"
+         tools:layout="@layout/fragment_iodine_used_report">
+         <action
+             android:id="@+id/action_iodineUsedReportFragment_to_packaetPackegIodineReportListFragment"
+             app:destination="@id/packaetPackegIodineReportListFragment"
+             app:enterAnim="@anim/slide_left"
+             app:exitAnim="@anim/wait_anim"
+             app:popEnterAnim="@anim/wait_anim"
+             app:popExitAnim="@anim/slide_right" />
+     </fragment>-->
+    <!-- <fragment
+         android:id="@+id/packaetPackegIodineReportListFragment"
+         android:name="com.miserp.view.fragment.all_report.packeting_report.PackaetPackegIodineReportListFragment"
+         android:label="fragment_packaet_packeg_iodine_report_list"
+         tools:layout="@layout/fragment_packaet_packeg_iodine_report_list" />-->
+    <fragment
+        android:id="@+id/addNewTransfer"
+        android:name="com.ismos_salt_erp.view.fragment.transfer.addNew.AddNewTransfer"
+        android:label="fragment_add_new_transfer"
+        tools:layout="@layout/fragment_add_new_transfer">
+
+
+        <action
+            android:id="@+id/action_addNewTransfer_to_confirmAddNewTransfer"
+            app:destination="@id/confirmAddNewTransfer"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/confirmAddNewTransfer"
+        android:name="com.ismos_salt_erp.view.fragment.transfer.addNew.ConfirmAddNewTransfer"
+        android:label="fragment_confirm_add_new_transfer"
+        tools:layout="@layout/fragment_confirm_add_new_transfer" />
+    <fragment
+        android:id="@+id/addNewReconcilation"
+        android:name="com.ismos_salt_erp.view.fragment.reconciliation.addNew.AddNewReconcilation"
+        android:label="fragment_add_new_reconcilation"
+        tools:layout="@layout/fragment_add_new_reconcilation">
+
+
+        <action
+            android:id="@+id/action_addNewReconcilation_to_confirmAddNewReconcilation"
+            app:destination="@id/confirmAddNewReconcilation"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/confirmAddNewReconcilation"
+        android:name="com.ismos_salt_erp.view.fragment.reconciliation.addNew.ConfirmAddNewReconcilation"
+        android:label="fragment_confirm_add_new_reconcilation"
+        tools:layout="@layout/fragment_confirm_add_new_reconcilation" />
+    <fragment
+        android:id="@+id/storeListFragment"
+        android:name="com.ismos_salt_erp.view.fragment.store.StoreListFragment"
+        android:label="StoreListFragment">
+        <action
+            android:id="@+id/action_storeListFragment_self"
+            app:destination="@id/storeListFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/editTransferData"
+        android:name="com.ismos_salt_erp.view.fragment.transfer.edit.EditTransferData"
+        android:label="fragment_edit_transfer_data"
+        tools:layout="@layout/fragment_edit_transfer_data">
+        <action
+            android:id="@+id/action_editTransferData_to_confirmEditTransfer"
+            app:destination="@id/confirmEditTransfer"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/confirmEditTransfer"
+        android:name="com.ismos_salt_erp.view.fragment.transfer.edit.ConfirmEditTransfer"
+        android:label="fragment_confirm_edit_transfer"
+        tools:layout="@layout/fragment_confirm_edit_transfer" />
+    <fragment
+        android:id="@+id/editReconcilationData"
+        android:name="com.ismos_salt_erp.view.fragment.reconciliation.edit.EditReconcilationData"
+        android:label="fragment_edit_reconcilation_data"
+        tools:layout="@layout/fragment_edit_reconcilation_data">
+        <action
+            android:id="@+id/action_editReconcilationData_to_confirmEditReconcilation"
+            app:destination="@id/confirmEditReconcilation"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/confirmEditReconcilation"
+        android:name="com.ismos_salt_erp.view.fragment.reconciliation.edit.ConfirmEditReconcilation"
+        android:label="fragment_confirm_edit_reconcilation"
+        tools:layout="@layout/fragment_confirm_edit_reconcilation" />
+    <fragment
+        android:id="@+id/salesRetunFragment"
+        android:name="com.ismos_salt_erp.view.fragment.sale.salesReurn.SalesRetunFragment"
+        android:label="fragment_sales_retun"
+        tools:layout="@layout/fragment_sales_retun" />
+    <fragment
+        android:id="@+id/purchaseReturnFragment"
+        android:name="com.ismos_salt_erp.view.fragment.purchase.purchaseReturn.PurchaseReturnFragment"
+        android:label="fragment_purchase_return"
+        tools:layout="@layout/fragment_purchase_return" />
+    <fragment
+        android:id="@+id/qcQaDetailsFragment"
+        android:name="com.ismos_salt_erp.view.fragment.QC_QA.QcQaDetailsFragment"
+        android:label="fragment_qc_qa_details"
+        tools:layout="@layout/fragment_qc_qa_details" />
+    <fragment
+        android:id="@+id/termsAndPrivacyFragment"
+        android:name="com.ismos_salt_erp.view.fragment.TermsAndPrivacyFragment"
+        android:label="fragment_terms_and_privacy"
+        tools:layout="@layout/fragment_terms_and_privacy" />
+    <fragment
+        android:id="@+id/homePageListFragment"
+        android:name="com.ismos_salt_erp.view.fragment.HomePageListFragment"
+        android:label="fragment_home_page_list"
+        tools:layout="@layout/fragment_home_page_list" />
+    <fragment
+        android:id="@+id/purchaseAndSaleReturnDetailsFragment2"
+        android:name="com.ismos_salt_erp.view.fragment.notificationsManage.PurchaseAndSaleReturnDetailsFragment"
+        android:label="fragment_purchase_and_sale_return_details"
+        tools:layout="@layout/fragment_purchase_and_sale_return_details" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.ismos_salt_erp.view.fragment.auth.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile">
+        <action
+            android:id="@+id/action_profileFragment_to_updateProfileFragmentn"
+            app:destination="@id/updateProfileFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_profileFragment_to_updatePasswordFragment"
+            app:destination="@id/updatePasswordFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/purchaseReturnPendingDetailsFragment"
+        android:name="com.ismos_salt_erp.view.fragment.notificationsManage.PurchaseReturnPendingDetailsFragment"
+        android:label="PurchaseReturnPendingDetailsFragment" />
+    <fragment
+        android:id="@+id/addItemPacketFragment"
+        android:name="com.ismos_salt_erp.view.fragment.items.AddPacketItemFragment"
+        android:label="fragment_add_item_packet"
+        tools:layout="@layout/fragment_add_item_packet">
+
+        <action
+            android:id="@+id/action_addItemPacketFragment_to_editItemPacketFragment"
+            app:destination="@id/editItemPacketFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/editItemPacketFragment"
+        android:name="com.ismos_salt_erp.view.fragment.items.EditItemPacketFragment"
+        android:label="fragment_edit_item_packet"
+        tools:layout="@layout/fragment_edit_item_packet" />
+    <fragment
+        android:id="@+id/editCustomerFragment"
+        android:name="com.ismos_salt_erp.view.fragment.customers.EditCustomerFragment"
+        android:label="fragment_edit_customer"
+        tools:layout="@layout/fragment_edit_customer" />
+    <fragment
+        android:id="@+id/millerOwnerListEdit"
+        android:name="com.ismos_salt_erp.view.fragment.miller.editmiller.MillerOwnerListEdit"
+        android:label="MillerOwnerListEdit"
+        tools:layout="@layout/fragment_miller_owner_list_edit" />
+    <fragment
+        android:id="@+id/customerDetailsFragment"
+        android:name="com.ismos_salt_erp.view.fragment.customers.CustomerDetailsFragment"
+        android:label="fragment_customer_details"
+        tools:layout="@layout/fragment_customer_details" />
+    <fragment
+        android:id="@+id/editLocalSupplierFragment"
+        android:name="com.ismos_salt_erp.view.fragment.supplier.EditLocalSupplierFragment"
+        android:label="fragment_edit_local_supplier"
+        tools:layout="@layout/fragment_edit_local_supplier" />
+    <fragment
+        android:id="@+id/editForeignSupplierFragment"
+        android:name="com.ismos_salt_erp.view.fragment.supplier.EditForeignSupplierFragment"
+        android:label="fragment_edit_foreign_supplier"
+        tools:layout="@layout/fragment_edit_foreign_supplier" />
+    <fragment
+        android:id="@+id/blankFragment"
+        android:name="com.ismos_salt_erp.view.fragment.supplier.SupplierDetailsFragment"
+        android:label="fragment_blank2"
+        tools:layout="@layout/fragment_blank2" />
+    <fragment
+        android:id="@+id/accountsListFragment"
+        android:name="com.ismos_salt_erp.view.fragment.accounts.AccountsListFragment"
+        android:label="fragment_accounts_list"
+        tools:layout="@layout/fragment_accounts_list">
+
+        <action
+            android:id="@+id/action_accountsListFragment_to_receiptHistoryDetailsFragment"
+            app:destination="@id/receiptHistoryDetailsFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/receiptHistoryDetailsFragment"
+        android:name="com.ismos_salt_erp.view.fragment.accounts.ReceiptHistoryDetailsFragment"
+        android:label="fragment_receipt_history_details"
+        tools:layout="@layout/fragment_receipt_history_details" />
+    <fragment
+        android:id="@+id/customerReportFragment"
+        android:name="com.ismos_salt_erp.view.fragment.all_report.customer_and_supplier.CustomerReportFragment"
+        android:label="fragment_customer_report"
+        tools:layout="@layout/fragment_customer_report">
+        <action
+            android:id="@+id/action_customerReportFragment_to_purchaseReturnListFragment"
+            app:destination="@id/purchaseReturnListFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+
+
+        <action
+            android:id="@+id/action_customerReportFragment_to_accountsListFragment2t"
+            app:destination="@id/accountsListFragment2"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/addInitialQuantity"
+        android:name="com.ismos_salt_erp.view.fragment.monitoring.AddInitialQuantity"
+        android:label="fragment_add_initial_quantity"
+        tools:layout="@layout/fragment_add_initial_quantity" />
+
+    <fragment
+        android:id="@+id/updateProfileFragment"
+        android:name="com.ismos_salt_erp.view.fragment.update_profile.UpdateProfileFragment"
+        android:label="UpdateProfileFragment" />
+    <fragment
+        android:id="@+id/accountsListFragment2"
+        android:name="com.ismos_salt_erp.view.fragment.monitoring.AccountsListFragment"
+        android:label="fragment_accounts_list2"
+        tools:layout="@layout/fragment_accounts_list2" />
+    <fragment
+        android:id="@+id/transactionListFragment"
+        android:name="com.ismos_salt_erp.view.fragment.monitoring.TransactionListFragment"
+        android:label="fragment_transaction_list"
+        tools:layout="@layout/fragment_transaction_list">
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/unPackCartoningFragment"
+        android:name="com.ismos_salt_erp.view.fragment.UnPackCartoningFragment"
+        android:label="UnPackCartoningFragment" />
+    <fragment
+        android:id="@+id/purchaseRequisitonFragment"
+        android:name="com.ismos_salt_erp.view.fragment.purchase_requisition.PurchaseRequisitonFragment"
+        android:label="PurchaseRequisitonFragment">
+        <action
+            android:id="@+id/action_purchaseRequisitonFragment_to_confrimPurchaseRequisitionFragment"
+            app:destination="@id/confrimPurchaseRequisitionFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/confrimPurchaseRequisitionFragment"
+        android:name="com.ismos_salt_erp.view.fragment.purchase_requisition.ConfrimPurchaseRequisitionFragment"
+        android:label="ConfrimPurchaseRequisitionFragment" />
+    <fragment
+        android:id="@+id/appWebViewFragmnet"
+        android:name="com.ismos_salt_erp.view.fragment.AppWebViewFragmnet"
+        android:label="AppWebViewFragmnet">
+        <action
+            android:id="@+id/action_AppWebViewFragmnet_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_AppWebViewFragmnet_to_managementFragment"
+            app:destination="@id/managementFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+
+
+
+        <action
+            android:id="@+id/action_AppWebViewFragmnet_to_transactionListFragment"
+            app:destination="@id/transactionListFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+        <action
+            android:id="@+id/action_AppWebViewFragmnet_to_accountsListFragment2"
+            app:destination="@id/accountsListFragment2"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/iodinesetFragment"
+        android:name="com.ismos_salt_erp.view.fragment.set_iodine.IodinesetFragment"
+        android:label="IodinesetFragment" />
+    <fragment
+        android:id="@+id/varientlistFragment"
+        android:name="com.ismos_salt_erp.view.fragment.VarientlistFragment"
+        android:label="VarientlistFragment" />
+    <fragment
+        android:id="@+id/creditVoucherFragment"
+        android:name="com.ismos_salt_erp.view.fragment.accounts.CreditVoucherFragment"
+        android:label="fragment_credit_voucher"
+        tools:layout="@layout/fragment_credit_voucher" />
+    <fragment
+        android:id="@+id/bankAllListFragment"
+        android:name="com.ismos_salt_erp.view.fragment.bank_management.BankAllListFragment"
+        android:label="BankAllListFragment" >
+        <action
+            android:id="@+id/action_bankAllListFragment_to_bankAccountDetailsFragment"
+            app:destination="@id/bankAccountDetailsFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/bankAccountDetailsFragment"
+        android:name="com.ismos_salt_erp.view.fragment.bank_management.BankAccountDetailsFragment"
+        android:label="BankAccountDetailsFragment" />
+    <fragment
+        android:id="@+id/onlinePaymentPage"
+        android:name="com.ismos_salt_erp.view.fragment.online_paymet.OnlinePaymentPage"
+        android:label="OnlinePaymentPage" />
+
+
+</navigation>

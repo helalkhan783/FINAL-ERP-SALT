@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        tools:context="com.ismos_salt_erp.view.fragment.monitoring.MonitoringListFragment">
+
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_binding" />
+
+        <net.cachapa.expandablelayout.ExpandableLayout
+            android:id="@+id/expandableView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:el_duration="800"
+            app:el_parallax=".5">
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+          >
+
+                <include
+                    android:id="@+id/monitorFilter"
+                    layout="@layout/monitoring_filter_layout" />
+            </LinearLayout>
+
+
+
+        </net.cachapa.expandablelayout.ExpandableLayout>
+        <net.cachapa.expandablelayout.ExpandableLayout
+            android:id="@+id/expandableView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:el_duration="800"
+            app:el_parallax=".5">
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+         >
+
+                <include
+                    android:id="@+id/customerFilter"
+                    layout="@layout/customer_filter_layout" />
+            </LinearLayout>
+
+
+
+        </net.cachapa.expandablelayout.ExpandableLayout>
+
+
+        <LinearLayout
+            android:id="@+id/localSupplierFilterLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+            <include
+                android:id="@+id/supplierFilter"
+                layout="@layout/local_supplier_layout" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/noDataFound"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+             android:gravity="center"
+            android:text="No Data Found"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+             />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/monitoringRv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:backgroundTint="#D0E4DADA" />
+
+
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+
+</layout>

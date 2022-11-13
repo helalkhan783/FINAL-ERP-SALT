@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/search"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/thirty_dp_et_size"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:drawableLeft="@drawable/ic_search_orange_24dp"
+            android:background="@drawable/login_shape"
+            android:hint="@string/search_here"
+            android:paddingLeft="10dp"
+            android:inputType="text"
+             android:textSize="@dimen/thirteen_sp_size"
+            android:textColor="@color/black"
+            android:textColorHint="@color/gray_420" />
+
+    </LinearLayout>
+</layout>

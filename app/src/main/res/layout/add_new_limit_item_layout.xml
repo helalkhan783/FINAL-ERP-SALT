@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:backgroundTint="@color/white"
+        android:elevation="2dp"
+        app:cardUseCompatPadding="true"
+        app:cardCornerRadius="4dp">
+
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="vertical">
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:baselineAligned="false"
+              android:orientation="horizontal">
+
+              <LinearLayout
+                  android:layout_width="0dp"
+                  android:layout_height="wrap_content"
+                  android:layout_weight="1"
+                  android:orientation="vertical"
+                  android:layout_marginLeft="2dp"
+                  android:layout_marginRight="2dp"
+                  android:padding="2dp">
+
+                  <TextView
+                      android:id="@+id/tv_company_name"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_gravity="center_vertical"
+                      android:textColor="@color/black"
+                      android:autoSizeMaxTextSize="@dimen/twelve_sp_txt_size"
+                      android:textSize="@dimen/twelve_sp_txt_size"
+                      tools:text="AgamiSoft Limited" />
+
+                  <TextView
+                      android:id="@+id/tv_owner_name"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_gravity="center_vertical"
+                      android:textColor="@color/black"
+                      android:autoSizeMaxTextSize="@dimen/twelve_sp_txt_size"
+                      android:textSize="@dimen/twelve_sp_txt_size"
+                      tools:text="Md. Aminul Islam" />
+
+              </LinearLayout>
+
+
+              <LinearLayout
+                  android:layout_width="0dp"
+                  android:layout_height="wrap_content"
+                  android:layout_weight="1"
+                  android:orientation="vertical"
+                  android:padding="2dp">
+
+                  <LinearLayout
+                      android:visibility="gone"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="horizontal">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_gravity="center_vertical"
+                          android:text="Paid: "
+                          android:textColor="@color/black"
+                          android:autoSizeMaxTextSize="@dimen/twelve_sp_txt_size"
+                          android:textSize="@dimen/twelve_sp_txt_size"
+                          tools:ignore="HardcodedText" />
+
+                      <TextView
+                          android:id="@+id/tv_total_paid"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_gravity="center_vertical"
+                          android:textColor="@color/black"
+                          android:autoSizeMaxTextSize="@dimen/twelve_sp_txt_size"
+                          android:textSize="@dimen/twelve_sp_txt_size"
+                          tools:text="" />
+                  </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="horizontal">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_gravity="center_vertical"
+                          android:text="Due: "
+                          android:textSize="@dimen/twelve_sp_txt_size"
+                          android:autoSizeMaxTextSize="@dimen/twelve_sp_txt_size"
+                          android:textColor="@color/black"
+                          tools:ignore="HardcodedText" />
+
+                      <TextView
+                          android:id="@+id/tv_total_due"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_gravity="center_vertical"
+                          android:textColor="@color/black"
+                          android:textSize="@dimen/twelve_sp_txt_size"
+                          tools:text="1000 TK" />
+                  </LinearLayout>
+
+
+              </LinearLayout>
+
+
+          </LinearLayout>
+
+
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+               android:baselineAligned="false"
+              android:orientation="horizontal">
+
+              <LinearLayout
+                  android:layout_width="0dp"
+                  android:layout_height="wrap_content"
+                  android:layout_weight="1"
+                  android:orientation="vertical"
+                  android:padding="2dp">
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="horizontal"
+                      android:layout_marginLeft="2dp"
+                      android:layout_marginRight="2dp">
+
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_gravity="center_vertical"
+                          android:text="LPA: "
+                          android:autoSizeMaxTextSize="@dimen/twelve_sp_txt_size"
+                          android:textSize="@dimen/twelve_sp_txt_size"
+                          android:textColor="@color/black"
+                          tools:ignore="HardcodedText" />
+
+                      <TextView
+                          android:id="@+id/last_received_amount"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_gravity="center_vertical"
+                          android:textColor="@color/black"
+                          android:autoSizeMaxTextSize="@dimen/twelve_sp_txt_size"
+                          android:textSize="@dimen/twelve_sp_txt_size"
+                          tools:text="1000 TK" />
+                  </LinearLayout>
+
+                  <TextView
+                      android:id="@+id/last_received_date"
+                      android:layout_width="match_parent"
+                      android:layout_height="0dp"
+                      android:layout_gravity="center_vertical"
+                      android:layout_weight="1"
+                      android:text=""
+                      android:autoSizeMaxTextSize="@dimen/twelve_sp_txt_size"
+                      android:textSize="@dimen/twelve_sp_txt_size"
+                      android:textColor="#514F4F"
+                      tools:ignore="HardcodedText" />
+
+              </LinearLayout>
+
+              <LinearLayout
+                  android:layout_width="0dp"
+                  android:layout_height="wrap_content"
+                  android:layout_weight="1"
+                  android:orientation="vertical"
+                  android:padding="2dp">
+
+                  <TextView
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_gravity="center_vertical"
+                      android:layout_weight="1"
+                      android:text="Payment Limit"
+                      android:autoSizeMaxTextSize="@dimen/twelve_sp_txt_size"
+                      android:textSize="@dimen/twelve_sp_txt_size"
+                      android:textColor="@color/black"
+                      tools:ignore="HardcodedText" />
+
+                  <EditText
+                      android:id="@+id/payment_limit_edittext"
+                      android:layout_width="match_parent"
+                      android:layout_height="35dp"
+                      android:layout_marginTop="2dp"
+                      android:layout_weight="1"
+                      android:background="@drawable/edittext_shape"
+                      android:ems="10"
+                      android:hint="0.00"
+                      android:inputType="numberDecimal"
+                      android:paddingStart="8dp"
+                      android:paddingTop="3dp"
+                      android:paddingEnd="8dp"
+                      android:paddingBottom="4dp"
+                      android:autoSizeMaxTextSize="@dimen/twelve_sp_txt_size"
+                      android:textSize="@dimen/twelve_sp_txt_size"
+                      android:textColor="@color/black"
+                      android:textColorHint="@color/md_grey_600" />
+              </LinearLayout>
+
+          </LinearLayout>
+      </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:backgroundTint="@color/item_color"
+            app:cardCornerRadius="10dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/ok"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerInParent="true"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:cardCornerRadius="60dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/halka_white"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:id="@+id/profile_image"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="10dp"
+                            android:src="@drawable/box" />
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_toRightOf="@+id/ok"
+
+                    android:paddingLeft="5dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/productName"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/lato_regular"
+                                android:text="New Test"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/sixteen_sp_size"
+                                android:textStyle="bold" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:layout_marginTop="2dp">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content">
+
+                                    <TextView
+                                        android:id="@+id/price"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/lato_regular"
+                                        android:text="৳ 2345"
+
+                                        android:textColor="@color/halka_black"
+                                        android:textSize="@dimen/fourteen_sp_text_size" />
+
+
+                                    <TextView
+                                        android:id="@+id/disPrice"
+                                        android:visibility="gone"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/lato_regular"
+                                        android:paddingLeft="5dp"
+                                        android:text="৳ 2245"
+
+                                        android:textColor="@color/red"
+                                        android:textSize="@dimen/fourteen_sp_text_size" />
+
+                                    <TextView
+                                        android:id="@+id/categoryName"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/lato_regular"
+                                        android:paddingLeft="5dp"
+                                        android:paddingRight="3dp"
+                                        android:singleLine="true"
+                                        android:text="| Test Category sd sdf sdfsadf "
+                                        android:textColor="@color/blue_color1"
+                                        android:textSize="@dimen/fourteen_sp_text_size" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content">
+
+                                    <TextView
+                                        android:id="@+id/brand"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/lato_regular"
+                                         android:paddingRight="3dp"
+                                        android:singleLine="true"
+                                        android:text="N/A"
+                                        android:textColor="@color/black"
+                                        android:textSize="@dimen/fourteen_sp_text_size" />
+                                    <TextView
+                                        android:id="@+id/weight"
+
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/lato_regular"
+                                        android:paddingLeft="5dp"
+                                        android:paddingRight="3dp"
+                                        android:singleLine="true"
+                                        android:text="Kg"
+                                        android:textColor="@color/black"
+                                        android:textSize="@dimen/fourteen_sp_text_size" />
+
+                                </LinearLayout>
+
+
+                                <LinearLayout
+
+                                     android:id="@+id/varientLayout"
+                                     android:visibility="gone"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content">
+
+                                    <TextView
+
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/lato_regular"
+                                         android:paddingRight="3dp"
+                                        android:singleLine="true"
+                                        android:text="Varient : "
+                                        android:textColor="@color/black"
+                                        android:textSize="@dimen/fourteen_sp_text_size" />
+                                    <TextView
+                                        android:id="@+id/varientTv"
+
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/lato_regular"
+                                        android:paddingLeft="5dp"
+                                        android:paddingRight="3dp"
+                                        android:singleLine="true"
+                                        android:text="123"
+                                        android:textColor="@color/blue_color1"
+                                        android:textStyle="bold"
+                                        android:textSize="@dimen/fourteen_sp_text_size" />
+
+                                </LinearLayout>
+
+
+
+
+
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+
+
+                        <LinearLayout
+                            android:id="@+id/menuBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerInParent="true"
+                            android:layout_gravity="end">
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:padding="5dp"
+                                android:layout_height="30dp"
+                                android:layout_gravity="end"
+                                android:src="@drawable/more" />
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+</layout>

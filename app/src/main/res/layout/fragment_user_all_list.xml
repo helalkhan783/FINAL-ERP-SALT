@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="clickHandle"
+            type="com.ismos_salt_erp.clickHandle.UserAccessPageClickHandle"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        tools:context="com.ismos_salt_erp.view.fragment.user.UserAllListFragment">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_binding" />
+
+        <ScrollView
+            android:layout_below="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:id="@+id/rootLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/toolbar"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/noDataFound"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="No Data Found"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+
+                    <!--below textView and recycler View only for manage users permissions-->
+                    <TextView
+                        android:id="@+id/message"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableRight="@drawable/ic_arrow_drop_down_black_24dp"
+                        android:onClick="@{()->clickHandle.expendEnterpriseList()}"
+                        android:paddingLeft="5dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="Select Enterprise *"
+                        android:textColor="#0893A5"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+                    <net.cachapa.expandablelayout.ExpandableLayout
+                        android:id="@+id/expendableEnterPriseList"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:el_duration="500"
+                        app:el_expanded="false"
+                        app:el_parallax="0.5">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/enterpriseRv"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_below="@+id/message" />
+
+
+                    </net.cachapa.expandablelayout.ExpandableLayout>
+
+                    <net.cachapa.expandablelayout.ExpandableLayout
+                        android:id="@+id/expandableView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:el_duration="800"
+                        app:el_parallax=".5">
+
+
+                        <LinearLayout
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            >
+
+                            <include
+                                android:id="@+id/filter"
+                                layout="@layout/user_filter_layout" />
+                        </LinearLayout>
+
+
+                    </net.cachapa.expandablelayout.ExpandableLayout>
+
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/itemListRv"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+
+
+                <Button
+                    android:id="@+id/submit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rootLayout"
+                    android:layout_alignParentBottom="true"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/submit_button"
+                    android:onClick="@{()->clickHandle.submit()}"
+                    android:text="Update"
+                    android:textAllCaps="true"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
+</layout>

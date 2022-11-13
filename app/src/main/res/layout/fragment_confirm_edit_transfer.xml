@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        tools:context="com.ismos_salt_erp.view.fragment.transfer.edit.ConfirmEditTransfer">
+
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_binding" />
+
+        <LinearLayout
+            android:id="@+id/okoko"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/toolbar"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:id="@+id/toLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="2dp"
+                        android:text="Transfer To :"
+                        android:textColor="@color/switch_color"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:orientation="horizontal">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="2.5dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/lato_regular"
+                                    android:gravity="center_vertical"
+                                    android:text="Enterprise*"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/fifteen_sp_txt" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="40dp"
+                                    android:layout_marginTop="1dp"
+                                    android:background="@drawable/edittext_shape">
+
+                                    <ScrollView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content">
+
+
+                                        <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                                            android:id="@+id/enterPrice"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="1dp"
+                                            android:layout_marginTop="5dp"
+                                            android:layout_marginRight="1dp"
+                                            android:layout_marginBottom="1dp"
+                                            android:defaultFocusHighlightEnabled="false"
+                                            android:paddingLeft="5dp"
+                                            android:soundEffectsEnabled="false"
+                                            app:smsp_enableErrorLabel="false"
+                                            app:smsp_enableFloatingLabel="false"
+                                            app:smsp_floatingLabelColor="@color/white"
+                                            app:smsp_hint=" Select"
+                                            app:smsp_itemListColor="#808080"
+
+                                            app:smsp_itemListHintBackgroundColor="#808080"
+                                            app:smsp_itemListHintColor="#FFFFFF"
+                                            app:smsp_multilineError="false"
+                                            app:smsp_selectedItemListColor="#FF5252"
+                                            app:smsp_underlineSize="0dp" />
+
+
+                                    </ScrollView>
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="2.5dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/lato_regular"
+                                    android:gravity="center_vertical"
+                                    android:text="Store*"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/fifteen_sp_txt" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="40dp"
+                                    android:layout_marginTop="1dp"
+                                    android:background="@drawable/edittext_shape">
+
+                                    <ScrollView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content">
+
+
+                                        <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                                            android:id="@+id/store"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="1dp"
+                                            android:layout_marginTop="5dp"
+                                            android:layout_marginRight="1dp"
+                                            android:layout_marginBottom="1dp"
+                                            android:defaultFocusHighlightEnabled="false"
+                                            android:paddingLeft="5dp"
+                                            android:soundEffectsEnabled="false"
+                                            app:smsp_enableErrorLabel="false"
+                                            app:smsp_enableFloatingLabel="false"
+                                            app:smsp_floatingLabelColor="@color/white"
+                                            app:smsp_hint=" Select"
+                                            app:smsp_isSearchable="true"
+                                            app:smsp_itemListColor="#808080"
+                                            app:smsp_itemListHintBackgroundColor="#808080"
+
+                                            app:smsp_itemListHintColor="#FFFFFF"
+                                            app:smsp_multilineError="false"
+                                            app:smsp_searchTextColor="@color/black"
+                                            app:smsp_selectedItemListColor="#FF5252"
+                                            app:smsp_underlineSize="0dp" />
+
+
+                                    </ScrollView>
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lato_regular"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:text="Note"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/fifteen_sp_txt" />
+
+
+                    <EditText
+                        android:id="@+id/note"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="1dp"
+                        android:background="@drawable/edittext_shape"
+                        android:gravity="start"
+                        android:hint="Note"
+                        android:maxLines="5"
+                        android:padding="5dp"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray"
+                        android:textSize="@dimen/fourteen_sp_text_size" />
+
+
+                </LinearLayout>
+
+
+                <!--                    <LinearLayout-->
+                <!--                        android:layout_width="match_parent"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:layout_margin="5dp"-->
+                <!--                        android:gravity="center_vertical"-->
+                <!--                        android:orientation="horizontal"-->
+                <!--                        android:weightSum="2">-->
+
+                <!--                        <TextView-->
+                <!--                            android:layout_width="0dp"-->
+                <!--                            android:layout_height="wrap_content"-->
+                <!--                            android:layout_weight="0.6"-->
+                <!--                            android:maxLines="1"-->
+                <!--                            android:singleLine="true"-->
+                <!--                            android:text="Add Transport"-->
+                <!--                            android:textColor="@color/black" />-->
+
+
+                <!--                        <AutoCompleteTextView-->
+                <!--                            android:id="@+id/searchVehicle"-->
+                <!--                            android:layout_width="0dp"-->
+                <!--                            android:layout_height="35dp"-->
+                <!--                            android:layout_weight="1.4"-->
+                <!--                            android:background="@drawable/edittext_shape"-->
+                <!--                            android:gravity="center_vertical"-->
+                <!--                            android:hint="Search Vehicle/Ship No *"-->
+                <!--                            android:paddingLeft="10dp"-->
+                <!--                            android:textColor="@color/black"-->
+                <!--                            android:textColorHint="@color/gray" />-->
+                <!--                    </LinearLayout>-->
+
+                <!--                    <LinearLayout-->
+                <!--                        android:id="@+id/addTransportChild"-->
+                <!--                        android:layout_width="match_parent"-->
+                <!--                        android:layout_height="match_parent"-->
+                <!--                        android:orientation="vertical">-->
+
+
+                <!--                        <LinearLayout-->
+                <!--                            android:layout_width="match_parent"-->
+                <!--                            android:layout_height="wrap_content"-->
+                <!--                            android:layout_margin="5dp"-->
+                <!--                            android:gravity="center_vertical"-->
+                <!--                            android:orientation="horizontal"-->
+                <!--                            android:weightSum="2">-->
+
+                <!--                            <TextView-->
+                <!--                                android:layout_width="0dp"-->
+                <!--                                android:layout_height="wrap_content"-->
+                <!--                                android:layout_weight="0.6"-->
+                <!--                                android:maxLines="1"-->
+                <!--                                android:singleLine="true"-->
+                <!--                                android:text="Driver Name*"-->
+                <!--                                android:textColor="@color/black" />-->
+
+                <!--                            <EditText-->
+                <!--                                android:id="@+id/driverName"-->
+                <!--                                android:layout_width="0dp"-->
+                <!--                                android:layout_height="35dp"-->
+                <!--                                android:layout_weight="1.4"-->
+                <!--                                android:background="@drawable/edittext_shape"-->
+                <!--                                android:gravity="center_vertical"-->
+                <!--                                android:hint="Driver Name"-->
+                <!--                                android:paddingLeft="10dp"-->
+                <!--                                android:textColor="@color/black"-->
+                <!--                                android:textColorHint="@color/gray" />-->
+
+                <!--                        </LinearLayout>-->
+
+
+                <!--                        <LinearLayout-->
+                <!--                            android:layout_width="match_parent"-->
+                <!--                            android:layout_height="wrap_content"-->
+                <!--                            android:layout_margin="5dp"-->
+                <!--                            android:gravity="center_vertical"-->
+                <!--                            android:orientation="horizontal"-->
+                <!--                            android:weightSum="2">-->
+
+                <!--                            <TextView-->
+                <!--                                android:layout_width="0dp"-->
+                <!--                                android:layout_height="wrap_content"-->
+                <!--                                android:layout_weight="0.6"-->
+                <!--                                android:maxLines="1"-->
+                <!--                                android:singleLine="true"-->
+                <!--                                android:text="Phone Number*"-->
+                <!--                                android:textColor="@color/black" />-->
+
+                <!--                            <EditText-->
+                <!--                                android:id="@+id/phone"-->
+                <!--                                android:layout_width="0dp"-->
+                <!--                                android:layout_height="35dp"-->
+                <!--                                android:layout_weight="1.4"-->
+                <!--                                android:background="@drawable/edittext_shape"-->
+                <!--                                android:gravity="center_vertical"-->
+                <!--                                android:hint="Phone Number:"-->
+                <!--                                android:paddingLeft="10dp"-->
+                <!--                                android:textColor="@color/black"-->
+                <!--                                android:textColorHint="@color/gray" />-->
+
+                <!--                        </LinearLayout>-->
+
+
+                <!--                        <LinearLayout-->
+                <!--                            android:layout_width="match_parent"-->
+                <!--                            android:layout_height="wrap_content"-->
+                <!--                            android:layout_margin="5dp"-->
+                <!--                            android:gravity="center_vertical"-->
+                <!--                            android:orientation="horizontal"-->
+                <!--                            android:weightSum="2">-->
+
+                <!--                            <TextView-->
+                <!--                                android:layout_width="0dp"-->
+                <!--                                android:layout_height="wrap_content"-->
+                <!--                                android:layout_weight="0.6"-->
+                <!--                                android:maxLines="1"-->
+                <!--                                android:singleLine="true"-->
+                <!--                                android:text="Vehicle Fare:"-->
+                <!--                                android:textColor="@color/black" />-->
+
+                <!--                            <EditText-->
+                <!--                                android:id="@+id/vehicleFare"-->
+                <!--                                android:layout_width="0dp"-->
+                <!--                                android:layout_height="35dp"-->
+                <!--                                android:layout_weight="1.4"-->
+                <!--                                android:background="@drawable/edittext_shape"-->
+                <!--                                android:gravity="center_vertical"-->
+                <!--                                android:hint="Vehicle Fare"-->
+                <!--                                android:paddingLeft="10dp"-->
+                <!--                                android:textColor="@color/black"-->
+                <!--                                android:textColorHint="@color/gray" />-->
+
+                <!--                        </LinearLayout>-->
+
+
+                <!--                        <LinearLayout-->
+                <!--                            android:layout_width="match_parent"-->
+                <!--                            android:layout_height="wrap_content"-->
+                <!--                            android:layout_margin="5dp"-->
+                <!--                            android:gravity="center_vertical"-->
+                <!--                            android:orientation="horizontal"-->
+                <!--                            android:weightSum="2">-->
+
+                <!--                            <TextView-->
+                <!--                                android:layout_width="0dp"-->
+                <!--                                android:layout_height="wrap_content"-->
+                <!--                                android:layout_weight="0.6"-->
+                <!--                                android:maxLines="1"-->
+                <!--                                android:singleLine="true"-->
+                <!--                                android:text="Vehicle Number*"-->
+                <!--                                android:textColor="@color/black" />-->
+
+                <!--                            <TextView-->
+                <!--                                android:id="@+id/vehicleNumber"-->
+                <!--                                android:layout_width="0dp"-->
+                <!--                                android:layout_height="35dp"-->
+                <!--                                android:layout_weight="1.4"-->
+                <!--                                android:background="@drawable/edittext_shape"-->
+                <!--                                android:gravity="center_vertical"-->
+                <!--                                android:hint="Vehicle Number"-->
+                <!--                                android:paddingLeft="10dp"-->
+                <!--                                android:textColor="@color/black"-->
+                <!--                                android:textColorHint="@color/gray" />-->
+
+                <!--                        </LinearLayout>-->
+
+
+                <!--                    </LinearLayout>-->
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/save"
+            android:layout_below="@+id/okoko"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/selectedProductsRv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/submit_button"
+            android:text="Update" />
+
+
+    </RelativeLayout>
+</layout>

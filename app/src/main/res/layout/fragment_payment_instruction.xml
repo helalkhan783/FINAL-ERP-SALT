@@ -1,0 +1,228 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="com.ismos_salt_erp.view.fragment.accounts.paymentInstruction.PaymentInstructionFragment">
+
+    <include
+        android:id="@+id/appbar"
+        layout="@layout/management_toolbar" />
+
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btnLay"
+        android:layout_below="@+id/appbar">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/ok"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/constraintLayout1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
+
+                        <EditText
+                            android:id="@+id/dateEditText"
+                            android:layout_width="0dp"
+                            android:layout_height="35dp"
+                            android:layout_marginRight="2.5dp"
+                            android:layout_weight="1.5"
+                            android:background="@drawable/edittext_shape"
+                            android:editable="false"
+                            android:ems="10"
+                            android:focusable="false"
+                            android:hint="12/20/2020"
+                            android:paddingStart="8dp"
+                            android:paddingTop="4dp"
+                            android:paddingEnd="8dp"
+                            android:paddingBottom="4dp"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/black"
+                            android:textSize="@dimen/fourteen_sp_text_size"
+                            app:layout_constraintEnd_toStartOf="@+id/searchButton"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <Button
+                            android:id="@+id/searchButton"
+                            android:layout_width="0dp"
+                            android:layout_height="35dp"
+                            android:layout_marginLeft="2.5dp"
+                            android:layout_marginRight="2.5dp"
+                            android:layout_weight=".75"
+                            android:background="@drawable/filter_btn_shape"
+                            android:text="Search"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white" />
+
+                        <Button
+                            android:id="@+id/resetButton"
+                            android:layout_width="0dp"
+                            android:layout_height="35dp"
+                            android:layout_marginLeft="2.5dp"
+                            android:layout_weight=".75"
+                            android:background="@drawable/filter_reset_btn_shape"
+                            android:text="Reset"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white" />
+
+                    </LinearLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/payment_instruction_rv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        tools:itemCount="1" />
+
+                    <TextView
+                        android:id="@+id/empty_instruction_list_warning"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:textColor="@color/colorRedLight"
+                        android:textSize="13sp"
+                        android:visibility="gone"
+                        tools:text="No data found for the date 2020/12/20" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/add_new_limit_button"
+                            android:layout_width="100dp"
+                            android:layout_height="35dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_gravity="end"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginBottom="5dp"
+                            android:background="@drawable/search_btn_ripple"
+                            android:paddingStart="8dp"
+                            android:paddingEnd="8dp"
+                            android:text="Add limit"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/add_new_limit_rv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:itemCount="2" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/downPortion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:orientation="vertical">
+
+
+                    <EditText
+                        android:id="@+id/note_edittext"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/edittext_shape"
+                        android:ems="10"
+                        android:gravity="start"
+                        android:hint="Note goes here"
+                        android:maxLines="5"
+                        android:minHeight="40dp"
+                        android:paddingStart="8dp"
+                        android:paddingTop="4dp"
+                        android:paddingEnd="10dp"
+                        android:paddingBottom="3dp"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/md_grey_400"
+                        android:textSize="@dimen/fourteen_sp_text_size"
+                        android:visibility="gone" />
+
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+<LinearLayout
+    android:id="@+id/btnLay"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/note"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginEnd="8dp"
+        android:layout_weight="1"
+        android:autoSizeMaxTextSize="@dimen/fifteen_sp_txt"
+        android:fontFamily="@font/lato_regular"
+        android:gravity="end"
+         android:textColor="#302E2E"
+        android:textSize="@dimen/fifteen_sp_txt" />
+    <Button
+        android:id="@+id/submit_button"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/submit_button"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:text="Submit"
+        android:textAllCaps="false"
+        android:textColor="@color/white" />
+
+</LinearLayout>
+
+</RelativeLayout>

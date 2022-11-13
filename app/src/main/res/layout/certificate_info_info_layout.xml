@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:backgroundTint="@color/white"
+            android:elevation="5dp"
+            app:cardCornerRadius="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:orientation="vertical"
+                    android:weightSum="2 ">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".5"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight=".7"
+                            android:gravity="center_vertical"
+                            android:singleLine="true"
+                            android:text="Type of Certificate"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/fourteen_sp_text_size"
+                          />
+
+                        <TextView
+                            android:id="@+id/typeOfCertificate"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.3"
+                            android:gravity="center_vertical"
+                            android:singleLine="true"
+                            android:text=":"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/thirteen_sp_size" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".5"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight=".7"
+                            android:gravity="center_vertical"
+                            android:singleLine="true"
+                            android:text="Issuer Name"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/fourteen_sp_text_size"
+                             />
+
+                        <TextView
+                            android:id="@+id/issuerName"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.3"
+                            android:gravity="center_vertical"
+                            android:singleLine="true"
+                            android:text=":"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/thirteen_sp_size" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".5"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight=".7"
+                            android:gravity="center_vertical"
+                            android:singleLine="true"
+                            android:text="Issuing Date"
+                            android:textColor="@color/black"
+
+                            android:textSize="@dimen/fourteen_sp_text_size"
+                            />
+
+                        <TextView
+                            android:id="@+id/issuingDate"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+
+                            android:layout_weight="1.3"
+                            android:gravity="center_vertical"
+                            android:singleLine="true"
+                            android:text=":"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/thirteen_sp_size" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".5"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight=".7"
+                            android:gravity="center_vertical"
+                            android:singleLine="true"
+                            android:text="Certificate Date"
+
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/fourteen_sp_text_size"
+                   />
+
+                        <TextView
+                            android:id="@+id/certificateDate"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.3"
+                            android:gravity="center_vertical"
+                            android:singleLine="true"
+                            android:text=":"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/thirteen_sp_size"/>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".5"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight=".7"
+                            android:gravity="center_vertical"
+
+                            android:singleLine="true"
+                            android:text="Renewal Date"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/fourteen_sp_text_size"
+                       />
+
+                        <TextView
+                            android:id="@+id/renewalDate"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.3"
+                            android:gravity="center_vertical"
+                            android:singleLine="true"
+                            android:text=":"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/thirteen_sp_size"/>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".5"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight=".7"
+                            android:gravity="center_vertical"
+                            android:singleLine="true"
+                            android:text="Remarks"
+                            android:textColor="@color/black"
+
+                            android:textSize="@dimen/fourteen_sp_text_size"
+                          />
+
+                        <TextView
+                            android:id="@+id/remarks"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.3"
+                            android:gravity="center_vertical"
+                            android:singleLine="true"
+                            android:text=":"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/thirteen_sp_size" />
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".5"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight=".73"
+                            android:gravity="center_vertical"
+                            android:singleLine="true"
+                            android:text="Certificate Image"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/fourteen_sp_text_size"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=":  "
+                            android:textColor="@color/black" />
+
+                   <LinearLayout
+                       android:layout_width="0dp"
+                       android:layout_weight=".3"
+                       android:layout_height="wrap_content">
+                       <ImageView
+                           android:id="@+id/imageView"
+                           android:layout_width="30dp"
+                           android:layout_height="20dp"
+                            android:gravity="center_vertical"
+                           />
+                   </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+</layout>

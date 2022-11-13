@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="clickHandle"
+            type="com.ismos_salt_erp.clickHandle.AddNewSaleClickHandle" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        tools:context="com.ismos_salt_erp.view.fragment.sale.newSale.AddNewSale">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_binding" />
+
+        <LinearLayout
+            android:id="@+id/okko"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/toolbar"
+           android:layout_margin="15dp"
+            android:elevation="1dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="2.5dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/lato_regular"
+                            android:gravity="center_vertical"
+                            android:text="Enterprise*"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/fifteen_sp_txt" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/et_and_spinner_height"
+                            android:layout_marginTop="1dp"
+                            android:background="@drawable/edittext_shape">
+
+                            <ScrollView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+
+                                <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                                    android:id="@+id/enterPrice"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="1dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginRight="1dp"
+                                    android:layout_marginBottom="1dp"
+                                    android:defaultFocusHighlightEnabled="false"
+                                    android:paddingLeft="5dp"
+                                    android:soundEffectsEnabled="false"
+                                    app:smsp_enableErrorLabel="false"
+                                    app:smsp_enableFloatingLabel="false"
+                                    app:smsp_floatingLabelColor="@color/white"
+                                    app:smsp_hint=" Select"
+                                    app:smsp_itemListColor="#808080"
+
+                                    app:smsp_itemListHintBackgroundColor="#808080"
+                                    app:smsp_itemListHintColor="#FFFFFF"
+                                    app:smsp_multilineError="false"
+                                    app:smsp_selectedItemListColor="#FF5252"
+                                    app:smsp_underlineSize="0dp" />
+
+
+                            </ScrollView>
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2.5dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/lato_regular"
+                            android:gravity="center_vertical"
+                            android:text="Store*"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/fifteen_sp_txt" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/et_and_spinner_height"
+                            android:layout_marginTop="1dp"
+                            android:background="@drawable/edittext_shape">
+
+                            <ScrollView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+
+                                <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                                    android:id="@+id/store"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="1dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginRight="1dp"
+                                    android:layout_marginBottom="1dp"
+                                    android:defaultFocusHighlightEnabled="false"
+                                    android:paddingLeft="5dp"
+                                    android:soundEffectsEnabled="false"
+                                    app:smsp_enableErrorLabel="false"
+                                    app:smsp_enableFloatingLabel="false"
+                                    app:smsp_floatingLabelColor="@color/white"
+                                    app:smsp_hint=" Select"
+                                    app:smsp_itemListColor="#808080"
+
+                                    app:smsp_itemListHintBackgroundColor="#808080"
+                                    app:smsp_itemListHintColor="#FFFFFF"
+                                    app:smsp_multilineError="false"
+                                    app:smsp_selectedItemListColor="#FF5252"
+                                    app:smsp_underlineSize="0dp" />
+
+
+                            </ScrollView>
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rac_shape_one"
+                android:padding="2dp"
+                android:weightSum="4">
+
+                <AutoCompleteTextView
+                    android:id="@+id/searchEt"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="bottom"
+                    android:layout_weight="2.5"
+                    android:background="@drawable/edittext_shape"
+                    android:drawableLeft="@drawable/ic_search_orange_24dp"
+                    android:gravity="center_vertical"
+                    android:hint="     Item Search Here !"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:minHeight="35dp"
+                    android:outlineAmbientShadowColor="@color/white"
+                    android:outlineProvider="none"
+                    android:outlineSpotShadowColor="@color/white"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/md_grey_800"
+                    android:textColorHint="#595555"
+                    android:textSize="14sp"
+                    tools:ignore="Autofill,TextFields" />
+
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1.5">
+
+                    <View
+                        android:id="@+id/viewOne"
+                        android:layout_width="2dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentStart="true"
+                        android:background="@color/app_color" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginBottom="2dp"
+                            android:layout_marginLeft="10dp"
+                            android:background="@drawable/filter_svg"
+                            android:gravity="center_vertical" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="Filter"
+                            android:textColor="@color/halka_black"
+                            android:paddingLeft="10dp"
+                            android:gravity="center_vertical"
+                            android:textSize="@dimen/sixteen_sp_size"/>
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/appbar"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginRight="20dp"
+                android:backgroundTint="@color/white"
+                android:visibility="gone"
+                app:cardCornerRadius="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/itemSearchEt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:background="@drawable/edittext_shape"
+                        android:drawableLeft="@drawable/ic_search_orange_24dp"
+                        android:gravity="center_vertical"
+                        android:hint="@string/search_by_name"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:minHeight="35dp"
+                        android:outlineAmbientShadowColor="@color/white"
+                        android:outlineProvider="none"
+                        android:outlineSpotShadowColor="@color/white"
+                        android:paddingLeft="5dp"
+                        android:singleLine="true"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="@color/md_grey_800"
+                        android:textColorHint="#595555"
+                        android:textSize="14sp"
+                        tools:ignore="Autofill,TextFields" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/dataNoFound"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Data Not Found !"
+            android:layout_centerInParent="true"
+            android:textSize="18sp"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/productList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/jkl"
+            android:layout_below="@+id/okko"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_weight="2.5" />
+
+        <LinearLayout
+            android:id="@+id/jkl"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/submit_button"
+            android:elevation="10dp"
+            android:gravity="center"
+            android:onClick="@{()->clickHandle.totalBtn()}"
+            android:orientation="horizontal">
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="45dp">
+
+                <TextView
+                    android:id="@+id/totalQuantity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerInParent="true"
+                    android:background="@color/next_btn_clr"
+                    android:gravity="center_vertical"
+                    android:text="Total Quantity: 0"
+                    android:textAllCaps="false"
+                    android:textStyle="bold" />
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_alignParentRight="true">
+
+                    <ImageButton
+                        android:layout_width="40dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/next_ic" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</layout>

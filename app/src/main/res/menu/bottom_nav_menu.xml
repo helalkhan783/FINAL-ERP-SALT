@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+   <item
+        android:id="@+id/home"
+        android:icon="@drawable/home_icon"
+        android:title="Home"/>
+    <item
+        android:id="@+id/creditor"
+        android:icon="@drawable/creditors"
+        android:title="Creditors" />
+    <item
+        android:id="@+id/debitor"
+        android:icon="@drawable/debitors"
+        android:title="Debitors" />
+    <item
+        android:id="@+id/cashBook"
+        android:icon="@drawable/cash_book"
+        android:title="Cash Book" />
+    <item
+        android:id="@+id/dayBook"
+        android:icon="@drawable/day_book"
+        android:title="Day Book" />
+
+
+
+</menu>

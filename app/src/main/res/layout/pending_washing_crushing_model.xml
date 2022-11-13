@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:background="@drawable/border"
+    android:orientation="vertical">
+
+
+ <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:orientation="vertical"
+     android:layout_margin="3dp">
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_margin="5dp"
+         android:orientation="horizontal"
+         android:weightSum="2">
+
+         <TextView
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_gravity="center_vertical"
+             android:layout_weight="1.5"
+             android:maxLines="1"
+             android:paddingStart="0dp"
+             android:paddingTop="0dp"
+             android:paddingEnd="2dp"
+             android:paddingBottom="0dp"
+             android:singleLine="true"
+             android:text="Item"
+             android:textColor="@color/black"
+             android:textSize="@dimen/fourteen_sp_text_size" />
+
+         <TextView
+             android:id="@+id/itemNameTV"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_gravity="center_vertical"
+             android:layout_weight="0.5"
+             android:ellipsize="end"
+             android:gravity="center_vertical"
+             android:maxLines="1"
+             android:padding="1dp"
+             android:singleLine="true"
+             android:text=":"
+             android:textColor="@color/md_grey_800"
+             android:textSize="@dimen/thirteen_sp_size" />
+
+     </LinearLayout>
+
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_marginLeft="5dp"
+         android:layout_marginTop="3dp"
+         android:layout_marginRight="5dp"
+         android:orientation="horizontal"
+         android:weightSum="2">
+
+         <TextView
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_gravity="center_vertical"
+             android:layout_weight="1.5"
+             android:maxLines="1"
+             android:paddingStart="0dp"
+             android:paddingTop="0dp"
+             android:paddingEnd="2dp"
+             android:paddingBottom="0dp"
+             android:singleLine="true"
+             android:text="Quantity"
+             android:textColor="@color/black"
+             android:textSize="@dimen/fourteen_sp_text_size" />
+
+         <TextView
+             android:id="@+id/quantityTV"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_gravity="center_vertical"
+             android:layout_weight="0.5"
+             android:ellipsize="end"
+             android:gravity="center_vertical"
+             android:maxLines="1"
+             android:padding="1dp"
+             android:singleLine="true"
+             android:text=":"
+             android:textSize="@dimen/thirteen_sp_size"
+             android:textColor="@color/md_grey_800" />
+
+     </LinearLayout>
+
+ </LinearLayout>
+
+</LinearLayout>

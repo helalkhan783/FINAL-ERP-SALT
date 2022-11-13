@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white1"
+        android:orientation="vertical"
+        tools:context="com.ismos_salt_erp.view.fragment.items.ItemListFragment">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_binding" />
+
+
+        <net.cachapa.expandablelayout.ExpandableLayout
+            android:id="@+id/expandableView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:el_duration="800"
+             app:el_parallax=".5">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:visibility="gone"
+                    android:id="@+id/layoutForAssignPacket"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                             android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Select Category"
+                            android:textColor="@color/switch_color"
+                            android:textSize="14sp" />
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:layout_marginTop="1dp"
+                            android:background="@drawable/edittext_shape">
+
+                            <ScrollView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+
+                                <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                                    android:id="@+id/category"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="1dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginRight="1dp"
+                                    android:layout_marginBottom="1dp"
+                                    android:defaultFocusHighlightEnabled="false"
+                                    android:paddingLeft="5dp"
+                                    android:soundEffectsEnabled="false"
+                                    app:smsp_enableErrorLabel="false"
+                                    app:smsp_enableFloatingLabel="false"
+                                    app:smsp_floatingLabelColor="@color/white"
+                                    app:smsp_hint=" Select"
+                                    app:smsp_itemListColor="#808080"
+
+                                    app:smsp_itemListHintBackgroundColor="#808080"
+                                    app:smsp_itemListHintColor="#FFFFFF"
+                                    app:smsp_multilineError="false"
+                                    app:smsp_selectedItemListColor="#FF5252"
+                                    app:smsp_underlineSize="0dp" />
+
+
+                            </ScrollView>
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                             android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Select Brand"
+                            android:textColor="@color/switch_color"
+                            android:textSize="14sp"/>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:layout_marginTop="1dp"
+                            android:background="@drawable/edittext_shape">
+
+                            <ScrollView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+
+                                <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                                    android:id="@+id/brand"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="1dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginRight="1dp"
+                                    android:layout_marginBottom="1dp"
+                                    android:defaultFocusHighlightEnabled="false"
+                                    android:paddingLeft="5dp"
+                                    android:soundEffectsEnabled="false"
+                                    app:smsp_enableErrorLabel="false"
+                                    app:smsp_enableFloatingLabel="false"
+                                    app:smsp_floatingLabelColor="@color/white"
+                                    app:smsp_hint=" Select"
+                                    app:smsp_itemListColor="#808080"
+
+                                    app:smsp_itemListHintBackgroundColor="#808080"
+                                    app:smsp_itemListHintColor="#FFFFFF"
+                                    app:smsp_multilineError="false"
+                                    app:smsp_selectedItemListColor="#FF5252"
+                                    app:smsp_underlineSize="0dp" />
+
+
+                            </ScrollView>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="5dp"
+                    android:weightSum="2">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <EditText
+                            android:id="@+id/categoryTypeEt"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/edittext_shape"
+                            android:hint="Type Category"
+                            android:paddingLeft="3dp"
+                            android:textColor="@color/gray"
+                            android:textColorHint="@color/gray"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <EditText
+                        android:id="@+id/itemNameEt"
+                        android:layout_width="0dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/edittext_shape"
+                        android:hint="Item Name"
+                        android:paddingLeft="3dp"
+                        android:textColor="@color/gray"
+                        android:textColorHint="@color/gray"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <EditText
+                        android:id="@+id/brandTypeEt"
+                        android:layout_width="0dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/edittext_shape"
+                        android:hint="Type Brand"
+                        android:paddingLeft="3dp"
+                        android:textColor="@color/gray"
+                        android:textColorHint="@color/gray"
+                        android:textSize="12sp" />
+
+
+                    <Button
+                        android:id="@+id/searchBtn"
+                        android:layout_width="0dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight=".5"
+                        android:background="@drawable/filter_btn_shape"
+                        android:paddingLeft="3dp"
+                        android:text="Search"
+                        android:textAllCaps="false"
+                        android:textSize="12sp" />
+
+                    <Button
+                        android:id="@+id/resetBtn"
+                        android:layout_width="0dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight=".5"
+                        android:background="@drawable/filter_reset_btn_shape"
+                        android:paddingLeft="3dp"
+                        android:text="Reset"
+                        android:textAllCaps="false"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </net.cachapa.expandablelayout.ExpandableLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/itemListRv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/itemListRvForItemList"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/noDataFound"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Data Not Found !"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:visibility="gone" />
+
+
+    </LinearLayout>
+
+</layout>

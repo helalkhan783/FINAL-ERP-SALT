@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/item_color"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="5dp"
+        android:backgroundTint="@color/white">
+
+        <LinearLayout
+         android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/nameTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:singleLine="true"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit ="marquee_forever"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:scrollHorizontally="true"
+                android:fontFamily="@font/lato_regular"
+                android:textSize="@dimen/twelve_sp_txt_size"
+
+                android:text="New Item"/>
+
+            <LinearLayout
+                android:id="@+id/editItem"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/popup_hieght">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="match_parent"
+
+                    android:padding="2dp"
+                    android:src="@drawable/edit" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:fontFamily="@font/lato_regular"
+                    android:paddingLeft="20dp"
+                    android:text="Edit Item"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/twelve_sp_txt_size" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height=".5dp"
+                android:background="@color/halka_black"/>
+
+            <LinearLayout
+                android:id="@+id/addQty"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/popup_hieght">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="match_parent"
+
+                    android:padding="2dp"
+                    android:src="@drawable/add_btn_main" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:fontFamily="@font/lato_regular"
+                    android:paddingLeft="20dp"
+                    android:text="Initial Qty"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/twelve_sp_txt_size" />
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height=".5dp"
+                android:background="@color/halka_black"/>
+            <LinearLayout
+                android:id="@+id/addPacket"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/popup_hieght">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="match_parent"
+
+                    android:padding="2dp"
+                    android:src="@drawable/add_packet" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:fontFamily="@font/lato_regular"
+                    android:paddingLeft="20dp"
+                    android:text="Add Packet"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/twelve_sp_txt_size" />
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height=".5dp"
+                android:background="@color/halka_black"/>
+            <LinearLayout
+                android:id="@+id/addVarient"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/popup_hieght">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="match_parent"
+
+                    android:padding="2dp"
+                    android:src="@drawable/varient" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:fontFamily="@font/lato_regular"
+                    android:paddingLeft="20dp"
+                    android:text="Add Varient"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/twelve_sp_txt_size" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

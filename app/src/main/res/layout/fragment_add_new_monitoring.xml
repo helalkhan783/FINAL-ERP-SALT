@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="clickHandle"
+            type="com.ismos_salt_erp.clickHandle.AddNewMonitoringClickHandle" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        tools:context="com.ismos_salt_erp.view.fragment.monitoring.AddNewMonitoring">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_binding" />
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:text="Monitoring Date*"
+                            android:fontFamily="@font/lato_regular"
+                            android:textSize="@dimen/fifteen_sp_txt"
+                            android:textColor="@color/switch_color" />
+
+                        <TextView
+                            android:id="@+id/monitoringDate"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_weight="1.4"
+                            android:layout_marginTop="1dp"
+                            android:background="@drawable/edittext_shape"
+                            android:gravity="center_vertical"
+                            android:textSize="@dimen/fourteen_sp_text_size"
+                            android:hint="mm/dd/yyyy"
+                            android:onClick="@{()->clickHandle.monitoringDate()}"
+                            android:paddingLeft="10dp"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray" />
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:text="Zone*"
+                            android:fontFamily="@font/lato_regular"
+                            android:textSize="@dimen/fifteen_sp_txt"
+                            android:textColor="@color/switch_color" />
+
+
+                        <LinearLayout
+                            android:layout_marginTop="1dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:background="@drawable/edittext_shape">
+
+                            <ScrollView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+
+                                <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                                    android:id="@+id/zone"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="1dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginRight="1dp"
+                                    android:layout_marginBottom="1dp"
+                                    android:defaultFocusHighlightEnabled="false"
+                                    android:paddingLeft="5dp"
+                                    android:soundEffectsEnabled="false"
+                                    app:smsp_enableErrorLabel="false"
+                                    app:smsp_enableFloatingLabel="false"
+                                    app:smsp_floatingLabelColor="@color/white"
+                                    app:smsp_hint=" Select"
+                                    app:smsp_itemListColor="#808080"
+
+                                    app:smsp_itemListHintBackgroundColor="#808080"
+                                    app:smsp_itemListHintColor="#FFFFFF"
+                                    app:smsp_multilineError="false"
+                                    app:smsp_selectedItemListColor="#FF5252"
+                                    app:smsp_underlineSize="0dp" />
+
+
+                            </ScrollView>
+                        </LinearLayout>
+
+
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:text="Published Date*"
+                            android:fontFamily="@font/lato_regular"
+                            android:textSize="@dimen/fifteen_sp_txt"
+                            android:textColor="@color/switch_color" />
+
+                        <TextView
+                            android:id="@+id/publishDate"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="1dp"
+                            android:layout_weight="1.4"
+                            android:textSize="@dimen/fourteen_sp_text_size"
+                            android:background="@drawable/edittext_shape"
+                            android:gravity="center_vertical"
+                            android:hint="mm/dd/YY"
+                            android:onClick="@{()->clickHandle.publishDate()}"
+                            android:paddingLeft="10dp"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray" />
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:text="Monitoring Type*"
+                            android:fontFamily="@font/lato_regular"
+                            android:textSize="@dimen/fifteen_sp_txt"
+                            android:textColor="@color/switch_color" />
+
+                        <LinearLayout
+                            android:layout_marginTop="1dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:background="@drawable/edittext_shape">
+
+                            <ScrollView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+
+                                <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                                    android:id="@+id/monitoringType"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="1dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginRight="1dp"
+                                    android:layout_marginBottom="1dp"
+                                    android:defaultFocusHighlightEnabled="false"
+                                    android:paddingLeft="5dp"
+                                    android:soundEffectsEnabled="false"
+                                    app:smsp_enableErrorLabel="false"
+                                    app:smsp_enableFloatingLabel="false"
+                                    app:smsp_floatingLabelColor="@color/white"
+                                    app:smsp_hint=" Select"
+                                    app:smsp_itemListColor="#808080"
+
+                                    app:smsp_itemListHintBackgroundColor="#808080"
+                                    app:smsp_itemListHintColor="#FFFFFF"
+                                    app:smsp_multilineError="false"
+                                    app:smsp_selectedItemListColor="#FF5252"
+                                    app:smsp_underlineSize="0dp" />
+
+
+                            </ScrollView>
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/otherNameView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:text="Other Name*"
+                        android:textColor="@color/switch_color" />
+
+                    <EditText
+                        android:id="@+id/othersName"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_weight="1.4"
+                        android:background="@drawable/edittext_shape"
+                        android:gravity="center_vertical"
+                        android:hint="Others name"
+                        android:paddingLeft="10dp"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                     android:gravity="center_vertical"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="8dp"
+                         android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:text="Miller*"
+                            android:fontFamily="@font/lato_regular"
+                            android:textSize="@dimen/fifteen_sp_txt"                            android:textColor="@color/switch_color" />
+
+                        <LinearLayout
+                            android:layout_marginTop="1dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:background="@drawable/edittext_shape">
+
+                            <ScrollView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+
+                                <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                                    android:id="@+id/miller"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="1dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginRight="1dp"
+                                    android:layout_marginBottom="1dp"
+                                    android:defaultFocusHighlightEnabled="false"
+                                    android:paddingLeft="5dp"
+                                    android:soundEffectsEnabled="false"
+                                    app:smsp_enableErrorLabel="false"
+                                    app:smsp_enableFloatingLabel="false"
+                                    app:smsp_floatingLabelColor="@color/white"
+                                    app:smsp_hint=" Select"
+                                    app:smsp_itemListColor="#808080"
+
+                                    app:smsp_itemListHintBackgroundColor="#808080"
+                                    app:smsp_itemListHintColor="#FFFFFF"
+                                    app:smsp_multilineError="false"
+                                    app:smsp_selectedItemListColor="#FF5252"
+                                    app:smsp_underlineSize="0dp" />
+
+
+                            </ScrollView>
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginRight="8dp"
+                           android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:text="Document"
+                            android:fontFamily="@font/lato_regular"
+                            android:textSize="@dimen/fifteen_sp_txt"
+                            android:textColor="@color/switch_color" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:background="@drawable/edittext_shape"
+                            android:gravity="center_vertical"
+                            android:onClick="@{()->clickHandle.documentImage()}"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:layout_weight="0.6"
+                                android:layout_marginTop="1dp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:id="@+id/documentImage"
+                                    android:layout_width="0dp"
+                                    android:layout_height="40dp"
+                                    android:layout_weight="0.05"
+                                    android:background="@null"
+                                    android:src="@drawable/file"
+                                    android:text="Select Image"
+                                    android:textAlignment="gravity"
+                                    android:textColor="@color/gray" />
+
+                                <TextView
+                                    android:id="@+id/documentImageName"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.1"
+                                    android:maxLines="1"
+                                    android:layout_marginRight="2dp"
+                                    android:paddingLeft="2dp"
+                                    android:singleLine="true"
+                                    android:textSize="@dimen/fourteen_sp_text_size"
+                                    android:text="Select Image"
+                                    android:textAlignment="gravity"
+                                    android:textColor="@color/gray" />
+
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                     android:layout_marginTop="8dp"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:text="Monitoring Summary"
+                    android:textColor="@color/switch_color"
+                    android:fontFamily="@font/lato_regular"
+                    android:textSize="@dimen/fifteen_sp_txt" />
+
+                <EditText
+                    android:id="@+id/monitoringSummary"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="1dp"
+                    android:background="@drawable/edittext_shape"
+                    android:gravity="start"
+                    android:hint="Write here"
+                    android:maxLines="7"
+                    android:padding="4dp"
+                    android:textSize="@dimen/fourteen_sp_text_size"
+                    android:textAlignment="viewStart"
+                    android:layout_marginBottom="5dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray" />
+
+
+            </LinearLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="10dp">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/submit_button"
+                android:onClick="@{()->clickHandle.save()}"
+                android:text="Save" />
+
+
+        </RelativeLayout>
+    </LinearLayout>
+</layout>

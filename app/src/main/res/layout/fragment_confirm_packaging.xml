@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <data>
+
+        <variable
+            name="clickHandle"
+            type="com.ismos_salt_erp.clickHandle.ConfirmPackagingClickHandle" />
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        tools:context="com.ismos_salt_erp.view.fragment.production.packaging.ConfirmPackaging">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_binding" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/lato_regular"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:text="Packaging No"
+                                android:textColor="@color/switch_color"
+                                android:textSize="@dimen/fifteen_sp_txt" />
+
+
+                            <TextView
+                                android:id="@+id/processNo"
+                                android:layout_width="match_parent"
+                                android:layout_height="35dp"
+                                android:layout_marginTop="1dp"
+                                android:layout_weight="1.4"
+                                android:background="@drawable/edittext_shape"
+                                android:gravity="center_vertical"
+                                android:paddingLeft="10dp"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/gray"
+                                android:textSize="@dimen/fourteen_sp_text_size" />
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/lato_regular"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:text="Processing Date"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/fifteen_sp_txt" />
+
+
+                            <TextView
+                                android:id="@+id/processingDate"
+                                android:layout_width="match_parent"
+                                android:layout_height="35dp"
+                                android:layout_marginTop="1dp"
+                                android:background="@drawable/edittext_shape"
+                                android:gravity="center_vertical"
+                                android:hint="dd//mm//yyyy"
+                                android:onClick="@{()->clickHandle.dateBtn()}"
+                                android:paddingLeft="10dp"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/gray"
+                                android:textSize="@dimen/fourteen_sp_text_size" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginRight="5dp"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/lato_regular"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:text="Reference Person*"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/fifteen_sp_txt" />
+
+
+                        <AutoCompleteTextView
+                            android:id="@+id/referencePerson"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:layout_marginTop="1dp"
+                            android:background="@drawable/edittext_shape"
+                            android:gravity="center_vertical"
+                            android:hint="Search by name"
+                            android:paddingLeft="5dp"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray"
+                            android:textSize="@dimen/fourteen_sp_text_size" />
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginRight="5dp"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/lato_regular"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:text="Note"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/fifteen_sp_txt" />
+
+
+                        <EditText
+                            android:id="@+id/note"
+                            android:layout_width="match_parent"
+                            android:layout_height="80dp"
+                            android:layout_marginTop="1dp"
+                            android:background="@drawable/edittext_shape"
+                            android:gravity="start"
+                            android:hint="Note"
+                            android:padding="5dp"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray"
+                            android:textSize="@dimen/fourteen_sp_text_size" />
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <RelativeLayout
+            android:layout_margin="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/fourty_dp_btn">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/submit_button"
+                android:onClick="@{()->clickHandle.submit()}"
+                android:text="Save" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</layout>

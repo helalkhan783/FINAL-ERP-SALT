@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        tools:context="com.ismos_salt_erp.view.fragment.sale.SaleAllListFragment">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/filter_tool_bar" />
+
+
+        <net.cachapa.expandablelayout.ExpandableLayout
+            android:id="@+id/expandableView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:el_duration="800"
+            app:el_parallax=".5">
+
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <include
+                    android:id="@+id/sale"
+                    layout="@layout/purchase_filter_layout"/>
+            </LinearLayout>
+
+
+        </net.cachapa.expandablelayout.ExpandableLayout>
+
+
+        <TextView
+            android:id="@+id/noDataFound"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:maxLines="1"
+            android:visibility="gone"
+            android:singleLine="true"
+            android:text="No Data Found"
+            android:textColor="@color/black" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/saleListRv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <ProgressBar
+            android:id="@+id/progress"
+            android:visibility="gone"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+</layout>

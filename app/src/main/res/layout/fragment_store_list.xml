@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        tools:context="com.ismos_salt_erp.view.fragment.store.StoreListFragment">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_binding" />
+
+
+        <net.cachapa.expandablelayout.ExpandableLayout
+            android:id="@+id/expandableView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:el_duration="500"
+            app:el_expanded="false"
+            app:el_parallax="0.5">
+
+            <include
+                android:id="@+id/stockFilter"
+                layout="@layout/stock_filter_layout" />
+
+        </net.cachapa.expandablelayout.ExpandableLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/noDataFound"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text="No Data Found"
+                    android:textColor="@color/black"
+                    android:visibility="gone" />
+
+
+                <LinearLayout
+                    android:id="@+id/storeManagementLayout"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/thirty_five_tv_size"
+                        android:background="@color/app_color"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="5dp"
+                        android:text="Enterprise List"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/sixteen_sp_tx_size"
+                        android:textStyle="bold" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/enterPriseList"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/enterPriseListNotFound"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="1dp"
+                        android:gravity="center_horizontal"
+                        android:paddingLeft="5dp"
+                        android:visibility="gone"
+                        android:text="Enterprise list not found"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/fourteen_sp_text_size"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/thirty_five_tv_size"
+                        android:layout_marginTop="5dp"
+                        android:background="@color/app_color"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="5dp"
+                        android:text="Store List"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/sixteen_sp_tx_size"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/storeListDataNoFoundTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="1dp"
+                        android:gravity="center_horizontal"
+                        android:paddingLeft="5dp"
+                        android:visibility="gone"
+                        android:text="Store list not found"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/fourteen_sp_text_size"
+                        android:textStyle="bold" />
+
+
+
+                </LinearLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/storeRv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/stockDetailsRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone" />
+
+                <ProgressBar
+                    android:id="@+id/progress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </LinearLayout>
+</layout>

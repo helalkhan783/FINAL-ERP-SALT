@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="clickHandle"
+            type="com.ismos_salt_erp.clickHandle.NewSaleProductListClickHandle" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/rl_root"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="?attr/selectableItemBackground"
+            android:backgroundTint="@color/white"
+            android:elevation="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <!-- <TextView
+                         android:id="@+id/productNameTv"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:layout_alignParentStart="true"
+                         android:layout_gravity="center_vertical"
+                         android:textColor="@color/md_grey_900"
+                         android:textSize="15sp"
+                         android:textStyle="bold"
+                         tools:ignore="MissingPrefix"
+                         tools:text="WATER PUMP-N/G" />
+
+ -->
+
+                    <ImageButton
+                        android:id="@+id/delete"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_alignParentEnd="true"
+                        android:background="@null"
+                        android:onClick="@{()->clickHandle.delete()}"
+                        android:src="@drawable/main_delete_btn" />
+                </RelativeLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="Brand: "
+                        android:textColor="@color/md_grey_600"
+                        android:textSize="12sp"
+                        android:textStyle="normal"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/tv_product_brand"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="end"
+                        android:textColor="@color/md_grey_800"
+                        android:textSize="14sp"
+                        android:textStyle="normal"
+                        tools:text="TOYOTA" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="Category: "
+                        android:textColor="@color/md_grey_600"
+                        android:textSize="12sp"
+                        android:textStyle="normal"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/tv_product_category"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="end"
+                        android:textColor="@color/md_grey_800"
+                        android:textSize="14sp"
+                        android:textStyle="normal"
+                        tools:text="Vehicle" />
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:layout_toStartOf="@+id/rl_product_quantity"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            android:id="@+id/productName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:text="test"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/stock"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:editable="false"
+                            android:focusable="false"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:text="stock"
+                            android:textColor="#094A0C"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:visibility="gone" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/rl_product_quantity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_product_quantity_btn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/shape_product_piece_button_bg"
+                            android:padding="8dp"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="16sp"
+                            android:visibility="gone"
+                            tools:text="2 pieces" />
+
+                        <LinearLayout
+                            android:id="@+id/ll_quantity_select"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:clipToPadding="true"
+                            android:orientation="horizontal">
+
+                            <RelativeLayout
+                                android:id="@+id/rl_btn_remove"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:padding="16dp">
+
+                                <ImageButton
+                                    android:id="@+id/removeBtn"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:layout_gravity="center_vertical"
+                                    android:background="@drawable/ic_remove_circle_blue_24dp"
+                                    android:gravity="center"
+                                    android:onClick="@{()->clickHandle.removeQuantity()}"
+                                    android:visibility="gone" />
+
+
+                            </RelativeLayout>
+
+                            <EditText
+                                android:id="@+id/quantityEt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:background="@null"
+                                android:gravity="center"
+                                android:inputType="number"
+                                android:padding="10dp"
+                                android:textColor="@color/black"
+                                android:textSize="16sp"
+                                android:visibility="gone"
+                                tools:text="2" />
+
+                            <TextView
+                                android:id="@+id/unit"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:background="@null"
+                                android:gravity="center"
+                                android:inputType="number"
+                                android:padding="10dp"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:visibility="gone"
+                                tools:text="2" />
+
+                            <RelativeLayout
+                                android:id="@+id/rl_btn_add"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:padding="16dp">
+
+                                <ImageButton
+                                    android:id="@+id/addBtn"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:background="@drawable/ic_add_circle_blue_24dp"
+                                    android:gravity="center"
+                                    android:maxWidth="40dp"
+                                    android:maxHeight="40dp"
+                                    android:onClick="@{()->clickHandle.addQuantity()}"
+                                    android:scaleType="center"
+                                    tools:ignore="ContentDescription,MissingPrefix,SpeakableTextPresentCheck" />
+
+                            </RelativeLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/priceLayout"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginRight="2dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:text="Price"
+
+                            android:textColor="@color/black"
+                            android:textSize="12sp" />
+
+                        <EditText
+                            android:id="@+id/priceEt"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:gravity="center"
+                            android:inputType="number"
+                            android:background="@drawable/edittext_shape"
+                            android:hint="0.00"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:visibility="gone"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginRight="2dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:text="Discount"
+                            android:textColor="@color/black"
+                            android:textSize="12sp" />
+
+                        <EditText
+                            android:id="@+id/discountEt"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:gravity="center"
+                            android:background="@drawable/edittext_shape"
+                            android:hint="0.00"
+                            android:editable="false"
+                            android:focusable="false"
+                            android:inputType="number"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginRight="2dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:text="Total"
+                            android:textColor="@color/black"
+                            android:textSize="12sp" />
+
+                        <EditText
+                            android:id="@+id/totalEt"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:gravity="center"
+                            android:editable="false"
+                            android:focusable="false"
+                            android:background="@drawable/edit_text_bg"
+                            android:hint="0.00"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+</layout>

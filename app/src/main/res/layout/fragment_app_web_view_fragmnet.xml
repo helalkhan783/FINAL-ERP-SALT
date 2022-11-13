@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        tools:context=".AppWebViewFragmnet">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".15">
+
+            <include
+                android:id="@+id/toolbar"
+                layout="@layout/toolbar_binding" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/aboutLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.85"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="50dp"
+                android:src="@drawable/erp_exit1" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_bold"
+                android:gravity="center_horizontal"
+                android:text="ISMOS Central ERP"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sixteen_sp_tx_size" />
+
+            <TextView
+                android:id="@+id/versionName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/roboto_bold"
+                android:gravity="center_horizontal"
+                android:textColor="#5F6366"
+                android:textSize="@dimen/sixteen_sp_tx_size" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/webviewLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.85"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <WebView
+                android:id="@+id/webview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navigation"
+            style="@style/rippleTheme"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/app_color"
+            android:clickable="true"
+            android:fitsSystemWindows="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            app:itemIconTint="#FFFF"
+            app:itemTextColor="@color/white"
+            app:labelVisibilityMode="labeled"
+            app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:menu="@menu/bottom_nav_menu">
+
+
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+
+    </LinearLayout>
+</layout>

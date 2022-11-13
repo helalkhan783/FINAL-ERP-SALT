@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/logo"
+                android:layout_width="43dp"
+                android:layout_height="43dp"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/image"
+                app:civ_border_color="@color/head_tv_color"
+                app:civ_border_width="1dp" />
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:orientation="vertical"
+                app:layout_constraintStart_toEndOf="@id/logo"
+                app:layout_constraintTop_toTopOf="@id/logo">
+
+                <TextView
+                    android:id="@+id/corporationTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:text="N/A"
+                    android:textColor="@color/md_grey_700"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/corporationTitle"
+                    android:layout_marginTop="2dp">
+
+                    <TextView
+                        android:id="@+id/shippingAgent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:gravity="top"
+                        android:text="N/A"
+                        android:textColor="@color/md_grey_800"
+                        android:textSize="11sp" />
+
+                    <com.mikhaellopez.circularimageview.CircularImageView
+                        android:id="@+id/verify"
+                        android:layout_width="13dp"
+                        android:layout_height="13dp"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_toRightOf="@+id/shipping_agent"
+                        android:background="@drawable/verification_icon_two"
+                        android:visibility="gone" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

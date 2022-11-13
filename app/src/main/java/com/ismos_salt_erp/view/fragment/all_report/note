@@ -1,0 +1,15 @@
+Note 1 :Report all list data become show in the "ReportAllListFragment".
+
+Note 2 :LicenceReport, LicenceExpireReport, MillerEmployeeReport,
+        QC/QAReport, MonitoringReport page data shown in "ReportLicenceFragment".
+        That means, We will go to ReportAdapter to ReportLicenceFragment.
+
+Note 3 :PurchaseReport, PurchaseReturnReport, SaleReport, SaleReturnReport  page data shown in the "SalePurchaseReportFragment".
+        That means, We will go to ReportAdapter to SalePurchaseReportFragment.
+
+
+Note 4 :ReconciliationReport, StockI/O page data shown in the "ReconciliationReportFragment" .
+          That means, We will go to ReportAdapter to ReportListFragment.
+
+Note 5 : Packeting and packaging report page data shown in th  "PacketingReportFragment"
+ReportListFragment

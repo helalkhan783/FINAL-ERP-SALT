@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        tools:context=".view.fragment.bank_management.BankAllListFragment">
+
+        <include
+
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_binding" />
+
+
+        <net.cachapa.expandablelayout.ExpandableLayout
+            android:id="@+id/expandableView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/toolbar"
+            app:el_duration="800"
+            app:el_parallax=".5">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:id="@+id/datePortion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical"
+                            android:weightSum="2">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/lato_regular"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:text="@string/start_date"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/fifteen_sp_txt" />
+
+                            <TextView
+                                android:id="@+id/startDate"
+                                android:layout_width="match_parent"
+                                android:layout_height="35dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/edittext_shape"
+                                android:gravity="center_vertical"
+                                android:hint="mm/dd/YY"
+                                android:paddingLeft="5dp"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/gray"
+                                android:textSize="@dimen/fourteen_sp_text_size" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical"
+                            android:weightSum="2">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/lato_regular"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:text="@string/end_date"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/fifteen_sp_txt" />
+
+                            <TextView
+                                android:id="@+id/EndDate"
+                                android:layout_width="match_parent"
+                                android:layout_height="35dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/edittext_shape"
+                                android:gravity="center_vertical"
+                                android:hint="mm/dd/YY"
+                                android:paddingLeft="5dp"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/gray"
+                                android:textSize="@dimen/fourteen_sp_text_size" />
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/lato_regular"
+                                android:gravity="center_vertical"
+                                android:singleLine="true"
+                                android:text="Cheque Number"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/fifteen_sp_txt" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="35dp"
+                                android:layout_marginTop="1dp"
+                                android:background="@drawable/edittext_shape">
+
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="35dp"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/edittext_shape"
+                                    android:gravity="center_vertical"
+                                    android:hint="Cheque Number"
+                                    android:paddingLeft="5dp"
+                                    android:textColor="@color/black"
+                                    android:textColorHint="@color/gray"
+                                    android:textSize="@dimen/fourteen_sp_text_size" />
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/lato_regular"
+                                android:gravity="center_vertical"
+                                android:paddingLeft="3dp"
+                                android:text="Type"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/fifteen_sp_txt" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="35dp"
+                                android:layout_marginTop="1dp"
+                                android:background="@drawable/edittext_shape">
+
+                                <ScrollView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+
+                                    <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                                        android:id="@+id/type1"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="1dp"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginRight="1dp"
+                                        android:layout_marginBottom="1dp"
+                                        android:defaultFocusHighlightEnabled="false"
+                                        android:paddingLeft="5dp"
+                                        android:soundEffectsEnabled="false"
+                                        app:smsp_enableErrorLabel="false"
+                                        app:smsp_enableFloatingLabel="false"
+                                        app:smsp_floatingLabelColor="@color/white"
+                                        app:smsp_hint=" Select"
+                                        app:smsp_itemListColor="#808080"
+
+                                        app:smsp_itemListHintBackgroundColor="#808080"
+                                        app:smsp_itemListHintColor="#FFFFFF"
+                                        app:smsp_multilineError="false"
+                                        app:smsp_selectedItemListColor="#FF5252"
+                                        app:smsp_underlineSize="0dp" />
+
+
+                                </ScrollView>
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/lato_regular"
+                                android:gravity="center_vertical"
+                                android:singleLine="true"
+                                android:text="Transection Type"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/fifteen_sp_txt" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="35dp"
+                                android:layout_marginTop="1dp"
+                                android:background="@drawable/edittext_shape">
+
+                                <ScrollView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+
+                                    <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                                        android:id="@+id/transactionType"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="1dp"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginRight="1dp"
+                                        android:layout_marginBottom="1dp"
+                                        android:defaultFocusHighlightEnabled="false"
+                                        android:paddingLeft="5dp"
+                                        android:soundEffectsEnabled="false"
+                                        app:smsp_enableErrorLabel="false"
+                                        app:smsp_enableFloatingLabel="false"
+                                        app:smsp_floatingLabelColor="@color/white"
+                                        app:smsp_hint=" Select"
+                                        app:smsp_itemListColor="#808080"
+
+                                        app:smsp_itemListHintBackgroundColor="#808080"
+                                        app:smsp_itemListHintColor="#FFFFFF"
+                                        app:smsp_multilineError="false"
+                                        app:smsp_selectedItemListColor="#FF5252"
+                                        app:smsp_underlineSize="0dp" />
+
+
+                                </ScrollView>
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/lato_regular"
+                                android:gravity="center_vertical"
+                                android:paddingLeft="3dp"
+                                android:text="Bank"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/fifteen_sp_txt" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="35dp"
+                                android:layout_marginTop="1dp"
+                                android:background="@drawable/edittext_shape">
+
+                                <ScrollView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+
+                                    <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                                        android:id="@+id/bank"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="1dp"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginRight="1dp"
+                                        android:layout_marginBottom="1dp"
+                                        android:defaultFocusHighlightEnabled="false"
+                                        android:paddingLeft="5dp"
+                                        android:soundEffectsEnabled="false"
+                                        app:smsp_enableErrorLabel="false"
+                                        app:smsp_enableFloatingLabel="false"
+                                        app:smsp_floatingLabelColor="@color/white"
+                                        app:smsp_hint=" Select"
+                                        app:smsp_itemListColor="#808080"
+
+                                        app:smsp_itemListHintBackgroundColor="#808080"
+                                        app:smsp_itemListHintColor="#FFFFFF"
+                                        app:smsp_multilineError="false"
+                                        app:smsp_selectedItemListColor="#FF5252"
+                                        app:smsp_underlineSize="0dp" />
+
+
+                                </ScrollView>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+
+                        <Button
+                            android:id="@+id/filterSearchBtn"
+                            android:layout_width="0dp"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/filter_btn_shape"
+                            android:paddingLeft="3dp"
+                            android:text="Search"
+                            android:textAllCaps="false"
+                            android:textSize="12sp" />
+
+                        <Button
+                            android:id="@+id/resetBtn"
+                            android:layout_width="0dp"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/filter_reset_btn_shape"
+                            android:paddingLeft="3dp"
+                            android:text="Reset"
+                            android:textAllCaps="false"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+        </net.cachapa.expandablelayout.ExpandableLayout>
+
+
+        <TextView
+            android:id="@+id/dataNotFound"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="Data Not Found"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:visibility="gone" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/bankListRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/footerForBankList"
+            android:layout_below="@+id/expandableView" />
+
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:visibility="gone" />
+
+
+
+        <LinearLayout
+            android:id="@+id/footerForBankList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="3dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="3dp"
+             android:layout_marginBottom="3dp"
+            android:background="@drawable/edittext_shape"
+            android:orientation="vertical"
+            android:padding="5dp"
+           >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/totalDebitTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Total In(BDT) :"
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/totalDebit"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/totalCreditTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Total Out (BDT) :"
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/totalCredit"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/totalBalanceTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Total Balance :"
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/totalAmount"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</layout>

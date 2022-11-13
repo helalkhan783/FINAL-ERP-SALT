@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/bg_white_radius">
+
+        <LinearLayout
+              android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="50dp"
+                    android:layout_centerInParent="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/image_login_two" />
+
+                <ImageButton
+                    android:id="@+id/btn_neg"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_weight="1"
+                    android:background="@drawable/licence_shape"
+
+                    android:src="@drawable/main_delete_btn" />
+
+
+            </RelativeLayout>
+        </LinearLayout>
+
+     <androidx.core.widget.NestedScrollView
+          android:layout_below="@+id/okk1111"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content">
+
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:orientation="vertical">
+             <LinearLayout
+                 android:id="@+id/dfgd"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                  android:elevation="5dp"
+                 android:orientation="vertical">
+
+                 <LinearLayout
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:orientation="vertical">
+
+                     <TextView
+                         android:id="@+id/headTvForLicence"
+                         android:layout_width="match_parent"
+                         android:layout_height="35sp"
+                         android:gravity="center"
+                         android:text="Myn"
+                         android:textColor="@color/black"
+                         android:visibility="gone" />
+
+                     <LinearLayout
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:orientation="horizontal"
+                         android:visibility="gone"
+                         android:weightSum="3.1">
+
+                         <TextView
+                             android:layout_width="0dp"
+                             android:layout_height="match_parent"
+                             android:layout_weight=".3"
+                             android:background="@color/app_color"
+                             android:gravity="center_horizontal"
+                             android:padding="6dp"
+                             android:singleLine="true"
+                             android:text="SL"
+                             android:textColor="@color/black"
+                             android:textSize="@dimen/fourteen_sp_text_size"
+                             android:textStyle="bold" />
+
+                         <LinearLayout
+                             android:layout_width="0dp"
+                             android:layout_height="match_parent"
+                             android:layout_weight=".01">
+
+                         </LinearLayout>
+
+                         <TextView
+                             android:layout_width="0dp"
+                             android:layout_height="match_parent"
+                             android:layout_weight="1.95"
+                             android:background="@color/app_color"
+                             android:gravity="center_horizontal"
+                             android:padding="6dp"
+                             android:singleLine="true"
+                             android:text="Licence Name"
+                             android:textColor="@color/black"
+                             android:textSize="@dimen/fourteen_sp_text_size"
+                             android:textStyle="bold" />
+
+                         <LinearLayout
+                             android:layout_width="0dp"
+                             android:layout_height="match_parent"
+                             android:layout_weight=".01">
+
+                         </LinearLayout>
+
+                         <TextView
+                             android:layout_width="0dp"
+                             android:layout_height="match_parent"
+                             android:layout_weight=".85"
+                             android:background="@color/app_color"
+                             android:gravity="center_horizontal"
+                             android:padding="6dp"
+                             android:singleLine="true"
+                             android:text="Expire Date"
+                             android:textColor="@color/black"
+                             android:textSize="@dimen/thirteen_sp_size"
+                             android:textStyle="bold" />
+
+
+                     </LinearLayout>
+
+                     <View
+                         android:layout_width="match_parent"
+                         android:layout_height="1dp"
+                         android:background="@color/white" />
+
+                 </LinearLayout>
+             </LinearLayout>
+
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                  android:orientation="vertical">
+
+                 <androidx.recyclerview.widget.RecyclerView
+                     android:id="@+id/checkRv"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:layout_marginTop="-3dp"
+                     android:layout_marginBottom="13dp" />
+
+
+             </LinearLayout>
+         </LinearLayout>
+     </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+
+
+</RelativeLayout>

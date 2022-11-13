@@ -1,0 +1,1192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/md_grey_100"
+    tools:context="com.ismos_salt_erp.view.fragment.accounts.receiveDue.DueCollectionFragment">
+
+   <LinearLayout
+
+       android:id="@+id/addPortion"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:orientation="vertical">
+       <include
+           android:id="@+id/appbar"
+           layout="@layout/management_toolbar" />
+
+       <RelativeLayout
+          android:layout_width="match_parent"
+           android:layout_height="match_parent"
+            >
+
+           <RelativeLayout
+               android:id="@+id/rl_ledger_search"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_marginStart="5dp"
+               android:layout_marginLeft="5dp"
+               android:layout_marginTop="5dp"
+               android:layout_marginEnd="5dp"
+               android:layout_marginRight="5dp">
+
+               <androidx.cardview.widget.CardView
+                   android:id="@+id/card_phone"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginStart="20dp"
+                   android:layout_marginLeft="20dp"
+                   android:layout_marginTop="3dp"
+                   android:layout_marginEnd="20dp"
+                   android:layout_marginRight="20dp"
+                   android:layout_marginBottom="5dp"
+                   app:cardBackgroundColor="@color/colorWhite"
+                   app:cardCornerRadius="45dp"
+                   app:cardElevation="5dp">
+
+                   <LinearLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_gravity="center"
+                       android:orientation="horizontal">
+
+                       <ImageView
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_gravity="center_vertical"
+                           android:layout_marginStart="20dp"
+                           android:layout_marginTop="5dp"
+                           android:layout_marginEnd="5dp"
+                           android:layout_marginBottom="5dp"
+                           app:srcCompat="@drawable/person_gray"
+                           tools:ignore="ContentDescription" />
+
+                       <AutoCompleteTextView
+                           android:id="@+id/customerNameEt"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:layout_gravity="center_vertical"
+                           android:layout_marginEnd="5dp"
+
+                           android:background="@android:color/transparent"
+                           android:ellipsize="end"
+                           android:gravity="center_vertical"
+                           android:hint="Search by company name or mobile number"
+                           android:imeOptions="actionNext"
+                           android:inputType="text|textPersonName"
+                           android:minHeight="35dp"
+                           android:padding="5dp"
+                           android:singleLine="true"
+                           android:textAppearance="?android:attr/textAppearanceMedium"
+                           android:textColor="@color/md_grey_800"
+                           android:textColorHint="#595555"
+                           android:textSize="13sp"
+                           tools:ignore="Autofill,TextFields" />
+
+                   </LinearLayout>
+
+               </androidx.cardview.widget.CardView>
+
+           </RelativeLayout>
+
+           <TextView
+               android:id="@+id/tv_notice"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:gravity="center"
+               android:textAppearance="?android:attr/textAppearanceLarge"
+               android:textColor="@color/black"
+               android:visibility="gone"
+               tools:text="No products are available."
+               tools:visibility="gone" />
+
+           <androidx.recyclerview.widget.RecyclerView
+               android:id="@+id/ordersRv"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:layout_above="@+id/rl_bottom_section_root"
+               android:layout_below="@id/rl_ledger_search"
+
+               android:layout_marginStart="5dp"
+               android:layout_marginTop="5dp"
+               android:layout_marginEnd="5dp"
+               android:layout_marginBottom="5dp"
+               tools:itemCount="2" />
+
+           <RelativeLayout
+               android:id="@+id/rl_bottom_section_root"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_alignParentBottom="true"
+               android:background="@color/colorWhite">
+
+               <RelativeLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_alignTop="@+id/rl_bottom_section"
+                   android:layout_alignBottom="@+id/rl_bottom_section"
+                   android:layout_marginStart="8dp"
+                   android:layout_marginLeft="8dp"
+                   android:layout_marginEnd="8dp"
+                   android:layout_marginRight="8dp">
+
+                   <RelativeLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent"
+                       android:layout_marginTop="10dp">
+
+                   </RelativeLayout>
+
+               </RelativeLayout>
+
+               <RelativeLayout
+                   android:id="@+id/rl_bottom_section"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content">
+
+                   <ImageView
+                       android:id="@+id/image_view"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:padding="6dp"
+                       app:srcCompat="@drawable/ic_arrow_drop_down_black_24dp"
+                       tools:ignore="ContentDescription" />
+
+                   <LinearLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_below="@id/image_view"
+                       android:orientation="vertical"
+                       android:padding="5dp">
+
+                       <net.cachapa.expandablelayout.ExpandableLayout
+                           android:id="@+id/expandable_layout"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           app:el_duration="1000"
+                           app:el_expanded="true"
+                           app:el_parallax="0.5">
+
+                           <LinearLayout
+                               android:orientation="horizontal"
+                               android:layout_width="match_parent"
+                               android:layout_height="wrap_content">
+
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:text="Customer : "
+                                   android:textColor="@color/black"
+                                   android:textSize="@dimen/fifteen_sp_txt" />
+
+
+                               <TextView
+                                   android:id="@+id/customerNameTv"
+                                   android:textSize="@dimen/fifteen_sp_txt"
+                                   android:text=""
+                                    android:hint="@color/gray"
+                                   android:textColor="@color/black"
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"/>
+
+                           </LinearLayout>
+
+                       </net.cachapa.expandablelayout.ExpandableLayout>
+
+                       <LinearLayout
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:layout_marginTop="3dp"
+                           android:layout_marginBottom="1dp"
+                           android:orientation="horizontal"
+                           android:weightSum="2">
+
+                           <RelativeLayout
+                               android:layout_width="match_parent"
+                               android:layout_height="wrap_content"
+                               android:layout_gravity="center_vertical"
+                               android:layout_weight="1">
+
+                               <TextView
+                                   android:id="@+id/tv_total_text"
+
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:layout_centerVertical="true"
+                                   android:ellipsize="end"
+                                   android:maxLines="1"
+                                   android:singleLine="true"
+                                   android:text="@string/total_due"
+                                   android:textColor="@color/black"
+                                   android:textSize="@dimen/fifteen_sp_txt"
+                                   android:autoSizeMinTextSize="@dimen/fifteen_sp_txt"
+                                   android:autoSizeMaxTextSize="@dimen/fifteen_sp_txt"
+                                   tools:ignore="HardcodedText" />
+
+                               <TextView
+                                   android:id="@+id/tv_total_amount"
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:layout_centerVertical="true"
+                                   android:layout_toEndOf="@id/tv_total_text"
+                                   android:ellipsize="end"
+                                   android:maxLines="1"
+                                   android:singleLine="true"
+                                   android:text="0"
+                                   android:textColor="@color/gray"
+                                   android:textSize="@dimen/fifteen_sp_txt"
+                                   android:autoSizeMinTextSize="@dimen/fifteen_sp_txt"
+                                   android:autoSizeMaxTextSize="@dimen/fifteen_sp_txt"
+                                   tools:ignore="HardcodedText" />
+
+                           </RelativeLayout>
+
+                           <androidx.cardview.widget.CardView
+                               android:id="@+id/card_submit_btn"
+                               android:layout_width="match_parent"
+                               android:layout_height="wrap_content"
+                               android:layout_gravity="center_vertical"
+                               android:layout_weight="1"
+                               app:cardBackgroundColor="@android:color/transparent"
+                               app:cardCornerRadius="5dp"
+                               app:cardElevation="0dp">
+
+                               <TextView
+                                   android:id="@+id/receivedNow"
+                                   android:layout_width="match_parent"
+                                   android:layout_height="wrap_content"
+                                   android:layout_centerVertical="true"
+                                   android:layout_gravity="center"
+                                   android:background="@drawable/bg_toolbar"
+                                   android:ellipsize="end"
+                                   android:gravity="center"
+                                   android:maxLines="1"
+                                   android:padding="7dp"
+                                   android:singleLine="true"
+                                   android:text="Received Now"
+                                   android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                   android:textColor="@color/colorWhite"
+                                   android:textSize="19sp" />
+
+                           </androidx.cardview.widget.CardView>
+
+                       </LinearLayout>
+
+                   </LinearLayout>
+
+               </RelativeLayout>
+
+           </RelativeLayout>
+
+       </RelativeLayout>
+   </LinearLayout>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/savePortion"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:orientation="vertical">
+
+        <Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="@drawable/bg_toolbar"
+            android:elevation="5dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageButton
+                    android:id="@+id/back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/back_btn" />
+
+
+                <TextView
+                    android:id="@+id/tv"
+                    android:layout_toRightOf="@+id/back"
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Receipt"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sixteen_sp_tx_size"
+                    />
+
+
+            </RelativeLayout>
+        </Toolbar>
+
+        <RelativeLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_weight="1.5"
+                                android:maxLines="1"
+                                android:paddingStart="0dp"
+
+                                android:paddingTop="0dp"
+                                android:paddingEnd="2dp"
+
+                                android:paddingBottom="0dp"
+                                android:singleLine="true"
+                                android:text="Customer"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/fifteen_sp_txt"
+                                tools:ignore="HardcodedText,TooDeepLayout" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:text=" : "
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/fifteen_sp_txt" />
+
+                            <TextView
+                                android:id="@+id/nameTv"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_weight="0.5"
+                                android:drawableLeft="@drawable/person_gray"
+                                android:ellipsize="end"
+                                android:gravity="center_vertical"
+                                android:maxLines="1"
+                                android:padding="1dp"
+                                android:singleLine="true"
+                                android:textColor="@color/md_grey_800"
+                                android:textSize="@dimen/fifteen_sp_txt"
+                                tools:ignore="HardcodedText" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+
+                            android:layout_marginRight="5dp"
+
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_weight="1.5"
+                                android:maxLines="1"
+                                android:paddingStart="0dp"
+
+                                android:paddingTop="0dp"
+                                android:paddingEnd="2dp"
+
+                                android:paddingBottom="0dp"
+                                android:singleLine="true"
+                                android:text="Phone"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/fifteen_sp_txt"
+                                tools:ignore="HardcodedText,TooDeepLayout" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:text=" : "
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/fifteen_sp_txt" />
+
+                            <TextView
+                                android:id="@+id/phoneTv"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_weight="0.5"
+                                android:drawableLeft="@drawable/ic_phone_grey_26dp"
+                                android:ellipsize="end"
+                                android:gravity="center_vertical"
+                                android:maxLines="1"
+                                android:padding="1dp"
+                                android:singleLine="true"
+                                android:textColor="@color/md_grey_800"
+                                android:textSize="@dimen/fifteen_sp_txt"
+                                tools:ignore="HardcodedText" />
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+
+                            android:layout_marginRight="5dp"
+
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_weight="1.5"
+                                android:maxLines="1"
+                                android:paddingStart="0dp"
+
+                                android:paddingTop="0dp"
+                                android:paddingEnd="2dp"
+
+                                android:paddingBottom="0dp"
+                                android:singleLine="true"
+                                android:text="Address"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/fifteen_sp_txt"
+                                tools:ignore="HardcodedText,TooDeepLayout" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:text=" : "
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/fifteen_sp_txt" />
+
+                            <TextView
+                                android:id="@+id/addressTv"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_weight="0.5"
+                                android:drawableLeft="@drawable/address"
+                                android:ellipsize="end"
+                                android:gravity="center_vertical"
+                                android:maxLines="2"
+                                android:padding="1dp"
+                                android:textColor="@color/md_grey_800"
+                                android:textSize="@dimen/fifteen_sp_txt"
+                                tools:ignore="HardcodedText" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@color/gray" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:background="@color/colorWhite">
+
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp"
+                                android:layout_marginBottom="5dp"
+                                android:orientation="vertical">
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentBottom="true"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:id="@+id/ll_purchase_section"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical"
+                                        tools:ignore="UselessParent">
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="5dp"
+                                            android:orientation="horizontal">
+
+                                            <LinearLayout
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginLeft="5dp"
+                                                android:layout_marginRight="5dp"
+                                                android:layout_weight="1"
+                                                android:orientation="vertical">
+
+                                                <TextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:fontFamily="@font/lato_regular"
+                                                    android:gravity="center_vertical"
+                                                    android:text="Enterprise*"
+                                                    android:textColor="@color/black"
+                                                    android:textSize="@dimen/fifteen_sp_txt" />
+
+                                                <LinearLayout
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="@dimen/et_and_spinner_height"
+                                                    android:layout_marginTop="1dp"
+                                                    android:background="@drawable/edittext_shape">
+
+                                                    <ScrollView
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="wrap_content">
+
+
+                                                        <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                                                            android:id="@+id/enterPrice"
+                                                            android:layout_width="match_parent"
+                                                            android:layout_height="wrap_content"
+                                                            android:layout_marginLeft="1dp"
+                                                            android:layout_marginTop="5dp"
+                                                            android:layout_marginRight="1dp"
+                                                            android:layout_marginBottom="1dp"
+                                                            android:defaultFocusHighlightEnabled="false"
+                                                            android:paddingLeft="5dp"
+                                                            android:soundEffectsEnabled="false"
+                                                            app:smsp_enableErrorLabel="false"
+                                                            app:smsp_enableFloatingLabel="false"
+                                                            app:smsp_floatingLabelColor="@color/white"
+                                                            app:smsp_hint=" Select"
+                                                            app:smsp_itemListColor="#808080"
+
+                                                            app:smsp_itemListHintBackgroundColor="#808080"
+                                                            app:smsp_itemListHintColor="#FFFFFF"
+                                                            app:smsp_multilineError="false"
+                                                            app:smsp_selectedItemListColor="#FF5252"
+                                                            app:smsp_underlineSize="0dp" />
+
+
+                                                    </ScrollView>
+                                                </LinearLayout>
+
+
+                                            </LinearLayout>
+
+
+
+                                        </LinearLayout>
+
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="5dp"
+                                            android:orientation="horizontal"
+                                            android:weightSum="2">
+
+                                            <LinearLayout
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginLeft="5dp"
+                                                android:layout_marginRight="5dp"
+                                                android:layout_weight="1"
+                                                android:orientation="vertical">
+
+                                                <TextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:fontFamily="@font/lato_regular"
+                                                    android:gravity="center_vertical"
+                                                    android:paddingLeft="3dp"
+                                                    android:text="Receivable Due"
+                                                    android:textColor="@color/black"
+                                                    android:textSize="@dimen/fifteen_sp_txt" />
+
+                                                <TextView
+                                                    android:id="@+id/receivableDue"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="@dimen/et_and_spinner_height"
+                                                    android:layout_marginTop="1dp"
+                                                    android:background="@drawable/edittext_shape"
+                                                    android:gravity="center_vertical"
+                                                    android:hint="0.0000"
+                                                    android:inputType="text"
+                                                    android:maxLines="1"
+                                                    android:paddingLeft="5dp"
+                                                    android:singleLine="true"
+                                                    android:textColor="@color/black"
+                                                    android:textColorHint="#808080"
+                                                    android:textSize="@dimen/fourteen_sp_text_size" />
+
+                                            </LinearLayout>
+
+                                            <LinearLayout
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginLeft="5dp"
+                                                android:layout_marginRight="5dp"
+                                                android:layout_weight="1"
+                                                android:orientation="vertical">
+
+                                                <TextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:fontFamily="@font/lato_regular"
+                                                    android:gravity="center_vertical"
+                                                    android:paddingLeft="3dp"
+                                                    android:text="Due Limit"
+                                                    android:textColor="@color/black"
+                                                    android:textSize="@dimen/fifteen_sp_txt" />
+
+                                                <TextView
+                                                    android:id="@+id/dueLimit"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="@dimen/et_and_spinner_height"
+                                                    android:layout_gravity="center_vertical"
+                                                    android:layout_weight="1"
+                                                    android:background="@drawable/edittext_shape"
+                                                    android:ellipsize="end"
+                                                    android:gravity="center_vertical"
+                                                    android:hint="Remaining"
+                                                    android:inputType="textShortMessage"
+                                                    android:padding="4dp"
+                                                    android:singleLine="true"
+                                                    android:textColor="@color/md_grey_800"
+                                                    android:textColorHint="@color/gray"
+                                                    android:textSize="@dimen/fourteen_sp_text_size"
+                                                    tools:ignore="Autofill" />
+                                            </LinearLayout>
+
+                                        </LinearLayout>
+
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="8dp"
+                                            android:orientation="horizontal"
+                                            android:weightSum="2">
+
+                                            <LinearLayout
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginLeft="5dp"
+                                                android:layout_marginRight="5dp"
+                                                android:layout_weight="1"
+                                                android:orientation="vertical">
+
+                                                <TextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:fontFamily="@font/lato_regular"
+                                                    android:gravity="center_vertical"
+                                                    android:paddingLeft="3dp"
+                                                    android:text="Receipt Amount"
+                                                    android:textColor="@color/black"
+                                                    android:textSize="@dimen/fifteen_sp_txt" />
+
+                                                <EditText
+                                                    android:id="@+id/paidAmountEt"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="@dimen/et_and_spinner_height"
+                                                    android:layout_marginTop="1dp"
+                                                    android:background="@drawable/edittext_shape"
+                                                    android:hint="Receipt Amount"
+                                                    android:inputType="numberDecimal"
+                                                    android:maxLines="1"
+                                                    android:paddingLeft="5dp"
+                                                    android:singleLine="true"
+                                                    android:textColor="@color/black"
+                                                    android:textColorHint="#808080"
+                                                    android:textSize="@dimen/fourteen_sp_text_size" />
+
+                                            </LinearLayout>
+
+
+                                            <LinearLayout
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginLeft="5dp"
+                                                android:layout_marginRight="5dp"
+                                                android:layout_weight="1"
+                                                android:orientation="vertical">
+
+                                                <TextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:fontFamily="@font/lato_regular"
+                                                    android:gravity="center_vertical"
+                                                    android:paddingLeft="3dp"
+                                                    android:text="Receipt Method"
+                                                    android:textColor="@color/black"
+                                                    android:textSize="@dimen/fifteen_sp_txt" />
+
+                                                <LinearLayout
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="@dimen/et_and_spinner_height"
+                                                    android:layout_marginTop="1dp"
+                                                    android:layout_weight="1"
+                                                    android:background="@drawable/edittext_shape">
+
+                                                    <ScrollView
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="wrap_content">
+
+
+                                                        <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                                                            android:id="@+id/receiptMethodTv"
+                                                            android:layout_width="match_parent"
+                                                            android:layout_height="wrap_content"
+                                                            android:layout_marginLeft="1dp"
+                                                            android:layout_marginTop="5dp"
+                                                            android:layout_marginRight="1dp"
+                                                            android:layout_marginBottom="1dp"
+                                                            android:defaultFocusHighlightEnabled="false"
+                                                            android:paddingLeft="5dp"
+                                                            android:soundEffectsEnabled="false"
+                                                            app:smsp_enableErrorLabel="false"
+                                                            app:smsp_enableFloatingLabel="false"
+                                                            app:smsp_floatingLabelColor="@color/white"
+                                                            app:smsp_hint=" Select"
+                                                            app:smsp_itemListColor="#808080"
+
+                                                            app:smsp_itemListHintBackgroundColor="#808080"
+                                                            app:smsp_itemListHintColor="#FFFFFF"
+                                                            app:smsp_multilineError="false"
+                                                            app:smsp_selectedItemListColor="#FF5252"
+                                                            app:smsp_underlineSize="0dp" />
+
+
+                                                    </ScrollView>
+                                                </LinearLayout>
+
+
+                                            </LinearLayout>
+
+                                        </LinearLayout>
+
+
+                                        <!--                        /-->
+
+
+                                        <LinearLayout
+                                            android:id="@+id/subPaymentAll"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:orientation="vertical"
+                                            android:visibility="gone">
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="8dp"
+                                                android:orientation="horizontal">
+
+                                                <LinearLayout
+                                                    android:layout_width="0dp"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginLeft="5dp"
+                                                    android:layout_marginRight="5dp"
+                                                    android:layout_weight="1"
+                                                    android:orientation="vertical">
+
+                                                    <TextView
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:fontFamily="@font/lato_regular"
+                                                        android:gravity="center_vertical"
+                                                        android:paddingLeft="3dp"
+                                                        android:text="Receipt Sub Method"
+                                                        android:textColor="@color/black"
+                                                        android:textSize="@dimen/fifteen_sp_txt" />
+
+
+                                                    <LinearLayout
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="@dimen/et_and_spinner_height"
+                                                        android:layout_marginTop="1dp"
+                                                        android:layout_weight="1"
+                                                        android:background="@drawable/edittext_shape">
+
+                                                        <ScrollView
+                                                            android:layout_width="match_parent"
+                                                            android:layout_height="wrap_content">
+
+
+                                                            <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                                                                android:id="@+id/receiptSubMethod"
+                                                                android:layout_width="match_parent"
+                                                                android:layout_height="wrap_content"
+                                                                android:layout_marginLeft="1dp"
+                                                                android:layout_marginTop="5dp"
+                                                                android:layout_marginRight="1dp"
+                                                                android:layout_marginBottom="1dp"
+                                                                android:defaultFocusHighlightEnabled="false"
+                                                                android:paddingLeft="5dp"
+                                                                android:soundEffectsEnabled="false"
+                                                                app:smsp_enableErrorLabel="false"
+                                                                app:smsp_enableFloatingLabel="false"
+                                                                app:smsp_floatingLabelColor="@color/white"
+                                                                app:smsp_hint=" Select"
+                                                                app:smsp_itemListColor="#808080"
+
+                                                                app:smsp_itemListHintBackgroundColor="#808080"
+                                                                app:smsp_itemListHintColor="#FFFFFF"
+                                                                app:smsp_multilineError="false"
+                                                                app:smsp_selectedItemListColor="#FF5252"
+                                                                app:smsp_underlineSize="0dp" />
+
+
+                                                        </ScrollView>
+                                                    </LinearLayout>
+
+
+                                                </LinearLayout>
+
+                                                <LinearLayout
+                                                    android:layout_width="0dp"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginLeft="5dp"
+                                                    android:layout_marginRight="5dp"
+                                                    android:layout_weight="1"
+                                                    android:orientation="vertical">
+
+                                                    <TextView
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:fontFamily="@font/lato_regular"
+                                                        android:gravity="center_vertical"
+                                                        android:paddingLeft="3dp"
+                                                        android:text="Select Bank"
+                                                        android:textColor="@color/black"
+                                                        android:textSize="@dimen/fifteen_sp_txt" />
+
+                                                    <LinearLayout
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="@dimen/et_and_spinner_height"
+                                                        android:layout_marginTop="1dp"
+                                                        android:layout_weight="1"
+                                                        android:background="@drawable/edittext_shape">
+
+                                                        <ScrollView
+                                                            android:layout_width="match_parent"
+                                                            android:layout_height="wrap_content">
+
+
+                                                            <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                                                                android:id="@+id/selectBankTv"
+                                                                android:layout_width="match_parent"
+                                                                android:layout_height="wrap_content"
+                                                                android:layout_marginLeft="1dp"
+                                                                android:layout_marginTop="5dp"
+                                                                android:layout_marginRight="1dp"
+                                                                android:layout_marginBottom="1dp"
+                                                                android:defaultFocusHighlightEnabled="false"
+                                                                android:paddingLeft="5dp"
+                                                                android:soundEffectsEnabled="false"
+                                                                app:smsp_enableErrorLabel="false"
+                                                                app:smsp_enableFloatingLabel="false"
+                                                                app:smsp_floatingLabelColor="@color/white"
+                                                                app:smsp_hint=" Select"
+                                                                app:smsp_itemListColor="#808080"
+
+                                                                app:smsp_itemListHintBackgroundColor="#808080"
+                                                                app:smsp_itemListHintColor="#FFFFFF"
+                                                                app:smsp_multilineError="false"
+                                                                app:smsp_selectedItemListColor="#FF5252"
+                                                                app:smsp_underlineSize="0dp" />
+
+
+                                                        </ScrollView>
+                                                    </LinearLayout>
+
+
+                                                </LinearLayout>
+
+                                            </LinearLayout>
+
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginLeft="5dp"
+                                                android:layout_marginTop="8dp"
+                                                android:layout_marginRight="5dp"
+                                                android:layout_marginBottom="1dp"
+                                                android:orientation="vertical"
+                                                android:weightSum="2">
+
+                                                <TextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_gravity="center_vertical"
+                                                    android:layout_weight="1"
+                                                    android:fontFamily="@font/lato_regular"
+                                                    android:maxLines="1"
+                                                    android:paddingStart="0dp"
+                                                    android:paddingTop="0dp"
+                                                    android:paddingEnd="2dp"
+                                                    android:paddingBottom="0dp"
+                                                    android:singleLine="true"
+                                                    android:text="Select Account No"
+                                                    android:textColor="@color/colorBlack"
+                                                    android:textSize="@dimen/fourteen_sp_text_size"
+                                                    tools:ignore="HardcodedText" />
+
+
+                                                <LinearLayout
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="@dimen/et_and_spinner_height"
+                                                    android:layout_marginTop="1dp"
+                                                    android:layout_weight="1"
+
+                                                    android:background="@drawable/edittext_shape">
+
+                                                    <ScrollView
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="wrap_content">
+
+
+                                                        <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                                                            android:id="@+id/SelectAccountNoTv"
+                                                            android:layout_width="match_parent"
+                                                            android:layout_height="wrap_content"
+                                                            android:layout_marginLeft="1dp"
+                                                            android:layout_marginTop="5dp"
+                                                            android:layout_marginRight="1dp"
+                                                            android:layout_marginBottom="1dp"
+                                                            android:defaultFocusHighlightEnabled="false"
+                                                            android:paddingLeft="5dp"
+                                                            android:soundEffectsEnabled="false"
+                                                            app:smsp_enableErrorLabel="false"
+                                                            app:smsp_enableFloatingLabel="false"
+                                                            app:smsp_floatingLabelColor="@color/white"
+                                                            app:smsp_hint=" Select"
+                                                            app:smsp_itemListColor="#808080"
+
+                                                            app:smsp_itemListHintBackgroundColor="#808080"
+                                                            app:smsp_itemListHintColor="#FFFFFF"
+                                                            app:smsp_multilineError="false"
+                                                            app:smsp_selectedItemListColor="#FF5252"
+                                                            app:smsp_underlineSize="0dp" />
+
+
+                                                    </ScrollView>
+                                                </LinearLayout>
+
+
+                                            </LinearLayout>
+                                        </LinearLayout>
+
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="8dp"
+                                            android:orientation="horizontal"
+                                            android:weightSum="2">
+
+                                            <LinearLayout
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginLeft="5dp"
+                                                android:layout_marginRight="5dp"
+                                                android:layout_weight="1"
+                                                android:orientation="vertical">
+
+                                                <TextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:fontFamily="@font/lato_regular"
+                                                    android:gravity="center_vertical"
+                                                    android:paddingLeft="3dp"
+                                                    android:text="Total Due"
+                                                    android:textColor="@color/black"
+                                                    android:textSize="@dimen/fifteen_sp_txt" />
+
+                                                <TextView
+                                                    android:id="@+id/totalDue"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="@dimen/et_and_spinner_height"
+                                                    android:layout_marginTop="1dp"
+                                                    android:background="@drawable/edittext_shape"
+                                                    android:gravity="center_vertical"
+                                                    android:hint="00.0000"
+                                                    android:inputType="text"
+                                                    android:maxLines="1"
+                                                    android:paddingLeft="5dp"
+                                                    android:singleLine="true"
+                                                    android:textAlignment="gravity"
+                                                    android:textColor="@color/black"
+                                                    android:textColorHint="#808080"
+                                                    android:textSize="@dimen/fourteen_sp_text_size" />
+
+                                            </LinearLayout>
+
+                                            <LinearLayout
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginLeft="5dp"
+                                                android:layout_marginRight="5dp"
+                                                android:layout_weight="1"
+                                                android:orientation="vertical">
+
+                                                <TextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:fontFamily="@font/lato_regular"
+                                                    android:gravity="center_vertical"
+                                                    android:paddingLeft="3dp"
+                                                    android:text="Date"
+                                                    android:textColor="@color/black"
+                                                    android:textSize="@dimen/fifteen_sp_txt" />
+
+                                                <TextView
+                                                    android:id="@+id/date"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="@dimen/et_and_spinner_height"
+                                                    android:layout_gravity="center_vertical"
+                                                    android:layout_weight="1"
+                                                    android:background="@drawable/edittext_shape"
+                                                    android:drawableEnd="@drawable/calender"
+                                                    android:ellipsize="end"
+                                                    android:focusable="false"
+                                                    android:focusableInTouchMode="false"
+                                                    android:gravity="center_vertical"
+                                                    android:hint="2020-12-13"
+                                                    android:inputType="numberDecimal"
+                                                    android:maxLines="1"
+                                                    android:padding="5dp"
+                                                    android:singleLine="true"
+                                                    android:textColor="@color/md_grey_800"
+                                                    android:textColorHint="@color/gray"
+                                                    android:textSize="@dimen/fourteen_sp_text_size"
+                                                    tools:ignore="Autofill" />
+
+                                            </LinearLayout>
+
+                                        </LinearLayout>
+
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="5dp"
+                                            android:layout_marginTop="8dp"
+                                            android:layout_marginRight="5dp"
+                                            android:layout_marginBottom="1dp"
+                                            android:gravity="end"
+                                            android:orientation="vertical"
+                                            android:weightSum="2">
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_vertical"
+                                                android:layout_weight="1">
+
+                                                <TextView
+                                                    android:id="@+id/tv_discount_title"
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_gravity="center_vertical"
+                                                    android:fontFamily="@font/lato_regular"
+                                                    android:text="Receipt Remarks"
+                                                    android:textColor="@color/black"
+                                                    android:textSize="@dimen/fifteen_sp_txt"
+                                                    tools:ignore="HardcodedText" />
+
+                                            </LinearLayout>
+
+                                            <EditText
+                                                android:id="@+id/ReceiptRemarks"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="@dimen/fifty_height_et"
+                                                android:layout_weight="1"
+                                                android:background="@drawable/edittext_shape"
+                                                android:buttonTint="@color/gray"
+                                                android:gravity="start"
+                                                android:padding="5dp"
+                                                android:hint="Receipt Remarks"
+                                                android:textColorHint="@color/gray"
+                                                android:textColor="@color/black"
+                                                android:textSize="@dimen/fourteen_sp_text_size"
+                                                tools:ignore="UnusedAttribute" />
+
+                                        </LinearLayout>
+
+                                    </LinearLayout>
+
+                                    <Button
+                                        android:id="@+id/saveBtn"
+                                        android:layout_width="150dp"
+                                        android:layout_height="40dp"
+                                        android:layout_gravity="right"
+                                        android:layout_marginTop="10dp"
+                                        android:background="@drawable/filter_btn_shape"
+                                        android:text="Save"
+                                        android:textAllCaps="false" />
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+            </androidx.core.widget.NestedScrollView>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</ScrollView>
+</RelativeLayout>

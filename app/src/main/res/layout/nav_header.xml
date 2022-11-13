@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:background="#1297F0"
+    android:gravity="bottom"
+    android:orientation="vertical"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#33000000"
+            tools:ignore="UselessParent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="35dp"
+                android:layout_marginEnd="3dp"
+                android:layout_marginBottom="20dp"
+                android:scaleType="fitEnd"
+                app:srcCompat="@drawable/eye1"
+                tools:ignore="ContentDescription" />
+
+            <LinearLayout
+                android:id="@+id/ll_nav_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="20dp"
+                android:orientation="vertical">
+
+                <com.blogspot.atifsoftwares.circularimageview.CircularImageView
+                    android:id="@+id/currentUserImage"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/ic_logo_goti"
+                    app:c_border_color="#FFFF"
+                    app:c_border_width="1dp" />
+
+                <TextView
+                    android:id="@+id/currentUsername"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:text="shahriar"
+                    android:textColor="#ffff"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/currentUserPhone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="shahriar solt"
+                    android:textColor="#FFFF"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

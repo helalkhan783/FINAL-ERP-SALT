@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:elevation="5dp"
+    app:cardBackgroundColor="@color/colorWhite"
+    app:cardCornerRadius="5dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:orientation="vertical"
+        android:padding="5dp"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false" android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="2dp">
+
+                <TextView
+                    android:id="@+id/tv_company_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/thirteen_sp_size"
+                    tools:text="AgamiSoft Limited" />
+
+                <TextView
+                    android:id="@+id/tv_owner_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/thirteen_sp_size"
+                    tools:text="AgamiSoft" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="2dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="Total Paid"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/thirteen_sp_size"
+
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/tv_total_paid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/thirteen_sp_size"
+                    tools:text="1212 TK" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+             android:baselineAligned="false" android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="2dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="Total Due"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/thirteen_sp_size"
+
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/tv_total_due"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/thirteen_sp_size"
+                    tools:text="1000 TK" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="2dp">
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="Payment Limit"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/thirteen_sp_size"
+
+                    tools:ignore="HardcodedText" />
+
+                <EditText
+                    android:id="@+id/payment_limit_edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/thirty_dp_et_size"
+                    android:layout_marginTop="2dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/edittext_shape"
+                    android:ems="10"
+                    android:enabled="false"
+                    android:hint="0.00"
+                    android:paddingStart="8dp"
+                    android:paddingTop="3dp"
+                    android:paddingEnd="8dp"
+                    android:paddingBottom="4dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/md_grey_600"
+                    android:textSize="@dimen/thirteen_sp_size"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/payment_limit_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/thirteen_sp_size"
+
+                     tools:text="500 TK" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

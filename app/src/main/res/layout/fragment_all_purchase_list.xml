@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        tools:context="com.ismos_salt_erp.view.fragment.purchase.AllPurchaseListFragment">
+
+        <include
+
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_binding" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <net.cachapa.expandablelayout.ExpandableLayout
+                android:id="@+id/expandableView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:el_duration="800"
+                app:el_parallax=".5">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <include
+                        android:id="@+id/sale"
+                        layout="@layout/purchase_filter_layout" />
+
+                </LinearLayout>
+
+
+            </net.cachapa.expandablelayout.ExpandableLayout>
+
+            <TextView
+                android:id="@+id/dataNotFound"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Data Not Found"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:visibility="gone" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/purchaserRv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <ProgressBar
+                android:id="@+id/progress"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:visibility="gone" />
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

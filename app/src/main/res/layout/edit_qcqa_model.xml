@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/border"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:fontFamily="@font/lato_regular"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text="Test Name"
+                    android:textColor="@color/switch_color"
+                    android:textSize="@dimen/fifteen_sp_txt" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="1dp"
+                    android:background="@drawable/edittext_shape">
+
+                    <ScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                            android:id="@+id/testName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="1dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginRight="1dp"
+                            android:layout_marginBottom="1dp"
+                            android:defaultFocusHighlightEnabled="false"
+                            android:paddingLeft="5dp"
+                            android:soundEffectsEnabled="false"
+                            android:textSize="@dimen/thirteen_sp_size"
+                            app:smsp_enableErrorLabel="false"
+                            app:smsp_enableFloatingLabel="false"
+                            app:smsp_floatingLabelColor="@color/white"
+                            app:smsp_hint=" Select"
+                            app:smsp_itemListColor="#808080"
+                            app:smsp_itemListHintBackgroundColor="#808080"
+                            app:smsp_itemListHintColor="#FFFFFF"
+                            app:smsp_multilineError="false"
+                            app:smsp_selectedItemListColor="#FF5252"
+                            app:smsp_underlineSize="0dp" />
+
+
+                    </ScrollView>
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:fontFamily="@font/lato_regular"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text="Short Name"
+                    android:textColor="@color/switch_color"
+                    android:textSize="@dimen/fifteen_sp_txt" />
+
+                <TextView
+                    android:id="@+id/shortName"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_weight="1.5"
+                    android:background="@drawable/edittext_shape"
+                    android:gravity="center_vertical"
+                    android:hint="Short name"
+                    android:paddingLeft="5dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray"
+                    android:textSize="@dimen/thirteen_sp_size" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:fontFamily="@font/lato_regular"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text="Sample Name"
+                    android:textColor="@color/switch_color"
+                    android:textSize="@dimen/fifteen_sp_txt" />
+
+                <TextView
+                    android:id="@+id/sampleName"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:background="@drawable/edittext_shape"
+                    android:gravity="center_vertical"
+                    android:hint="Reference"
+                    android:paddingLeft="5dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray"
+                    android:textSize="@dimen/fourteen_sp_text_size" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:fontFamily="@font/lato_regular"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text="Value"
+                    android:textColor="@color/switch_color"
+                    android:textSize="@dimen/fifteen_sp_txt" />
+
+                <EditText
+                    android:id="@+id/value"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_weight="1.5"
+                    android:background="@drawable/edittext_shape"
+                    android:gravity="center_vertical"
+                    android:hint="Parameter Value"
+                    android:paddingLeft="10dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray"
+                    android:textSize="@dimen/fourteen_sp_text_size" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</layout>

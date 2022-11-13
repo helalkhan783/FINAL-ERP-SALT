@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="com.ismos_salt_erp.view.fragment.salesRequisition.SalesRequisitionListFragment">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/management_toolbar" />
+
+
+    <TextView
+        android:id="@+id/noDataFound"
+        android:visibility="gone"
+        android:textSize="25sp"
+        android:gravity="center"
+        android:text="No Data Found !"
+        android:textColor="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/requisitionListRv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

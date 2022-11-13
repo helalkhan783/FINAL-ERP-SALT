@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context="com.ismos_salt_erp.view.fragment.PendingExpenseDetails">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/management_toolbar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:weightSum="2">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".8"
+                android:text="Expense Details"
+                android:textColor="@color/black"
+                android:textSize="@dimen/fourteen_sp_text_size"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/enterPriseDetails"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.2"
+                android:text=""
+                android:textColor="@color/gray"
+                android:textSize="@dimen/fourteen_sp_text_size" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:weightSum="2">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".8"
+                android:text="Enterprise"
+                android:textColor="@color/black"
+                android:textSize="@dimen/fourteen_sp_text_size"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/enterPriseName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.2"
+                android:text=""
+                android:textColor="@color/gray"
+                android:textSize="@dimen/fourteen_sp_text_size" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:weightSum="2">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".8"
+                android:text="Total Amount"
+                android:textColor="@color/black"
+                android:textSize="@dimen/fourteen_sp_text_size"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/totalAmount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.2"
+                android:text=""
+                android:textColor="@color/gray"
+                android:textSize="@dimen/fourteen_sp_text_size" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:weightSum="2">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".8"
+                android:text="Paid Amount"
+                android:textColor="@color/black"
+                android:textSize="@dimen/fourteen_sp_text_size"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/paidAmountEt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.2"
+                android:text=""
+                android:textColor="@color/gray"
+                android:textSize="@dimen/fourteen_sp_text_size" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:weightSum="2">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".8"
+                android:text="Vendor"
+                android:textColor="@color/black"
+                android:textSize="@dimen/fourteen_sp_text_size"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/vendor"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.2"
+                android:text=""
+                android:textColor="@color/gray"
+                android:textSize="@dimen/fourteen_sp_text_size" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:weightSum="2">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".8"
+                android:text="Type"
+                android:textColor="@color/black"
+                android:textSize="@dimen/fourteen_sp_text_size"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/type"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.2"
+                android:text=""
+                android:textColor="@color/gray"
+                android:textSize="@dimen/fourteen_sp_text_size" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:weightSum="2">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".8"
+                android:text="Entry Date"
+                android:textColor="@color/black"
+                android:textSize="@dimen/fourteen_sp_text_size"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/entryDate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.2"
+                android:text=""
+                android:textColor="@color/gray"
+                android:textSize="@dimen/fourteen_sp_text_size" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="5dp"
+                android:layout_weight=".8"
+                android:text="Processed By"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.2"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text=": " />
+
+                <com.blogspot.atifsoftwares.circularimageview.CircularImageView
+                    android:id="@+id/processByImg"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="0.0001"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/agamisoft_logo"
+                    android:text="note"
+                    android:textColor="@color/gray"
+                    app:c_border_color="#691971"
+                    app:c_border_width="1dp"
+                    app:civ_border="true" />
+
+                <TextView
+                    android:id="@+id/processByName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="11dp"
+                    android:layout_weight="0.5"
+                    android:maxLines="1"
+                    android:text="name"
+                    android:textColor="@color/gray" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/gray" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Pending Expense List"
+            android:textColor="#444514"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/pendingExpenseRv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/approvalOption"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_alignParentBottom="true"
+        android:background="#FFFF"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <EditText
+            android:id="@+id/noteEditText"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/border"
+            android:hint="Note"
+            android:imeOptions="actionDone"
+            android:maxLines="2"
+            android:paddingLeft="5dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/gray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+
+            <Button
+                android:id="@+id/approveBtn"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="#EFAEF5"
+                android:text="Approve"
+                android:textAllCaps="false"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/declineBtn"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="#EFAEF5"
+                android:text="Decline"
+                android:textAllCaps="false"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

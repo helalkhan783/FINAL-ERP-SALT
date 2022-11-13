@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/head"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:drawableRight="@drawable/ic_arrow_drop_down_black_24dp"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="Head"
+            android:textColor="#0396DC"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <net.cachapa.expandablelayout.ExpandableLayout
+            android:id="@+id/expandable_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:el_duration="500"
+            app:el_expanded="false"
+            app:el_parallax="0.5">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/itemRv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </net.cachapa.expandablelayout.ExpandableLayout>
+    </LinearLayout>
+</layout>

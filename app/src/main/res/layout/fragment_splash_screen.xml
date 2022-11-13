@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/splash_screen_shape"
+    android:orientation="vertical"
+    tools:context="com.ismos_salt_erp.view.fragment.SplashScreen">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="200dp"
+        android:layout_height="150dp"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="20dp"
+        android:contentDescription="TODO"
+        android:gravity="center"
+        android:src="@drawable/toolbar_image1"
+        android:textColor="@color/black" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:gravity="center_horizontal"
+                android:src="@drawable/agamisoft_logo" />
+            <View
+                android:layout_width="2dp"
+                android:layout_height="30dp"
+                android:background="@color/app_color"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="5dp"
+                android:layout_gravity="center_vertical"/>
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="100dp"
+                android:padding="10dp"
+                android:gravity="center_horizontal"
+                android:src="@drawable/ismos" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

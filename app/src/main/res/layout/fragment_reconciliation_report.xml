@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        tools:context=".view.fragment.all_report.reconcilation_report.ReconciliationReportFragment">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_binding" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:backgroundTint="@color/white"
+                android:elevation="4dp"
+                app:cardCornerRadius="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical"
+                            android:weightSum="2">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:text="@string/start_date"
+                                android:textColor="@color/black" />
+
+                            <TextView
+                                android:id="@+id/startDate"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/et_and_spinner_height"
+                                android:layout_weight="1"
+                                android:background="@drawable/edittext_shape"
+                                android:gravity="center_vertical"
+                                android:hint="mm/dd/YY"
+                                android:paddingLeft="10dp"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/gray"
+                                android:textSize="@dimen/fourteen_sp_text_size" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical"
+                            android:weightSum="2">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:text="@string/end_date"
+                                android:textColor="@color/black" />
+
+                            <TextView
+                                android:id="@+id/EndDate"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/et_and_spinner_height"
+                                android:layout_weight="1"
+                                android:background="@drawable/edittext_shape"
+                                android:gravity="center_vertical"
+                                android:hint="mm/dd/YY"
+                                android:paddingLeft="10dp"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/gray"
+                                android:textSize="@dimen/fourteen_sp_text_size" />
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/reconciliationAndStoctLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="145dp"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/lato_regular"
+                                    android:gravity="center_vertical"
+                                    android:paddingLeft="3dp"
+                                    android:text="Enterprise"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/fifteen_sp_txt" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/et_and_spinner_height"
+                                    android:layout_marginTop="1dp"
+                                    android:background="@drawable/edittext_shape">
+
+                                    <ScrollView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content">
+
+
+                                        <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                                            android:id="@+id/miller"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="1dp"
+                                            android:layout_marginTop="5dp"
+                                            android:layout_marginRight="1dp"
+                                            android:layout_marginBottom="1dp"
+                                            android:defaultFocusHighlightEnabled="false"
+                                            android:paddingLeft="5dp"
+                                            android:soundEffectsEnabled="false"
+                                            app:smsp_enableErrorLabel="false"
+                                            app:smsp_enableFloatingLabel="false"
+                                            app:smsp_floatingLabelColor="@color/white"
+                                            app:smsp_hint=" Select"
+                                            app:smsp_itemListColor="#808080"
+
+                                            app:smsp_itemListHintBackgroundColor="#808080"
+                                            app:smsp_itemListHintColor="#FFFFFF"
+                                            app:smsp_multilineError="false"
+                                            app:smsp_selectedItemListColor="#FF5252"
+                                            app:smsp_underlineSize="0dp" />
+
+
+                                    </ScrollView>
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/reconciliationTypeLayout"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="145dp"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/lato_regular"
+                                    android:gravity="center_vertical"
+                                    android:singleLine="true"
+                                    android:text="Reconciliation Type"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/fifteen_sp_txt" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/et_and_spinner_height"
+                                    android:layout_marginTop="1dp"
+                                    android:background="@drawable/edittext_shape">
+
+                                    <ScrollView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content">
+
+
+                                        <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                                            android:id="@+id/selectReconciliation"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="1dp"
+                                            android:layout_marginTop="5dp"
+                                            android:layout_marginRight="1dp"
+                                            android:layout_marginBottom="1dp"
+                                            android:defaultFocusHighlightEnabled="false"
+                                            android:paddingLeft="5dp"
+                                            android:soundEffectsEnabled="false"
+                                            app:smsp_enableErrorLabel="false"
+                                            app:smsp_enableFloatingLabel="false"
+                                            app:smsp_floatingLabelColor="@color/white"
+                                            app:smsp_hint=" Select"
+                                            app:smsp_itemListColor="#808080"
+
+                                            app:smsp_itemListHintBackgroundColor="#808080"
+                                            app:smsp_itemListHintColor="#FFFFFF"
+                                            app:smsp_multilineError="false"
+                                            app:smsp_selectedItemListColor="#FF5252"
+                                            app:smsp_underlineSize="0dp" />
+
+
+                                    </ScrollView>
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+                            <LinearLayout
+                                android:visibility="gone"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="145dp"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/lato_regular"
+                                    android:gravity="center_vertical"
+                                    android:paddingLeft="3dp"
+                                    android:text="Store"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/fifteen_sp_txt" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="35dp"
+                                    android:layout_marginTop="1dp"
+                                    android:background="@drawable/edittext_shape">
+
+                                    <ScrollView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content">
+
+
+                                        <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                                            android:id="@+id/selectStore"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="1dp"
+                                            android:layout_marginTop="5dp"
+                                            android:layout_marginRight="1dp"
+                                            android:layout_marginBottom="1dp"
+                                            android:defaultFocusHighlightEnabled="false"
+                                            android:paddingLeft="5dp"
+                                            android:soundEffectsEnabled="false"
+                                            app:smsp_enableErrorLabel="false"
+                                            app:smsp_enableFloatingLabel="false"
+                                            app:smsp_floatingLabelColor="@color/white"
+                                            app:smsp_hint=" Select"
+                                            app:smsp_itemListColor="#808080"
+
+                                            app:smsp_itemListHintBackgroundColor="#808080"
+                                            app:smsp_itemListHintColor="#FFFFFF"
+                                            app:smsp_multilineError="false"
+                                            app:smsp_selectedItemListColor="#FF5252"
+                                            app:smsp_underlineSize="0dp" />
+
+
+                                    </ScrollView>
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:visibility="gone"
+                                android:id="@+id/associationLayout"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="100dp"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/lato_regular"
+                                    android:gravity="center_vertical"
+                                    android:singleLine="true"
+                                    android:text="Association"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/fifteen_sp_txt" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="35dp"
+                                    android:layout_marginTop="1dp"
+                                    android:background="@drawable/edittext_shape">
+
+                                    <ScrollView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content">
+
+
+                                        <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                                            android:id="@+id/selectAssociation"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="1dp"
+                                            android:layout_marginTop="5dp"
+                                            android:layout_marginRight="1dp"
+                                            android:layout_marginBottom="1dp"
+                                            android:defaultFocusHighlightEnabled="false"
+                                            android:paddingLeft="5dp"
+
+                                            android:soundEffectsEnabled="false"
+                                            app:smsp_enableErrorLabel="false"
+                                            app:smsp_enableFloatingLabel="false"
+                                            app:smsp_floatingLabelColor="@color/white"
+                                            app:smsp_hint=" Select"
+                                            app:smsp_itemListColor="#808080"
+
+                                            app:smsp_itemListHintBackgroundColor="#808080"
+                                            app:smsp_itemListHintColor="#FFFFFF"
+                                            app:smsp_multilineError="false"
+                                            app:smsp_selectedItemListColor="#FF5252"
+                                            app:smsp_underlineSize="0dp" />
+
+
+                                    </ScrollView>
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="100dp"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/lato_regular"
+                                    android:gravity="center_vertical"
+                                    android:singleLine="true"
+                                    android:text="Item"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/fifteen_sp_txt" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/et_and_spinner_height"
+                                    android:layout_marginTop="1dp"
+                                    android:background="@drawable/edittext_shape">
+
+                                    <ScrollView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content">
+
+
+                                        <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                                            android:id="@+id/selectItem"
+                                            app:smsp_isSearchable="true"
+                                            app:smsp_searchTextColor="@color/black"
+                                            app:smsp_arrowPaddingLeft="10dp"
+                                            app:smsp_searchHintColor="@color/gray"
+                                            app:smsp_dismissSearchText="cross"
+                                            app:smsp_enableSearchHeader="false"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="1dp"
+                                            android:layout_marginTop="5dp"
+                                            android:layout_marginRight="1dp"
+                                            android:layout_marginBottom="1dp"
+                                            android:defaultFocusHighlightEnabled="false"
+                                            android:paddingLeft="5dp"
+                                            android:soundEffectsEnabled="false"
+                                            app:smsp_enableErrorLabel="false"
+                                            app:smsp_enableFloatingLabel="false"
+                                            app:smsp_floatingLabelColor="@color/white"
+                                            app:smsp_hint=" Select"
+                                            app:smsp_itemListColor="#808080"
+
+                                            app:smsp_itemListHintBackgroundColor="#808080"
+                                            app:smsp_itemListHintColor="#FFFFFF"
+                                            app:smsp_multilineError="false"
+                                            app:smsp_selectedItemListColor="#FF5252"
+                                            app:smsp_underlineSize="0dp" />
+
+
+                                    </ScrollView>
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="100dp"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/lato_regular"
+                                    android:gravity="center_vertical"
+                                    android:paddingLeft="3dp"
+                                    android:text="Brand"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/fifteen_sp_txt" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/et_and_spinner_height"
+                                    android:layout_marginTop="1dp"
+                                    android:background="@drawable/edittext_shape">
+
+                                    <ScrollView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content">
+
+
+                                        <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                                            android:id="@+id/selectBrand"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="1dp"
+                                            android:layout_marginTop="5dp"
+                                            android:layout_marginRight="1dp"
+                                            android:layout_marginBottom="1dp"
+                                            android:defaultFocusHighlightEnabled="false"
+                                            android:paddingLeft="5dp"
+                                            android:soundEffectsEnabled="false"
+                                            app:smsp_enableErrorLabel="false"
+                                            app:smsp_enableFloatingLabel="false"
+                                            app:smsp_floatingLabelColor="@color/white"
+                                            app:smsp_hint=" Select"
+                                            app:smsp_itemListColor="#808080"
+
+                                            app:smsp_itemListHintBackgroundColor="#808080"
+                                            app:smsp_itemListHintColor="#FFFFFF"
+                                            app:smsp_multilineError="false"
+                                            app:smsp_selectedItemListColor="#FF5252"
+                                            app:smsp_underlineSize="0dp" />
+
+
+                                    </ScrollView>
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:visibility="gone"
+                        android:id="@+id/transferReportLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <include
+                            android:id="@+id/accessForField"
+                            layout="@layout/transfer_report_layout"
+                            />
+
+                    </LinearLayout>
+                    <Button
+                        android:id="@+id/search"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_weight=".5"
+                        android:background="@drawable/filter_btn_shape"
+                        android:text="Search" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/reportPurchaseRv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone" />
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</layout>

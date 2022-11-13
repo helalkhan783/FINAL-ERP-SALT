@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_radius"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp">
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/md_grey_900"
+                android:textSize="16dp"
+                android:fontFamily="sans-serif"
+                android:textStyle="bold"
+                android:padding="5dp"
+                tools:text="Discount"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/ln_input"
+                android:layout_below="@id/tv_title">
+
+                <EditText
+                    android:id="@+id/et_input"
+                    android:layout_width="0dp"
+                    android:layout_weight="3"
+                    android:layout_height="wrap_content"
+                    android:minHeight="40dp"
+                    android:hint="Enter discount"
+                    android:textColor="@color/md_grey_900"
+                    android:textSize="16dp"
+                    android:background="@null"
+                    android:inputType="numberDecimal"
+                    android:fontFamily="sans-serif"
+                    android:singleLine="true"
+                    android:scrollbars="vertical"
+                    android:nestedScrollingEnabled="true"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="10dp"
+                    android:padding="5dp"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="start">
+
+                    <CheckBox
+                        android:id="@+id/cb_percentage"
+                        android:buttonTint="@color/black"
+                        android:textColor="@color/black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14dp"
+                        android:text="Percentage"/>
+
+                    <CheckBox
+                        android:id="@+id/cb_amount"
+                        android:buttonTint="@color/black"
+                        android:textColor="@color/black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14dp"
+                        android:text="Amount"/>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="OK"
+                android:visibility="gone"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@android:color/holo_blue_light"
+                android:fontFamily="sans-serif-light"
+                android:background="@color/colorWhite"
+                android:layout_below="@+id/ln_input"
+                android:layout_marginTop="10dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@+id/ln_input"
+                android:layout_marginTop="20dp"
+                android:layout_alignParentEnd="true">
+
+                <Button
+                    android:id="@+id/btn_neg"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Cancel"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@android:color/holo_red_dark"
+                    android:fontFamily="sans-serif"
+                    style="@style/Widget.AppCompat.Button.Borderless"/>
+
+                <Button
+                    android:id="@+id/btn_pos"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="OK"
+                    android:layout_marginStart="10dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@android:color/holo_blue_light"
+                    android:fontFamily="sans-serif"
+                    style="@style/Widget.AppCompat.Button.Borderless"/>
+
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

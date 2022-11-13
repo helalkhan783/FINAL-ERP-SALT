@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="clickHandle"
+            type="com.ismos_salt_erp.clickHandle.NewSaleProductListClickHandle" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="2dp"
+            android:background="#DFD7D7"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#DFD7D7"
+                android:weightSum="3">
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".5"
+                    android:background="#DFD7D7"
+
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:id="@+id/itemName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/ok"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="2dp"
+                        android:paddingRight="2dp"
+                        android:text=" asfg "
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/ten" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".65"
+                    android:background="#DFD7D7"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="12000088,0000"
+                        android:textColor="@color/black"
+                        android:textSize="11dp" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".6"
+                    android:background="#DFD7D7"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/quantity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="12000,000"
+                        android:textColor="@color/black"
+                        android:textSize="11dp" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".65"
+                    android:background="#DFD7D7"
+                    android:gravity="center">
+
+                    <LinearLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+                        <EditText
+                            android:id="@+id/returnQuantity"
+                            inputType="numberDecimel"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:background="@drawable/rac_shape_three"
+
+                            android:hint="0.00"
+                            android:inputType="numberDecimal"
+                            android:textAlignment="center"
+                            android:textColor="@color/app_color"
+                            android:textColorHint="@color/app_color"
+                            android:textSize="@dimen/twelve_sp_txt_size" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".6"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/total"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:gravity="center"
+                        android:paddingLeft="10dp"
+                        android:text="200"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/twelve_sp_txt_size" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/subTotal"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="0"
+                android:textColor="@color/black"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

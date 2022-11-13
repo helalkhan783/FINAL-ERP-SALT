@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="five">5dp</dimen>
+    <dimen name="thirteen">13sp</dimen>
+    <dimen name="ten">10dp</dimen>
+    <dimen name="fourteen_sp_text_size">14sp</dimen>
+    <dimen name="sixteen_sp_tx_size">16sp</dimen>
+    <dimen name="fifteen_sp_txt">15sp</dimen>
+    <dimen name="fifteen_sp">15sp</dimen>
+    <dimen name="thirteen_sp_size">12sp</dimen>
+    <dimen name="et_and_spinner_height">35dp</dimen>
+    <dimen name="et_and_spinner_40_size">40dp</dimen>
+    <dimen name="fifty_height_et">50dp</dimen>
+    <dimen name="thirteen_sp_txt_size">13sp</dimen>
+    <dimen name="thirty_five_input_field_size">40dp</dimen>
+    <dimen name="thirty_dp_et_size">30dp</dimen>
+    <dimen name="fourty_dp_btn">40dp</dimen>
+    <dimen name="sixteen_sp_size">16sp</dimen>
+    <dimen name="thirty_et_size">30dp</dimen>
+    <dimen name="spinner_height">35dp</dimen>
+    <dimen name="twelve_sp_txt_size">12sp</dimen>
+    <dimen name="thirty_five_tv_size">35dp</dimen>
+    <dimen name="eleven_txt_size">11sp</dimen>
+    <dimen name="two_dp_top">2dp</dimen>
+    <dimen name="ten_pading">10dp</dimen>
+    <dimen name="five_dp_pading">5dp</dimen>
+    <dimen name="two_dp_pading">4dp</dimen>
+    <dimen name="ten_sp_txt_size">10sp</dimen>
+    <dimen name="padding_15">15dp</dimen>
+    <dimen name="popup_hieght">35dp</dimen>
+    <dimen name="hight_dp">35dp</dimen>
+    <dimen name="hieght_for_paymentcard">110dp</dimen>
+    <dimen name="eleven_sp">12sp</dimen>
+    <dimen name="top_margin">2dp</dimen>
+</resources>

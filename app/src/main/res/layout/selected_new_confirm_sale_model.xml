@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".6"
+                        android:text="Name"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/thirteen" />
+
+                    <TextView
+                        android:id="@+id/productName"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.4"
+                        android:textSize="@dimen/thirteen"
+                        android:text=":"
+                        android:textColor="@color/black"
+                         />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".6"
+                        android:text="Quantity"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/thirteen" />
+
+                    <TextView
+                        android:id="@+id/quantity"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.4"
+                        android:text=":"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/thirteen" />
+
+                </LinearLayout>
+
+               <LinearLayout
+                   android:id="@+id/forSalePurchaseLayout"
+                   android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                   android:orientation="vertical">
+                   <LinearLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_weight="1"
+                       android:weightSum="2">
+
+                       <TextView
+                           android:layout_width="0dp"
+                           android:layout_height="wrap_content"
+                           android:layout_weight=".6"
+                           android:text="Per Price"
+                           android:textColor="@color/black"
+                           android:textSize="@dimen/thirteen" />
+
+                       <TextView
+                           android:id="@+id/perPrice"
+                           android:layout_width="0dp"
+                           android:layout_height="wrap_content"
+                           android:layout_weight="1"
+                           android:text=":"
+                           android:textColor="@color/black"
+                           android:textSize="@dimen/thirteen" />
+
+                   </LinearLayout>
+
+                   <LinearLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:weightSum="2"
+                       android:layout_weight="1">
+
+                       <TextView
+                           android:layout_width="0dp"
+                           android:layout_height="wrap_content"
+                           android:layout_weight=".6"
+                           android:text="Total Price"
+                           android:textColor="@color/black"
+                           android:textSize="@dimen/thirteen" />
+
+                       <TextView
+                           android:id="@+id/totalPrice"
+                           android:layout_width="0dp"
+                           android:layout_height="wrap_content"
+                           android:layout_weight="1"
+                           android:text=":"
+                           android:textColor="@color/black"
+                           android:textSize="@dimen/thirteen" />
+
+                   </LinearLayout>
+
+                   <LinearLayout
+                       android:visibility="gone"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+
+                       android:weightSum="2">
+
+                       <TextView
+                           android:layout_width="0dp"
+                           android:layout_height="wrap_content"
+                           android:layout_weight=".6"
+                           android:text="Discount"
+                           android:textColor="@color/black"
+                           android:textSize="@dimen/thirteen" />
+
+                       <TextView
+                           android:id="@+id/discount"
+                           android:layout_width="0dp"
+                           android:layout_height="wrap_content"
+                           android:layout_weight="1"
+                           android:text=":"
+                           android:textColor="@color/black"
+                           android:textSize="@dimen/thirteen" />
+
+                   </LinearLayout>
+               </LinearLayout>
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </LinearLayout>
+</layout>

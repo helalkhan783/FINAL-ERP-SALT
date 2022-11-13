@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tracking"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:orientation="vertical"
+    android:background="@color/white"
+    app:layout_constraintVertical_chainStyle="packed"
+    tools:ignore="MissingDefaultResource">
+
+
+    <ImageView
+        android:id="@+id/imageview"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="5dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/tracking_icon_two"/>
+
+    <TextView
+        android:id="@+id/nameTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+         android:gravity="center"
+        android:text="Tracking"
+        android:textAlignment="center"
+        android:textColor="#575555"
+        android:textSize="13sp" />
+
+</LinearLayout>

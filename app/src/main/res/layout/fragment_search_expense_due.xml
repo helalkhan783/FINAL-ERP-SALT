@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/md_grey_100"
+    tools:context="com.ismos_salt_erp.view.fragment.accounts.payDueExpense.SearchExpenseDue">
+
+    <include
+        android:id="@+id/appbar"
+        layout="@layout/management_toolbar" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/appbar">
+
+        <RelativeLayout
+            android:id="@+id/rl_ledger_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="5dp"
+                app:cardBackgroundColor="@color/colorWhite"
+                app:cardCornerRadius="45dp"
+                app:cardElevation="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginBottom="5dp"
+                        app:srcCompat="@drawable/person_gray"
+                        tools:ignore="ContentDescription" />
+
+                    <AutoCompleteTextView
+                        android:id="@+id/customerNameEtExpense"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="5dp"
+                        android:background="@android:color/transparent"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical"
+                        android:hint="Search by vendor name"
+                        android:imeOptions="actionNext"
+                        android:inputType="text|textPersonName"
+                        android:minHeight="35dp"
+                        android:padding="5dp"
+                        android:singleLine="true"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="@color/md_grey_800"
+                        android:textColorHint="#595555"
+                        android:textSize="13sp"
+                        tools:ignore="Autofill,TextFields" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_noticeExpense"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/black"
+            android:visibility="gone"
+            tools:text="No products are available."
+            tools:visibility="gone" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/ordersRvExpense"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/rl_bottom_section_root"
+            android:layout_below="@id/rl_ledger_search"
+
+            android:layout_marginBottom="0dp"
+            tools:itemCount="2"
+            tools:listitem="@layout/receive_due_rv_model" />
+
+        <RelativeLayout
+            android:id="@+id/rl_bottom_section_root"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorWhite">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/rl_bottom_section"
+                android:layout_alignBottom="@+id/rl_bottom_section"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp">
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_bottom_section"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/image_viewExpense"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="6dp"
+                    app:srcCompat="@drawable/ic_arrow_drop_down_black_24dp"
+                    tools:ignore="ContentDescription" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/image_viewExpense"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <net.cachapa.expandablelayout.ExpandableLayout
+                        android:id="@+id/expandable_layoutExpense"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:el_duration="1000"
+                        app:el_expanded="true"
+                        app:el_parallax="0.5">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Vendor :"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/fifteen_sp_txt" />
+
+
+                            <TextView
+                                android:id="@+id/customerNameTvExpense"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="20dp"
+                                android:hint="Test Vendor"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/fifteen_sp_txt" />
+
+                        </LinearLayout>
+
+                    </net.cachapa.expandablelayout.ExpandableLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="1dp"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:id="@+id/tv_total_text"
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:ellipsize="end"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:text="@string/total_due"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/fifteen_sp_txt"
+                                tools:ignore="HardcodedText" />
+
+                            <TextView
+                                android:id="@+id/tv_total_amountExpense"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_toEndOf="@id/tv_total_text"
+                                android:ellipsize="end"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:text="@string/_0_0000"
+                                android:textColor="@color/gray"
+                                android:textSize="@dimen/fifteen_sp_txt"
+                                tools:ignore="HardcodedText" />
+
+                        </RelativeLayout>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/card_submit_btn_Expense"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            app:cardBackgroundColor="@android:color/transparent"
+                            app:cardCornerRadius="5dp"
+                            app:cardElevation="0dp">
+
+                            <TextView
+                                android:id="@+id/receivedNowExpense"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_gravity="center"
+                                android:background="@drawable/bg_toolbar"
+                                android:ellipsize="end"
+                                android:gravity="center"
+                                android:maxLines="1"
+                                android:padding="7dp"
+                                android:singleLine="true"
+                                android:text="@string/paid_now"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                android:textColor="@color/colorWhite"
+                                android:textSize="@dimen/sixteen_sp_tx_size" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

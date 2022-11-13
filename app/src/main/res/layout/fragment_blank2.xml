@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        tools:context="com.ismos_salt_erp.view.fragment.supplier.SupplierDetailsFragment">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_binding" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".7"
+                            android:text="Company Name"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/company"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.2"
+                            android:text=":"
+                            android:textColor="@color/black" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".7"
+                            android:text="Owner Name"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/ownerName"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.2"
+                            android:text=":"
+                            android:textColor="@color/black" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:layout_width="0dp"
+
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".7"
+                            android:text="Phone"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/phone"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.2"
+                            android:text=":"
+                            android:textColor="@color/black" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginTop="3dp"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:layout_width="0dp"
+
+                            android:layout_height="match_parent"
+                            android:layout_weight=".7"
+                            android:text="Alt.Phone"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/altPhone"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.2"
+                            android:text=":"
+                            android:textColor="@color/black" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginTop="3dp"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:layout_width="0dp"
+
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".7"
+                            android:text="Email"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/email"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.2"
+                            android:text=":"
+                            android:textColor="@color/black" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/divisionLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:weightSum="2">
+
+                            <TextView
+                                android:layout_width="0dp"
+
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".7"
+                                android:text="Division"
+                                android:textColor="@color/black"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/division"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.2"
+                                android:text=":"
+                                android:textColor="@color/black" />
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:weightSum="2">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".7"
+                                android:text="District"
+                                android:textColor="@color/black"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/district"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.2"
+                                android:text=":"
+                                android:textColor="@color/black" />
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_marginTop="3dp"
+                            android:weightSum="2">
+
+                            <TextView
+                                android:layout_width="0dp"
+
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".7"
+                                android:text="Thana/Upazila"
+                                android:textColor="@color/black"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/thana"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.2"
+                                android:text=":"
+                                android:textColor="@color/black" />
+
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/countryLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".7"
+                            android:text="Country"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/country"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.2"
+                            android:text=":"
+                            android:textColor="@color/black" />
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginTop="3dp"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:layout_width="0dp"
+
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".7"
+                            android:text="Bazar"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/bazar"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.2"
+                            android:text=":"
+                            android:textColor="@color/black" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginTop="3dp"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:layout_width="0dp"
+
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".7"
+                            android:text="NID"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/nid"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.2"
+                            android:text=":"
+                            android:textColor="@color/black" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginTop="3dp"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:layout_width="0dp"
+
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".7"
+                            android:text="Tin"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tin"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.2"
+                            android:text=":"
+                            android:textColor="@color/black" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginTop="3dp"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:layout_width="0dp"
+
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".7"
+                            android:text="Customer Type"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/customerType"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.2"
+                            android:text=":"
+                            android:textColor="@color/black" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginTop="3dp"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:layout_width="0dp"
+
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".7"
+                            android:text="Address"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/address"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.2"
+                            android:text=":"
+                            android:textColor="@color/black" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginTop="3dp"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:layout_width="0dp"
+
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".7"
+                            android:text="Note"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/note"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.2"
+                            android:text=":"
+                            android:textColor="@color/black" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginTop="3dp"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight=".7"
+                            android:text="Image"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:layout_weight="1.2"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:text=":  "
+                                android:textColor="@color/black" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".5">
+
+                                <ImageView
+                                    android:id="@+id/image"
+                                    android:layout_width="40dp"
+                                    android:layout_height="45dp"
+                                    android:layout_margin="5dp" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/imageName"
+                                android:layout_width="0dp"
+                                android:layout_height="40dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginRight="2dp"
+                                android:layout_weight="1.5"
+                                android:gravity="center_vertical"
+                                android:hint="Browse "
+                                android:maxLines="1"
+                                android:paddingLeft="3dp"
+                                android:singleLine="true"
+                                android:textColor="@color/black"
+                                android:textColorHint="#808080"
+                                android:textSize="14sp" />
+
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+
+                    <RelativeLayout
+                        android:id="@+id/btnLayout"
+                        android:layout_marginTop="10dp"
+                        android:visibility="gone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="7dp"
+                                android:text="Note"
+                                android:textColor="@color/switch_color"
+                                android:textStyle="bold" />
+
+                            <EditText
+                                android:id="@+id/noteEditTExt"
+                                android:layout_width="match_parent"
+                                android:layout_height="60dp"
+                                android:layout_margin="5dp"
+                                android:background="@drawable/edittext_shape"
+                                android:hint="note"
+                                android:paddingLeft="5dp"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/black" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:weightSum="2">
+
+
+                                <Button
+                                    android:id="@+id/approve"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/filter_btn_shape"
+                                    android:paddingLeft="3dp"
+                                    android:text="Approve"
+                                    android:textAllCaps="false"
+                                    android:textSize="12sp" />
+
+                                <Button
+                                    android:id="@+id/decline"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginRight="5dp"
+                                    android:layout_marginBottom="5dp"
+                                    android:layout_toRightOf="@id/filterSearchBtn"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/filter_reset_btn_shape"
+                                    android:paddingLeft="3dp"
+                                    android:text="Decline"
+                                    android:textAllCaps="false"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+
+
+            </androidx.core.widget.NestedScrollView>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</layout>

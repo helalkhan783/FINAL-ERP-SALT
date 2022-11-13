@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        tools:context="com.ismos_salt_erp.view.fragment.miller.MillerAllListFragment">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_binding" />
+
+
+
+        <net.cachapa.expandablelayout.ExpandableLayout
+            android:id="@+id/expandableView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:el_duration="800"
+            app:el_parallax=".5">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <include
+                    android:id="@+id/sale"
+                    layout="@layout/millet_filter_layout"/>
+            </LinearLayout>
+
+
+
+
+        </net.cachapa.expandablelayout.ExpandableLayout>
+
+
+
+        <TextView
+            android:id="@+id/noDataFound"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="No Data Found"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/millerRv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            android:text="Data Not Found"
+            android:gravity="center"/>
+        <ProgressBar
+            android:id="@+id/progress"
+            android:visibility="gone"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+
+    </LinearLayout>
+
+</layout>

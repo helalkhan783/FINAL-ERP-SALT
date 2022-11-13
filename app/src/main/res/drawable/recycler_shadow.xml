@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Drop Shadow Stack -->
+    <item>
+        <shape>
+            <padding android:top="1dp"  />
+            <stroke android:color="#01000000" android:width="1dp"  />
+            <corners android:radius="3dp" />
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <padding android:top="1dp"/>
+            <stroke android:color="#02000000" android:width="1dp" />
+            <corners android:radius="3dp" />
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <padding android:top="1dp"   />
+            <stroke android:color="#04000000" android:width="1dp" />
+            <corners android:radius="3dp" />
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <padding android:top="1dp"  />
+            <stroke android:color="#08000000" android:width="1dp" />
+            <corners android:radius="3dp" />
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <padding android:top="1dp"  />
+            <stroke android:color="#10000000" android:width="1dp" />
+            <corners android:radius="3dp" />
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <padding android:top="1dp" />
+            <stroke android:color="#16000000" android:width="1dp" />
+            <corners android:radius="3dp" />
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <padding android:top="1dp"  />
+            <stroke android:color="#20000000" android:width="1dp" />
+            <corners android:radius="3dp" />
+        </shape>
+    </item>
+
+    <!-- Background -->
+    <item>
+        <shape>
+            <solid android:color="#FFF" />
+            <corners android:radius="3dp" />
+        </shape>
+    </item>
+</layer-list>

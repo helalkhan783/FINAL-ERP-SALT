@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="white1">#FBFBFA</color>
+
+    <color name="colorPrimary2">#35A4DC</color>
+    <color name="colorPrimaryDark2">#35A4DC</color>
+    <color name="toolbarCenterColor">#4FADDA</color>
+    <color name="toolbarStartEndColor">#1297F0</color>
+    <color name="green_color">#00BCD4</color>
+    <color name="grey_color_one">#6AC3C9CC</color>
+    <color name="grey_color_two">#9EA9ADAF</color>
+
+    <color name="colorPrimary1">#122A8C</color>
+    <color name="colorPrimaryDark1">#122A8C</color>
+
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorBlack">#000000</color>
+    <color name="Indigo_color">#428BCA</color>
+    <color name="colorTextBg">#C7EDFC</color>
+    <color name="colorG">#FF6363</color>
+
+    <color name="colorCustomerBg">#f9fbe7</color>
+    <color name="colorTextBg2">#80C7EDFC</color>
+    <color name="typing">#FF36C44B</color>
+    <color name="colorLoginStart">#339ed6</color>
+    <color name="colorLoginEnd">#214788</color>
+
+    <color name="colorOrangeLight">#ff8a65</color>
+    <color name="colorOrange">#EA4C25</color>
+
+    <color name="colorRed">@android:color/holo_red_dark</color>
+    <color name="colorRedLight">@android:color/holo_red_light</color>
+    <color name="colorGreen">@android:color/holo_green_dark</color>
+
+    <color name="yellow">#DABF02</color>
+    <color name="red">#FF0000</color>
+    <color name="green">#37C003</color>
+
+    <!--grey-->
+    <color name="md_grey_50">#FAFAFA</color>
+    <color name="md_grey_100">#F5F5F5</color>
+    <color name="md_grey_200">#EEEEEE</color>
+    <color name="md_grey_300">#E0E0E0</color>
+    <color name="md_grey_400">#BDBDBD</color>
+    <color name="md_grey_500">#9E9E9E</color>
+    <color name="md_grey_600">#757575</color>
+    <color name="md_grey_700">#616161</color>
+    <color name="md_grey_800">#424242</color>
+    <color name="md_grey_900">#212121</color>
+
+    <color name="colorA">#6616EB</color>
+    <color name="colorB">#AE75F8</color>
+    <color name="colorC">#673AB7</color>
+    <color name="toolbarColor">#6515EB</color>
+    <color name="colorPrimary">#04AFE9</color>
+    <color name="gray">#605E5E</color>
+    <color name="indigo_color">#7EE8F6</color>
+    <color name="switch_color1">#9964AE</color>
+    <color name="switch_color">#FF000000</color>
+    <color name="violet_color">#9DACC9</color>
+    <color name="seve_color">#7777</color>
+    <color name="head_tv_color">#A081BD</color>
+    <color name="view_color">#F6F2F2</color>
+    <color name="next_btn_clr">#9968A8</color>
+    <color name="app_color">#9964AE</color>
+    <color name="color_blue_gray">#E6CAF1</color>
+    <color name="new_color">#FFFFFFFF</color>
+    <color name="gray_420">#575555</color>
+    <color name="halka_white">#F8F8F8</color>
+    <color name="backend_color">#EBEDE7E7</color>
+    <color name="halka_black">#787777</color>
+    <color name="blue_color1">#195ADC</color>
+    <color name="item_color">#CFCECE</color>
+    <color name="text_color">#040303</color>
+    <color name="background_color">#ffffff</color>
+    <color name="view_color_one">#DFD7D7</color>
+    <color name="text_view_color">#DFD7D7</color>
+
+
+</resources>

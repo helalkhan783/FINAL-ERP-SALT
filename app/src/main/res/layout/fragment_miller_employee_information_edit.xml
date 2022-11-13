@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="clickHandle"
+            type="com.ismos_salt_erp.clickHandle.MillerEmployeeInformationEditClickHandle" />
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        tools:context="com.ismos_salt_erp.view.fragment.miller.editmiller.MillerEmployeeInformationEdit">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:backgroundTint="#FFFFFF"
+                    android:elevation="5dp"
+                    app:cardCornerRadius="5dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:text="Full-Time Employees"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/sixteen_sp_tx_size"
+                                android:textStyle="bold" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:weightSum="2">
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginRight="5dp"
+                                        android:layout_weight="1"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:maxLines="1"
+                                            android:singleLine="true"
+                                            android:text="Male"
+                                            android:textColor="@color/black"
+                                            android:fontFamily="@font/lato_regular"
+                                            android:textSize="@dimen/fifteen_sp_txt" />
+
+                                        <EditText
+                                            android:id="@+id/fullTimeMale"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="40dp"
+                                            android:layout_marginTop="1dp"
+                                            android:background="@drawable/edittext_shape"
+                                            android:hint="Male"
+                                            android:imeOptions="actionNext"
+                                            android:inputType="number"
+                                            android:paddingLeft="20dp"
+                                            android:singleLine="true"
+                                            android:textColor="@color/black"
+                                            android:textColorHint="@color/gray"
+                                            android:textSize="14sp"
+
+
+                                            />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="5dp"
+                                        android:layout_weight="1"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:maxLines="1"
+                                            android:singleLine="true"
+                                            android:text="Female"
+                                            android:textColor="@color/black"
+                                            android:fontFamily="@font/lato_regular"
+                                            android:textSize="@dimen/fifteen_sp_txt" />
+
+                                        <EditText
+                                            android:id="@+id/fullTimeFemale"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="40dp"
+                                            android:layout_marginTop="1dp"
+                                            android:background="@drawable/edittext_shape"
+                                            android:hint="Female"
+                                            android:imeOptions="actionNext"
+                                            android:inputType="number"
+                                            android:paddingLeft="20dp"
+                                            android:singleLine="true"
+                                            android:textColor="@color/black"
+                                            android:textColorHint="@color/gray"
+                                            android:textSize="14sp" />
+
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:text="Part-Time Employees"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/sixteen_sp_tx_size"
+                                android:textStyle="bold" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:orientation="vertical">
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:weightSum="2">
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginRight="5dp"
+                                        android:layout_weight="1"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:maxLines="1"
+                                            android:singleLine="true"
+                                            android:text="Male"
+                                            android:textColor="@color/black"
+                                            android:fontFamily="@font/lato_regular"
+                                            android:textSize="@dimen/fifteen_sp_txt" />
+
+                                        <EditText
+                                            android:id="@+id/partTimeMale"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="40dp"
+                                            android:layout_marginTop="1dp"
+                                            android:background="@drawable/edittext_shape"
+                                            android:hint="Male"
+                                            android:imeOptions="actionNext"
+                                            android:inputType="number"
+                                            android:paddingLeft="20dp"
+                                            android:singleLine="true"
+                                            android:textColor="@color/black"
+                                            android:textColorHint="@color/gray"
+                                            android:textSize="14sp"
+
+
+                                            />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="5dp"
+                                        android:layout_weight="1"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:maxLines="1"
+                                            android:singleLine="true"
+                                            android:text="Female"
+                                            android:textColor="@color/black"
+                                            android:fontFamily="@font/lato_regular"
+                                            android:textSize="@dimen/fifteen_sp_txt"/>
+
+                                        <EditText
+                                            android:id="@+id/partTimeFemale"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="40dp"
+                                            android:layout_marginTop="1dp"
+                                            android:background="@drawable/edittext_shape"
+                                            android:hint="Female"
+                                            android:imeOptions="actionNext"
+                                            android:inputType="number"
+                                            android:paddingLeft="20dp"
+                                            android:singleLine="true"
+                                            android:textColor="@color/black"
+                                            android:textColorHint="@color/gray"
+                                            android:textSize="14sp" />
+
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="10dp"
+                    android:backgroundTint="#FFFFFF"
+                    android:elevation="5dp"
+                    app:cardCornerRadius="5dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:text="Total Number of Technical People"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/sixteen_sp_tx_size"
+                                android:textStyle="bold" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:weightSum="2">
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginRight="5dp"
+                                        android:layout_weight="1"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:maxLines="1"
+                                            android:singleLine="true"
+                                            android:text="Male"
+                                            android:textColor="@color/black"
+                                            android:fontFamily="@font/lato_regular"
+                                            android:textSize="@dimen/fifteen_sp_txt"/>
+
+                                        <EditText
+                                            android:id="@+id/techToalMale"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="40dp"
+                                            android:layout_marginTop="1dp"
+                                            android:background="@drawable/edittext_shape"
+                                            android:hint="Male"
+                                            android:imeOptions="actionNext"
+                                            android:inputType="number"
+                                            android:paddingLeft="20dp"
+                                            android:singleLine="true"
+                                            android:textColor="@color/black"
+                                            android:textColorHint="@color/gray"
+                                            android:textSize="14sp"
+
+
+                                            />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="5dp"
+                                        android:layout_weight="1"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:maxLines="1"
+                                            android:singleLine="true"
+                                            android:text="Female"
+                                            android:textColor="@color/black"
+                                            android:fontFamily="@font/lato_regular"
+                                            android:textSize="@dimen/fifteen_sp_txt" />
+
+                                        <EditText
+                                            android:id="@+id/techTotalFemale"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="40dp"
+                                            android:layout_marginTop="1dp"
+                                            android:background="@drawable/edittext_shape"
+                                            android:hint="Female"
+                                            android:imeOptions="actionNext"
+                                            android:inputType="number"
+                                            android:paddingLeft="20dp"
+                                            android:singleLine="true"
+                                            android:textColor="@color/black"
+                                            android:textColorHint="@color/gray"
+                                            android:textSize="14sp" />
+
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="30dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:text="Total Number of Employees"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/sixteen_sp_tx_size"
+                                android:textStyle="bold" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:weightSum="2">
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginRight="5dp"
+                                        android:layout_weight="1"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:maxLines="1"
+                                            android:singleLine="true"
+                                            android:text="Male"
+                                            android:textColor="@color/black"
+                                            android:fontFamily="@font/lato_regular"
+                                            android:textSize="@dimen/fifteen_sp_txt"/>
+
+                                        <EditText
+                                            android:id="@+id/toalEmployeMale"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="40dp"
+                                            android:layout_marginTop="1dp"
+                                            android:background="@drawable/edittext_shape"
+                                            android:hint="Male"
+                                            android:imeOptions="actionNext"
+                                            android:inputType="number"
+                                            android:paddingLeft="20dp"
+                                            android:singleLine="true"
+                                            android:textColor="@color/black"
+                                            android:textColorHint="@color/gray"
+                                            android:textSize="14sp"
+
+
+                                            />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="5dp"
+                                        android:layout_weight="1"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:maxLines="1"
+                                            android:singleLine="true"
+                                            android:text="Female"
+                                            android:textColor="@color/black"
+                                            android:textSize="15sp" />
+
+                                        <EditText
+                                            android:id="@+id/totalEmployeeFemale"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="40dp"
+                                            android:layout_marginTop="1dp"
+                                            android:background="@drawable/edittext_shape"
+                                            android:hint="Female"
+                                            android:imeOptions="actionNext"
+                                            android:inputType="number"
+                                            android:paddingLeft="20dp"
+                                            android:singleLine="true"
+                                            android:textColor="@color/black"
+                                            android:textColorHint="@color/gray"
+                                            android:fontFamily="@font/lato_regular"
+                                            android:textSize="@dimen/fifteen_sp_txt" />
+
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                            <Button
+                                android:id="@+id/employeeSaveBtn"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="30dp"
+                                android:background="@drawable/submit_button"
+                                android:onClick="@{()->clickHandle.submit()}"
+                                android:text="Save" />
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+
+            </LinearLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+    </LinearLayout>
+</layout>

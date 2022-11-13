@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="clickHandle"
+            type="com.ismos_salt_erp.clickHandle.ConfirmPurchaseEditClickHandle" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        tools:context="com.ismos_salt_erp.view.fragment.purchase.editPurchase.ConfirmEditPurchase">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_binding" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/selectedProductsRv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:fontFamily="@font/lato_regular"
+                                android:textSize="@dimen/fifteen_sp_txt"                                android:textColor="@color/black"
+                                android:text="Supplier Name*"/>
+
+                            <AutoCompleteTextView
+                                android:layout_marginTop="1dp"
+                                android:id="@+id/customerName"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:background="@drawable/edittext_shape"
+                                android:gravity="center_vertical"
+                                android:hint="Search by name"
+                                android:paddingLeft="10dp"
+                                android:textSize="14sp"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/gray" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:text="Create Supplier"
+                                android:fontFamily="@font/lato_regular"
+                                android:textSize="@dimen/fifteen_sp_txt"                                android:textColor="@color/black"
+                                />
+
+                            <LinearLayout
+                                android:layout_marginTop="1dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:background="@drawable/edittext_shape">
+
+                                <ScrollView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+
+                                    <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                                        android:id="@+id/supplier"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="1dp"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginRight="1dp"
+                                        android:layout_marginBottom="1dp"
+                                        android:defaultFocusHighlightEnabled="false"
+                                        android:paddingLeft="5dp"
+                                        android:soundEffectsEnabled="false"
+                                        app:smsp_enableErrorLabel="false"
+                                        app:smsp_enableFloatingLabel="false"
+                                        app:smsp_floatingLabelColor="@color/white"
+                                        app:smsp_hint=" Select"
+                                        app:smsp_itemListColor="#808080"
+
+                                        app:smsp_itemListHintBackgroundColor="#808080"
+                                        app:smsp_itemListHintColor="#FFFFFF"
+                                        app:smsp_multilineError="false"
+                                        app:smsp_selectedItemListColor="#FF5252"
+                                        app:smsp_underlineSize="0dp" />
+
+
+                                </ScrollView>
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+                    <LinearLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:text="Company*"
+                                android:fontFamily="@font/lato_regular"
+                                android:textSize="@dimen/fifteen_sp_txt"                                android:textColor="@color/black"
+                                />
+
+                            <EditText
+                                android:id="@+id/companyName"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:layout_marginTop="1dp"
+                                android:background="@drawable/edittext_shape"
+                                android:editable="false"
+                                android:focusable="false"
+                                android:gravity="center_vertical"
+                                android:hint="Company Name"
+                                android:paddingLeft="10dp"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/gray"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="5dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:text="Owner Name*"
+                                android:fontFamily="@font/lato_regular"
+                                android:textSize="@dimen/fifteen_sp_txt"                                android:textColor="@color/black"
+                                />
+
+                            <EditText
+                                android:id="@+id/ownerName"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:layout_marginTop="1dp"
+                                android:background="@drawable/edittext_shape"
+                                android:editable="false"
+                                android:focusable="false"
+                                android:gravity="center_vertical"
+                                android:hint="Owner Name"
+                                android:paddingLeft="10dp"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/gray"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:text="Contact No*"
+                                android:fontFamily="@font/lato_regular"
+                                android:textSize="@dimen/fifteen_sp_txt"                                android:textColor="@color/black"
+                                />
+
+                            <EditText
+                                android:id="@+id/contactNumber"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:background="@drawable/edittext_shape"
+                                android:editable="false"
+                                android:layout_marginTop="1dp"
+                                android:focusable="false"
+                                android:gravity="center_vertical"
+                                android:hint="Contact Number"
+                                android:paddingLeft="10dp"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/gray"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="5dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:text="Address*"
+                                android:fontFamily="@font/lato_regular"
+                                android:textSize="@dimen/fifteen_sp_txt"                                android:textColor="@color/black"
+                                />
+
+                            <EditText
+                                android:id="@+id/address"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:background="@drawable/edittext_shape"
+                                android:editable="false"
+                                android:focusable="false"
+                                android:layout_marginTop="1dp"
+                                android:gravity="center_vertical"
+                                android:hint="Addres"
+                                android:paddingLeft="10dp"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/gray"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                    <View
+                        android:layout_marginTop="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="5dp"
+                        android:background="@color/view_color"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:backgroundTint="@color/white"
+                                app:cardCornerRadius="5dp">
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+                                    <TextView
+                                        android:id="@+id/addTransportTv"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="35dp"
+                                        android:gravity="center_vertical"
+                                        android:drawableRight="@drawable/arrow_btn"
+                                        android:paddingRight="100dp"
+                                        android:paddingLeft="10dp"
+                                        android:text="Add Transport"
+                                        android:textColor="@color/black"
+                                        android:textSize="@dimen/sixteen_sp_tx_size"
+                                        android:textStyle="bold" />
+
+                                    <net.cachapa.expandablelayout.ExpandableLayout
+                                        android:id="@+id/expandableView"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        app:el_duration="700"
+                                        app:el_parallax=".5">
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            >
+                                            <include
+                                                android:id="@+id/addTransportLayout"
+                                                layout="@layout/addtransport_layout"/>
+
+                                        </LinearLayout>
+                                    </net.cachapa.expandablelayout.ExpandableLayout>
+
+
+                                </LinearLayout>
+                            </androidx.cardview.widget.CardView>
+                        </LinearLayout>
+                        <View
+                            android:layout_marginTop="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:background="@color/view_color"/>
+
+                        <include
+                            android:id="@+id/discountAndRemarksBox"
+                            layout="@layout/discount_and_remarks_layout_for_new_order"/>
+
+                    </LinearLayout>
+
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                             android:maxLines="1"
+                            android:singleLine="true"
+                            android:text="Note*"
+                            android:fontFamily="@font/lato_regular"
+                            android:textSize="@dimen/fifteen_sp_txt"                            android:textColor="@color/black" />
+
+                        <EditText
+                            android:id="@+id/note"
+                            android:layout_width="match_parent"
+                            android:layout_height="70dp"
+                            android:layout_weight="1.4"
+                            android:background="@drawable/edittext_shape"
+                            android:gravity="start"
+                            android:hint="Note"
+                            android:maxLines="2"
+                            android:paddingLeft="10dp"
+                            android:paddingTop="7dp"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:layout_height="match_parent">
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="50dp"
+                        android:layout_marginRight="20dp"
+
+                        android:background="@drawable/submit_button"
+                        android:onClick="@{()->clickHandle.save()}"
+                        android:text="Save" />
+
+                </RelativeLayout>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+
+
+    </LinearLayout>
+
+</layout>

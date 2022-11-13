@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:elevation="1dp"
+        android:id="@+id/rl_image_icon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignTop="@+id/relativeLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="-25dp"
+        android:background="@drawable/bg_circle">
+
+        <ImageView
+            android:id="@+id/img_icon"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:padding="5dp"
+            android:src="@drawable/erp_exit1" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_marginTop="25dp"
+            android:id="@+id/dialogName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="New Version Available"
+            android:padding="5dp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sixteen_sp_tx_size"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/dialogSpeech"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:text="@string/update_txt"
+            android:textColor="@color/black"
+            android:layout_gravity="center_horizontal"
+            android:textSize="@dimen/fourteen_sp_text_size" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            tools:ignore="MissingConstraints">
+
+            <Button
+                android:id="@+id/noThanks"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/alert_btn"
+                android:text="No Thanks"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/updateApp"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/alert_btn"
+                android:text="Update"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

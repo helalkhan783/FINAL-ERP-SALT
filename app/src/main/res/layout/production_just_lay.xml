@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:orientation="vertical">
+        <LinearLayout
+            android:id="@+id/headLayout"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="4.1">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".40"
+                    android:background="@color/app_color"
+                    android:gravity="center_horizontal"
+                    android:padding="@dimen/ten_pading"
+                    android:singleLine="true"
+                    android:text="SL"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/twelve_sp_txt_size"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".01">
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.3"
+                    android:background="@color/app_color"
+                    android:gravity="center_horizontal"
+                    android:padding="@dimen/ten_pading"
+                    android:singleLine="true"
+                    android:text="Enterprise"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/twelve_sp_txt_size"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".01">
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.36"
+                    android:background="@color/app_color"
+                    android:gravity="center_horizontal"
+                    android:padding="@dimen/ten_pading"
+                    android:singleLine="true"
+                    android:text="Production Type"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/twelve_sp_txt_size"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".01">
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.01"
+                    android:background="@color/app_color"
+                    android:padding="@dimen/ten_pading"
+                    android:singleLine="true"
+                    android:text="@string/qty_mt"
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/twelve_sp_txt_size"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/white" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="4.1">
+
+                <TextView
+                    android:id="@+id/sl"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_weight=".40"
+                    android:background="@color/color_blue_gray"
+                    android:gravity="center"
+                    android:padding="@dimen/ten_pading"
+                    android:text="sl"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/twelve_sp_txt_size" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".01"
+                    android:background="@color/white">
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/enterprise"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1.3"
+                    android:background="@color/color_blue_gray"
+                    android:gravity="center"
+                    android:padding="@dimen/ten_pading"
+                    android:text="adsds"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/twelve_sp_txt_size" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".01"
+                    android:background="@color/white">
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1.36"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/washingType"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:background="@color/color_blue_gray"
+                        android:gravity="center_horizontal"
+                        android:padding="@dimen/two_dp_pading"
+                        android:singleLine="true"
+                        android:text="dsfgdg"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/twelve_sp_txt_size" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height=".5dp"
+                        android:background="@color/black" />
+
+                    <TextView
+                        android:id="@+id/iodizationtype"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:background="@color/color_blue_gray"
+                        android:gravity="center_horizontal"
+                        android:paddingTop="4dp"
+                        android:paddingBottom="4dp"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/twelve_sp_txt_size" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".01"
+                    android:background="@color/white" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.01"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/washingQty"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:background="@color/color_blue_gray"
+                        android:paddingTop="4dp"
+                        android:paddingBottom="4dp"
+                        android:paddingRight="@dimen/five_dp_pading"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/twelve_sp_txt_size" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height=".5dp"
+                        android:background="@color/black" />
+
+                    <TextView
+                        android:id="@+id/iodizationQty"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:background="@color/color_blue_gray"
+                        android:paddingTop="4dp"
+                        android:paddingBottom="4dp"                        android:singleLine="true"
+                        android:text=""
+                        android:paddingRight="@dimen/five_dp_pading"
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/twelve_sp_txt_size" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/white" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</layout>

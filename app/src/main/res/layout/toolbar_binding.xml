@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="clickHandle"
+            type="com.ismos_salt_erp.clickHandle.ToolbarClickHandle" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/bg_toolbar"
+        android:elevation="5dp"
+        android:orientation="horizontal">
+
+
+        <ImageButton
+            android:id="@+id/backbtn"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:background="@null"
+            android:onClick="@{()->clickHandle.backBtn()}"
+            android:src="@drawable/back_btn" />
+
+        <TextView
+            android:id="@+id/toolbarTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_toRightOf="@+id/backbtn"
+            android:maxLines="1"
+            android:paddingLeft="5dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:singleLine="true"
+            android:text="Item Management"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/totalQtyTv"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/login_shape"
+            android:gravity="center"
+            android:text="000"
+            android:maxLines="1"
+            android:paddingLeft="5dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:singleLine="true"
+            android:textColor="@color/app_color"
+           />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true">
+
+            <ImageButton
+                android:id="@+id/addBtn"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_marginTop="2.8dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/add_btn_main"
+                android:visibility="gone" />
+
+            <ImageButton
+                android:id="@+id/filterBtn"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginRight="10dp"
+
+                android:layout_toRightOf="@+id/addBtn"
+                android:background="@drawable/filter_icon"
+
+                android:visibility="gone" />
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+</layout>

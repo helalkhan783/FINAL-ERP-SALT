@@ -1,0 +1,210 @@
+plugins {
+
+    id 'com.android.application'
+    id 'com.google.gms.google-services'
+
+}
+
+android {
+    compileSdkVersion 33
+    buildToolsVersion "30.0.3"
+    // here v1 and v2 signature version jar enable on apk release time
+    signingConfigs {
+        release  {
+
+            //Enable V1 signing
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+    }
+    defaultConfig {
+        applicationId "com.ismos_salt_erp"
+        minSdkVersion 21
+        targetSdk 33
+        multiDexEnabled true
+        versionCode 32
+        versionName "1.0.33"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            //Use the signing configuration we just defined
+            signingConfig signingConfigs.release
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+
+    dexOptions {
+        javaMaxHeapSize "4G"
+    }
+    buildFeatures {
+        dataBinding true
+    }
+
+//    allprojects{
+//        tasks.withType(JavaCompile){
+//            options.compilerArgs << "-Xlint:deprecation"
+//        }
+//    }
+
+
+
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'com.google.android.material:material:1.7.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'org.testng:testng:7.4.0'
+    implementation 'com.google.firebase:firebase-auth:21.1.0'
+    implementation 'com.google.firebase:firebase-messaging:23.1.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    testImplementation 'junit:junit:'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+//  implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+   //  implementation 'com.google.firebase:firebase-messaging:23.0.5'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+
+    //Firebase Notification
+  /*  implementation 'com.google.firebase:firebase-messaging:23.0.5'
+    implementation platform('com.google.firebase:firebase-bom:25.12.0')
+   // implementation 'com.google.firebase:firebase-analytics:23.0.5'
+    //implementation 'com.google.firebase:firebase-messaging-directboot:23.0.5'
+    */
+    implementation 'com.google.firebase:firebase-analytics:21.2.0'
+
+    implementation 'com.diegodobelo.expandingview:expanding-view:0.9.4'
+
+
+    implementation 'com.google.android.material:material:1.7.0'//custom design
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
+    implementation 'com.github.smarteist:autoimageslider:1.4.0'//slider image
+    implementation 'com.github.Liocoder24x7:Advanced-Spinner:v1.0'//for multiselect dropdown
+
+//butter knife
+    implementation 'com.jakewharton:butterknife:10.2.3'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.3'
+
+    implementation 'com.github.Shashank02051997:FancyToast-Android:0.1.6'//custom toast design
+//retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.okhttp3:okhttp:5.0.0-alpha.2'
+    implementation 'com.chauthai.swipereveallayout:swipe-reveal-layout:1.4.1'//swipe menu layout
+
+//image loader library
+    implementation 'com.squareup.picasso:picasso:2.71828'
+//material library
+    implementation 'com.google.android.material:material:1.7.0'
+    implementation 'com.github.mohammadatif:CircularImageView:1.0.0'//for circle image view library
+    implementation 'com.mikhaellopez:circularimageview:4.3.0'
+    compileOnly 'org.projectlombok:lombok:1.18.20'
+    annotationProcessor 'org.projectlombok:lombok:1.18.20'
+
+// for custom progress dialog
+    implementation 'cc.cloudist.acplibrary:library:1.2.1'
+//for custom toast
+    implementation 'com.github.GrenderG:Toasty:1.4.2'
+//Rx Java
+//rxAndroid
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.21'
+
+//retrofit adapter for rxjava with add a maven dependency
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.9.0'
+
+
+//for advanced webView
+    implementation 'com.github.delight-im:Android-AdvancedWebView:v3.2.1'
+
+//android room
+    def room_version = "2.4.3"
+
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+//for architecture component
+    def lifecycle_version = "2.3.1"
+// ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
+// LiveData
+    implementation "androidx.lifecycle:lifecycle-livedata:$lifecycle_version"
+// Annotation processor
+    annotationProcessor "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
+
+// optional - helpers for implementing LifecycleOwner in a Service
+    implementation "androidx.lifecycle:lifecycle-service:$lifecycle_version"
+
+
+/**
+ * for onclick animation
+ */
+    implementation 'com.github.skydoves:elasticviews:2.1.0'
+/**
+ * for expandableView real
+ */
+    implementation 'com.github.chuross:expandable-layout:1.0.5'
+/**
+ * for navigation component
+ */
+    def nav_version = "2.5.3"
+    implementation "androidx.navigation:navigation-fragment:$nav_version"
+    implementation "androidx.navigation:navigation-ui:$nav_version"
+// for custom progress dialog
+    implementation 'cc.cloudist.acplibrary:library:1.2.1'
+    implementation 'net.cachapa.expandablelayout:expandablelayout:2.9.2'
+    implementation 'com.wdullaer:materialdatetimepicker:4.2.3'//for data time picker
+//for dropdown
+    implementation 'com.jaredrummler:material-spinner:1.3.1'
+    implementation 'com.github.delight-im:Android-Commons:v1.0.1'
+// library to get device unique id without any permission
+    implementation 'com.burakustun:lottieprogressdialog:1.0.2'//lottieProgressDialog
+
+    implementation 'com.dlazaro66.qrcodereaderview:qrcodereaderview:2.0.3'//for qr code reader
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation 'com.github.chivorns.androidx:smartmaterialspinner:1.2.1'
+///for smart material spinner and very useful it
+//otp edittext view
+    implementation 'com.chaos.view:pinview:1.4.4'
+
+//read incoming SMS
+    implementation 'com.github.stfalcon:smsverifycatcher:0.3.2'
+    implementation 'com.azoft.carousellayoutmanager:carousel:1.4.4'
+    implementation 'com.amulyakhare:com.amulyakhare.textdrawable:1.0.1'
+
+//for pie chart diagram
+    implementation 'com.github.AnyChart:AnyChart-Android:1.1.2'
+    /**
+     * For live chat implementation
+     */
+    implementation 'im.crisp:crisp-sdk:1.0.7'
+    implementation 'androidx.multidex:multidex:2.0.1'
+    // for app version check from playstore
+    implementation 'com.google.android.play:core:1.10.3'
+
+    // for pie chart
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
+
+    implementation platform('com.google.firebase:firebase-bom:30.1.0')
+    implementation 'com.google.firebase:firebase-analytics'
+
+//    apply plugin: 'com.android.application'
+//    apply plugin: 'com.google.gms.google-services'
+
+    // neumorphism ui design
+    implementation 'com.github.fornewid:neumorphism:0.2.1'
+
+// lottie animation
+    def lottieVersion = "3.4.0"
+    implementation "com.airbnb.android:lottie:$lottieVersion"
+
+}

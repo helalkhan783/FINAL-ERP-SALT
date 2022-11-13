@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="2dp"
+                    android:backgroundTint="@color/white"
+                    android:elevation="4dp"
+                    app:cardCornerRadius="5dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="3dp"
+                            android:orientation="horizontal"
+                            android:weightSum="3">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:orientation="vertical"
+                                android:weightSum="2 ">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:orientation="horizontal"
+                                    android:weightSum="2">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight=".8"
+                                        android:gravity="center_vertical"
+                                        android:singleLine="true"
+                                        android:text="Monitor Id           :"
+                                        android:textColor="@color/black"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/monitoriD"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1.2"
+                                        android:gravity="center_vertical"
+                                        android:singleLine="true"
+                                        android:text="good luck  "
+                                        android:textColor="@color/black" />
+
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:orientation="horizontal"
+                                    android:weightSum="2">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight=".8"
+                                        android:gravity="center_vertical"
+                                        android:singleLine="true"
+                                        android:text="Monitoring Date   :"
+                                        android:textColor="@color/black"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/MonitorDate"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1.2"
+                                        android:gravity="center_vertical"
+                                        android:singleLine="true"
+                                        android:text="IteName"
+                                        android:textColor="@color/black" />
+
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:orientation="horizontal"
+                                    android:weightSum="2">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight=".8"
+                                        android:gravity="center_vertical"
+                                        android:singleLine="true"
+                                        android:text="Miller Type        :"
+                                        android:textColor="@color/black"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/millType"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1.2"
+                                        android:gravity="center_vertical"
+                                        android:singleLine="true"
+                                        android:text="#jkgdfg7  "
+                                        android:textColor="@color/black" />
+
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:orientation="horizontal"
+                                    android:weightSum="2">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight=".8"
+                                        android:gravity="center_vertical"
+                                        android:singleLine="true"
+                                        android:text="Monitor by             :"
+                                        android:textColor="@color/black"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/monitorBy"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1.2"
+                                        android:gravity="center_vertical"
+                                        android:singleLine="true"
+                                        android:text="assus"
+                                        android:textColor="@color/black" />
+
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:orientation="horizontal"
+                                    android:weightSum="2">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight=".8"
+                                        android:gravity="center_vertical"
+                                        android:singleLine="true"
+                                        android:text="Published Date              :"
+                                        android:textColor="@color/black"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/publishedDate"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1.2"
+                                        android:gravity="center_vertical"
+                                        android:singleLine="true"
+                                        android:text="Killogram  "
+                                        android:textColor="@color/black" />
+
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:orientation="horizontal"
+                                    android:weightSum="2">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight=".8"
+                                        android:gravity="center_vertical"
+                                        android:singleLine="true"
+                                        android:text="Document              :"
+                                        android:textColor="@color/black"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/document"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1.2"
+                                        android:gravity="center_vertical"
+                                        android:singleLine="true"
+                                        android:text="weight  "
+                                        android:textColor="@color/black" />
+
+
+                                </LinearLayout>
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:orientation="horizontal"
+                                    android:weightSum="2">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight=".8"
+                                        android:gravity="center_vertical"
+                                        android:singleLine="true"
+                                        android:text="Enter Time               :"
+                                        android:textColor="@color/black"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/enterTime"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1.2"
+                                        android:gravity="center_vertical"
+                                        android:singleLine="true"
+                                        android:text="Killogram  "
+                                        android:textColor="@color/black" />
+
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:orientation="horizontal"
+                                    android:weightSum="2">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight=".8"
+                                        android:gravity="center_vertical"
+                                        android:singleLine="true"
+                                        android:text="Entry User Id       :"
+                                        android:textColor="@color/black"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/entryuserID"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1.2"
+                                        android:gravity="center_vertical"
+                                        android:singleLine="true"
+                                        android:text="weight  "
+                                        android:textColor="@color/black" />
+
+
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".5"
+                                    android:orientation="horizontal"
+                                    android:weightSum="2">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight=".8"
+                                        android:gravity="center_vertical"
+                                        android:singleLine="true"
+                                        android:text="Review Time      :"
+                                        android:textColor="@color/black"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/reviewTime"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1.2"
+                                        android:gravity="center_vertical"
+                                        android:singleLine="true"
+                                        android:text="weight  "
+                                        android:textColor="@color/black" />
+
+
+                                </LinearLayout>
+
+
+
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</layout>

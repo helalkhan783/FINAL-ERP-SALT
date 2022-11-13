@@ -1,0 +1,230 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">ISMOS ERP</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">He fragment</string>
+    <string name="terminate">Terminate App</string>
+    <string name="terminate_app_message">Do you want to terminate from app</string>
+    <string name="pay_due">Do you want to pay you due Amount</string>
+
+
+    <string name="menu_profile">Profile</string>
+    <string name="menu_stores">Stores</string>
+    <string name="menu_manage_user">Manage User</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_faq">FAQ\'s</string>
+    <string name="menu_documentation">Documentation</string>
+    <string name="menu_feedback">Feedback</string>
+    <string name="menu_rate">Rate</string>
+    <string name="menu_logout">Logout</string>
+
+
+    <string name="text_company_name">Mr. Abdur Rahim</string>
+    <string name="text_company_hint">Assistant Director</string>
+    <string name="text_today_s_sum">Today\'s Sell</string>
+    <string name="text_revenue_amount">0/-</string>
+    <string name="text_cost_amount">0/-</string>
+    <string name="text_today_sell">0/-</string>
+
+    <string name="verification_code_notice">A 4 digit verification code has sent on your phone number. Please insert the code below.</string>
+    <string name="get_7_days_trial">Get 7 days trial</string>
+    <string name="get_the_package_now">Get the package now</string>
+    <string name="purchase_plan">Purchase Plan</string>
+
+    <string name="number_zero">0</string>
+    <string name="number_one">1</string>
+    <string name="number_two">2</string>
+    <string name="number_three">3</string>
+    <string name="number_four">4</string>
+    <string name="number_five">5</string>
+    <string name="number_six">6</string>
+    <string name="number_seven">7</string>
+    <string name="number_eight">8</string>
+    <string name="number_nine">9</string>
+    <string name="btn_clear">Del</string>
+    <string name="btn_backspace">Done</string>
+
+    <string name="facebook_app_id">2402928176642706</string>
+
+
+    <string name="password_hint1">\u2022\u2022\u2022\u2022\u2022\u2022</string>
+    <string name="password_hint2">Password</string>
+
+    <string name="enter_expense_type">Enter expense type</string>
+    <string name="product_dimension">Product Dimension :</string>
+    <string name="total_item_0">Total Item: 0</string>
+    <string name="sl">SL</string>
+    <string name="brand_title">Brand</string>
+    <string name="sales_return">Sales Return</string>
+    <string name="enter_invoice_no">Enter Invoice No.</string>
+    <string name="enter_p_o_no">Enter P.O. No.</string>
+    <string name="total_purchase_amount">Total Purchase Amount:</string>
+
+    <string name="supplier_name">Supplier Name :</string>
+    <string name="restore">Restore</string>
+    <string name="expense">Expense</string>
+    <string name="revenue">Revenue</string>
+    <string name="transaction">Transaction</string>
+    <string name="details">Details</string>
+    <string name="update">Update</string>
+    <string name="write_your_feedback_here">Write your feedback here</string>
+    <string name="category_name">Category name</string>
+    <string name="category_parent">Category Parent</string>
+    <string name="brand_name">Brand name</string>
+    <string name="save">Save</string>
+    <string name="customer_name">Customer name</string>
+    <string name="email">Email</string>
+    <string name="phone">Phone</string>
+    <string name="age">Age</string>
+    <string name="address">Address</string>
+    <string name="full_name">Full name</string>
+    <string name="title_mr_mrs">Title (Mr./Mrs.)</string>
+    <string name="store">Store</string>
+    <string name="user_type">User Type *</string>
+    <string name="user_password">User password</string>
+    <string name="re_type_user_password">Re-Type User password</string>
+    <string name="paid_amount">Paid amount</string>
+    <string name="custom_discount">Custom Discount</string>
+    <string name="submit">Submit</string>
+    <string name="search_customer_by_name">Search customer by name</string>
+    <string name="reports">Reports</string>
+    <string name="phone_number">Phone number</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="login">Login</string>
+    <string name="new_to_system">New to system?</string>
+    <string name="sign_up">Sign up</string>
+    <string name="expense_title">Expense Title: *</string>
+    <string name="expense_title_1">Expense title</string>
+    <string name="date_">Date: *</string>
+    <string name="select_person_company_reference">Select person/company/reference</string>
+    <string name="search_product_by_name_or_code">Search product by name or code</string>
+    <string name="enter_paid_amount">Enter paid amount</string>
+    <string name="due_date">Due date</string>
+    <string name="quantity">Quantity</string>
+    <string name="confirm_update">Confirm Update</string>
+    <string name="confirm_purchase">Confirm Purchase</string>
+    <string name="start_new_sms_marketing">Start new SMS Marketing</string>
+    <string name="marketing_history">Marketing History</string>
+    <string name="sms_marketing_instruction">
+        \u25A0 Select a title based on subject for your marketing\n
+        \u25A0 Enter your SMS or select from template\n
+        \u25A0 Select the intended users\n
+        \u25A0 And start the SMS marketing
+    </string>
+
+    <!--    <string name="sms_marketing_instruction">-->
+    <!--        <font color='#3881B3'>\u25A0 </font>Select a title based on subject for your marketing\n-->
+    <!--        <font color='#3881B3'>\u25A0 </font>Enter your SMS or select from template\n-->
+    <!--        <font color='#3881B3'>\u25A0 </font>Select the intended users\n-->
+    <!--        <font color='#3881B3'>\u25A0 </font>And start the SMS marketing-->
+    <!--    </string>-->
+
+
+    <string name="taka">TK</string>
+    <string name="decline">Decline</string>
+    <string name="approve">Approve</string>
+    <string name="final_amount">Final Amount</string>
+    <string name="total">Total Amount (BDT):</string>
+    <string name="product_list">Product List :</string>
+    <string name="abc_gmail_com">abc@gmail.com</string>
+    <string name="pur4">#PUR4</string>
+    <string name="_01531921892">01531921892</string>
+    <string name="date">1/21/2021</string>
+    <string name="ord_er_date">Ord er Date:</string>
+    <string name="order_time">Order Time:</string>
+    <string name="_1_21_2021">1/21/2021</string>
+    <string name="_12_12">12:12</string>
+    <string name="multi_select_dialog_title">Select Store Access</string>
+    <string name="message">.</string>
+    <string name="privacy">
+        Thank you for using Google Android Things Console. By accessing or using our Android Things Console or Software (collectively, Services) you are agreeing to the terms below. Collectively, we refer to the terms below, any additional terms incorporated by reference, terms within accompanying documentation, and any applicable policies and guidelines as the Terms. You agree to comply with the Terms and that the Terms control your relationship with us with respect to your use of Services. So please read all the Terms carefully.Under the Terms, Google means Google LLC,
+        with offices at 1600 Amphitheatre Parkway,
+        Mountain View, California 94043, United States,
+        unless set forth otherwise in additional terms
+        applicable for a given API. We may refer to Google as we,
+        our, or us in the Terms. If you are using the Services on behalf
+        of another person or entity, (i) you represent you have the authority
+        to bind that other person or entity, and (ii) references to you will
+        refer collectively to you and that other person or entity.
+Use of Services.</string>
+    <string name="update_txt">Please update the app with new version to continue access</string>
+    <string name="price_string">0.0000 BDT</string>
+    <string name="start_date">Start Date</string>
+    <string name="end_date">End Date</string>
+    <string name="amount_bdt">Amount (BDT)</string>
+    <string name="qty_mt">Qty (MT)</string>
+    <string name="district_city_corporation">District/City Corporation*</string>
+    <string name="decimel_zero">0.0000</string>
+    <string name="paid_now">Paid Now</string>
+    <string name="phone_no">Phone No *</string>
+    <string name="total_bdt">Total (BDT) :</string>
+    <string name="total_paid_bdt">Total Paid(BDT) :</string>
+    <string name="total_due_bdt">Total Due(BDT) :</string>
+    <string name="payment_limit_bdt">Payment Limit(BDT):</string>
+    <string name="search_by_name">Search by Item Name</string>
+    <string name="bdt"> BDT</string>
+    <string name="total_in">Total In :</string>
+    <string name="total_out">Total Out :</string>
+    <string name="ref_number">Ref. Number</string>
+    <string name="expense_amount">Expense Amount</string>
+    <string name="receipt">Receipt (BDT)</string>
+    <string name="payment">Payment (BDT)</string>
+    <string name="remarks">Remarks</string>
+    <string name="balance">Balance</string>
+    <string name="report">Report</string>
+    <string name="in_bdt">In (BDT)</string>
+    <string name="out_bdt">Out (BDT)</string>
+    <string name="sale_amount">Sale Amount(BDT)</string>
+    <string name="return_amount">Return Amount (BDT)</string>
+    <string name="purchase_amount">Purchase Amount</string>
+    <string name="due">Due Balance (BDT):</string>
+    <string name="balance_bdt">Balance (BDT)</string>
+    <string name="supplier_vendor">Supplier/Vendor</string>
+    <string name="pmt_last_date">PMT Last Date</string>
+    <string name="pmt_last_amount">PMT Last Amount</string>
+    <string name="toast_info"><![CDATA[Please select Enterprise & Store]]></string>
+    <string name="expense_type">Expense Type</string>
+    <string name="enterprise_info">Please select enterprise</string>
+
+    <string name="wrong_msg">Something Wrong</string>
+    <string name="exp_id">Exp. ID</string>
+    <string name="vendor">Vendor</string>
+    <string name="particulars">Particulars</string>
+    <string name="total_only">Total</string>
+    <string name="invoice_id">Invoice ID</string>
+    <string name="company_name">Company Name</string>
+    <string name="supplier">Supplier</string>
+    <string name="category">Category</string>
+    <string name="due_amount">Due Amount</string>
+    <string name="total_due">Total Due : </string>
+    <string name="_0_0000">0.0000</string>
+    <string name="search_here">   Search Here</string>
+    <string name="description">Description</string>
+    <string name="tk_symbol">৳</string>
+    <string name="customer_add">Do you want to add Customer?</string>
+    <string name="division_mes">Please select division</string>
+    <string name="district_mes">Please select district</string>
+    <string name="thana_mes">Please select palazzi/thana</string>
+    <string name="customer_mes">Please select customer type</string>
+    <string name="local_supplier_title">Do you want to add local supplier</string>
+    <string name="supplier_mes">Please select supplier type</string>
+    <string name="foreign_sup_title">Do you want to add foreign Supplier ?</string>
+    <string name="purchase_dialog_message">Do you want to purchase it ?</string>
+    <string name="add_customer_mes">Please add customer</string>
+    <string name="confirm_sale_dialog_title">Do You Want to Confirm This Sale ?</string>
+    <string name="unit_select_mes">Please select primary unit</string>
+    <string name="brand_select_mes">Please select brand</string>
+    <string name="add_weigt_mes">Please add weight</string>
+    <string name="add_item_dialog_title">Do you want to add this item ?</string>
+    <string name="store_mes">Please select store</string>
+    <string name="update_dialog_title">Do you want to update</string>
+    <string name="add_dialog_title">Do you want to add ?</string>
+    <string name="confirm_dialog_title">Do You Want to Confirm ?</string>
+    <string name="return_dialog_title">Do you want to return ?</string>
+    <string name="item_update_dialog_title">Do you want to update this item ?</string>
+    <string name="purchase_edit_dialog_title">Do You Want to Edit This Purchase ?</string>
+    <string name="order_cance_dialog_title">Do you want to whole order cancel ?</string>
+    <string name="approve_dialog_title">Do you want to approve ?</string>
+    <string name="decline_dialog_title">Do you want to decline ?</string>
+
+
+</resources>

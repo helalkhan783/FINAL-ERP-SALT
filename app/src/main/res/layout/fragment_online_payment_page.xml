@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/round_shape"
+        android:orientation="vertical"
+
+        tools:context=".view.fragment.online_paymet.OnlinePaymentPage">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_binding" />
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="10dp"
+            app:cardCornerRadius="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tabLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    app:tabGravity="fill"
+                    app:tabIndicatorColor="@color/blue_color1"
+                    app:tabMaxWidth="0dp"
+
+                    app:tabMode="fixed"
+                    app:tabSelectedTextColor="@color/app_color"
+                    app:tabTextColor="@color/black" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_marginTop="90dp"
+    android:layout_height="match_parent">
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+       android:layout_above="@+id/save"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior" />
+
+
+    <Button
+        android:id="@+id/save"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/btn_shape"
+        android:text="Confirm"
+        android:textColor="@color/black" />
+</RelativeLayout>
+    </LinearLayout>
+</layout>

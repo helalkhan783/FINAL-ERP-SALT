@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginRight="5dp"
+    android:background="@drawable/border"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginRight="5dp"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:maxLines="1"
+            android:paddingStart="0dp"
+
+            android:paddingTop="0dp"
+            android:paddingEnd="2dp"
+            android:paddingBottom="0dp"
+            android:singleLine="true"
+            android:text="Particulars"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:maxLines="1"
+            android:paddingStart="0dp"
+
+            android:paddingTop="0dp"
+            android:paddingEnd="2dp"
+            android:paddingBottom="0dp"
+            android:singleLine="true"
+            android:text="Unit Price"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:maxLines="1"
+            android:paddingStart="0dp"
+            android:paddingTop="0dp"
+            android:paddingEnd="2dp"
+            android:paddingBottom="0dp"
+            android:singleLine="true"
+            android:text="Remarks"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginRight="5dp"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <TextView
+            android:id="@+id/particularsModel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:maxLines="1"
+            android:paddingStart="0dp"
+            android:paddingTop="0dp"
+            android:paddingEnd="2dp"
+            android:paddingBottom="0dp"
+            android:singleLine="true"
+            android:text="Particulars"
+            android:textColor="@color/gray"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/unitPriceModel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:maxLines="1"
+            android:paddingStart="0dp"
+
+            android:paddingTop="0dp"
+            android:paddingEnd="2dp"
+            android:paddingBottom="0dp"
+            android:singleLine="true"
+            android:text="unit price"
+            android:textColor="@color/gray"
+            android:textSize="12sp" />
+
+
+        <TextView
+            android:id="@+id/remarksModel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:maxLines="1"
+            android:paddingStart="0dp"
+            android:paddingTop="0dp"
+            android:paddingEnd="2dp"
+            android:paddingBottom="0dp"
+            android:singleLine="true"
+            android:text="remarks"
+            android:textColor="@color/gray"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+
+</LinearLayout>

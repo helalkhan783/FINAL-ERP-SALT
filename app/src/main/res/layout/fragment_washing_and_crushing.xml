@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="clickHandle"
+            type="com.ismos_salt_erp.clickHandle.WashingAndCrushingClickHandle" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        tools:context="com.ismos_salt_erp.view.fragment.production.washingAndCrushing.addNew.WashingAndCrushing">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_binding" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/toolbar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginRight="2.5dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:text="Enterprise*"
+                                android:fontFamily="@font/lato_regular"
+                                android:textSize="@dimen/fifteen_sp_txt"                                android:textColor="@color/black" />
+
+                            <LinearLayout
+                                android:layout_marginTop="1dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:background="@drawable/edittext_shape">
+
+                                <ScrollView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+
+                                    <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                                        android:id="@+id/enterPrice"                                            android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="1dp"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginRight="1dp"
+                                        android:layout_marginBottom="1dp"
+                                        android:defaultFocusHighlightEnabled="false"
+                                        android:paddingLeft="5dp"
+                                        android:soundEffectsEnabled="false"
+                                        app:smsp_enableErrorLabel="false"
+                                        app:smsp_enableFloatingLabel="false"
+                                        app:smsp_floatingLabelColor="@color/white"
+                                        app:smsp_hint=" Select"
+                                        app:smsp_itemListColor="#808080"
+
+                                        app:smsp_itemListHintBackgroundColor="#808080"
+                                        app:smsp_itemListHintColor="#FFFFFF"
+                                        app:smsp_multilineError="false"
+                                        app:smsp_selectedItemListColor="#FF5252"
+                                        app:smsp_underlineSize="0dp" />
+
+
+                                </ScrollView>
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="2.5dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:text="Store*"
+                                android:fontFamily="@font/lato_regular"
+                                android:textSize="@dimen/fifteen_sp_txt"
+                                android:textColor="@color/black" />
+
+                            <LinearLayout
+                                android:layout_marginTop="1dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:background="@drawable/edittext_shape">
+
+                                <ScrollView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+
+                                    <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                                        android:id="@+id/store"                                          android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="1dp"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginRight="1dp"
+                                        android:layout_marginBottom="1dp"
+                                        android:defaultFocusHighlightEnabled="false"
+                                        android:paddingLeft="5dp"
+                                        android:soundEffectsEnabled="false"
+                                        app:smsp_enableErrorLabel="false"
+                                        app:smsp_enableFloatingLabel="false"
+                                        app:smsp_floatingLabelColor="@color/white"
+                                        app:smsp_hint=" Select"
+                                        app:smsp_itemListColor="#808080"
+
+                                        app:smsp_itemListHintBackgroundColor="#808080"
+                                        app:smsp_itemListHintColor="#FFFFFF"
+                                        app:smsp_multilineError="false"
+                                        app:smsp_selectedItemListColor="#FF5252"
+                                        app:smsp_underlineSize="0dp" />
+
+
+                                </ScrollView>
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/appbar"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    app:cardCornerRadius="5dp"
+                    app:cardBackgroundColor="@color/colorWhite">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="horizontal">
+
+
+                        <AutoCompleteTextView
+                            android:id="@+id/itemSearchEt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                             android:background="@drawable/edittext_shape"
+                            android:gravity="center_vertical"
+                            android:hint="@string/search_by_name"
+                            android:paddingLeft="5dp"
+                            android:imeOptions="actionNext"
+                            android:inputType="text"
+                            android:maxLength="11"
+                            android:textSize="14sp"
+                            android:drawableRight="@drawable/ic_search_orange_24dp"
+                            android:maxLines="1"
+                            android:minHeight="35dp"
+                            android:singleLine="true"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="@color/md_grey_800"
+                            android:textColorHint="#595555"
+                            tools:ignore="Autofill,TextFields" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/productList"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="80dp" />
+
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+
+        <LinearLayout
+            android:onClick="@{()->clickHandle.totalBtn()}"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/fourty_dp_btn"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="50dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/submit_button"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/totalQuantity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerInParent="true"
+                    android:background="@color/next_btn_clr"
+                    android:gravity="center_vertical"
+                    android:text="Total Quantity: 0"
+                    android:textAllCaps="false"
+                    android:textStyle="bold" />
+
+
+                <LinearLayout
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp">
+                    <ImageButton
+                        android:layout_width="40dp"
+                        android:layout_height="30dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/next_ic" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

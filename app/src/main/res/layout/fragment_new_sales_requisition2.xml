@@ -1,0 +1,622 @@
+<?xml version="1.0" encoding="utf-8"?><!--suppress AndroidUnknownAttribute -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="com.ismos_salt_erp.view.fragment.salesRequisition.NewSalesRequisitionFragmentInfo">
+
+
+    <include
+        android:id="@+id/appbar"
+        layout="@layout/management_toolbar" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/rl_bottom_section"
+        android:layout_below="@id/appbar"
+        android:clipToPadding="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorWhite"
+                android:orientation="vertical"
+                tools:ignore="UselessParent">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="Products"
+                        android:textColor="#781E80"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:id="@+id/addMoreBtn"
+                        android:visibility="gone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+
+                        android:layout_centerVertical="true"
+                        android:orientation="horizontal"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp">
+
+                        <ImageButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginEnd="5dp"
+                            android:background="@android:color/transparent"
+                            app:srcCompat="@drawable/ic_add_white_24dp"
+                            tools:ignore="ContentDescription" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="Add more"
+                            android:textColor="#781E80"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            tools:ignore="HardcodedText" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/selectedProductsRv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    tools:itemCount="2"
+                    tools:listitem="@layout/model_product_item_sale2" />
+
+            </LinearLayout>
+
+<!--
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/searchCustomer"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="5dp"
+                    android:layout_weight="1"
+                    android:singleLine="true"
+                    android:text="Customer Name"
+                    android:textColor="@color/md_grey_800"
+                    android:textSize="16dp" />
+
+                &lt;!&ndash;   <LinearLayout
+                       android:layout_weight="1"
+                       android:layout_width="wrap_content"
+                       android:layout_height="40dp"
+                       android:layout_alignParentEnd="true"
+                       android:layout_centerVertical="true"
+                       android:layout_marginLeft="120dp"
+                       android:layout_toEndOf="@+id/searchCustomer"
+                       android:orientation="horizontal">&ndash;&gt;
+
+
+                <AutoCompleteTextView
+                    android:id="@+id/customerSearchEt"
+                    android:layout_width="0dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/edittext_shape"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:hint="Search Customer By Name"
+                    android:imeOptions="actionNext"
+                    android:inputType="text|textPersonName"
+                    android:maxLines="1"
+                    android:minHeight="35dp"
+                    android:padding="5dp"
+                    android:singleLine="true"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/md_grey_800"
+                    android:textColorHint="#595555"
+                    android:textSize="13sp"
+                    tools:ignore="Autofill,TextFields" />
+
+
+                &lt;!&ndash;                </LinearLayout>&ndash;&gt;
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/receiptAmount"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:singleLine="true"
+                    android:text="Receipt Amount"
+                    android:textColor="@color/md_grey_800"
+                    android:textSize="16dp"
+                    tools:ignore="HardcodedText" />
+
+                &lt;!&ndash;    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@+id/receiptAmount"
+                        android:orientation="horizontal">&ndash;&gt;
+
+
+                <EditText
+                    android:id="@+id/receiptAmountEt"
+                    android:layout_width="0dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/edittext_shape"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:hint="0"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:minHeight="35dp"
+                    android:padding="5dp"
+                    android:singleLine="true"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/md_grey_800"
+                    android:textColorHint="#595555"
+                    android:textSize="13sp"
+                    tools:ignore="Autofill,TextFields" />
+
+                &lt;!&ndash;
+                                </LinearLayout>&ndash;&gt;
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/ll_middle_section"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:clipToPadding="false"
+                android:orientation="horizontal">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_add_vat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="@color/colorWhite"
+                    app:cardCornerRadius="2dp"
+                    app:cardElevation="5dp">
+
+                    <com.jaredrummler.materialspinner.MaterialSpinner
+                        android:id="@+id/selectEnterPriceDdown"
+                        android:layout_width="match_parent"
+                        android:layout_height="42dp"
+                        android:text="EnterPrice"
+                        android:textColor="@color/gray"
+                        android:textSize="16sp"
+                        android:textStyle="normal" />
+
+                </androidx.cardview.widget.CardView>
+
+                &lt;!&ndash; <androidx.cardview.widget.CardView
+                     android:id="@+id/card_add_discount"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     app:cardBackgroundColor="@color/colorWhite">
+ &ndash;&gt;
+                <EditText
+                    android:id="@+id/discountEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/edittext_shape"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:hint="Enter Discount"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:minHeight="35dp"
+                    android:padding="5dp"
+                    android:singleLine="true"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/md_grey_800"
+                    android:textColorHint="#595555"
+                    android:textSize="13sp"
+                    tools:ignore="Autofill,TextFields" />
+
+                &lt;!&ndash;                </androidx.cardview.widget.CardView>&ndash;&gt;
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/tv_customer_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:singleLine="true"
+                    android:text="Receipt Amount"
+                    android:textColor="@color/md_grey_800"
+                    android:textSize="16sp"
+                    tools:ignore="HardcodedText" />
+
+
+                <com.jaredrummler.materialspinner.MaterialSpinner
+                    android:id="@+id/paymentTypeDown"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/edittext_shape"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:hint="0"
+                    android:imeOptions="actionNext"
+                    android:inputType="text|textPersonName"
+                    android:maxLines="1"
+                    android:minHeight="35dp"
+                    android:padding="5dp"
+                    android:singleLine="true"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/md_grey_800"
+                    android:textColorHint="#595555"
+                    android:textSize="13sp" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/startOrderDate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:singleLine="true"
+                    android:text="Start Order Date"
+                    android:textColor="@color/md_grey_800"
+                    android:textSize="16sp"
+                    tools:ignore="HardcodedText" />
+
+
+                <TextView
+                    android:id="@+id/startDate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/edittext_shape"
+                    android:drawableRight="@drawable/calender"
+                    android:ellipsize="end"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:gravity="center_vertical"
+                    android:hint="2020-12-13"
+                    android:imeOptions="actionNext"
+                    android:inputType="numberDecimal"
+                    android:maxLines="1"
+                    android:minHeight="35dp"
+                    android:padding="5dp"
+                    android:singleLine="true"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/md_grey_800"
+                    android:textColorHint="#595555"
+                    android:textSize="12sp"
+                    tools:ignore="Autofill" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="5dp"
+                    android:layout_weight="1"
+                    android:singleLine="true"
+                    android:text="End Order Date"
+                    android:textColor="@color/md_grey_800"
+                    android:textSize="16sp"
+                    tools:ignore="HardcodedText" />
+
+
+                <TextView
+                    android:id="@+id/endOrderDate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/edittext_shape"
+                    android:drawableEnd="@drawable/calender"
+                    android:ellipsize="end"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:gravity="center_vertical"
+                    android:hint="2020-12-13"
+                    android:imeOptions="actionNext"
+                    android:inputType="numberDecimal"
+                    android:maxLines="1"
+                    android:minHeight="35dp"
+                    android:padding="5dp"
+                    android:singleLine="true"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/md_grey_800"
+                    android:textColorHint="#595555"
+                    android:textSize="12sp"
+                    tools:ignore="Autofill" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite"
+                android:orientation="vertical"
+                android:padding="2dp">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/md_grey_300" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:gravity="start"
+                            android:text="Total Amount"
+                            android:textColor="@color/md_grey_800"
+                            android:textSize="16sp"
+                            tools:ignore="HardcodedText" />
+
+                        <TextView
+                            android:id="@+id/totalAmount"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:textColor="@color/md_grey_800"
+                            android:textSize="15sp"
+                            tools:ignore="MissingPrefix"
+                            tools:text="195/-" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:gravity="start"
+                            android:text="Discount(-)"
+                            android:textColor="@color/md_grey_800"
+                            android:textSize="16sp"
+                            tools:ignore="HardcodedText" />
+
+                        <TextView
+                            android:id="@+id/tv_discount"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:textColor="@color/md_grey_800"
+                            android:textSize="15sp"
+                            tools:ignore="MissingPrefix"
+                            tools:text="1" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/md_grey_300" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal"
+                        tools:ignore="UselessParent">
+
+                        <TextView
+                            android:id="@+id/tv_total_payable_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:gravity="start"
+                            android:text="Grand Total"
+                            android:textColor="@color/colorGreen"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            tools:ignore="HardcodedText" />
+
+                        <TextView
+                            android:id="@+id/grandTotal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:textColor="@color/colorGreen"
+                            android:textSize="15sp"
+                            tools:ignore="MissingPrefix"
+                            tools:text="195/-" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>-->
+
+
+
+            <include
+                android:id="@+id/layout"
+                layout="@layout/reqsition_layout"/>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <RelativeLayout
+        android:id="@+id/rl_bottom_section"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/md_grey_50">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_submit_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="10dp"
+            app:cardBackgroundColor="#AC6BC3"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp">
+
+            <!--suppress AndroidUnknownAttribute -->
+            <TextView
+                android:id="@+id/subMitTotal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:padding="14dp"
+                android:text="Save"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+</RelativeLayout>
