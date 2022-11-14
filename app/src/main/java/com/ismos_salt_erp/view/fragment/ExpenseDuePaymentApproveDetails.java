@@ -19,6 +19,8 @@ import com.facebook.shimmer.ShimmerFrameLayout;
 import com.ismos_salt_erp.R;
 import com.ismos_salt_erp.adapter.ExpenseDuePaymentApprovalAdapter;
 
+import com.ismos_salt_erp.localDatabase.PreferenceManager;
+import com.ismos_salt_erp.utils.PermissionUtil;
 import com.ismos_salt_erp.view.fragment.customers.AddUpDel;
 import com.ismos_salt_erp.viewModel.ExpenseDuePaymentPendingDetailsViewModel;
 
@@ -88,7 +90,7 @@ public class ExpenseDuePaymentApproveDetails extends AddUpDel {
 
         if (typeKey.equals("4")) {// 4 means receipt details
             titleSet("Receipt Details");
-            if (status.equals("2")) {//here 2 means pending
+            if (status.equals("2") && PermissionUtil.currentUserPermissionList(PreferenceManager.getInstance(getContext()).getUserCredentials().getPermissions()).contains(1318)) {//here 2 means pending
                 titleSet("Receipt Pending Details");
                 approvalOption.setVisibility(View.VISIBLE);
             }
@@ -96,14 +98,16 @@ public class ExpenseDuePaymentApproveDetails extends AddUpDel {
 
         if (typeKey.equals("37")) {//   means Payment details
             titleSet("Payment Details");
-            if (status.equals("2")) {//here 2 means pending
+            if (status.equals("2") && PermissionUtil.currentUserPermissionList
+                    (PreferenceManager.getInstance(getContext()).getUserCredentials()
+                            .getPermissions()).contains(1868)) {//here 2 means pending
                 titleSet("Payment Pending Details");
                 approvalOption.setVisibility(View.VISIBLE);
             }
         }
         if (typeKey.equals("36")) {//   means expense details
             titleSet("Expense Details");
-            if (status.equals("2")) {//here 2 means pending
+            if (status.equals("2") && PermissionUtil.currentUserPermissionList(PreferenceManager.getInstance(getContext()).getUserCredentials().getPermissions()).contains(1319)) {//here 2 means pending
                 titleSet("Expense Pending Details");
                 approvalOption.setVisibility(View.VISIBLE);
             }
@@ -152,6 +156,7 @@ public class ExpenseDuePaymentApproveDetails extends AddUpDel {
                     shimmerViewContainer.startShimmer();
                     mainLayout.setVisibility(View.VISIBLE);
 
+
                 });
     }
 
@@ -187,13 +192,11 @@ public class ExpenseDuePaymentApproveDetails extends AddUpDel {
     }
 
     @Override
-    public void save(boolean yesOrNo) {
-        if (yesOrNo == true) {
-            if (approval == true) {
-                submitApprove();
-            } else {
-                submitDecline();
-            }
+    public void save() {
+        if (approval == true) {
+            submitApprove();
+        } else {
+            submitDecline();
         }
     }
 

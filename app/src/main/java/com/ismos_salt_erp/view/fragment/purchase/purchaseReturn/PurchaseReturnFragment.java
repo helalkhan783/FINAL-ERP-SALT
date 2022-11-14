@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -63,7 +62,7 @@ public class PurchaseReturnFragment extends AddUpDel implements PurchaseReturnIt
     PopupWindow mypopupWindow;
     public static String discountPercent = "2";
 
-    private boolean identity;
+    private boolean approval;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -99,13 +98,13 @@ public class PurchaseReturnFragment extends AddUpDel implements PurchaseReturnIt
          * For Submit orders
          */
         binding.layoutAccess.submit.setOnClickListener(v -> {
-            identity = true;
+
             if (currentResponse == null) {
                 infoMessage(getActivity().getApplication(), "Select Order First");
                 return;
             }
             hideKeyboard(getActivity());
-
+            approval = true;
 
             showDialog(getString(R.string.return_dialog_title));
         });
@@ -113,7 +112,7 @@ public class PurchaseReturnFragment extends AddUpDel implements PurchaseReturnIt
          * For cancel whole order
          */
         binding.layoutAccess.cancelOrders.setOnClickListener(v -> {
-            identity = false;
+
             if (currentResponse == null) {
                 infoMessage(getActivity().getApplication(), "Select Order First");
                 return;
@@ -124,6 +123,7 @@ public class PurchaseReturnFragment extends AddUpDel implements PurchaseReturnIt
                 infoMessage(getActivity().getApplication(), "select Orders");
                 return;
             }
+            approval = false;
             showDialog(getString(R.string.order_cance_dialog_title));
 
         });
@@ -465,13 +465,11 @@ public class PurchaseReturnFragment extends AddUpDel implements PurchaseReturnIt
 
 
     @Override
-    public void save(boolean yesOrNo) {
-        if (yesOrNo == true) {
-            if (identity == true) {
-                submit();
-            } else {
-                cancelWholePurchaseOrders();
-            }
+    public void save() {
+        if (approval == true) {
+            submit();
+        } else {
+            cancelWholePurchaseOrders();
         }
     }
 

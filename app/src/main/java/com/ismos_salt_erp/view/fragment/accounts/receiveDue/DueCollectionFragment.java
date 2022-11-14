@@ -1,12 +1,9 @@
 package com.ismos_salt_erp.view.fragment.accounts.receiveDue;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
@@ -26,7 +23,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -37,6 +33,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.chivorn.smartmaterialspinner.SmartMaterialSpinner;
 import com.ismos_salt_erp.R;
 import com.ismos_salt_erp.adapter.CustomerOrderAdapter;
+import com.ismos_salt_erp.date_time_picker.DateTimePicker;
 import com.ismos_salt_erp.localDatabase.PreferenceManager;
 import com.ismos_salt_erp.serverResponseModel.AccountResponse;
 import com.ismos_salt_erp.serverResponseModel.CustomerResponse;
@@ -47,7 +44,6 @@ import com.ismos_salt_erp.serverResponseModel.MainBank;
 import com.ismos_salt_erp.serverResponseModel.Order;
 import com.ismos_salt_erp.serverResponseModel.PaymentTypes;
 import com.ismos_salt_erp.utils.replace.DataModify;
-import com.ismos_salt_erp.view.fragment.BaseFragment;
 import com.ismos_salt_erp.view.fragment.customers.AddUpDel;
 import com.ismos_salt_erp.viewModel.CustomerOrderViewmodel;
 import com.ismos_salt_erp.viewModel.DueCollectionViewModel;
@@ -62,12 +58,10 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import es.dmoral.toasty.Toasty;
 
 
 public class DueCollectionFragment extends AddUpDel
@@ -763,7 +757,25 @@ public class DueCollectionFragment extends AddUpDel
     }
 
 
-    private void submit() {
+
+
+
+    @OnClick(R.id.date)
+    public void getDate() {
+     DateTimePicker.openDatePicker(this,getActivity());
+
+    }
+
+
+    @Override
+    public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
+
+        date.setText(DateTimePicker.dateSelect(year,monthOfYear,dayOfMonth));
+    }
+
+
+    @Override
+    public void save() {
         String storeId = PreferenceManager.getInstance(getContext()).getUserCredentials().getStoreID();
         String userId = PreferenceManager.getInstance(getContext()).getUserCredentials().getUserId();
         String vendorId = PreferenceManager.getInstance(getContext()).getUserCredentials().getVendorID();
@@ -787,55 +799,7 @@ public class DueCollectionFragment extends AddUpDel
             successMessage(getActivity().getApplication(), "" + response.getMessage());
             getActivity().onBackPressed();
         });
-    }
 
-
-    @OnClick(R.id.date)
-    public void getDate() {
-        Calendar now = Calendar.getInstance();
-        DatePickerDialog dialog = DatePickerDialog.newInstance(
-                this,
-                now.get(Calendar.YEAR), // Initial year selection
-                now.get(Calendar.MONTH), // Initial month selection
-                now.get(Calendar.DAY_OF_MONTH) // Inital day selection
-        );
-        dialog.show(getActivity().getSupportFragmentManager(), "Datepickerdialog");
-
-    }
-
-
-    @Override
-    public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
-        int month = monthOfYear;
-        if (month == 12) {
-            month = 1;
-        } else {
-            month = monthOfYear + 1;
-        }
-
-        String mainMonth, mainDay;
-
-        if (month <= 9) {
-            mainMonth = "0" + month;
-        } else {
-            mainMonth = String.valueOf(month);
-        }
-        if (dayOfMonth <= 9) {
-            mainDay = "0" + dayOfMonth;
-        } else {
-            mainDay = String.valueOf(dayOfMonth);
-        }
-        String selectedDate = year + "-" + mainMonth + "-" + mainDay;//set the selected date
-
-        date.setText(selectedDate);
-    }
-
-
-    @Override
-    public void save(boolean yesOrNo) {
-        if (yesOrNo == true) {
-            submit();
-        }
     }
 
     @Override

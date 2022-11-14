@@ -1,17 +1,10 @@
 package com.ismos_salt_erp.view.fragment.miller.addNewMiller;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.database.Cursor;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
-import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
-import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
@@ -22,9 +15,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.ismos_salt_erp.R;
 import com.ismos_salt_erp.clickHandle.ConfirmSaleClickhandle;
@@ -44,7 +34,6 @@ import com.ismos_salt_erp.viewModel.SaleViewModel;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 
 public class MillerEmployeeInformation extends AddUpDel {
     public FragmentMillerEmployeeInformationBinding binding;
@@ -511,10 +500,9 @@ public class MillerEmployeeInformation extends AddUpDel {
 
 
     @Override
-    public void save(boolean yesOrNo) {
-        if (yesOrNo == true){
-            submit("saveUnPaid");
-        }
+    public void save() {
+        submit("saveUnPaid");
+
     }
 
     @Override

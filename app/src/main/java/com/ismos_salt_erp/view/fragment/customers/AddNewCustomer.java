@@ -2,7 +2,6 @@ package com.ismos_salt_erp.view.fragment.customers;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.databinding.DataBindingUtil;
@@ -12,7 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Toast;
 
 import com.ismos_salt_erp.Common;
 import com.ismos_salt_erp.CommonNormal;
@@ -210,48 +208,6 @@ public class AddNewCustomer extends AddUpDel {
 
 
 
-    private void submit() {
-
-        String dueLimit = "0";
-        if (!binding.dueLimit.getText().toString().isEmpty()) {
-            dueLimit = binding.dueLimit.getText().toString();
-        }
-        ProgressDialog progressDialog = new ProgressDialog(getContext());
-        progressDialog.show();
-        customerViewModel.addNewCustomer(
-                        getActivity(), binding.companyName.getText().toString(),
-                        binding.ownerName.getText().toString(),
-                        binding.phone.getText().toString(),
-                        binding.altPhone.getText().toString(),
-                        binding.email.getText().toString(),
-                        selectedDivision, selectedDistrict, selectedThana, binding.bazar.getText().toString(),
-                        binding.nid.getText().toString(),
-                        binding.tin.getText().toString(),
-                        "0",
-                        "1",
-                        selectedCustomerType,
-                        binding.address.getText().toString(),
-                        dueLimit,
-                        image,
-                        binding.note.getText().toString())
-                .observe(getViewLifecycleOwner(), response -> {
-                    progressDialog.dismiss();
-                    if (response == null) {
-                        errorMessage(getActivity().getApplication(), "ERROR");
-                        return;
-                    }
-                    if (response.getStatus() != 200) {
-                        infoMessage(getActivity().getApplication(), "" + response.getMessage());
-                        return;
-                    }
-                    hideKeyboard(getActivity());
-                    successMessage(getActivity().getApplication(), "" + response.getMessage());
-
-                    getCustomerList();
-
-                });
-
-    }
 
 
     private void getCustomerList() {
@@ -397,11 +353,45 @@ public class AddNewCustomer extends AddUpDel {
     }
 
     @Override
-    public void save(boolean yesOrNo) {
-        if (yesOrNo == true) {
-            submit();
+    public void save() {
+        String dueLimit = "0";
+        if (!binding.dueLimit.getText().toString().isEmpty()) {
+            dueLimit = binding.dueLimit.getText().toString();
         }
+        ProgressDialog progressDialog = new ProgressDialog(getContext());
+        progressDialog.show();
+        customerViewModel.addNewCustomer(
+                        getActivity(), binding.companyName.getText().toString(),
+                        binding.ownerName.getText().toString(),
+                        binding.phone.getText().toString(),
+                        binding.altPhone.getText().toString(),
+                        binding.email.getText().toString(),
+                        selectedDivision, selectedDistrict, selectedThana, binding.bazar.getText().toString(),
+                        binding.nid.getText().toString(),
+                        binding.tin.getText().toString(),
+                        "0",
+                        "1",
+                        selectedCustomerType,
+                        binding.address.getText().toString(),
+                        dueLimit,
+                        image,
+                        binding.note.getText().toString())
+                .observe(getViewLifecycleOwner(), response -> {
+                    progressDialog.dismiss();
+                    if (response == null) {
+                        errorMessage(getActivity().getApplication(), "ERROR");
+                        return;
+                    }
+                    if (response.getStatus() != 200) {
+                        infoMessage(getActivity().getApplication(), "" + response.getMessage());
+                        return;
+                    }
+                    hideKeyboard(getActivity());
+                    successMessage(getActivity().getApplication(), "" + response.getMessage());
 
+                    getCustomerList();
+
+                });
     }
 
 

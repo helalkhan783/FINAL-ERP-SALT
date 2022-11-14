@@ -1,9 +1,9 @@
 package com.ismos_salt_erp.view.fragment.notificationsManage;
 
+import android.app.Application;
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ismos_salt_erp.R;
 import com.ismos_salt_erp.adapter.ReconciliationAdapter;
@@ -25,7 +26,6 @@ import com.ismos_salt_erp.viewModel.ReconciliationViewModel;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import es.dmoral.toasty.Toasty;
 
 public class ReconciliationDetailsFragment extends AddUpDel {
     private View view;
@@ -64,6 +64,10 @@ public class ReconciliationDetailsFragment extends AddUpDel {
          * now get Data from previous fragment
          */
         nowGetDataFromPreviousFragment();
+        orderId = getArguments().getString("RefOrderId");
+        toolbar.setText(getArguments().getString("pageName"));
+        status = getArguments().getString("status");
+        vendorId = getArguments().getString("vendorId");
         /**
          * now get Data from server
          */
@@ -96,17 +100,26 @@ public class ReconciliationDetailsFragment extends AddUpDel {
         }
         reconciliationViewModel.getReconciliationDetails(getActivity(), orderId, currentVendorId)
                 .observe(getViewLifecycleOwner(), response -> {
-                    reconciliationNo.setText(":  #" + response.getOrderInfo().getOrderID());
-                    enterprise.setText(":  " + response.getEnterprise());
-                    date.setText(":  " + response.getOrderInfo().getOrderDate() + " " + response.getOrderInfo().getOrderTime());
-                    note.setText(":  " + response.getOrderInfo().getNote());
-                    /**
-                     * now set order list to RecyclerView
-                     **/
-                    ReconciliationAdapter adapter = new ReconciliationAdapter(getActivity(), response.getDetails());
-                    itemRv.setLayoutManager(new LinearLayoutManager(getActivity()));
-                    itemRv.setHasFixedSize(true);
-                    itemRv.setAdapter(adapter);
+                    if (response == null) {
+                        Toast.makeText(getContext(), "Contact to support", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    if (response.getStatus() == 400) {
+                        message(response.getMessage());
+                        getActivity().onBackPressed();
+                        return;
+                    }
+                    if (response.getStatus() == 200) {
+                        reconciliationNo.setText(":  #" + response.getOrderInfo().getOrderID());
+                        enterprise.setText(":  " + response.getEnterprise());
+                        date.setText(":  " + response.getOrderInfo().getOrderDate() + " " + response.getOrderInfo().getOrderTime());
+                        note.setText(":  " + response.getOrderInfo().getNote());
+
+                        ReconciliationAdapter adapter = new ReconciliationAdapter(getActivity(), response.getDetails());
+                        itemRv.setLayoutManager(new LinearLayoutManager(getActivity()));
+                        itemRv.setHasFixedSize(true);
+                        itemRv.setAdapter(adapter);
+                    }
 
 
                 });
@@ -126,10 +139,7 @@ public class ReconciliationDetailsFragment extends AddUpDel {
     }
 
     private void nowGetDataFromPreviousFragment() {
-        orderId = getArguments().getString("RefOrderId");
-        toolbar.setText(getArguments().getString("pageName"));
-        status = getArguments().getString("status");
-        vendorId = getArguments().getString("vendorId");
+
     }
 
 
@@ -166,28 +176,38 @@ public class ReconciliationDetailsFragment extends AddUpDel {
     public void confirmApprove() {
         reconciliationViewModel.approveReconciliationDetails(getActivity(), orderId, noteEt.getText().toString())
                 .observe(getViewLifecycleOwner(), response -> {
-                    Toasty.success(getActivity(), "Approved", Toasty.LENGTH_LONG).show();
-                    getActivity().onBackPressed();
+
+                    if (response.getStatus() == 200) {
+                        message(response.getMessage());
+                        getActivity().onBackPressed();
+                    } else {
+                        errorMessage((Application) getContext().getApplicationContext(), "");
+                        getActivity().onBackPressed();
+                    }
+
                 });
     }
 
     public void approveDecline() {
         reconciliationViewModel.declineReconciliationDetails(getActivity(), orderId, noteEt.getText().toString())
                 .observe(getViewLifecycleOwner(), response -> {
-                    Toasty.success(getActivity(), "Declined", Toasty.LENGTH_LONG).show();
-                    getActivity().onBackPressed();
+                    if (response.getStatus() == 200) {
+                        message(response.getMessage());
+                        getActivity().onBackPressed();
+                    } else {
+                        errorMessage((Application) getContext().getApplicationContext(), "");
+                        getActivity().onBackPressed();
+                    }
                 });
     }
 
 
     @Override
-    public void save(boolean yesOrNo) {
-        if (yesOrNo == true) {
-            if (approval == true) {
-                confirmApprove();
-            } else {
-                approveDecline();
-            }
+    public void save() {
+        if (approval == true) {
+            confirmApprove();
+        } else {
+            approveDecline();
         }
     }
 

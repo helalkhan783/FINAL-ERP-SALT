@@ -124,4 +124,307 @@ public class CurrentOrder {
     @Expose
     private Object profilePhoto;
 
+    public String getOrderID() {
+        return orderID;
+    }
+
+    public void setOrderID(String orderID) {
+        this.orderID = orderID;
+    }
+
+    public String getSerialID() {
+        return serialID;
+    }
+
+    public void setSerialID(String serialID) {
+        this.serialID = serialID;
+    }
+
+    public String getOrderSerial() {
+        return orderSerial;
+    }
+
+    public void setOrderSerial(String orderSerial) {
+        this.orderSerial = orderSerial;
+    }
+
+    public String getCustomerID() {
+        return customerID;
+    }
+
+    public void setCustomerID(String customerID) {
+        this.customerID = customerID;
+    }
+
+    public String getStoreID() {
+        return storeID;
+    }
+
+    public void setStoreID(String storeID) {
+        this.storeID = storeID;
+    }
+
+    public String getEntryUserID() {
+        return entryUserID;
+    }
+
+    public void setEntryUserID(String entryUserID) {
+        this.entryUserID = entryUserID;
+    }
+
+    public String getVendorID() {
+        return vendorID;
+    }
+
+    public void setVendorID(String vendorID) {
+        this.vendorID = vendorID;
+    }
+
+    public String getCounterNo() {
+        return counterNo;
+    }
+
+    public void setCounterNo(String counterNo) {
+        this.counterNo = counterNo;
+    }
+
+    public String getTotal() {
+        return total;
+    }
+
+    public void setTotal(String total) {
+        this.total = total;
+    }
+
+    public String getGrandTotal() {
+        return grandTotal;
+    }
+
+    public void setGrandTotal(String grandTotal) {
+        this.grandTotal = grandTotal;
+    }
+
+    public String getReturnAmount() {
+        return returnAmount;
+    }
+
+    public void setReturnAmount(String returnAmount) {
+        this.returnAmount = returnAmount;
+    }
+
+    public String getOrderMonth() {
+        return orderMonth;
+    }
+
+    public void setOrderMonth(String orderMonth) {
+        this.orderMonth = orderMonth;
+    }
+
+    public String getOrderDate() {
+        return orderDate;
+    }
+
+    public void setOrderDate(String orderDate) {
+        this.orderDate = orderDate;
+    }
+
+    public String getOrderTime() {
+        return orderTime;
+    }
+
+    public void setOrderTime(String orderTime) {
+        this.orderTime = orderTime;
+    }
+
+    public String getOrderYear() {
+        return orderYear;
+    }
+
+    public void setOrderYear(String orderYear) {
+        this.orderYear = orderYear;
+    }
+
+    public String getVat() {
+        return vat;
+    }
+
+    public void setVat(String vat) {
+        this.vat = vat;
+    }
+
+    public String getIsApproved() {
+        return isApproved;
+    }
+
+    public void setIsApproved(String isApproved) {
+        this.isApproved = isApproved;
+    }
+
+    public String getIsConfirmed() {
+        return isConfirmed;
+    }
+
+    public void setIsConfirmed(String isConfirmed) {
+        this.isConfirmed = isConfirmed;
+    }
+
+    public String getOrderType() {
+        return orderType;
+    }
+
+    public void setOrderType(String orderType) {
+        this.orderType = orderType;
+    }
+
+    public Object getIsEcommerce() {
+        return isEcommerce;
+    }
+
+    public void setIsEcommerce(Object isEcommerce) {
+        this.isEcommerce = isEcommerce;
+    }
+
+    public String getCarryCost() {
+        return carryCost;
+    }
+
+    public void setCarryCost(String carryCost) {
+        this.carryCost = carryCost;
+    }
+
+    public Object getPoNo() {
+        return poNo;
+    }
+
+    public void setPoNo(Object poNo) {
+        this.poNo = poNo;
+    }
+
+    public Object getIndentNo() {
+        return indentNo;
+    }
+
+    public void setIndentNo(Object indentNo) {
+        this.indentNo = indentNo;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    public Object getContactPerson() {
+        return contactPerson;
+    }
+
+    public void setContactPerson(Object contactPerson) {
+        this.contactPerson = contactPerson;
+    }
+
+    public Object getContactPersonPhone() {
+        return contactPersonPhone;
+    }
+
+    public void setContactPersonPhone(Object contactPersonPhone) {
+        this.contactPersonPhone = contactPersonPhone;
+    }
+
+    public String getChallanNumber() {
+        return challanNumber;
+    }
+
+    public void setChallanNumber(String challanNumber) {
+        this.challanNumber = challanNumber;
+    }
+
+    public String getDiscountAmount() {
+        return discountAmount;
+    }
+
+    public void setDiscountAmount(String discountAmount) {
+        this.discountAmount = discountAmount;
+    }
+
+    public String getDiscountRate() {
+        return discountRate;
+    }
+
+    public void setDiscountRate(String discountRate) {
+        this.discountRate = discountRate;
+    }
+
+    public String getDiscountType() {
+        return discountType;
+    }
+
+    public void setDiscountType(String discountType) {
+        this.discountType = discountType;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getStage() {
+        return stage;
+    }
+
+    public void setStage(String stage) {
+        this.stage = stage;
+    }
+
+    public Object getRequisitionRef() {
+        return requisitionRef;
+    }
+
+    public void setRequisitionRef(Object requisitionRef) {
+        this.requisitionRef = requisitionRef;
+    }
+
+    public Object getReferenceUser() {
+        return referenceUser;
+    }
+
+    public void setReferenceUser(Object referenceUser) {
+        this.referenceUser = referenceUser;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public String getStoreName() {
+        return storeName;
+    }
+
+    public void setStoreName(String storeName) {
+        this.storeName = storeName;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public Object getProfilePhoto() {
+        return profilePhoto;
+    }
+
+    public void setProfilePhoto(Object profilePhoto) {
+        this.profilePhoto = profilePhoto;
+    }
 }

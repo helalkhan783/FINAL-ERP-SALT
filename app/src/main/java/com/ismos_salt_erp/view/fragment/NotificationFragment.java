@@ -27,6 +27,7 @@ import android.widget.TextView;
 import com.chivorn.smartmaterialspinner.SmartMaterialSpinner;
 import com.ismos_salt_erp.R;
 import com.ismos_salt_erp.adapter.NotificationListAdapter;
+import com.ismos_salt_erp.date_time_picker.DateTimePicker;
 import com.ismos_salt_erp.localDatabase.PreferenceManager;
 import com.ismos_salt_erp.manage_notification_click.GotoDetails;
 import com.ismos_salt_erp.serverResponseModel.LoginResponse;
@@ -51,7 +52,7 @@ import es.dmoral.toasty.Toasty;
 
 import org.jetbrains.annotations.NotNull;
 
-public class NotificationFragment extends BaseFragment implements DatePickerDialog.OnDateSetListener , GotoDetails {
+public class NotificationFragment extends BaseFragment implements DatePickerDialog.OnDateSetListener, GotoDetails {
     List<NotificationListResponse> notificationListResponseList = new ArrayList<>();
 
     private NotificationListViewModel notificationListViewModel;
@@ -148,6 +149,7 @@ public class NotificationFragment extends BaseFragment implements DatePickerDial
             }
             expendableEnterPriseList.setExpanded(true);
         });
+        statusList.clear();
         statusList.add("Approved");
         statusList.add("Pending");
         statusList.add("Declined");
@@ -173,14 +175,7 @@ public class NotificationFragment extends BaseFragment implements DatePickerDial
         });
 
         dateOfBirth.setOnClickListener(v -> {
-            Calendar now = Calendar.getInstance();
-            DatePickerDialog dialog = DatePickerDialog.newInstance(
-                     NotificationFragment.this,
-                    now.get(Calendar.YEAR), // Initial year selection
-                    now.get(Calendar.MONTH), // Initial month selection
-                    now.get(Calendar.DAY_OF_MONTH) // Initial day selection
-            );
-            dialog.show(getActivity().getSupportFragmentManager(), "Datepickerdialog");
+            DateTimePicker.openDatePicker(this, getActivity());
         });
 
         search.setOnClickListener(new View.OnClickListener() {
@@ -265,7 +260,7 @@ public class NotificationFragment extends BaseFragment implements DatePickerDial
                         infoMessage(getActivity().getApplication(), " " + notificationResponse.getMessage());
                         return;
                     }
-                    //  notificationListResponseList.clear();
+                    notificationListResponseList.clear();
                     notificationListResponseList.addAll(notificationResponse.getNotifications());
                     //  notificationListResponseList = notificationResponse.getNotifications();
 
@@ -295,7 +290,7 @@ public class NotificationFragment extends BaseFragment implements DatePickerDial
                         /**
                          * now set notification list to recyclerView
                          */
-                        NotificationListAdapter adapter = new NotificationListAdapter(getActivity(), notificationListResponseList,NotificationFragment.this);
+                        NotificationListAdapter adapter = new NotificationListAdapter(getActivity(), notificationListResponseList, NotificationFragment.this);
                         notificationListRv.setAdapter(adapter);
                     }
                 });
@@ -370,30 +365,13 @@ public class NotificationFragment extends BaseFragment implements DatePickerDial
 
     @Override
     public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
-        int month = monthOfYear;
-        if (month == 12) {
-            month = 1;
-        } else {
-            month = monthOfYear + 1;
-        }
-        String mainMonth, mainDay;
-        if (month <= 9) {
-            mainMonth = "0" + month;
-        } else {
-            mainMonth = String.valueOf(month);
-        }
-        if (dayOfMonth <= 9) {
-            mainDay = "0" + dayOfMonth;
-        } else {
-            mainDay = String.valueOf(dayOfMonth);
-        }
-        String selectedDate = mainDay + "-" + mainMonth + "-" + year;//set the selected date
-        dateOfBirth.setText(selectedDate);
+
+        dateOfBirth.setText(DateTimePicker.dateSelect(year, monthOfYear, dayOfMonth));
         date = dateOfBirth.getText().toString();
     }
 
     @Override
-    public void goToDetails(Integer type,String customerId,String status,String approval,String batchId){
+    public void goToDetails(Integer type, String customerId, String status, String approval, String batchId, String referrerId) {
 
 
         /**
@@ -425,7 +403,7 @@ public class NotificationFragment extends BaseFragment implements DatePickerDial
                 bundle.putString("pageName", "Customer Details");
             }
 
-        Navigation.findNavController(getView()).navigate(R.id.notificationListFragment_to_customerDetailsFragment, bundle);
+            Navigation.findNavController(getView()).navigate(R.id.notificationListFragment_to_customerDetailsFragment, bundle);
         }
         if (type == 23) {
             /**
@@ -460,12 +438,12 @@ public class NotificationFragment extends BaseFragment implements DatePickerDial
             }
             Navigation.findNavController(getView()).navigate(R.id.notificationListFragment_to_customerDetailsFragment, bundle);
 
-         }
+        }
 
         if (type == 5) {
             Bundle bundle = new Bundle();
             bundle.putString("TypeKey", String.valueOf(type));
-            bundle.putString("RefOrderId", customerId);
+            bundle.putString("RefOrderId", referrerId);
             bundle.putString("portion", "PENDING_PURCHASE");
             if (approval.equals("2")) {
                 bundle.putString("status", "2");
@@ -475,12 +453,12 @@ public class NotificationFragment extends BaseFragment implements DatePickerDial
             }
             Navigation.findNavController(getView()).navigate(R.id.action_notificationFragment_to_pendingPurchaseDetailsFragment4, bundle);
 
-             return;
+            return;
         }
 
         if (type == 20) {
             Bundle bundle = new Bundle();
-            bundle.putString("RefOrderId",customerId);
+            bundle.putString("RefOrderId", referrerId);
             // bundle.putString("portion", "PurchaseReturnDetails");
             bundle.putString("portion", "PENDING_PURCHASE");
             if (approval.equals("2")) {
@@ -493,7 +471,7 @@ public class NotificationFragment extends BaseFragment implements DatePickerDial
 
             Navigation.findNavController(getView()).navigate(R.id.action_notificationFragment_to_purchaseReturnPendingDetailsFragment, bundle);
 
-             return;
+            return;
         }
         if (type == 25) {
             Bundle bundle = new Bundle();
@@ -518,7 +496,7 @@ public class NotificationFragment extends BaseFragment implements DatePickerDial
         if (type == 2) {
             Bundle bundle = new Bundle();
             bundle.putString("TypeKey", String.valueOf(type));
-            bundle.putString("RefOrderId", customerId);
+            bundle.putString("RefOrderId", referrerId);
             bundle.putString("portion", "PENDING_SALE");
             if (approval.equals("2")) {
                 bundle.putString("status", "2");
@@ -531,7 +509,7 @@ public class NotificationFragment extends BaseFragment implements DatePickerDial
             bundle.putString("pageName", "Sales Details");
             Navigation.findNavController(getView()).navigate(R.id.action_notificationFragment_to_pendingPurchaseDetailsFragment4, bundle);
 
-         }
+        }
 
         /**
          * here 6 is a unique key for approve and decline edit purchase  only
@@ -539,7 +517,7 @@ public class NotificationFragment extends BaseFragment implements DatePickerDial
         if (type == 6) {
             Bundle bundle = new Bundle();
             bundle.putString("TypeKey", String.valueOf(type));
-            bundle.putString("RefOrderId", customerId);
+            bundle.putString("RefOrderId", referrerId);
 
             if (!(approval.equals("2"))) {
                 bundle.putString("portion", "PENDING_PURCHASE");//same page show key also same
@@ -562,7 +540,7 @@ public class NotificationFragment extends BaseFragment implements DatePickerDial
         if (type == 8) {
             Bundle bundle = new Bundle();
             bundle.putString("TypeKey", String.valueOf(type));
-            bundle.putString("RefOrderId", customerId);
+            bundle.putString("RefOrderId", referrerId);
             if (!(approval.equals("2"))) {
                 //bundle.putString("status", "2");
                 bundle.putString("portion", "PENDING_SALE");
@@ -576,7 +554,7 @@ public class NotificationFragment extends BaseFragment implements DatePickerDial
                 bundle.putString("portion", "EDIT_SALE");
                 Navigation.findNavController(getView()).navigate(R.id.action_notificationFragment_to_purchaseEditDetails, bundle);
 
-             }
+            }
         }
 
 
@@ -586,7 +564,7 @@ public class NotificationFragment extends BaseFragment implements DatePickerDial
         if (type == 7) {
             Bundle bundle = new Bundle();
             bundle.putString("TypeKey", String.valueOf(type));
-            bundle.putString("RefOrderId", customerId);
+            bundle.putString("RefOrderId", referrerId);
             if (approval.equals("2")) {
                 bundle.putString("status", "2");
                 bundle.putString("pageName", "Pending Washing & Crushing Details");
@@ -596,7 +574,7 @@ public class NotificationFragment extends BaseFragment implements DatePickerDial
             Navigation.findNavController(getView()).navigate(R.id.action_notificationFragment_to_getPendingWashingAndCrushingDetails, bundle);
 
 
-         }
+        }
 
         /**
          * here 9 is a unique key for get edited Washing & Crushing Details
@@ -604,21 +582,22 @@ public class NotificationFragment extends BaseFragment implements DatePickerDial
         if (type == 9) {
             Bundle bundle = new Bundle();
             bundle.putString("TypeKey", String.valueOf(type));
-            bundle.putString("RefOrderId", customerId);
+            bundle.putString("RefOrderId", referrerId);
+            bundle.putString("status", approval);
             bundle.putString("pageName", "Edited Washing & Crushing");
             //bundle.putString("portion", "EDIT_SALE");
 
             Navigation.findNavController(getView()).navigate(R.id.action_notificationFragment_to_editedWashigAndCrushingDetails, bundle);
 
-       //     Navigation.createNavigateOnClickListener(R.id.action_notificationFragment_to_editedWashigAndCrushingDetails, bundle).onClick(v);
+            //     Navigation.createNavigateOnClickListener(R.id.action_notificationFragment_to_editedWashigAndCrushingDetails, bundle).onClick(v);
         }
         /**
          * here 11 is a unique key for get pending iodization details
          */
         if (type == 11) {
             Bundle bundle = new Bundle();
-            bundle.putString("TypeKey",String.valueOf(type));
-            bundle.putString("RefOrderId", customerId);
+            bundle.putString("TypeKey", String.valueOf(type));
+            bundle.putString("RefOrderId", referrerId);
             if (approval.equals("2")) {
                 bundle.putString("status", "2");
                 bundle.putString("pageName", "Pending Iodization Details");
@@ -627,7 +606,7 @@ public class NotificationFragment extends BaseFragment implements DatePickerDial
             }
             Navigation.findNavController(getView()).navigate(R.id.action_notificationFragment_to_pendingIodizationDetailsFragment, bundle);
 
-         }
+        }
 
         /**
          * here 10 is a unique key for get edited iodization details
@@ -639,13 +618,13 @@ public class NotificationFragment extends BaseFragment implements DatePickerDial
         if (type == 10) {
             Bundle bundle = new Bundle();
             bundle.putString("TypeKey", String.valueOf(type));
-            bundle.putString("RefOrderId", customerId);
+            bundle.putString("RefOrderId", referrerId);
             bundle.putString("pageName", "Pending Iodization Details");
             bundle.putString("portion", "PENDING_IODIZATION_DETAILS");
             Navigation.findNavController(getView()).navigate(R.id.action_notificationFragment_to_iodizationEditDetailsFragment, bundle);
 
 
-         }
+        }
 
         /**
          * for get actual order id remove first Q from the Ref_orderID
@@ -661,7 +640,7 @@ public class NotificationFragment extends BaseFragment implements DatePickerDial
         /**
          * here 12  is a unique key for show Pending Quotation Details
          */
-        if (type== 12) {
+        if (type == 12) {
             Bundle bundle = new Bundle();
             bundle.putString("TypeKey", String.valueOf(type));
             bundle.putString("RefOrderId", refOrderId);
@@ -676,8 +655,8 @@ public class NotificationFragment extends BaseFragment implements DatePickerDial
          */
         if (type == 13) {
             Bundle bundle = new Bundle();
-            bundle.putString("TypeKey",String.valueOf(type));
-            bundle.putString("RefOrderId", refOrderId);
+            bundle.putString("TypeKey", String.valueOf(type));
+            bundle.putString("RefOrderId", referrerId);
             if (approval.equals("2")) {
                 bundle.putString("status", "2");
                 bundle.putString("pageName", "Pending Transfer Details");
@@ -687,15 +666,15 @@ public class NotificationFragment extends BaseFragment implements DatePickerDial
 
             Navigation.findNavController(getView()).navigate(R.id.action_notificationFragment_to_transferDetailsFragment, bundle);
 
-         }
+        }
         /**
          * here 14 is a unique key for show pending expense details
          */
 
-        if (type== 14) {
+        if (type == 14) {
             Bundle bundle = new Bundle();
-            bundle.putString("TypeKey",String.valueOf(type));
-            bundle.putString("RefOrderId", refOrderId);
+            bundle.putString("TypeKey", String.valueOf(type));
+            bundle.putString("RefOrderId", referrerId);
             bundle.putString("pageName", "Pending Expense Details");
             bundle.putString("portion", "PENDING_EXPENSE_DETAILS");
             bundle.putString("status", status);
@@ -708,12 +687,12 @@ public class NotificationFragment extends BaseFragment implements DatePickerDial
         if (type == 15) {
             Bundle bundle = new Bundle();
             bundle.putString("TypeKey", String.valueOf(type));
-            bundle.putString("RefOrderId", refOrderId);
+            bundle.putString("RefOrderId", referrerId);
             bundle.putString("pageName", "Edited Payment Details");
             bundle.putString("portion", "EDITED_PENDING_PURCHASE_DETAILS");
             Navigation.findNavController(getView()).navigate(R.id.action_notificationFragment_to_pendingEditedPurchasePendingDetails, bundle);
 
-         }
+        }
 
         /**
          * here 16 is a unique key for show pending reconciliation details
@@ -721,7 +700,7 @@ public class NotificationFragment extends BaseFragment implements DatePickerDial
         if (type == 16) {
             Bundle bundle = new Bundle();
             bundle.putString("TypeKey", String.valueOf(type));
-            bundle.putString("RefOrderId", refOrderId);
+            bundle.putString("RefOrderId", referrerId);
             bundle.putString("portion", "PENDING_RECONCILIATION_DETAILS");
             if (approval.equals("2")) {
                 bundle.putString("status", "2");
@@ -731,14 +710,14 @@ public class NotificationFragment extends BaseFragment implements DatePickerDial
             }
             Navigation.findNavController(getView()).navigate(R.id.action_notificationFragment_to_reconciliationDetailsFragment, bundle);
 
-         }
+        }
 
         /**
          * here 17 is a unique key for show pending reconciliation details
          */
         if (type == 17) {
             Bundle bundle = new Bundle();
-            bundle.putString("TypeKey",String.valueOf(type));
+            bundle.putString("TypeKey", String.valueOf(type));
             bundle.putString("RefOrderId", refOrderId);
             bundle.putString("portion", "SALES_RETURNS_DETAILS");
             bundle.putString("pageName", "Sales Return Details");
@@ -748,7 +727,7 @@ public class NotificationFragment extends BaseFragment implements DatePickerDial
             // Navigation.createNavigateOnClickListener(R.id.action_notificationFragment_to_pendingSalesReturnDetails, bundle).onClick(v);
             Navigation.findNavController(getView()).navigate(R.id.action_notificationFragment_to_purchaseReturnPendingDetailsFragment, bundle);
 
-         }
+        }
 
 
         if (type == 18) {
@@ -767,14 +746,13 @@ public class NotificationFragment extends BaseFragment implements DatePickerDial
         if (type == 4 || type == 36 || type == 37) {
             Bundle bundle = new Bundle();
             bundle.putString("typeKey", String.valueOf(type));
-            bundle.putString("RefOrderId", refOrderId);
+            bundle.putString("RefOrderId", referrerId);
             bundle.putString("batch", batchId);
             bundle.putString("customer", customerId);
             bundle.putString("status", status);
-
             Navigation.findNavController(getView()).navigate(R.id.action_notificationFragment_to_expenseDuePaymentApproveDetails, bundle);
 
-         }
+        }
 
 
         if (type == 21) {
@@ -786,14 +764,12 @@ public class NotificationFragment extends BaseFragment implements DatePickerDial
                 bundle.putString("pageName", "Pending Sales Return Cancel Details");
                 bundle.putString("status", "2");
                 Navigation.findNavController(getView()).navigate(R.id.notificationListFragment_to_pendingPurchaseDetailsFragment, bundle);
-                 return;
+                return;
             } else {
                 bundle.putString("pageName", "Sales Return  Details");
             }
             // bundle.putString("portion", "SALES_RETURNS_CANCEL_WHOLE_ORDER_DETAILS");
             Navigation.findNavController(getView()).navigate(R.id.notificationListFragment_to_pendingPurchaseDetailsFragment, bundle);
-
-
 
 
         }

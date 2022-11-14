@@ -40,20 +40,17 @@ public class EditedPurchaseEditAdapter extends RecyclerView.Adapter<EditedPurcha
     public void onBindViewHolder(@NonNull MyHolder holder, int position) {
         EditedOrderDetail currentItem = editedOrderDetailsList.get(position);
 
-        /**
-         * now set color on updated property like (price,quantity)
-         */
         for (int i = 0; i < previousOrderList.size(); i++) {
             double previousBuyingPrice = Double.parseDouble(previousOrderList.get(i).getBuyingPrice());
             double currentBuyingPrice = Double.parseDouble(currentItem.getBuyingPrice());
 
             //price
             if (currentBuyingPrice != previousBuyingPrice) {
-                holder.price.setText(currentItem.getBuyingPrice());
+                holder.price.setText("  :"+currentItem.getBuyingPrice());
                 holder.price.setTextColor(context.getResources().getColor(R.color.successColor));
             } else {
                 holder.price.setTextColor(context.getResources().getColor(R.color.gray));
-                holder.price.setText(currentItem.getBuyingPrice());
+                holder.price.setText("  :"+currentItem.getBuyingPrice());
             }
 
             double previousQuantity = Double.parseDouble(previousOrderList.get(position).getQuantity());
@@ -61,17 +58,17 @@ public class EditedPurchaseEditAdapter extends RecyclerView.Adapter<EditedPurcha
             //quantity
             if (previousQuantity != currentQuantity) {
                 holder.quantity.setTextColor(context.getResources().getColor(R.color.successColor));
-                holder.quantity.setText(currentItem.getQuantity());
+                holder.quantity.setText("  :"+currentItem.getQuantity()+ " "+currentItem.getUnit());
             } else {
                 holder.quantity.setTextColor(context.getResources().getColor(R.color.gray));
-                holder.quantity.setText(currentItem.getQuantity());
+                holder.quantity.setText("  :"+currentItem.getQuantity() + " "+currentItem.getUnit());
             }
         }
 
-        holder.itemName.setText(currentItem.getProductTitle());
-        holder.unit.setText(currentItem.getUnit());
+        holder.itemName.setText("  :"+currentItem.getProductTitle());
+
         double total = Double.parseDouble(currentItem.getBuyingPrice()) * Double.parseDouble(currentItem.getQuantity());
-        holder.total.setText(String.valueOf(total));
+        holder.total.setText("  :"+String.valueOf(total));
     }
 
     @Override

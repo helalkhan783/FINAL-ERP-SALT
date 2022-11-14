@@ -408,14 +408,11 @@ public class PurchaseReturnPendingDetailsFragment extends AddUpDel {
 
 
     @Override
-    public void save(boolean yesOrNo) {
-        if (yesOrNo == true) {
-            if (approval == true) {
-                approveSubmit();
-            } else {
-                submitDecline();
-            }
-
+    public void save() {
+        if (approval == true) {
+            approveSubmit();
+        } else {
+            submitDecline();
         }
     }
 

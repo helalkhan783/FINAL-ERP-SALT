@@ -58,7 +58,7 @@ public final class MyApplication {
         tvTitle = view.findViewById(R.id.tv_title);
         tvTitle.setText(context.getResources().getString(R.string.terminate));//set warning title
         tvMessage.append(context.getResources().getString(R.string.terminate_app_message));//set warning message details text
-        imageIcon.setImageDrawable(ContextCompat.getDrawable(context, R.mipmap.ic_launcher));//set warning image
+        imageIcon.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.app_sub_logo));//set warning image
         Button bOk = view.findViewById(R.id.btn_ok);
         Button cancel = view.findViewById(R.id.cancel);
         AlertDialog alertDialog = builder.create();
@@ -168,7 +168,7 @@ public final class MyApplication {
         dialogSpeech = view.findViewById(R.id.dialogSpeech);
         ImageView imageIcon = view.findViewById(R.id.img_icon);
 
-        imageIcon.setImageDrawable(ContextCompat.getDrawable(context, R.mipmap.ic_launcher));//set warning image
+        imageIcon.setImageDrawable(ContextCompat.getDrawable(context,  R.drawable.app_sub_logo));//set warning image
         AlertDialog alertDialog = builder.create();
         Objects.requireNonNull(alertDialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         alertDialog.setCancelable(false);

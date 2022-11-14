@@ -17,7 +17,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AlertDialog;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.Navigation;
@@ -37,7 +36,6 @@ import com.ismos_salt_erp.serverResponseModel.CustomerResponse;
 import com.ismos_salt_erp.serverResponseModel.EnterpriseResponse;
 import com.ismos_salt_erp.serverResponseModel.SalesRequisitionItems;
 import com.ismos_salt_erp.serverResponseModel.SalesRequisitionItemsResponse;
-import com.ismos_salt_erp.view.fragment.BaseFragment;
 import com.ismos_salt_erp.viewModel.AddRequisitionViewmodel;
 import com.ismos_salt_erp.viewModel.DiscountViewModel;
 import com.ismos_salt_erp.viewModel.DueCollectionViewModel;
@@ -46,14 +44,12 @@ import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import es.dmoral.toasty.Toasty;
 
 public class NewSalesRequisitionFragmentInfo extends AddUpDel implements DatePickerDialog.OnDateSetListener {
     private SalesRequisitionViewModel salesRequisitionViewModel;
@@ -396,10 +392,8 @@ public class NewSalesRequisitionFragmentInfo extends AddUpDel implements DatePic
     }
 
     @Override
-    public void save(boolean yesOrNo) {
-        if (yesOrNo == true) {
-            submit();
-        }
+    public void save() {
+        submit();
     }
 
     private void submit() {

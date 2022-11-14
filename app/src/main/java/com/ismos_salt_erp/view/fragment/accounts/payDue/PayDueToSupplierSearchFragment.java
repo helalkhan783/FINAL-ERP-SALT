@@ -1,17 +1,13 @@
 package com.ismos_salt_erp.view.fragment.accounts.payDue;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.RequiresApi;
 import androidx.cardview.widget.CardView;
-import androidx.core.content.ContextCompat;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -46,7 +42,6 @@ import com.ismos_salt_erp.serverResponseModel.Order;
 import com.ismos_salt_erp.serverResponseModel.PaymentToResponse;
 import com.ismos_salt_erp.serverResponseModel.PaymentTypes;
 import com.ismos_salt_erp.utils.replace.DataModify;
-import com.ismos_salt_erp.view.fragment.BaseFragment;
 import com.ismos_salt_erp.view.fragment.customers.AddUpDel;
 import com.ismos_salt_erp.viewModel.DuePaymentReceivedViewModel;
 import com.ismos_salt_erp.viewModel.SalesRequisitionViewModel;
@@ -56,10 +51,8 @@ import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 import net.cachapa.expandablelayout.ExpandableLayout;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -869,10 +862,10 @@ public class PayDueToSupplierSearchFragment extends AddUpDel implements DatePick
     }
 
     @Override
-    public void save(boolean yesOrNo) {
-        if (yesOrNo == true) {
+    public void save() {
+
             submitData();
-        }
+
     }
 
     @Override

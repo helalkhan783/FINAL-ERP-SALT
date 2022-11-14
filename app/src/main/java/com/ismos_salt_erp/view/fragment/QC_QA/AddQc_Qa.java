@@ -1,14 +1,9 @@
 package com.ismos_salt_erp.view.fragment.QC_QA;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
-import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -18,10 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.ismos_salt_erp.R;
 import com.ismos_salt_erp.adapter.NewQcQaAdapter;
@@ -41,7 +33,6 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Objects;
 import java.util.Set;
 
 public class AddQc_Qa extends AddUpDel implements DatePickerDialog.OnDateSetListener, GetAllQcQaDataFromAdapter {
@@ -329,10 +320,8 @@ public class AddQc_Qa extends AddUpDel implements DatePickerDialog.OnDateSetList
 
 
     @Override
-    public void save(boolean yesOrNo) {
-        if (yesOrNo == false){
-            submit();
-        }
+    public void save() {
+        submit();
     }
 
     @Override

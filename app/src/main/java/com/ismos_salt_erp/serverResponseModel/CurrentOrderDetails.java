@@ -33,4 +33,68 @@ public class CurrentOrderDetails {
     @SerializedName("payment_type")
     @Expose
     private String paymentType;
+
+    public String getRequisitionDate() {
+        return requisitionDate;
+    }
+
+    public void setRequisitionDate(String requisitionDate) {
+        this.requisitionDate = requisitionDate;
+    }
+
+    public String getRequisitionEndDate() {
+        return requisitionEndDate;
+    }
+
+    public void setRequisitionEndDate(String requisitionEndDate) {
+        this.requisitionEndDate = requisitionEndDate;
+    }
+
+    public List<Item> getItems() {
+        return items;
+    }
+
+    public void setItems(List<Item> items) {
+        this.items = items;
+    }
+
+    public Integer getTotalAmount() {
+        return totalAmount;
+    }
+
+    public void setTotalAmount(Integer totalAmount) {
+        this.totalAmount = totalAmount;
+    }
+
+    public Integer getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(Integer discount) {
+        this.discount = discount;
+    }
+
+    public Integer getCollected() {
+        return collected;
+    }
+
+    public void setCollected(Integer collected) {
+        this.collected = collected;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public String getPaymentType() {
+        return paymentType;
+    }
+
+    public void setPaymentType(String paymentType) {
+        this.paymentType = paymentType;
+    }
 }

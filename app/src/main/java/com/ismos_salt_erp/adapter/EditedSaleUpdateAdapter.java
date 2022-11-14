@@ -51,11 +51,11 @@ public class EditedSaleUpdateAdapter extends RecyclerView.Adapter<EditedSaleUpda
 
             //price
             if (currentBuyingPrice != previousBuyingPrice) {
-                holder.price.setText(currentItem.getSellingPrice());
+                holder.price.setText(":  "+currentItem.getSellingPrice());
                 holder.price.setTextColor(context.getResources().getColor(R.color.successColor));
             } else {
                 holder.price.setTextColor(context.getResources().getColor(R.color.gray));
-                holder.price.setText(currentItem.getSellingPrice());
+                holder.price.setText(":  "+currentItem.getSellingPrice());
             }
 
             double previousQuantity = Double.parseDouble(previousOrderList.get(position).getQuantity());
@@ -63,17 +63,17 @@ public class EditedSaleUpdateAdapter extends RecyclerView.Adapter<EditedSaleUpda
             //quantity
             if (previousQuantity != currentQuantity) {
                 holder.quantity.setTextColor(context.getResources().getColor(R.color.successColor));
-                holder.quantity.setText(currentItem.getQuantity());
+                holder.quantity.setText(":  "+currentItem.getQuantity() + "  "+currentItem.getUnit());
             } else {
                 holder.quantity.setTextColor(context.getResources().getColor(R.color.gray));
-                holder.quantity.setText(currentItem.getQuantity());
+                holder.quantity.setText(":  "+currentItem.getQuantity());
             }
         }
 
-        holder.itemName.setText(currentItem.getProductTitle());
-        holder.unit.setText(currentItem.getUnit());
+        holder.itemName.setText(":  "+currentItem.getProductTitle());
+        holder.unit.setText(":  "+currentItem.getUnit());
         double total = Double.parseDouble(currentItem.getBuyingPrice()) * Double.parseDouble(currentItem.getQuantity());
-        holder.total.setText(String.valueOf(total));
+        holder.total.setText(":  "+String.valueOf(total));
     }
 
     @Override

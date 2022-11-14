@@ -2,14 +2,9 @@ package com.ismos_salt_erp.view.fragment.miller.addNewMiller;
 
 import static io.reactivex.internal.util.NotificationLite.isError;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.database.Cursor;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -18,13 +13,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
-import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.ismos_salt_erp.R;
@@ -34,7 +24,6 @@ import com.ismos_salt_erp.localDatabase.MyDatabaseHelper;
 import com.ismos_salt_erp.serverResponseModel.CustomerResponse;
 import com.ismos_salt_erp.serverResponseModel.SalesRequisitionItems;
 import com.ismos_salt_erp.utils.replace.DataModify;
-import com.ismos_salt_erp.view.fragment.BaseFragment;
 import com.ismos_salt_erp.view.fragment.customers.AddUpDel;
 import com.ismos_salt_erp.view.fragment.purchase.newPurchase.AddNewPurchase;
 import com.ismos_salt_erp.view.fragment.purchase.newPurchase.ConfirmPurchase;
@@ -46,7 +35,6 @@ import com.ismos_salt_erp.viewModel.SaleViewModel;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 
 
 public class CompanyOwnerInfo extends AddUpDel implements View.OnClickListener {
@@ -389,11 +377,10 @@ public class CompanyOwnerInfo extends AddUpDel implements View.OnClickListener {
     }
 
     @Override
-    public void save(boolean yesOrNo) {
-        hideKeyboard(getActivity());
-        if (yesOrNo == true) {
+    public void save() {
+
             submit("saveUnPaid");
-        }
+
 
     }
 
@@ -404,6 +391,7 @@ public class CompanyOwnerInfo extends AddUpDel implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
+        hideKeyboard(getActivity());
         if (v.getId() == R.id.cashBook) {
             paymentType = "1";
             visibleImage();

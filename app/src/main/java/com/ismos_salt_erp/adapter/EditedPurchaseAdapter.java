@@ -36,12 +36,12 @@ public class EditedPurchaseAdapter extends RecyclerView.Adapter<EditedPurchaseAd
     @Override
     public void onBindViewHolder(@NonNull MyHolder holder, int position) {
         Item currentItem = itemList.get(position);
-        holder.itemName.setText(currentItem.getItem());
-        holder.price.setText(currentItem.getBuyingPrice());
-        holder.quantity.setText(currentItem.getQuantity());
-        holder.unit.setText(currentItem.getUnit());
+        holder.itemName.setText("  :"+currentItem.getItem() + "  " + currentItem.getQuantity());
+        holder.price.setText("  :"+currentItem.getBuyingPrice());
+        holder.quantity.setText("  :"+currentItem.getQuantity());
+
         double total = Double.parseDouble(currentItem.getBuyingPrice()) * Double.parseDouble(currentItem.getQuantity());
-        holder.total.setText(String.valueOf(total));
+        holder.total.setText("  :"+String.valueOf(total));
     }
 
     @Override

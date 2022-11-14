@@ -4,7 +4,6 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -24,7 +23,6 @@ import com.ismos_salt_erp.adapter.TransferDetailsItemAdapter;
 import com.ismos_salt_erp.localDatabase.PreferenceManager;
 import com.ismos_salt_erp.utils.DateFormatRight;
 import com.ismos_salt_erp.utils.PermissionUtil;
-import com.ismos_salt_erp.view.fragment.BaseFragment;
 import com.ismos_salt_erp.view.fragment.customers.AddUpDel;
 import com.ismos_salt_erp.viewModel.TransferViewModel;
 
@@ -278,13 +276,11 @@ public class TransferDetailsFragment extends AddUpDel {
 
 
     @Override
-    public void save(boolean yesOrNo) {
-        if (yesOrNo == true) {
-            if (approval == true) {
-                confirmApprove();
-            } else {
-                declineApprove();
-            }
+    public void save() {
+        if (approval == true) {
+            confirmApprove();
+        } else {
+            declineApprove();
         }
     }
 

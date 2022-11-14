@@ -1,34 +1,20 @@
 package com.ismos_salt_erp.view.fragment.items.addNew;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.net.Uri;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
-import android.provider.MediaStore;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.ismos_salt_erp.R;
 import com.ismos_salt_erp.bottomsheet.Bottomsheet;
@@ -39,27 +25,15 @@ import com.ismos_salt_erp.serverResponseModel.AddNewItemBrand;
 import com.ismos_salt_erp.serverResponseModel.AddNewItemCategory;
 import com.ismos_salt_erp.serverResponseModel.AddNewItemUnit;
 import com.ismos_salt_erp.utils.BottomUtil;
-import com.ismos_salt_erp.utils.PathUtil;
-import com.ismos_salt_erp.view.fragment.BaseFragment;
 import com.ismos_salt_erp.view.fragment.customers.AddUpDel;
 import com.ismos_salt_erp.viewModel.AddNewItemViewModel;
 
-import org.jetbrains.annotations.NotNull;
-
-import java.io.File;
-import java.io.InputStream;
-import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 
-import es.dmoral.toasty.Toasty;
 import lombok.NoArgsConstructor;
-import lombok.SneakyThrows;
-import okhttp3.MediaType;
 import okhttp3.MultipartBody;
-import okhttp3.RequestBody;
 
 @NoArgsConstructor
 public class AddNewItem extends AddUpDel implements AdapterView.OnItemSelectedListener, FetchId {
@@ -202,8 +176,25 @@ public class AddNewItem extends AddUpDel implements AdapterView.OnItemSelectedLi
 
     }
 
-    private void submit() {
-        hideKeyboard(getActivity());
+
+
+    private void removeAllInputData() {
+        selectedCategory = null;
+        selectedPrimaryUnit = null;
+        selectedBrand = null;
+        binding.spinner1.setSelected(false);
+        binding.access.itemNameEt.setText("");
+        binding.access.weightEt.setText("");
+
+        binding.primaryUnit.setSelected(false);
+        binding.weight.setText("");
+        binding.brand.setSelected(false);
+        binding.access.itemCode.setText("");
+        binding.note.setText("");
+    }
+
+    @Override
+    public void save() {
         ProgressDialog progressDialog = new ProgressDialog(getContext());
         progressDialog.show();
         addNewItemViewModel.submitAddNewItemInfo(
@@ -229,28 +220,7 @@ public class AddNewItem extends AddUpDel implements AdapterView.OnItemSelectedLi
             bundle.putString("itemName", binding.itemName.getText().toString());
             Navigation.findNavController(getView()).navigate(R.id.action_addNewItem_to_confirmAddNewItem, bundle);
         });
-    }
 
-    private void removeAllInputData() {
-        selectedCategory = null;
-        selectedPrimaryUnit = null;
-        selectedBrand = null;
-        binding.spinner1.setSelected(false);
-        binding.access.itemNameEt.setText("");
-        binding.access.weightEt.setText("");
-
-        binding.primaryUnit.setSelected(false);
-        binding.weight.setText("");
-        binding.brand.setSelected(false);
-        binding.access.itemCode.setText("");
-        binding.note.setText("");
-    }
-
-    @Override
-    public void save(boolean yesOrNo) {
-        if (yesOrNo == true) {
-            submit();
-        }
     }
 
     @Override

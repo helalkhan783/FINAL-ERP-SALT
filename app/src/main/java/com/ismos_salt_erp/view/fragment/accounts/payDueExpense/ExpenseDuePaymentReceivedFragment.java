@@ -6,7 +6,6 @@ import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AlertDialog;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
@@ -35,7 +34,6 @@ import com.ismos_salt_erp.serverResponseModel.PaymentToExpenseResponse;
 import com.ismos_salt_erp.serverResponseModel.PaymentTypes;
 import com.ismos_salt_erp.utils.AccountsUtil;
 import com.ismos_salt_erp.utils.replace.DataModify;
-import com.ismos_salt_erp.view.fragment.BaseFragment;
 import com.ismos_salt_erp.view.fragment.customers.AddUpDel;
 import com.ismos_salt_erp.viewModel.DuePaymentReceivedViewModel;
 import com.ismos_salt_erp.viewModel.ExpenseVendorViewModel;
@@ -43,13 +41,11 @@ import com.ismos_salt_erp.viewModel.SalesRequisitionViewModel;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import es.dmoral.toasty.Toasty;
 
 public class ExpenseDuePaymentReceivedFragment extends AddUpDel implements DatePickerDialog.OnDateSetListener {
 
@@ -559,13 +555,7 @@ public class ExpenseDuePaymentReceivedFragment extends AddUpDel implements DateP
     }
 
     @Override
-    public void save(boolean yesOrNo) {
-        if (yesOrNo == true) {
-            submit();
-        }
-    }
-
-    private void submit() {
+    public void save() {
         String customDiscount = "0";
 
         String storeId = selectedEnterPrice;
@@ -589,7 +579,10 @@ public class ExpenseDuePaymentReceivedFragment extends AddUpDel implements DateP
                     ExpenseDueOrdersAdapter.selectedOrderList.clear();
                     getActivity().onBackPressed();
                 });
+
+
     }
+
 
     @Override
     public void imageUri(Intent uri) {

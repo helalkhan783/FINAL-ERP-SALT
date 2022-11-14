@@ -1,12 +1,7 @@
 package com.ismos_salt_erp.view.fragment.sale.editSale;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -15,12 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.CompoundButton;
-import android.widget.TextView;
 
 import androidx.databinding.DataBindingUtil;
-import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -46,7 +38,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
-import java.util.Objects;
 
 public class ConfirmSaleEdit extends AddUpDel implements CompoundButton.OnCheckedChangeListener {
     private FragmentConfirmSaleEditBinding binding;
@@ -610,10 +601,8 @@ public class ConfirmSaleEdit extends AddUpDel implements CompoundButton.OnChecke
     }
 
     @Override
-    public void save(boolean yesOrNo) {
-        if (yesOrNo == true){
-            submit();
-        }
+    public void save() {
+        submit();
     }
 
     @Override

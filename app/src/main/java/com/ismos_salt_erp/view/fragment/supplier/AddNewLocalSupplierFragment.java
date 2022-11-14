@@ -309,11 +309,8 @@ public class AddNewLocalSupplierFragment extends AddUpDel implements SmartMateri
     }
 
     @Override
-    public void save(boolean yesOrNo) {
-        if (yesOrNo == true) {
-            submit();
-        }
-
+    public void save() {
+        submit();
     }
 
     @Override

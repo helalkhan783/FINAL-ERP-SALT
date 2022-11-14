@@ -40,7 +40,7 @@ public class NotificationListResponse {
     @SerializedName("remarks")
     @Expose
     private String remarks;
-    @SerializedName("batch")
+    @SerializedName("psid")
     @Expose
     private String batch;
     @SerializedName("customerID")

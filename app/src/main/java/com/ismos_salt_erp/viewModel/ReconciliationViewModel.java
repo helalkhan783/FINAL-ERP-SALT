@@ -116,22 +116,33 @@ public class ReconciliationViewModel extends ViewModel {
         ProgressDialog progressDialog = new ProgressDialog(context);
 
         String token = PreferenceManager.getInstance(context).getUserCredentials().getToken();
+        String userId = PreferenceManager.getInstance(context).getUserCredentials().getUserId();
 
         progressDialog.show();
 
 
         Call<ReconciliationDetailsResponse> call = RetrofitClient.getInstance().getApi()
-                .getReconciliationDetails(token, vendorId, orderId);
+                .getReconciliationDetails(token, vendorId, userId,orderId);
         call.enqueue(new Callback<ReconciliationDetailsResponse>() {
             @Override
             public void onResponse(Call<ReconciliationDetailsResponse> call, Response<ReconciliationDetailsResponse> response) {
                 if (response.isSuccessful()) {
-                    assert response.body() != null;
-                    if (response.body().getStatus() == 200) {
-                        liveData.postValue(response.body());
+
+                    if (response.body().getStatus() == 500 || response == null) {
+                        liveData.setValue(null);
+                        progressDialog.dismiss();
+
+                    }
+
+                    if (response.body().getStatus() == 200 || response.body().getStatus() == 400 ){
+                        liveData.setValue(response.body());
                         progressDialog.dismiss();
                     }
 
+                }
+
+                else {
+                    liveData.setValue(null);
                 }
             }
 
@@ -139,7 +150,8 @@ public class ReconciliationViewModel extends ViewModel {
             public void onFailure(Call<ReconciliationDetailsResponse> call, Throwable t) {
                 Log.d("ERROR", t.getMessage());
                 progressDialog.dismiss();
-                Toast.makeText(context, "Something Wrong Contact to Support \n" + this.getClass().getSimpleName() + " " + t.getMessage(), Toast.LENGTH_LONG).show();
+                liveData.setValue(null);
+
             }
         });
         return liveData;

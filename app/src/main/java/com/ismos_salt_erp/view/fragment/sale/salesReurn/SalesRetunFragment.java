@@ -1,16 +1,11 @@
 package com.ismos_salt_erp.view.fragment.sale.salesReurn;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -22,8 +17,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
@@ -38,7 +31,6 @@ import com.ismos_salt_erp.viewModel.PurchaseReturnViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class SalesRetunFragment extends AddUpDel implements SalesReturnItemClick {
     private FragmentSalesRetunBinding binding;
@@ -67,7 +59,7 @@ public class SalesRetunFragment extends AddUpDel implements SalesReturnItemClick
     PopupWindow mypopupWindow;
     public static String discountPercent = "2";
 
-    private boolean identity;
+    private boolean approval;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -111,11 +103,11 @@ public class SalesRetunFragment extends AddUpDel implements SalesReturnItemClick
             }
             hideKeyboard(getActivity());
             showDialog(getString(R.string.return_dialog_title));
-            identity = true;
+            approval = true;
         });
 
         binding.layoutAccess.cancelOrders.setOnClickListener(v -> {
-            identity = false;
+            approval = false;
             if (currentResponse == null) {
                 message("Select Order First");
                 return;
@@ -470,14 +462,11 @@ public class SalesRetunFragment extends AddUpDel implements SalesReturnItemClick
 
 
     @Override
-    public void save(boolean yesOrNo) {
-        if (yesOrNo == true) {
-            if (identity == true){
-                submit();
-            }else {
-                cancelWholeOrder();
-            }
-
+    public void save() {
+        if (approval == true){
+            submit();
+        }else {
+            cancelWholeOrder();
         }
     }
 

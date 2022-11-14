@@ -25,6 +25,7 @@ import com.ismos_salt_erp.serverResponseModel.CurrentOrderDetails;
 import com.ismos_salt_erp.serverResponseModel.EditedOrderDetail;
 import com.ismos_salt_erp.serverResponseModel.EditedPurchaseOrderResponse;
 import com.ismos_salt_erp.serverResponseModel.Item;
+import com.ismos_salt_erp.utils.PermissionUtil;
 import com.ismos_salt_erp.view.fragment.accounts.receiveDue.DueCollectionFragment;
 import com.ismos_salt_erp.view.fragment.customers.AddUpDel;
 import com.ismos_salt_erp.viewModel.ApproveDeclinePurchaseEditViewModel;
@@ -119,7 +120,7 @@ public class PurchaseEditDetails extends AddUpDel {
             /**
              * now check approval permission
              */
-            if (!getProfileTypeId(getActivity().getApplication()).equals("7") || !PreferenceManager.getInstance(getContext()).getUserCredentials().getPermissions().contains("1308")) {//here 1308 is a permission for approve and decline edited purchase
+            if (!PermissionUtil.currentUserPermissionList(PreferenceManager.getInstance(getContext()).getUserCredentials().getPermissions()).contains(1308)) {//here 1308 is a permission for approve and decline edited purchase
                 approveDeclinedOptions.setVisibility(View.GONE);
             } else {
                 approveDeclinedOptions.setVisibility(View.VISIBLE);
@@ -136,7 +137,7 @@ public class PurchaseEditDetails extends AddUpDel {
             /**
              * now check approval permission
              */
-            if (!getProfileTypeId(getActivity().getApplication()).equals("7") || !PreferenceManager.getInstance(getContext()).getUserCredentials().getPermissions().contains("1286")) {
+            if (!PermissionUtil.currentUserPermissionList(PreferenceManager.getInstance(getContext()).getUserPermissions()).contains(1286)) {
                 approveDeclinedOptions.setVisibility(View.GONE);
             } else {
                 approveDeclinedOptions.setVisibility(View.VISIBLE);
@@ -160,13 +161,13 @@ public class PurchaseEditDetails extends AddUpDel {
                          * first set data to previous order info UI
                          */
                         CurrentOrderDetails currentOrderDetails = response.getCurrentOrderDetails();//contain previous order data
-                        slNumber.setText(orderId);
-                        supplierName.setText("" + currentOrderDetails.getCustomer().getCompanyName() + "@" + currentOrderDetails.getCustomer().getCustomerFname());
-                        phone.setText("" + currentOrderDetails.getCustomer().getPhone());
-                        orderDate.setText("" + response.getCurrentOrderDetails().getRequisitionDate());
+                        slNumber.setText(":  #"+response.getCurrentOrder().getOrderSerial());
+                        supplierName.setText(":  " + currentOrderDetails.getCustomer().getCompanyName() + "@" + currentOrderDetails.getCustomer().getCustomerFname());
+                        phone.setText(":  " + currentOrderDetails.getCustomer().getPhone());
+                        orderDate.setText(":  " + response.getCurrentOrderDetails().getRequisitionDate());
                         // orderTime.setText(response.getCurrentOrderDetails().get);
                         //email.setText(response.getCurrentOrderDetails().getE);//will implement
-                        address.setText("" + currentOrderDetails.getCustomer().getAddress());
+                        address.setText(":  " + currentOrderDetails.getCustomer().getAddress());
 
 
       /*              double countTotal = 0;
@@ -196,11 +197,12 @@ public class PurchaseEditDetails extends AddUpDel {
 
                         productListRvEdit.setLayoutManager(new LinearLayoutManager(getContext()));
                         productListRvEdit.setAdapter(adapter1);
-                        slNumberEdit.setText(orderId);
+
+                        slNumberEdit.setText(":  #"+response.getCurrentOrder().getOrderSerial());
                         if (response.getEditedCustomer() != null) {
-                            supplierNameEdit.setText("" + response.getEditedCustomer().getCompanyName() + "@" + response.getEditedCustomer().getCustomerFname());
-                            phoneEdit.setText("" + response.getEditedCustomer().getPhone());
-                            orderDateEdit.setText("" + response.getEditedOrder().getOrderDate() + "" + response.getEditedOrder().getOrderTime());
+                            supplierNameEdit.setText(":  " + response.getEditedCustomer().getCompanyName() + "@" + response.getEditedCustomer().getCustomerFname());
+                            phoneEdit.setText(":  " + response.getEditedCustomer().getPhone());
+                            orderDateEdit.setText(":  " + response.getEditedOrder().getOrderDate() + "" + response.getEditedOrder().getOrderTime());
                         }
 
 
@@ -239,13 +241,13 @@ public class PurchaseEditDetails extends AddUpDel {
                          * first set data to previous order info UI
                          */
                         CurrentOrderDetails currentOrderDetails = response.getCurrentOrderDetails();//contain previous order data
-                        slNumber.setText(orderId);
-                        supplierName.setText(currentOrderDetails.getCustomer().getCompanyName() + "@" + currentOrderDetails.getCustomer().getCustomerFname());
-                        phone.setText(currentOrderDetails.getCustomer().getPhone());
-                        orderDate.setText(response.getCurrentOrderDetails().getRequisitionDate());
+                        slNumber.setText(":  #"+response.getCurrentOrder().getOrderSerial());
+                        supplierName.setText(":  "+currentOrderDetails.getCustomer().getCompanyName() + "@" + currentOrderDetails.getCustomer().getCustomerFname());
+                        phone.setText(":  "+currentOrderDetails.getCustomer().getPhone());
+                        orderDate.setText(":  "+response.getCurrentOrderDetails().getRequisitionDate());
                         // orderTime.setText(response.getCurrentOrderDetails().get);
                         //email.setText(response.getCurrentOrderDetails().getE);//will implement
-                        address.setText(currentOrderDetails.getCustomer().getAddress());
+                        address.setText(":  "+currentOrderDetails.getCustomer().getAddress());
 
 
                        /* double countTotal = 0;
@@ -274,24 +276,13 @@ public class PurchaseEditDetails extends AddUpDel {
 
                         productListRvEdit.setLayoutManager(new LinearLayoutManager(getContext()));
                         productListRvEdit.setAdapter(adapter1);
-                        slNumberEdit.setText(orderId);
+                        slNumberEdit.setText(":  #"+response.getCurrentOrder().getOrderSerial());
                         if (response.getEditedCustomer() != null) {
-                            supplierNameEdit.setText("" + response.getEditedCustomer().getCompanyName() + "@" + response.getEditedCustomer().getCustomerFname());
-                            phoneEdit.setText("" + response.getEditedCustomer().getPhone());
-                            orderDateEdit.setText("" + response.getEditedOrder().getOrderDate() + " " + response.getEditedOrder().getOrderTime());
+                            supplierNameEdit.setText(":  " + response.getEditedCustomer().getCompanyName() + "@" + response.getEditedCustomer().getCustomerFname());
+                            phoneEdit.setText(":  " + response.getEditedCustomer().getPhone());
+                            orderDateEdit.setText(":  " + response.getEditedOrder().getOrderDate() + " " + response.getEditedOrder().getOrderTime());
                         }
 
-
-                  /*  double total = 0;
-                    for (int i = 0; i < editedOrderDetails.size(); i++) {
-                        total += Double.parseDouble(editedOrderDetails.get(i).getBuyingPrice()) * Double.parseDouble(editedOrderDetails.get(i).getQuantity());
-                    }
-                    totalAmountEdit.setText(String.valueOf(total));*/
-
-
-                        /**
-                         * now set color on updated property like (Supplier,Date)
-                         */
                         String previousCustomerName = "" + currentOrderDetails.getCustomer().getCompanyName() + "@" + currentOrderDetails.getCustomer().getCustomerFname();
                         String currentCustomerName = "" + response.getEditedCustomer().getCompanyName() + "@" + response.getEditedCustomer().getCustomerFname();
 
@@ -349,80 +340,78 @@ public class PurchaseEditDetails extends AddUpDel {
     }
 
     @Override
-    public void save(boolean yesOrNo) {
-        if (yesOrNo == true) {
-            if (approval == true) {
-                if (portion.equals("EDIT_PURCHASE")) {
-                    List<String> previousQuantityList = new ArrayList<>();
+    public void save() {
+        if (approval == true) {
+            if (portion.equals("EDIT_PURCHASE")) {
+                List<String> previousQuantityList = new ArrayList<>();
 
-                    if (editedPurchaseOrderResponse == null) {
-                        Toasty.success(getContext(), "You don't have any updated orders", Toasty.LENGTH_LONG).show();
-                        return;
-                    }
-
-                    List<Item> previousItems = editedPurchaseOrderResponse.getCurrentOrderDetails().getItems();
-                    for (int i = 0; i < previousItems.size(); i++) {
-                        previousQuantityList.add(previousItems.get(i).getQuantity());
-                    }
-
-                    approvePurchaseEditViewModel.approvePurchaseEdit(getActivity(), noteEt.getText().toString(), orderId, previousQuantityList)
-                            .observe(getViewLifecycleOwner(), duePaymentResponse -> {
-                                if (duePaymentResponse.getStatus() == 200) {
-                                    Toasty.success(getActivity(), "Purchase Edit Approved", Toasty.LENGTH_LONG).show();
-                                    getActivity().onBackPressed();
-                                }
-                            });
+                if (editedPurchaseOrderResponse == null) {
+                    Toasty.success(getContext(), "You don't have any updated orders", Toasty.LENGTH_LONG).show();
+                    return;
                 }
 
+                List<Item> previousItems = editedPurchaseOrderResponse.getCurrentOrderDetails().getItems();
+                for (int i = 0; i < previousItems.size(); i++) {
+                    previousQuantityList.add(previousItems.get(i).getQuantity());
+                }
 
-                if (portion.equals("EDIT_SALE")) {
-                    //will implement
-                    //Toast.makeText(getContext(), "Will implement", Toast.LENGTH_SHORT).show();
-                    if (editedSaleOrderResponse == null) {//if don't have any order right now
-                        Toasty.success(getContext(), "You don't have any updated orders", Toasty.LENGTH_LONG).show();
-                        return;
-                    }
-
-
-                    /**
-                     * now get all previous quantity list from approve
-                     */
-                    List<String> previousQuantityList = new ArrayList<>();//this is the previous quantity list for send server
-                    List<Item> previousItems = editedSaleOrderResponse.getCurrentOrderDetails().getItems();
-                    for (int i = 0; i < previousItems.size(); i++) {
-                        previousQuantityList.add(previousItems.get(i).getQuantity());
-                    }
-
-                    editSaleApproveDeclineViewModel.approveEditSale(getActivity(), orderId, noteEt.getText().toString(), previousQuantityList)
-                            .observe(getViewLifecycleOwner(), duePaymentResponse -> {
-                                Toasty.success(getActivity(), "Sale Edit Approved", Toasty.LENGTH_LONG).show();
+                approvePurchaseEditViewModel.approvePurchaseEdit(getActivity(), noteEt.getText().toString(), orderId, previousQuantityList)
+                        .observe(getViewLifecycleOwner(), duePaymentResponse -> {
+                            if (duePaymentResponse.getStatus() == 200) {
+                                Toasty.success(getActivity(), "Purchase Edit Approved", Toasty.LENGTH_LONG).show();
                                 getActivity().onBackPressed();
-                            });
-                }
-            } else {
-                if (portion.equals("EDIT_PURCHASE")) {
-                    approvePurchaseEditViewModel.declinePurchaseEdit(getActivity(), orderId, noteEt.getText().toString())
-                            .observe(getViewLifecycleOwner(), response -> {
-                                if (response.getStatus() == 200) {
-                                    Toasty.success(getActivity(), "Purchase Edit Declined", Toasty.LENGTH_LONG).show();
-                                    getActivity().onBackPressed();
-                                }
-                            });
-                }
-                if (portion.equals("EDIT_SALE")) {
-
-                    //will implement
-                    //Toast.makeText(getContext(), "Will implement", Toast.LENGTH_SHORT).show();
-                    editSaleApproveDeclineViewModel.declineEditSale(getActivity(), orderId, noteEt.getText().toString())
-                            .observe(getViewLifecycleOwner(), response -> {
-                                if (response.getStatus() == 200) {
-                                    Toasty.success(getActivity(), "Sale Edit Declined", Toasty.LENGTH_LONG).show();
-                                    getActivity().onBackPressed();
-                                }
-                            });
-                }
-
+                            }
+                        });
             }
+
+
+            if (portion.equals("EDIT_SALE")) {
+                //will implement
+                //Toast.makeText(getContext(), "Will implement", Toast.LENGTH_SHORT).show();
+                if (editedSaleOrderResponse == null) {//if don't have any order right now
+                    Toasty.success(getContext(), "You don't have any updated orders", Toasty.LENGTH_LONG).show();
+                    return;
+                }
+
+
+                /**
+                 * now get all previous quantity list from approve
+                 */
+                List<String> previousQuantityList = new ArrayList<>();//this is the previous quantity list for send server
+                List<Item> previousItems = editedSaleOrderResponse.getCurrentOrderDetails().getItems();
+                for (int i = 0; i < previousItems.size(); i++) {
+                    previousQuantityList.add(previousItems.get(i).getQuantity());
+                }
+
+                editSaleApproveDeclineViewModel.approveEditSale(getActivity(), orderId, noteEt.getText().toString(), previousQuantityList)
+                        .observe(getViewLifecycleOwner(), duePaymentResponse -> {
+                            Toasty.success(getActivity(), "Sale Edit Approved", Toasty.LENGTH_LONG).show();
+                            getActivity().onBackPressed();
+                        });
+            }
+        } else {
+            if (portion.equals("EDIT_PURCHASE")) {
+                approvePurchaseEditViewModel.declinePurchaseEdit(getActivity(), orderId, noteEt.getText().toString())
+                        .observe(getViewLifecycleOwner(), response -> {
+                            if (response.getStatus() == 200) {
+                                Toasty.success(getActivity(), "Purchase Edit Declined", Toasty.LENGTH_LONG).show();
+                                getActivity().onBackPressed();
+                            }
+                        });
+            }
+            if (portion.equals("EDIT_SALE")) {
+
+                //will implement
+                //Toast.makeText(getContext(), "Will implement", Toast.LENGTH_SHORT).show();
+                editSaleApproveDeclineViewModel.declineEditSale(getActivity(), orderId, noteEt.getText().toString())
+                        .observe(getViewLifecycleOwner(), response -> {
+                            if (response.getStatus() == 200) {
+                                Toasty.success(getActivity(), "Sale Edit Declined", Toasty.LENGTH_LONG).show();
+                                getActivity().onBackPressed();
+                            }
+                        });
+            }
+
         }
     }
 

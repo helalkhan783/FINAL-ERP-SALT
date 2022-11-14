@@ -3,7 +3,6 @@ package com.ismos_salt_erp.view.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -159,13 +158,11 @@ public class PendingExpenseDetails extends AddUpDel {
     }
 
     @Override
-    public void save(boolean yesOrNo) {
-        if (yesOrNo == true) {
-            if (approval == true) {
-                approveConfirm();
-            } else {
-                declineConfirm();
-            }
+    public void save() {
+        if (approval == true) {
+            approveConfirm();
+        } else {
+            declineConfirm();
         }
     }
 

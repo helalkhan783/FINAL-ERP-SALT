@@ -2251,6 +2251,7 @@ public interface Api {
     Call<ReconciliationDetailsResponse> getReconciliationDetails(
             @Query("token") String token,
             @Field("vendorID") String vendorID,
+            @Field("user_id") String userId,
             @Field("id") String id
     );
 

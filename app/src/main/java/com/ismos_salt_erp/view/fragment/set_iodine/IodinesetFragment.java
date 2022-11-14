@@ -1,21 +1,12 @@
 package com.ismos_salt_erp.view.fragment.set_iodine;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -24,13 +15,11 @@ import com.ismos_salt_erp.R;
 import com.ismos_salt_erp.adapter.IodineSetStoreAdapter;
 import com.ismos_salt_erp.databinding.FragmentIodinesetBinding;
 import com.ismos_salt_erp.serverResponseModel.SetIodineStoreList;
-import com.ismos_salt_erp.view.fragment.BaseFragment;
 import com.ismos_salt_erp.view.fragment.customers.AddUpDel;
 import com.ismos_salt_erp.viewModel.IodineStoreSetViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 
 public class IodinesetFragment extends AddUpDel implements GetData {
@@ -127,10 +116,10 @@ public class IodinesetFragment extends AddUpDel implements GetData {
     }
 
     @Override
-    public void save(boolean yesOrNo) {
-        if (yesOrNo == true) {
+    public void save() {
+
             saveStore();
-        }
+
     }
 
     @Override

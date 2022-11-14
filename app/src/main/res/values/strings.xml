@@ -3,7 +3,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">He fragment</string>
     <string name="terminate">Terminate App</string>
-    <string name="terminate_app_message">Do you want to terminate from app</string>
+    <string name="terminate_app_message">Do you want to terminate from app ?</string>
     <string name="pay_due">Do you want to pay you due Amount</string>
 
 

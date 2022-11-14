@@ -1,11 +1,7 @@
 package com.ismos_salt_erp.view.fragment.reconciliation.edit;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,11 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
@@ -39,7 +31,6 @@ import com.ismos_salt_erp.viewModel.SaleViewModel;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Objects;
 import java.util.Set;
 
 
@@ -285,10 +276,8 @@ public class ConfirmEditReconcilation extends AddUpDel {
 
 
     @Override
-    public void save(boolean yesOrNo) {
-        if (yesOrNo == true) {
-            submit();
-        }
+    public void save() {
+        submit();
     }
 
     @Override

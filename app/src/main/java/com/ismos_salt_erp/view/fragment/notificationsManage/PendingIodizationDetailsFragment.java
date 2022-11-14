@@ -1,6 +1,7 @@
 package com.ismos_salt_erp.view.fragment.notificationsManage;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AlertDialog;
@@ -21,14 +22,14 @@ import com.ismos_salt_erp.adapter.PendingIodizationItemAdapter;
 import com.ismos_salt_erp.localDatabase.PreferenceManager;
 import com.ismos_salt_erp.serverResponseModel.PendingIodizationDetailsResponse;
 import com.ismos_salt_erp.utils.PermissionUtil;
-import com.ismos_salt_erp.view.fragment.BaseFragment;
+import com.ismos_salt_erp.view.fragment.customers.AddUpDel;
 import com.ismos_salt_erp.viewModel.IodizationViewModel;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class PendingIodizationDetailsFragment extends BaseFragment {
+public class PendingIodizationDetailsFragment extends AddUpDel {
     private View view;
     private IodizationViewModel iodizationViewModel;
     @BindView(R.id.toolbarTitle)
@@ -54,7 +55,7 @@ public class PendingIodizationDetailsFragment extends BaseFragment {
     @BindView(R.id.approveDeclineOption)
     LinearLayout approveDeclineOption;
 
-
+    private boolean approval;
     String orderId, status, vendorId;//store orderId from previous fragment
 
 
@@ -77,38 +78,25 @@ public class PendingIodizationDetailsFragment extends BaseFragment {
     private void getIodizationDetailsFromServer() {
         if (status != null) {
             if (status.equals("2")) {
-                try {
-                    if (getProfileTypeId(getActivity().getApplication()).equals("7")) {
-                        if (PermissionUtil.currentUserPermissionList(PreferenceManager.getInstance(getContext()).getUserCredentials().getPermissions()).contains(1) ||//manageALlPreferenceManager.getInstance(getContext()).getUserCredentials().getPermissions().contains("1")
-                                PermissionUtil.currentUserPermissionList(PreferenceManager.getInstance(getContext()).getUserCredentials().getPermissions()).contains(1431)) {//here 1431 is permission for approve decline Pending Iodization
-                            approveDeclineOption.setVisibility(View.VISIBLE);
-                        } else {
-                            approveDeclineOption.setVisibility(View.GONE);
-                        }
-                    } else {
-                        approveDeclineOption.setVisibility(View.GONE);
-                    }
-                } catch (Exception E) {
-                    Log.d("ERROR", "" + E.getMessage());
+                if (PermissionUtil.currentUserPermissionList(PreferenceManager.getInstance(getContext()).getUserCredentials().getPermissions()).contains(1431)) {//here 1431 is permission for approve decline Pending Iodization
+                    approveDeclineOption.setVisibility(View.VISIBLE);
+                } else {
+                    approveDeclineOption.setVisibility(View.GONE);
                 }
-
-
             }
-        } else {
-            approveDeclineOption.setVisibility(View.GONE);
         }
 
-        if (!(isInternetOn(getActivity()))) {
-            infoMessage(getActivity().getApplication(), "Please Check Your Internet Connection");
-            return;
-        }
+
         String currentVendorId = null;
         if (vendorId != null) {
             currentVendorId = vendorId;
         } else {
             currentVendorId = PreferenceManager.getInstance(getContext()).getUserCredentials().getVendorID();
         }
-
+        if (!(isInternetOn(getActivity()))) {
+            infoMessage(getActivity().getApplication(), "Please Check Your Internet Connection");
+            return;
+        }
         iodizationViewModel.getPendingIodizationDetails(getActivity(), orderId, currentVendorId)
                 .observe(getViewLifecycleOwner(), this::onChanged);
     }
@@ -132,12 +120,11 @@ public class PendingIodizationDetailsFragment extends BaseFragment {
             iodizationNote.requestFocus();
             return;
         }
-        if (!(isInternetOn(getActivity()))) {
-            infoMessage(getActivity().getApplication(), "Please Check Your Internet Connection");
-            return;
-        }
+        approval = true;
         hideKeyboard(getActivity());
-        confirmApproveDialog();
+
+        showDialog(getString(R.string.approve_dialog_title));
+
     }
 
     @OnClick(R.id.declineIodization)
@@ -148,12 +135,9 @@ public class PendingIodizationDetailsFragment extends BaseFragment {
             return;
         }
 
-        if (!(isInternetOn(getActivity()))) {
-            infoMessage(getActivity().getApplication(), "Please Check Your Internet Connection");
-            return;
-        }
         hideKeyboard(getActivity());
-        confirmDeclineDialog();
+        approval = false;
+        showDialog(getString(R.string.decline_dialog_title));
     }
 
 
@@ -194,64 +178,57 @@ public class PendingIodizationDetailsFragment extends BaseFragment {
     }
 
     public void confirmApproveDialog() {
-        AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
-        alertDialog.setTitle("Alert");
-        alertDialog.setIcon(R.drawable.warning_btn);
-        alertDialog.setMessage("Do you want to Approve ?");
-        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Ok",
-                (dialog, which) -> {
-                    dialog.dismiss();
-                    ProgressDialog progressDialog = new ProgressDialog(getActivity());
-                    progressDialog.show();
-                    iodizationViewModel.approveIodizationDetails(getActivity(), orderId, iodizationNote.getText().toString())
-                            .observe(getViewLifecycleOwner(), response -> {
-                                progressDialog.dismiss();
-                                if (response == null) {
-                                    errorMessage(getActivity().getApplication(), "Something Wrong");
-                                    return;
-                                }
-                                if (response.getStatus() == 400) {
-                                    infoMessage(getActivity().getApplication(), "" + response.getMessage());
-                                    return;
-                                }
-                                hideKeyboard(getActivity());
-                                successMessage(requireActivity().getApplication(), "" + response.getMessage());
-                                getActivity().onBackPressed();
-                            });
+        ProgressDialog progressDialog = new ProgressDialog(getActivity());
+        progressDialog.show();
+        iodizationViewModel.approveIodizationDetails(getActivity(), orderId, iodizationNote.getText().toString())
+                .observe(getViewLifecycleOwner(), response -> {
+                    progressDialog.dismiss();
+                    if (response == null) {
+                        errorMessage(getActivity().getApplication(), "Something Wrong");
+                        return;
+                    }
+                    if (response.getStatus() == 400) {
+                        infoMessage(getActivity().getApplication(), "" + response.getMessage());
+                        return;
+                    }
+                    hideKeyboard(getActivity());
+                    successMessage(requireActivity().getApplication(), "" + response.getMessage());
+                    getActivity().onBackPressed();
                 });
 
-        alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Cancel", (dialog, which) -> dialog.dismiss());
-        alertDialog.show();
     }
 
     public void confirmDeclineDialog() {
-        AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
-        alertDialog.setTitle("Alert");
-        alertDialog.setIcon(R.drawable.warning_btn);
-        alertDialog.setMessage("Do you want to decline ?");
-        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Ok",
-                (dialog, which) -> {
-                    ProgressDialog progressDialog = new ProgressDialog(getActivity());
-                    progressDialog.show();
-                    iodizationViewModel.declineIodizationDetails(getActivity(), orderId, iodizationNote.getText().toString())
-                            .observe(getViewLifecycleOwner(), response -> {
-                                progressDialog.dismiss();
-                                if (response == null) {
-                                    errorMessage(getActivity().getApplication(), "Something Wrong");
-                                    return;
-                                }
-                                if (response.getStatus() == 400) {
-                                    infoMessage(getActivity().getApplication(), "" + response.getMessage());
-                                    return;
-                                }
-                                successMessage(requireActivity().getApplication(), "" + response.getMessage());
-                                getActivity().onBackPressed();
-                            });
+        ProgressDialog progressDialog = new ProgressDialog(getActivity());
+        progressDialog.show();
+        iodizationViewModel.declineIodizationDetails(getActivity(), orderId, iodizationNote.getText().toString())
+                .observe(getViewLifecycleOwner(), response -> {
+                    progressDialog.dismiss();
+                    if (response == null) {
+                        errorMessage(getActivity().getApplication(), "Something Wrong");
+                        return;
+                    }
+                    if (response.getStatus() == 400) {
+                        infoMessage(getActivity().getApplication(), "" + response.getMessage());
+                        return;
+                    }
+                    successMessage(requireActivity().getApplication(), "" + response.getMessage());
+                    getActivity().onBackPressed();
                 });
-
-        alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Cancel", (dialog, which) -> dialog.dismiss());
-        alertDialog.show();
     }
 
 
+    @Override
+    public void save() {
+        if (approval == true) {
+            confirmDeclineDialog();
+        } else {
+            confirmApproveDialog();
+        }
+    }
+
+    @Override
+    public void imageUri(Intent uri) {
+
+    }
 }

@@ -11,7 +11,6 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -27,7 +26,6 @@ import com.ismos_salt_erp.utils.MtUtils;
 import com.ismos_salt_erp.utils.PermissionUtil;
 import com.ismos_salt_erp.utils.UrlUtil;
 import com.ismos_salt_erp.utils.replace.DataModify;
-import com.ismos_salt_erp.view.fragment.BaseFragment;
 import com.ismos_salt_erp.view.fragment.customers.AddUpDel;
 import com.ismos_salt_erp.viewModel.ApproveDeclinePendingPurchaseViewModel;
 import com.ismos_salt_erp.viewModel.PendingPurchaseApproveDeclineViewModel;
@@ -579,78 +577,76 @@ public class PendingPurchaseDetailsFragment extends AddUpDel {
     }
 
     @Override
-    public void save(boolean yesOrNo) {
-        if (yesOrNo == true) {
-            if (approval == true) {
-                if (portion.equals("PENDING_PURCHASE")) {
-                    confirmApprovePendingPurchaseDialog();
-                }
-                if (portion.equals("PENDING_SALE")) {
-                    confirmApprovePendingSaleDialog();
-                }
-                if (portion.equals("SALES_WHOLE_ORDER_CANCEL")) {
-                    String currentVendorId = null;
-                    if (orderVendorId != null) {
-                        currentVendorId = orderVendorId;
-                    } else {
-                        currentVendorId = PreferenceManager.getInstance(getContext()).getUserCredentials().getVendorID();
-                    }
-
-                    ProgressDialog progressDialog = new ProgressDialog(getContext());
-                    progressDialog.show();
-                    salesReturnViewModel.approveSalesReturnWholeOrderCancel(getActivity(), noteEt.getText().toString(), refOrderId, currentVendorId)
-                            .observe(getViewLifecycleOwner(), response -> {
-                                progressDialog.dismiss();
-                                if (response == null) {
-                                    errorMessage(getActivity().getApplication(), "Something Wrong");
-                                    return;
-                                }
-                                if (response.getStatus() == 400) {
-                                    infoMessage(getActivity().getApplication(), "" + response.getMessage());
-                                    return;
-                                }
-                                successMessage(getActivity().getApplication(), "" + response.getMessage());
-                                getActivity().onBackPressed();
-
-                            });
-                }
-            } else {
-                if (portion.equals("PENDING_PURCHASE")) {
-                    confirmDeclinePendingPurchaseDialog();
-                    return;
-                }
-                if (portion.equals("PENDING_SALE")) {
-                    confirmDeclinePendingSaleDialog();
-                    return;
-                }
-
-                if (portion.equals("SALES_WHOLE_ORDER_CANCEL")) {
-
-                    String currentVendorId = null;
-                    if (orderVendorId != null) {
-                        currentVendorId = orderVendorId;
-                    } else {
-                        currentVendorId = PreferenceManager.getInstance(getContext()).getUserCredentials().getVendorID();
-                    }
-                    ProgressDialog progressDialog = new ProgressDialog(getContext());
-                    progressDialog.show();
-                    salesReturnViewModel.declineApproveSalesReturnWholeOrderCancel(getActivity(), noteEt.getText().toString(), refOrderId, currentVendorId)
-                            .observe(getViewLifecycleOwner(), response -> {
-                                progressDialog.dismiss();
-                                if (response == null) {
-                                    errorMessage(getActivity().getApplication(), "Something Wrong");
-                                    return;
-                                }
-                                if (response.getStatus() == 400) {
-                                    infoMessage(getActivity().getApplication(), "" + response.getStatus());
-                                    return;
-                                }
-                                successMessage(getActivity().getApplication(), "" + response.getMessage());
-                                getActivity().onBackPressed();
-                            });
-                }
-
+    public void save() {
+        if (approval == true) {
+            if (portion.equals("PENDING_PURCHASE")) {
+                confirmApprovePendingPurchaseDialog();
             }
+            if (portion.equals("PENDING_SALE")) {
+                confirmApprovePendingSaleDialog();
+            }
+            if (portion.equals("SALES_WHOLE_ORDER_CANCEL")) {
+                String currentVendorId = null;
+                if (orderVendorId != null) {
+                    currentVendorId = orderVendorId;
+                } else {
+                    currentVendorId = PreferenceManager.getInstance(getContext()).getUserCredentials().getVendorID();
+                }
+
+                ProgressDialog progressDialog = new ProgressDialog(getContext());
+                progressDialog.show();
+                salesReturnViewModel.approveSalesReturnWholeOrderCancel(getActivity(), noteEt.getText().toString(), refOrderId, currentVendorId)
+                        .observe(getViewLifecycleOwner(), response -> {
+                            progressDialog.dismiss();
+                            if (response == null) {
+                                errorMessage(getActivity().getApplication(), "Something Wrong");
+                                return;
+                            }
+                            if (response.getStatus() == 400) {
+                                infoMessage(getActivity().getApplication(), "" + response.getMessage());
+                                return;
+                            }
+                            successMessage(getActivity().getApplication(), "" + response.getMessage());
+                            getActivity().onBackPressed();
+
+                        });
+            }
+        } else {
+            if (portion.equals("PENDING_PURCHASE")) {
+                confirmDeclinePendingPurchaseDialog();
+                return;
+            }
+            if (portion.equals("PENDING_SALE")) {
+                confirmDeclinePendingSaleDialog();
+                return;
+            }
+
+            if (portion.equals("SALES_WHOLE_ORDER_CANCEL")) {
+
+                String currentVendorId = null;
+                if (orderVendorId != null) {
+                    currentVendorId = orderVendorId;
+                } else {
+                    currentVendorId = PreferenceManager.getInstance(getContext()).getUserCredentials().getVendorID();
+                }
+                ProgressDialog progressDialog = new ProgressDialog(getContext());
+                progressDialog.show();
+                salesReturnViewModel.declineApproveSalesReturnWholeOrderCancel(getActivity(), noteEt.getText().toString(), refOrderId, currentVendorId)
+                        .observe(getViewLifecycleOwner(), response -> {
+                            progressDialog.dismiss();
+                            if (response == null) {
+                                errorMessage(getActivity().getApplication(), "Something Wrong");
+                                return;
+                            }
+                            if (response.getStatus() == 400) {
+                                infoMessage(getActivity().getApplication(), "" + response.getStatus());
+                                return;
+                            }
+                            successMessage(getActivity().getApplication(), "" + response.getMessage());
+                            getActivity().onBackPressed();
+                        });
+            }
+
         }
     }
 

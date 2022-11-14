@@ -292,10 +292,10 @@ public class EditItem extends AddUpDel implements SmartMaterialSpinner.OnItemSel
 
 
     @Override
-    public void save(boolean yesOrNo) {
-        if (yesOrNo == true) {
+    public void save() {
+
             updateItemDialog();
-        }
+
     }
 
 

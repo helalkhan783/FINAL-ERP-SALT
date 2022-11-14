@@ -1,15 +1,11 @@
 package com.ismos_salt_erp.view.fragment.store;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
-import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Observer;
@@ -22,10 +18,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.ismos_salt_erp.R;
 import com.ismos_salt_erp.adapter.EnterPriseAdapterForStore;
@@ -36,7 +28,6 @@ import com.ismos_salt_erp.databinding.AddStoreDialogLayoutBinding;
 import com.ismos_salt_erp.databinding.FragmentStoreListBinding;
 import com.ismos_salt_erp.dialog.MyApplication;
 import com.ismos_salt_erp.localDatabase.PreferenceManager;
-import com.ismos_salt_erp.serverResponseModel.DuePaymentResponse;
 import com.ismos_salt_erp.serverResponseModel.EnterpriseList;
 import com.ismos_salt_erp.serverResponseModel.EnterpriseResponse;
 import com.ismos_salt_erp.serverResponseModel.Enterprize;
@@ -49,7 +40,6 @@ import com.ismos_salt_erp.serverResponseModel.StockStoreList;
 import com.ismos_salt_erp.utils.PermissionUtil;
 import com.ismos_salt_erp.utils.SettingsUtil;
 import com.ismos_salt_erp.utils.StockUtils;
-import com.ismos_salt_erp.view.fragment.BaseFragment;
 import com.ismos_salt_erp.view.fragment.all_report.sale_and_purchase_report.purchase_report.get_miller_by_association.PurchaseMillerList;
 import com.ismos_salt_erp.view.fragment.customers.AddUpDel;
 import com.ismos_salt_erp.view.fragment.customers.CustomerInterface;
@@ -64,7 +54,6 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 import es.dmoral.toasty.Toasty;
 
@@ -797,10 +786,8 @@ public class StoreListFragment extends AddUpDel implements View.OnClickListener,
 
 
     @Override
-    public void save(boolean yesOrNo) {
-        if (yesOrNo == true) {
-            submit();
-        }
+    public void save() {
+        submit();
     }
 
     private void submit() {

@@ -24,19 +24,21 @@
 
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/et_and_spinner_height"
+                    android:background="@color/app_color"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dp"
                     android:text="Previous Production Details"
-                    android:textColor="#444514"
-                    android:textSize="22sp"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sixteen_sp_size"
                     android:textStyle="bold" />
 
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
+                    android:layout_margin="10dp"
                     android:background="#FFFFFF"
                     android:orientation="vertical">
 
@@ -59,7 +61,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="@string/pur4"
+                            android:text=":"
                             android:textColor="@color/black" />
 
                     </LinearLayout>
@@ -84,7 +86,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="@string/pur4"
+                            android:text=":"
                             android:textColor="@color/black" />
 
                     </LinearLayout>
@@ -108,7 +110,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="@string/_1_21_2021"
+                            android:text=":"
                             android:textColor="@color/black" />
 
                     </LinearLayout>
@@ -117,37 +119,42 @@
                 </LinearLayout>
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/et_and_spinner_height"
+                    android:background="@color/app_color"
+                    android:gravity="center_vertical"
                     android:paddingLeft="10dp"
-                    android:text="Product List :"
-                    android:textColor="#BE3BF1"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    tools:ignore="HardcodedText" />
+                    android:text="Product List"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sixteen_sp_size"
+                    android:textStyle="bold" />
 
                 <!--                tools:listitem="@layout/notification_pending_product_model"-->
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/previousItemListRv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
 
+
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/et_and_spinner_height"
+                    android:background="@color/app_color"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dp"
                     android:text="Washing Crushing Edited Details"
-                    android:textColor="#444514"
-                    android:textSize="22sp"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sixteen_sp_size"
                     android:textStyle="bold" />
 
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
                     android:background="@color/colorTextBg2"
                     android:orientation="horizontal"
                     tools:ignore="DisableBaselineAlignment">
@@ -186,7 +193,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
-                                    android:text="SSS:"
+                                    android:text=":"
                                     android:textColor="@color/gray" />
                             </LinearLayout>
 
@@ -211,7 +218,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
-                                    android:text="refferName"
+                                    android:text=":"
                                     android:textColor="@color/gray" />
                             </LinearLayout>
 
@@ -235,7 +242,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
-                                    android:text="@string/_12_12"
+                                    android:text=":"
                                     android:textColor="@color/gray" />
                             </LinearLayout>
 
@@ -259,7 +266,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
-                                    android:text="Note"
+                                    android:text=":"
                                     android:textColor="@color/gray" />
                             </LinearLayout>
 
@@ -271,25 +278,29 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
+
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/et_and_spinner_height"
+                    android:background="@color/app_color"
+                    android:gravity="center_vertical"
                     android:paddingLeft="10dp"
-                    android:text="Edited Item List"
-                    android:textColor="#BE3BF1"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    tools:ignore="HardcodedText" />
+                    android:text="Edited Product List"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sixteen_sp_size"
+                    android:textStyle="bold" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/editedItemListRv"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp" />
 
                 <LinearLayout
                     android:id="@+id/titleText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
                     android:background="@color/colorWhite"
                     android:orientation="vertical">
 
@@ -334,12 +345,11 @@
                                     android:layout_height="match_parent"
                                     android:layout_gravity="center_vertical"
                                     android:layout_weight="1"
-                                    android:gravity="end"
+                                    android:text=":"
                                     android:textColor="@color/colorOrange"
                                     android:textSize="15sp"
                                     android:textStyle="normal"
-                                    tools:ignore="MissingPrefix"
-                                    tools:text="1" />
+                                    tools:ignore="MissingPrefix" />
 
                             </LinearLayout>
 
@@ -368,12 +378,11 @@
                                     android:layout_height="match_parent"
                                     android:layout_gravity="center_vertical"
                                     android:layout_weight="1"
-                                    android:gravity="end"
+                                    android:text=":"
                                     android:textColor="@color/colorOrange"
                                     android:textSize="15sp"
                                     android:textStyle="bold"
-                                    tools:ignore="MissingPrefix"
-                                    tools:text="Industrial-" />
+                                    tools:ignore="MissingPrefix" />
 
                             </LinearLayout>
 
@@ -413,53 +422,16 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
                                 android:layout_weight="1"
-                                android:gravity="end"
+                                android:text=":"
                                 android:textColor="@color/colorOrange"
                                 android:textSize="15sp"
                                 android:textStyle="bold"
-                                tools:ignore="MissingPrefix"
-                                tools:text="Megnha" />
+                                tools:ignore="MissingPrefix" />
 
 
                         </LinearLayout>
 
                     </LinearLayout>
-
-                 <!--   <RelativeLayout
-                        android:id="@+id/noteView"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-
-                        <EditText
-                            android:id="@+id/NoteEt"
-                            android:layout_width="180dp"
-                            android:layout_height="80dp"
-                            android:layout_alignParentEnd="true"
-                            android:layout_marginTop="2dp"
-                            android:background="@drawable/shape_product_piece_button_bg"
-                            android:hint="Note"
-                            android:paddingLeft="10dp"
-                            android:textColor="@color/black"
-                            android:textColorHint="@color/gray" />
-
-
-                    </RelativeLayout>-->
-
-
-
-                    <EditText
-                        android:id="@+id/noteEText"
-                        android:layout_marginTop="5dp"
-                        android:textAlignment="textStart"
-                        android:paddingLeft="15dp"
-                        android:hint="Note"
-                        android:textColor="@color/black"
-                        android:textColorHint="@color/gray"
-                        android:layout_margin="5dp"
-                        android:background="@drawable/border"
-                         android:layout_width="match_parent"
-                        android:layout_height="50dp"/>
 
 
                     <LinearLayout
@@ -468,30 +440,49 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:gravity="right"
-                        android:orientation="horizontal"
+                        android:orientation="vertical"
                         android:padding="2dp"
+
 
                         tools:ignore="RtlHardcoded">
 
-                        <Button
-                            android:id="@+id/approveBtn"
-                            style="@style/Widget.AppCompat.Button.Borderless"
-                            android:layout_width="wrap_content"
-                            android:layout_height="30dp"
-                            android:layout_margin="5dp"
-                            android:background="#BF7AD8"
-                            android:text="@string/approve"
-                            android:textAllCaps="false" />
+                        <EditText
+                            android:id="@+id/noteEText"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:paddingLeft="5dp"
+                            android:background="@drawable/border"
+                            android:hint="Note"
+                            android:textAlignment="textStart"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray"
+                            android:textSize="@dimen/thirteen_sp_size" />
 
-                        <Button
-                            android:id="@+id/declineBtn"
-                            style="@style/Widget.AppCompat.Button.Borderless"
-                            android:layout_width="wrap_content"
-                            android:layout_height="30dp"
-                            android:layout_margin="5dp"
-                            android:background="#BF7AD8"
-                            android:text="@string/decline"
-                            android:textAllCaps="false" />
+
+                       <LinearLayout
+                           android:gravity="end"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content">
+                           <Button
+                               android:id="@+id/approveBtn"
+                               style="@style/Widget.AppCompat.Button.Borderless"
+                               android:layout_width="wrap_content"
+                               android:layout_height="30dp"
+                               android:layout_margin="5dp"
+                               android:background="@drawable/search_btn_ripple"
+                               android:text="@string/approve"
+                               android:textAllCaps="false" />
+
+                           <Button
+                               android:id="@+id/declineBtn"
+                               style="@style/Widget.AppCompat.Button.Borderless"
+                               android:layout_width="wrap_content"
+                               android:layout_height="30dp"
+                               android:layout_margin="5dp"
+                               android:background="@drawable/reset_btn_ripple"
+                               android:text="@string/decline"
+                               android:textAllCaps="false" />
+                       </LinearLayout>
                     </LinearLayout>
 
                 </LinearLayout>

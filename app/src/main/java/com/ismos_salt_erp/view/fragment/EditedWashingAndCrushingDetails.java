@@ -1,13 +1,14 @@
 package com.ismos_salt_erp.view.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,8 +16,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.ismos_salt_erp.R;
 import com.ismos_salt_erp.adapter.WashingCrushingEditedItemAdapter;
 import com.ismos_salt_erp.adapter.WashingCrushingItemAdapter;
+import com.ismos_salt_erp.localDatabase.PreferenceManager;
 import com.ismos_salt_erp.serverResponseModel.EditedItemsResponse;
 import com.ismos_salt_erp.serverResponseModel.EditedWashingCrushingDetailsResponse;
+import com.ismos_salt_erp.utils.PermissionUtil;
+import com.ismos_salt_erp.view.fragment.customers.AddUpDel;
 import com.ismos_salt_erp.viewModel.EditedWashingAndCurshingViewmodel;
 
 import java.util.List;
@@ -24,9 +28,8 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import es.dmoral.toasty.Toasty;
 
-public class EditedWashingAndCrushingDetails extends Fragment {
+public class EditedWashingAndCrushingDetails extends AddUpDel {
     private View view;
     private EditedWashingAndCurshingViewmodel editedWashingAndCurshingViewmodel;
     @BindView(R.id.toolbarTitle)
@@ -65,7 +68,11 @@ public class EditedWashingAndCrushingDetails extends Fragment {
     @BindView(R.id.noteEText)
     EditText note;
 
-    String orderId;
+    @BindView(R.id.pendingView)
+    LinearLayout pendingView;
+
+    String orderId,status;
+    private boolean approval;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -99,6 +106,11 @@ public class EditedWashingAndCrushingDetails extends Fragment {
                          * now set the final portion as like web version
                          */
                         setFinalPortion(response);
+                    }
+
+                    else {
+                        errorMes("");
+                        getActivity().onBackPressed();
                     }
                 });
     }
@@ -137,9 +149,6 @@ public class EditedWashingAndCrushingDetails extends Fragment {
 
         enterPrisenameTv.setText(response.getCurrentOrder().getStoreName());
 
-        /**
-         * now set previous the item in recyclerview
-         */
         WashingCrushingItemAdapter adapter = new WashingCrushingItemAdapter(getActivity(), response.getCurrentOrderDetails().getItems());
         previousItemListRv.setHasFixedSize(true);
         previousItemListRv.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -151,6 +160,10 @@ public class EditedWashingAndCrushingDetails extends Fragment {
     private void getDataFromPreviousFragment() {
         toolBar.setText(getArguments().getString("pageName"));
         orderId = getArguments().getString("RefOrderId");
+        status = getArguments().getString("status");
+        if (status.equals("2") && PermissionUtil.currentUserPermissionList(PreferenceManager.getInstance(getContext()).getUserPermissions()).contains(1430)){
+            pendingView.setVisibility(View.VISIBLE);
+        }
     }
 
 
@@ -163,43 +176,68 @@ public class EditedWashingAndCrushingDetails extends Fragment {
 
     @OnClick(R.id.approveBtn)
     public void approveEditedDetails() {
-        String noteVal = note.getText().toString();
-        if (noteVal.isEmpty()){
+         if (note.getText().toString().isEmpty()) {
             note.setError("Note Mandatory");
             note.requestFocus();
             return;
         }
-
-        editedWashingAndCurshingViewmodel.approveEditedWashingCrushing(getActivity(), orderId,noteVal)
-                .observe(getViewLifecycleOwner(), response -> {
-                    if (response.getStatus() == 200) {
-                        Toasty.success(getContext(), "Approved", Toasty.LENGTH_LONG).show();
-                        getActivity().onBackPressed();
-                    }
-                });
+        approval = true;
+        showDialog(getString(R.string.approve_dialog_title));
     }
 
     @OnClick(R.id.declineBtn)
     public void declineEditedDetails() {
 
-        String noteVal = note.getText().toString();
-        if (noteVal.isEmpty()){
+
+        if (note.getText().toString().isEmpty()) {
             note.setError("Note Mandatory");
             note.requestFocus();
             return;
         }
-
-        editedWashingAndCurshingViewmodel.declineEditedWashingCrushing(getActivity(), orderId,noteVal)
-                .observe(getViewLifecycleOwner(), response -> {
-                    if (response.getStatus() == 200) {
-                        Toasty.success(getContext(), "Declined", Toasty.LENGTH_LONG).show();
-                        getActivity().onBackPressed();
-                    }
-                });
-
-
+        approval = false;
+        showDialog(getString(R.string.decline_dialog_title));
 
 
     }
 
+    @Override
+    public void save() {
+        if (approval == true) {
+                appsovrConfirm();
+            } else {
+                decline();
+            }
+
+    }
+
+    private void decline() {
+        editedWashingAndCurshingViewmodel.declineEditedWashingCrushing(getActivity(), orderId, note.getText().toString())
+                .observe(getViewLifecycleOwner(), response -> {
+                    if (response.getStatus() == 200) {
+                        message("" + response.getMessage());
+                        getActivity().onBackPressed();
+                    }
+                    else {
+                        errorMes(""+response.getMessage() == null ?  "" : response.getMessage());
+                    }
+                });
+    }
+
+    private void appsovrConfirm() {
+        editedWashingAndCurshingViewmodel.approveEditedWashingCrushing(getActivity(), orderId, note.getText().toString())
+                .observe(getViewLifecycleOwner(), response -> {
+                    if (response.getStatus() == 200) {
+                        message("" + response.getMessage());
+                        getActivity().onBackPressed();
+                    }
+                    else {
+                        errorMes(""+response.getMessage() == null ?  "" : response.getMessage());
+                    }
+                });
+    }
+
+    @Override
+    public void imageUri(Intent uri) {
+
+    }
 }

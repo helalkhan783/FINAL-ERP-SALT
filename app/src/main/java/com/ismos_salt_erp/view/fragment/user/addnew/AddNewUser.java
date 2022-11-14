@@ -1,12 +1,9 @@
 package com.ismos_salt_erp.view.fragment.user.addnew;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 
-import android.net.Uri;
 import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
@@ -24,7 +21,6 @@ import androidx.lifecycle.ViewModelProvider;
 import com.chivorn.smartmaterialspinner.SmartMaterialSpinner;
 import com.ismos_salt_erp.R;
 import com.ismos_salt_erp.clickHandle.AddNewUserClickHandle;
-import com.ismos_salt_erp.clickHandle.ToolbarClickHandle;
 import com.ismos_salt_erp.databinding.FragmentAddNewUserBinding;
 import com.ismos_salt_erp.databinding.NumberVerificationDialogBinding;
 import com.ismos_salt_erp.serverResponseModel.BloodGroup;
@@ -35,7 +31,6 @@ import com.ismos_salt_erp.view.fragment.customers.AddUpDel;
 import com.ismos_salt_erp.viewModel.AddNewUserViewModel;
 import com.ismos_salt_erp.viewModel.SalesRequisitionViewModel;
 import com.ismos_salt_erp.viewModel.UserViewModel;
-import com.jaredrummler.materialspinner.MaterialSpinner;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
 import java.io.File;
@@ -46,7 +41,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Objects;
 import java.util.Set;
 
 import okhttp3.MultipartBody;
@@ -498,10 +492,8 @@ public class AddNewUser extends AddUpDel implements DatePickerDialog.OnDateSetLi
 
 
     @Override
-    public void save(boolean yesOrNo) {
-        if (yesOrNo == true) {
-            submit();
-        }
+    public void save() {
+        submit();
     }
 
     @Override

@@ -2,7 +2,6 @@ package com.ismos_salt_erp.view.fragment.customers;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.Application;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -15,7 +14,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -29,7 +27,6 @@ import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.URISyntaxException;
 import java.util.Objects;
 
@@ -47,8 +44,7 @@ public abstract class AddUpDel extends BaseFragment {
         android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(getContext());
         @SuppressLint("InflateParams")
         View view = ((Activity) getContext()).getLayoutInflater().inflate(R.layout.purchase_dialog, null);
-        //Set the view
-        builder.setView(view);
+        builder.setView(view); //set layout
         TextView tvTitle, tvMessage;
         ImageView imageIcon = view.findViewById(R.id.img_icon);
         tvMessage = view.findViewById(R.id.tv_message);
@@ -64,8 +60,6 @@ public abstract class AddUpDel extends BaseFragment {
         alertDialog.setCanceledOnTouchOutside(false);
         cancel.setOnClickListener(v -> {
             alertDialog.dismiss();
-            save(false);
-
         });
         bOk.setOnClickListener(v -> {
             alertDialog.dismiss();
@@ -73,13 +67,13 @@ public abstract class AddUpDel extends BaseFragment {
                 infoMessage(getActivity().getApplication(), "Please check your internet connection");
                 return;
             }
-            save(true);
+            save();
         });
         alertDialog.show();
 
     }
 
-    public abstract void save(boolean yesOrNo);
+    public abstract void save();
 
     public void forImage() {
         if (!(checkStoragePermission())) {
@@ -154,6 +148,11 @@ public abstract class AddUpDel extends BaseFragment {
 
     public void message(String message) {
         Toasty.info(getContext(), "" + message, Toasty.LENGTH_LONG).show();
+    }
+
+    public  void errorMes(String message){
+        Toasty.error(getContext(), "Something Wrong Contact to Support \n" + message, Toasty.LENGTH_LONG).show();
+
     }
 
 }

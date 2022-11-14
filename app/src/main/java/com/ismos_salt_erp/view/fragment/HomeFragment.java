@@ -431,11 +431,11 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
                 break;
 
             case R.id.receiptView:
-                homePageHelperClass.homePageToAccountListFragment(receipt, AccountsUtil.receiptList, destinationPath);
+             //   homePageHelperClass.homePageToAccountListFragment(receipt, AccountsUtil.receiptList, destinationPath);
                 break;
 
             case R.id.paymentView:
-                homePageHelperClass.homePageToAccountListFragment(payment, AccountsUtil.paymentList, destinationPath);
+             //   homePageHelperClass.homePageToAccountListFragment(payment, AccountsUtil.paymentList, destinationPath);
                 break;
 
             case R.id.expenseView:

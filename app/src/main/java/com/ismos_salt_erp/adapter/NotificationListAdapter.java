@@ -81,7 +81,7 @@ public class NotificationListAdapter extends RecyclerView.Adapter<NotificationLi
 
             Log.d("TYPE", String.valueOf(current.getType()));
 
-            accessInterface.goToDetails(current.getType(),current.getCustomerID(),current.getStatus(),current.getOrderApproval(),current.getBatch());
+            accessInterface.goToDetails(current.getType(),current.getCustomerID(),current.getStatus(),current.getOrderApproval(),current.getBatch(),current.getRefOrderID());
 
 
         });

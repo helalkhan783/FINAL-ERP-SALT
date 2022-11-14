@@ -23,7 +23,7 @@ public class EditedPurchaseOrderResponse {
     private CurrentOrderDetails currentOrderDetails;
     @SerializedName("current_payment_info")
     @Expose
-    private CurrentPaymentInfo currentPaymentInfo;
+    private Object currentPaymentInfo; // CurrentPaymentInfo
     @SerializedName("edited_order_details")
     @Expose
     private List<EditedOrderDetail> editedOrderDetails = null;
@@ -40,4 +40,68 @@ public class EditedPurchaseOrderResponse {
     @Expose
     private Integer editedDiscount;
 
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public CurrentOrder getCurrentOrder() {
+        return currentOrder;
+    }
+
+    public void setCurrentOrder(CurrentOrder currentOrder) {
+        this.currentOrder = currentOrder;
+    }
+
+    public CurrentOrderDetails getCurrentOrderDetails() {
+        return currentOrderDetails;
+    }
+
+    public void setCurrentOrderDetails(CurrentOrderDetails currentOrderDetails) {
+        this.currentOrderDetails = currentOrderDetails;
+    }
+
+
+    public List<EditedOrderDetail> getEditedOrderDetails() {
+        return editedOrderDetails;
+    }
+
+    public void setEditedOrderDetails(List<EditedOrderDetail> editedOrderDetails) {
+        this.editedOrderDetails = editedOrderDetails;
+    }
+
+    public EditedOrder getEditedOrder() {
+        return editedOrder;
+    }
+
+    public void setEditedOrder(EditedOrder editedOrder) {
+        this.editedOrder = editedOrder;
+    }
+
+    public EditedCustomer getEditedCustomer() {
+        return editedCustomer;
+    }
+
+    public void setEditedCustomer(EditedCustomer editedCustomer) {
+        this.editedCustomer = editedCustomer;
+    }
+
+    public EditedPaymentInfo getEditedPaymentInfo() {
+        return editedPaymentInfo;
+    }
+
+    public void setEditedPaymentInfo(EditedPaymentInfo editedPaymentInfo) {
+        this.editedPaymentInfo = editedPaymentInfo;
+    }
+
+    public Integer getEditedDiscount() {
+        return editedDiscount;
+    }
+
+    public void setEditedDiscount(Integer editedDiscount) {
+        this.editedDiscount = editedDiscount;
+    }
 }

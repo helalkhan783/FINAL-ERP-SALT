@@ -262,7 +262,8 @@
                             android:layout_height="35dp"
                             android:layout_alignParentEnd="true"
                             android:layout_margin="5dp"
-                            android:background="#E1B1F2"
+                            android:background="@drawable/reset_btn_ripple"
+
                             android:text="Decline"
                             android:textAllCaps="false" />
 
@@ -273,8 +274,8 @@
                             android:layout_margin="5dp"
                             android:layout_marginRight="10dp"
                             android:layout_toStartOf="@+id/declineBtn"
-                            android:background="#E1B1F2"
                             android:text="Approve"
+                            android:background="@drawable/search_btn_ripple"
                             android:textAllCaps="false" />
                     </RelativeLayout>
                 </LinearLayout>

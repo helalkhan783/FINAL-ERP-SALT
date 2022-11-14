@@ -1,14 +1,9 @@
 package com.ismos_salt_erp.view.fragment.transfer.addNew;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
-import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -18,9 +13,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.ismos_salt_erp.R;
 import com.ismos_salt_erp.adapter.ConfirmNewSaleSelectedProductListAdapter;
@@ -30,7 +22,6 @@ import com.ismos_salt_erp.serverResponseModel.EnterpriseList;
 import com.ismos_salt_erp.serverResponseModel.EnterpriseResponse;
 import com.ismos_salt_erp.serverResponseModel.GetEnterpriseResponse;
 import com.ismos_salt_erp.serverResponseModel.SalesRequisitionItems;
-import com.ismos_salt_erp.view.fragment.BaseFragment;
 import com.ismos_salt_erp.view.fragment.customers.AddUpDel;
 import com.ismos_salt_erp.viewModel.AddNewTransferViewModel;
 import com.ismos_salt_erp.viewModel.SaleViewModel;
@@ -39,7 +30,6 @@ import com.ismos_salt_erp.viewModel.SalesRequisitionViewModel;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Objects;
 import java.util.Set;
 
 public class ConfirmAddNewTransfer extends AddUpDel {
@@ -301,10 +291,8 @@ public class ConfirmAddNewTransfer extends AddUpDel {
 
 
     @Override
-    public void save(boolean yesOrNo) {
-        if (yesOrNo == true) {
-            submit();
-        }
+    public void save() {
+        submit();
     }
 
     @Override
