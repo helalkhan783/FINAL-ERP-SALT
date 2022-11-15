@@ -34,19 +34,18 @@ public class EditSalesViewModel extends ViewModel {
             @Override
             public void onResponse(Call<EditedPurchaseOrderResponse> call, Response<EditedPurchaseOrderResponse> response) {
                 if (response.isSuccessful()) {
-                    if (response == null) {
+                    if (response == null || response.body().getStatus() == 500) {
                         liveData.postValue(null);
                         return;
                     }
 
-                    if (response.body().getStatus() == 400) {
+                    if (response.body().getStatus() == 400 || response.body().getStatus() == 200) {
                         liveData.postValue(response.body());
                         return;
                     }
-                    if (response.body().getStatus() == 200) {
-                        liveData.postValue(response.body());
-                        progressDialog.dismiss();
-                    }
+
+                }else {
+                    liveData.postValue(null);
                 }
             }
 
@@ -54,8 +53,8 @@ public class EditSalesViewModel extends ViewModel {
             public void onFailure(Call<EditedPurchaseOrderResponse> call, Throwable t) {
                 Log.d("ERROR", t.getMessage());
                 progressDialog.dismiss();
-                Toast.makeText(context, "Something Wrong Contact to Support \n" + this.getClass().getSimpleName() + " " + t.getMessage(), Toast.LENGTH_LONG).show();
-            }
+                liveData.postValue(null);
+             }
         });
 
         return liveData;

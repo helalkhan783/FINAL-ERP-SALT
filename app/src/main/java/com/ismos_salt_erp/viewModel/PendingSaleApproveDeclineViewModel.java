@@ -111,17 +111,23 @@ public class PendingSaleApproveDeclineViewModel extends ViewModel {
             @Override
             public void onResponse(Call<DuePaymentResponse> call, Response<DuePaymentResponse> response) {
                 if (response.isSuccessful()) {
-                    assert response.body() != null;
-                    if (response.body().getStatus() == 200) {
+                    if (response == null || response.body().getStatus() ==500){
+                        liveData.postValue(null);
+                        return;
+                    }
+                    if (response.body().getStatus() == 200 || response.body().getStatus() == 400) {
                         liveData.postValue(response.body());
                         progressDialog.dismiss();
                     }
+                }
+                else {
+                    liveData.postValue(null);
                 }
             }
 
             @Override
             public void onFailure(Call<DuePaymentResponse> call, Throwable t) {
-                Log.d("ERROR", t.getMessage());
+                 liveData.postValue(null);
             }
         });
         return liveData;
@@ -144,17 +150,23 @@ public class PendingSaleApproveDeclineViewModel extends ViewModel {
             @Override
             public void onResponse(Call<DuePaymentResponse> call, Response<DuePaymentResponse> response) {
                 if (response.isSuccessful()) {
-                    assert response.body() != null;
-                    if (response.body().getStatus() == 200) {
-                        liveData.postValue(response.body());
-                        progressDialog.show();
+                    if (response == null || response.body().getStatus() ==500){
+                        liveData.postValue(null);
+                        return;
                     }
+                    if (response.body().getStatus() == 200 || response.body().getStatus() == 400) {
+                        liveData.postValue(response.body());
+                        progressDialog.dismiss();
+                    }
+                }
+                else {
+                    liveData.postValue(null);
                 }
             }
 
             @Override
             public void onFailure(Call<DuePaymentResponse> call, Throwable t) {
-                Log.d("ERROR", t.getMessage());
+                Log.d("ERROR", t.getMessage());  liveData.postValue(null);
             }
         });
         return liveData;

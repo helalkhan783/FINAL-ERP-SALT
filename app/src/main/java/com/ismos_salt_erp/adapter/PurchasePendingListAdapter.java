@@ -63,12 +63,12 @@ public class PurchasePendingListAdapter extends RecyclerView.Adapter<PurchasePen
             holder.itemBinding.purchaseOrderId.setText(":  " + currentList.getOrderSerial());
             try {
                 Glide.with(context).load(ImageBaseUrl.image_base_url + currentList.getProfilePhoto()).centerCrop().
-                        error(R.drawable.owner_image).placeholder(R.drawable.owner_image).
+                        error(R.drawable.person).placeholder(R.drawable.person).
                         into(holder.itemBinding.submittedByImnage);
 
             } catch (NullPointerException e) {
                 Log.d("ERROR", e.getMessage());
-                Glide.with(context).load(R.drawable.owner_image).into(holder.itemBinding.submittedByImnage);
+                Glide.with(context).load(R.drawable.person).into(holder.itemBinding.submittedByImnage);
             }
         } catch (Exception e) {
             Log.d("Error", e.getMessage());

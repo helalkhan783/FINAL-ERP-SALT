@@ -22,6 +22,7 @@ import com.bumptech.glide.Glide;
 import com.ismos_salt_erp.R;
 import com.ismos_salt_erp.adapter.NotificationPendingPurchaseAdapter;
 import com.ismos_salt_erp.localDatabase.PreferenceManager;
+import com.ismos_salt_erp.serverResponseModel.DuePaymentResponse;
 import com.ismos_salt_erp.utils.MtUtils;
 import com.ismos_salt_erp.utils.PermissionUtil;
 import com.ismos_salt_erp.utils.UrlUtil;
@@ -113,6 +114,7 @@ public class PendingPurchaseDetailsFragment extends AddUpDel {
     String typeKey, refOrderId, OrderSerialId, pageName, portion, porson, status, orderVendorId;
     public static String total;
     private boolean approval;
+    ProgressDialog progressDialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -128,18 +130,6 @@ public class PendingPurchaseDetailsFragment extends AddUpDel {
 
         textView = view.findViewById(R.id.uniqueOrderId);
 
-        /**
-         * approve and decline option will be VISIBLE only for profile id 7
-         */
-        if (!getProfileTypeId(getActivity().getApplication()).equals("7")) {
-            view.findViewById(R.id.approveBtn).setVisibility(View.GONE);
-            view.findViewById(R.id.declineBtn).setVisibility(View.GONE);
-        }
-
-
-        /**
-         * now load data to recyclerView
-         */
         if (portion.equals("PENDING_PURCHASE")) {
             vatLayout.setVisibility(View.GONE);
             carryingCostLayout.setVisibility(View.GONE);
@@ -147,28 +137,7 @@ public class PendingPurchaseDetailsFragment extends AddUpDel {
             paidLayout.setVisibility(View.VISIBLE);
             collectedLayot1.setVisibility(View.GONE);
             collectedLayot.setVisibility(View.GONE);
-            if (status == null) {
-                optionalStatus.setVisibility(View.GONE);
-            }
-
-            if (status != null) {
-                if (status.equals("2")) {
-                    try {
-                        if (getProfileTypeId(getActivity().getApplication()).equals("7")) {
-                            if (PermissionUtil.currentUserPermissionList(PreferenceManager.getInstance(getContext()).getUserCredentials().getPermissions()).contains(1429)) {//here 1429 is permission for approve decline pending Purchase
-                                optionalStatus.setVisibility(View.VISIBLE);
-                            } else {
-                                optionalStatus.setVisibility(View.GONE);
-                            }
-                        } else {
-                            optionalStatus.setVisibility(View.GONE);
-                        }
-                    } catch (Exception e) {
-                        Log.d("ERROR", "" + e.getMessage());
-                    }
-                }
-            }
-
+            manageLayout(1429);// manage approval layout
             if (porson != null) {
                 if (porson.equals("PurchaseHistoryDetails")) {
                     optionalStatus.setVisibility(View.GONE);
@@ -185,74 +154,27 @@ public class PendingPurchaseDetailsFragment extends AddUpDel {
         if (portion.equals("PENDING_SALE")) {
             textView.setText("S.O ID");
             uniquePortion.setText("Customer Details");
-
-            if (status == null) {// here status for handle pending or details view from notificationListAdapter
-                optionalStatus.setVisibility(View.GONE);
-            }
-
-            if (status != null) {
-                if (status.equals("2")) {
-                    try {
-                        if (getProfileTypeId(getActivity().getApplication()).equals("7")) {//here 1428 is permission for approve decline pending sale
-                            if (PermissionUtil.currentUserPermissionList(PreferenceManager.getInstance(getContext()).getUserCredentials().getPermissions()).contains(1) ||//manageALlPreferenceManager.getInstance(getContext()).getUserCredentials().getPermissions().contains("1")
-                                    PermissionUtil.currentUserPermissionList(PreferenceManager.getInstance(getContext()).getUserCredentials().getPermissions()).contains(1428)) {
-                                optionalStatus.setVisibility(View.VISIBLE);
-                            } else {
-                                optionalStatus.setVisibility(View.GONE);
-                            }
-                        } else {
-                            optionalStatus.setVisibility(View.GONE);
-                        }
-
-                    } catch (Exception e) {
-                        Log.d("ERROR", "" + e.getMessage());
-                    }
-                }
-            }
+            manageLayout(1428);// manage approval layout
 
             if (porson != null) {
                 if (porson.equals("SalePendingDetails")) {
                     textView.setText("S.O ID");
                     toolbar.setText("Sale Pending Details");
                     optionalStatus.setVisibility(View.GONE);
-                    if (status != null) {
-                        if (status.equals("2")) {
-                            if (getProfileTypeId(getActivity().getApplication()).equals("7")) {//here 1428 is permission for approve decline pending sale
-                                if (PermissionUtil.currentUserPermissionList(PreferenceManager.getInstance(getContext()).getUserCredentials().getPermissions()).contains(1) ||//manageALlPreferenceManager.getInstance(getContext()).getUserCredentials().getPermissions().contains("1")
-                                        PermissionUtil.currentUserPermissionList(PreferenceManager.getInstance(getContext()).getUserCredentials().getPermissions()).contains(1428)) {
-                                    optionalStatus.setVisibility(View.VISIBLE);
-                                } else {
-                                    optionalStatus.setVisibility(View.GONE);
-                                }
-                            } else {
-                                optionalStatus.setVisibility(View.GONE);
-                            }
-                        } else {
-                            optionalStatus.setVisibility(View.GONE);
-                        }
-                    }
                 }
 
                 if (porson.equals("SaleHistoryDetails")) {
                     textView.setText("S.O ID");
                     toolbar.setText("Sale History Details");
                     optionalStatus.setVisibility(View.GONE);
-                    if (status != null) {
-                        if (status.equals("2")) {
-                            optionalStatus.setVisibility(View.VISIBLE);
-                        }
-                    }
+
                 }
                 if (porson.equals("Sale_Declined_Details")) {
                     textView.setText("S.O ID");
                     procedureLAyout.setVisibility(View.GONE);
                     toolbar.setText("Sale Declined Details");
                     optionalStatus.setVisibility(View.GONE);
-                    if (status != null) {
-                        if (status.equals("2")) {
-                            optionalStatus.setVisibility(View.VISIBLE);
-                        }
-                    }
+
                 }
             }
 
@@ -262,17 +184,8 @@ public class PendingPurchaseDetailsFragment extends AddUpDel {
 
         if (portion.equals("SALES_WHOLE_ORDER_CANCEL")) {
             if (status != null) {
-                if (getProfileTypeId(getActivity().getApplication()).equals("7")) {
-                    if (PermissionUtil.currentUserPermissionList(PreferenceManager.getInstance(getContext()).getUserCredentials().getPermissions()).contains(1) ||
-                            PermissionUtil.currentUserPermissionList(PreferenceManager.getInstance(getContext()).getUserCredentials().getPermissions()).contains(1311)) {
-                        optionalStatus.setVisibility(View.VISIBLE);
-                    } else {
-                        optionalStatus.setVisibility(View.GONE);
-                    }
-                } else {
-                    optionalStatus.setVisibility(View.GONE);
-                }
-                loadSalesWholeOrderCancelDetails();
+                manageLayout(1311);// manage approval layout
+                loadSalesDataToView();
             } else {
                 loadSalesWholeOrderCancelDetailsNew();
             }
@@ -281,11 +194,22 @@ public class PendingPurchaseDetailsFragment extends AddUpDel {
         return view;
     }
 
-    private void loadSalesWholeOrderCancelDetailsNew() {
+    private void manageLayout(int permissionCode) {
         if (!(isInternetOn(getActivity()))) {
             infoMessage(getActivity().getApplication(), "Please Check your Internet Connection");
             return;
         }
+        if (status != null) {
+            if (status.equals("2") && PermissionUtil.currentUserPermissionList(PreferenceManager.getInstance(getContext()).getUserCredentials().getPermissions()).contains(permissionCode)) {
+                optionalStatus.setVisibility(View.VISIBLE);
+            } else {
+                optionalStatus.setVisibility(View.GONE);
+            }
+        }
+    }
+
+    private void loadSalesWholeOrderCancelDetailsNew() {
+
         String vendorId = null;
         if (orderVendorId != null) {
             vendorId = orderVendorId;
@@ -312,7 +236,7 @@ public class PendingPurchaseDetailsFragment extends AddUpDel {
                         poDateTv.setText(":  " + response.getOrderInfo().getOrderDate());
 
                         Glide.with(getContext())
-                                .load(UrlUtil.profileBaseUrl + "" + response.getProcessedBy().getProfilePhoto())
+                                .load(UrlUtil.profileBaseUrl + "" + response.getProcessedBy().getProfilePhoto()).error(R.drawable.person).placeholder(R.drawable.person)
 
                                 .into(processByIcon);
                         processBynameTv.setText(response.getProcessedBy().getFullName());
@@ -347,15 +271,7 @@ public class PendingPurchaseDetailsFragment extends AddUpDel {
     }
 
 
-    private void loadSalesWholeOrderCancelDetails() {
-        loadSalesDataToView();
-    }
-
     private void loadSalesDataToView() {
-        if (!(isInternetOn(getActivity()))) {
-            infoMessage(getActivity().getApplication(), "Please Check your Internet Connection");
-            return;
-        }
 
         if (orderVendorId == null) {
             orderVendorId = PreferenceManager.getInstance(getContext()).getUserCredentials().getVendorID();
@@ -381,7 +297,7 @@ public class PendingPurchaseDetailsFragment extends AddUpDel {
 
                         Glide.with(getContext())
                                 .load(UrlUtil.profileBaseUrl + "" + response.getProcessedBy().getProfilePhoto())
-
+                                .error(R.drawable.person).placeholder(R.drawable.person)
                                 .into(processByIcon);
                         processBynameTv.setText(response.getProcessedBy().getFullName());
 
@@ -392,7 +308,6 @@ public class PendingPurchaseDetailsFragment extends AddUpDel {
                         paidAmount.setText("" + DataModify.addFourDigit(String.valueOf(response.getPaymentInfo().getBill_time_paid())) + MtUtils.priceUnit);
                         dueTv.setText("" + DataModify.addFourDigit(String.valueOf(response.getPaymentInfo().getTotal_paid())) + MtUtils.priceUnit);
                         totalAmountTv.setText("" + DataModify.addFourDigit(response.getOrderInfo().getTotal()) + MtUtils.priceUnit);
-                        setDataToView(response.getOrderInfo().getTotal(), response.getOrderInfo().getVat(), String.valueOf(response.getPaymentInfo().getTotal_discount()));
 
 
                         discountTv.setText("" + DataModify.addFourDigit(String.valueOf(response.getPaymentInfo().getTotal_discount())) + MtUtils.priceUnit);
@@ -407,6 +322,7 @@ public class PendingPurchaseDetailsFragment extends AddUpDel {
                         productListRv.setLayoutManager(new LinearLayoutManager(getContext()));
                         productListRv.setAdapter(adapter);
 
+                        setDataToView(response.getOrderInfo().getTotal(), response.getOrderInfo().getVat(), String.valueOf(response.getPaymentInfo().getTotal_discount()));
 
                     } catch (Exception e) {
                         Log.d("ERROR", "" + e.getMessage());
@@ -418,7 +334,7 @@ public class PendingPurchaseDetailsFragment extends AddUpDel {
 
     private void setDataToView(String total, String vat, String total_discount) {
         double totalAmount = 0.0;
-        totalAmount = Double.parseDouble(total) + Double.parseDouble(total_discount) + Double.parseDouble(vat);
+        totalAmount = Double.parseDouble(total == null ? "0" : total) + Double.parseDouble(total_discount == null ? "0" : total_discount) + Double.parseDouble(vat == null ? "0" : vat);
         totalAmountTv.setText("" + DataModify.addFourDigit(String.valueOf(totalAmount)) + MtUtils.priceUnit);
 
     }
@@ -466,7 +382,7 @@ public class PendingPurchaseDetailsFragment extends AddUpDel {
                         poDateTv.setText(":  " + response.getOrderInfo().getOrderDate());
                         Glide.with(getContext())
                                 .load(UrlUtil.profileBaseUrl + "" + response.getProcessedBy().getProfilePhoto())
-
+                                .error(R.drawable.person).placeholder(R.drawable.person)
                                 .into(processByIcon);
                         processBynameTv.setText(response.getProcessedBy().getFullName());
 
@@ -505,6 +421,7 @@ public class PendingPurchaseDetailsFragment extends AddUpDel {
             noteEt.requestFocus();
             return;
         }
+        approval = true;
         showDialog(getString(R.string.approve_dialog_title));
     }
 
@@ -530,54 +447,52 @@ public class PendingPurchaseDetailsFragment extends AddUpDel {
     public void confirmApprovePendingPurchaseDialog() {
         approveDeclinePendingPurchaseViewModel.pendingPurchaseApproveRequest(getActivity(), refOrderId, noteEt.getText().toString())
                 .observe(getViewLifecycleOwner(), duePaymentResponse -> {
-                    if (duePaymentResponse.getStatus() == 500 || duePaymentResponse == null) {
-                        errorMessage(getActivity().getApplication(), "");
-                        return;
-                    }
-                    if (duePaymentResponse.getStatus() == 400) {
-                        infoMessage(getActivity().getApplication(), "" + duePaymentResponse.getMessage());
-                        return;
-                    }
-                    Toasty.success(getContext(), "" + duePaymentResponse.getMessage(), Toasty.LENGTH_LONG).show();
-                    getActivity().onBackPressed();
+                    manageResponse(duePaymentResponse);
+
                 });
 
+    }
+
+    private void manageResponse(DuePaymentResponse duePaymentResponse) {
+        progressDialog.dismiss();
+        if (duePaymentResponse.getStatus() == 500 || duePaymentResponse == null) {
+            errorMes("");
+            return;
+        }
+        if (duePaymentResponse.getStatus() == 400) {
+            message("" + duePaymentResponse.getMessage());
+            return;
+        }
+        message("" + duePaymentResponse.getMessage());
+        getActivity().onBackPressed();
     }
 
     public void confirmDeclinePendingPurchaseDialog() {
         approveDeclinePendingPurchaseViewModel.pendingPurchaseDeclineRequest(getActivity(), refOrderId, noteEt.getText().toString())
                 .observe(getViewLifecycleOwner(), duePaymentResponse -> {
-                    if (duePaymentResponse.getStatus() == 500 || duePaymentResponse == null) {
-                        errorMessage(getActivity().getApplication(), "");
-                        return;
-                    }
-                    if (duePaymentResponse.getStatus() == 400) {
-                        infoMessage(getActivity().getApplication(), "" + duePaymentResponse.getMessage());
-                        return;
-                    }
-                    Toasty.success(getContext(), "" + duePaymentResponse.getMessage(), Toasty.LENGTH_LONG).show();
-                    getActivity().onBackPressed();
+                    manageResponse(duePaymentResponse);
                 });
     }
 
     public void confirmApprovePendingSaleDialog() {
         pendingSaleApproveDeclineViewModel.pendingSalesApproveRequest(getActivity(), refOrderId, noteEt.getText().toString())
                 .observe(getViewLifecycleOwner(), duePaymentResponse -> {
-                    Toasty.success(getContext(), "Pending Purchase Approved", Toasty.LENGTH_LONG).show();
-                    getActivity().onBackPressed();
+                    manageResponse(duePaymentResponse);
+
                 });
     }
 
     public void confirmDeclinePendingSaleDialog() {
         pendingSaleApproveDeclineViewModel.pendingSalesDeclineRequest(getActivity(), refOrderId, noteEt.getText().toString())
                 .observe(getViewLifecycleOwner(), duePaymentResponse -> {
-                    Toasty.success(getContext(), "Pending Purchase Decline", Toasty.LENGTH_LONG).show();
-                    getActivity().onBackPressed();
+                    manageResponse(duePaymentResponse);
                 });
     }
 
     @Override
     public void save() {
+        progressDialog = new ProgressDialog(getContext());
+        progressDialog.show();
         if (approval == true) {
             if (portion.equals("PENDING_PURCHASE")) {
                 confirmApprovePendingPurchaseDialog();
@@ -593,21 +508,11 @@ public class PendingPurchaseDetailsFragment extends AddUpDel {
                     currentVendorId = PreferenceManager.getInstance(getContext()).getUserCredentials().getVendorID();
                 }
 
-                ProgressDialog progressDialog = new ProgressDialog(getContext());
-                progressDialog.show();
+
                 salesReturnViewModel.approveSalesReturnWholeOrderCancel(getActivity(), noteEt.getText().toString(), refOrderId, currentVendorId)
                         .observe(getViewLifecycleOwner(), response -> {
-                            progressDialog.dismiss();
-                            if (response == null) {
-                                errorMessage(getActivity().getApplication(), "Something Wrong");
-                                return;
-                            }
-                            if (response.getStatus() == 400) {
-                                infoMessage(getActivity().getApplication(), "" + response.getMessage());
-                                return;
-                            }
-                            successMessage(getActivity().getApplication(), "" + response.getMessage());
-                            getActivity().onBackPressed();
+                            manageResponse(response);
+
 
                         });
             }
@@ -629,21 +534,10 @@ public class PendingPurchaseDetailsFragment extends AddUpDel {
                 } else {
                     currentVendorId = PreferenceManager.getInstance(getContext()).getUserCredentials().getVendorID();
                 }
-                ProgressDialog progressDialog = new ProgressDialog(getContext());
-                progressDialog.show();
+
                 salesReturnViewModel.declineApproveSalesReturnWholeOrderCancel(getActivity(), noteEt.getText().toString(), refOrderId, currentVendorId)
                         .observe(getViewLifecycleOwner(), response -> {
-                            progressDialog.dismiss();
-                            if (response == null) {
-                                errorMessage(getActivity().getApplication(), "Something Wrong");
-                                return;
-                            }
-                            if (response.getStatus() == 400) {
-                                infoMessage(getActivity().getApplication(), "" + response.getStatus());
-                                return;
-                            }
-                            successMessage(getActivity().getApplication(), "" + response.getMessage());
-                            getActivity().onBackPressed();
+                            manageResponse(response);
                         });
             }
 

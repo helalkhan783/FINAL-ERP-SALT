@@ -76,7 +76,7 @@ public class ReceiptHistoryListAdapter extends RecyclerView.Adapter<ReceiptHisto
             companyName = currentPosition.getCompanyName();
         }
         holder.binding.companyName.setText(":  " + companyName + "@" + currentPosition.getCustomerFname());
-        holder.binding.receiptAmount.setText(":  " + DataModify.addFourDigit(ReplaceCommaFromString.replaceComma(currentPosition.getTotalAmount())) + MtUtils.priceUnit);
+        holder.binding.receiptAmount.setText(":  " + DataModify.addFourDigit(ReplaceCommaFromString.replaceComma(currentPosition.getPaidAmount())) + MtUtils.priceUnit);
         holder.binding.transactionType.setText(":  " + currentPosition.getPaymentTypeName());
         holder.binding.processdBy.setText(currentPosition.getFullName());
         try {

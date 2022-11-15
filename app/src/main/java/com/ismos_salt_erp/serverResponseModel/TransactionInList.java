@@ -7,12 +7,9 @@ import lombok.Data;
 
 @Data
 public class TransactionInList {
-    @SerializedName("paymentID")
+    @SerializedName("paymentSummaryID")
     @Expose
-    private String paymentID;
-    @SerializedName("particulars")
-    @Expose
-    private String orderID;
+    private String paymentSummaryID;
     @SerializedName("customer_fname")
     @Expose
     private String customerFname;
@@ -31,39 +28,37 @@ public class TransactionInList {
     @SerializedName("custom_discount")
     @Expose
     private String customDiscount;
-    @SerializedName("batch_no")
-    @Expose
-    private String batchNo;
     @SerializedName("user_name")
     @Expose
     private String userName;
-    @SerializedName("payment_status")
+    @SerializedName("status")
     @Expose
-    private String paymentStatus;
+    private String status;
     @SerializedName("entry_userID")
     @Expose
     private String entryUserID;
+    @SerializedName("store_name")
+    @Expose
+    private String storeName;
     @SerializedName("profile_photo")
     @Expose
     private String profilePhoto;
     @SerializedName("FullName")
     @Expose
     private String fullName;
+    @SerializedName("customer_name")
+    @Expose
+    private String customerName;
+    @SerializedName("particulars")
+    @Expose
+    private String particulars;
 
-    public String getPaymentID() {
-        return paymentID;
+    public String getPaymentSummaryID() {
+        return paymentSummaryID;
     }
 
-    public void setPaymentID(String paymentID) {
-        this.paymentID = paymentID;
-    }
-
-    public String getOrderID() {
-        return orderID;
-    }
-
-    public void setOrderID(String orderID) {
-        this.orderID = orderID;
+    public void setPaymentSummaryID(String paymentSummaryID) {
+        this.paymentSummaryID = paymentSummaryID;
     }
 
     public String getCustomerFname() {
@@ -114,14 +109,6 @@ public class TransactionInList {
         this.customDiscount = customDiscount;
     }
 
-    public String getBatchNo() {
-        return batchNo;
-    }
-
-    public void setBatchNo(String batchNo) {
-        this.batchNo = batchNo;
-    }
-
     public String getUserName() {
         return userName;
     }
@@ -130,12 +117,12 @@ public class TransactionInList {
         this.userName = userName;
     }
 
-    public String getPaymentStatus() {
-        return paymentStatus;
+    public String getStatus() {
+        return status;
     }
 
-    public void setPaymentStatus(String paymentStatus) {
-        this.paymentStatus = paymentStatus;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getEntryUserID() {
@@ -144,6 +131,14 @@ public class TransactionInList {
 
     public void setEntryUserID(String entryUserID) {
         this.entryUserID = entryUserID;
+    }
+
+    public String getStoreName() {
+        return storeName;
+    }
+
+    public void setStoreName(String storeName) {
+        this.storeName = storeName;
     }
 
     public String getProfilePhoto() {
@@ -160,5 +155,21 @@ public class TransactionInList {
 
     public void setFullName(String fullName) {
         this.fullName = fullName;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
+    public String getParticulars() {
+        return particulars;
+    }
+
+    public void setParticulars(String particulars) {
+        this.particulars = particulars;
     }
 }

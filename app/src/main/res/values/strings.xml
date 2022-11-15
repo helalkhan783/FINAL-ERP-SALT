@@ -225,6 +225,9 @@ Use of Services.</string>
     <string name="order_cance_dialog_title">Do you want to whole order cancel ?</string>
     <string name="approve_dialog_title">Do you want to approve ?</string>
     <string name="decline_dialog_title">Do you want to decline ?</string>
+    <string name="receipt_history_for_dashboard" >Receipt</string>
+    <string name="payment_history_for_dashboard" >Payment</string>
+    <string name="dialog_title_update_customer">Do you want to update this Customer Info?</string>
 
 
 </resources>

@@ -152,6 +152,7 @@
                                     android:maxLines="1"
                                     android:paddingLeft="5dp"
                                     android:singleLine="true"
+                                    android:inputType="number"
                                     android:textColor="@color/black"
                                     android:textColorHint="#808080"
                                     android:textSize="@dimen/fourteen_sp_text_size"

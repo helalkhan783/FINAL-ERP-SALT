@@ -15,6 +15,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.chivorn.smartmaterialspinner.SmartMaterialSpinner;
 import com.ismos_salt_erp.R;
 import com.ismos_salt_erp.adapter.ReceiptHistoryListAdapter;
 import com.ismos_salt_erp.adapter.account_report.DebitAndCreditVoucherListAdapter;
@@ -46,7 +47,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class AccountsListFragment extends BaseFragment implements View.OnClickListener, DatePickerDialog.OnDateSetListener, EditDebitVoucher {
+public class AccountsListFragment extends BaseFragment implements View.OnClickListener, DatePickerDialog.OnDateSetListener, EditDebitVoucher, SmartMaterialSpinner.OnItemSelectedListener {
     private FragmentAccountsListBinding binding;
     private AccountsListViewModel accountsListViewModel;
     private CustomerReportViewModel customerReportViewModel;
@@ -92,43 +93,13 @@ public class AccountsListFragment extends BaseFragment implements View.OnClickLi
             hideKeyboard(getActivity());
             getActivity().onBackPressed();
         });
-        binding.accountsFilter.user.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                userNumber = userLists.get(position).getUserId();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
 
 
-        binding.accountsFilter.selectCompany.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                company = companyList.get(position).getCustomerID();
-            }
+        //set item selected listener in spinner
+        binding.accountsFilter.user.setOnItemSelectedListener(this);
+        binding.accountsFilter.selectCompany.setOnItemSelectedListener(this);
+        binding.accountsFilter.transactionType.setOnItemSelectedListener(this);
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-        binding.accountsFilter.transactionType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                payment_type = paymentTypes.get(position).getId();
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
 
 // get user filter data
         getPageData();
@@ -331,7 +302,6 @@ public class AccountsListFragment extends BaseFragment implements View.OnClickLi
                 });
 
     }
-
 
 
     private void paymentHistory(String whoseFor) {
@@ -807,13 +777,11 @@ public class AccountsListFragment extends BaseFragment implements View.OnClickLi
     @Override
     public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
 
-        String selectedDate = DateTimePicker.dateSelect(year, monthOfYear, dayOfMonth);
-
         if (!isStartDate) {
-            binding.accountsFilter.endDate.setText(selectedDate);
+            binding.accountsFilter.endDate.setText(DateTimePicker.dateSelect(year, monthOfYear, dayOfMonth));
             endDate = binding.accountsFilter.endDate.getText().toString();
         } else {
-            binding.accountsFilter.startDate.setText(selectedDate);
+            binding.accountsFilter.startDate.setText(DateTimePicker.dateSelect(year, monthOfYear, dayOfMonth));
             startDate = binding.accountsFilter.startDate.getText().toString();
             isStartDate = false;
         }
@@ -884,5 +852,26 @@ public class AccountsListFragment extends BaseFragment implements View.OnClickLi
 
 
         alertDialog.show();
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        if (parent.getId() == R.id.user) {
+            userNumber = userLists.get(position).getUserId();
+
+        }
+        if (parent.getId() == R.id.selectCompany) {
+            company = companyList.get(position).getCustomerID();
+
+        }
+        if (parent.getId() == R.id.transactionType) {
+            payment_type = paymentTypes.get(position).getId();
+
+        }
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 }

@@ -4,21 +4,16 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,28 +31,19 @@ import com.ismos_salt_erp.serverResponseModel.DistrictListResponse;
 import com.ismos_salt_erp.serverResponseModel.DivisionResponse;
 import com.ismos_salt_erp.serverResponseModel.ThanaList;
 import com.ismos_salt_erp.utils.ImageBaseUrl;
-import com.ismos_salt_erp.utils.PathUtil;
-import com.ismos_salt_erp.view.fragment.BaseFragment;
 import com.ismos_salt_erp.viewModel.CustomerViewModel;
 import com.ismos_salt_erp.viewModel.MillerProfileInfoViewModel;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.io.File;
-import java.io.InputStream;
-import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
-import lombok.SneakyThrows;
-import okhttp3.MediaType;
 import okhttp3.MultipartBody;
-import okhttp3.RequestBody;
 
 
-public class EditCustomerFragment extends BaseFragment {
+public class EditCustomerFragment extends AddUpDel {
     private FragmentEditCustomerBinding binding;
     private MillerProfileInfoViewModel millerProfileInfoViewModel;
     private CustomerViewModel customerViewModel;
@@ -88,7 +74,7 @@ public class EditCustomerFragment extends BaseFragment {
     private List<String> selectedCustomerTypeIdList;
 
     private String editable, dueLimit, country, oldImage, type, totalAmount, selectedDistrict, selectedDivision, selectedThana, customerId, selectedCustomerType;
-    MultipartBody.Part logoBody;
+    MultipartBody.Part image;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -187,11 +173,7 @@ public class EditCustomerFragment extends BaseFragment {
         });
 
         binding.image.setOnClickListener(v -> {
-            if (!(checkStoragePermission())) {
-                requestStoragePermission(STORAGE_PERMISSION_REQUEST_CODE);
-            } else {
-                getLogoImageFromFile(getActivity().getApplication(), PICK_IMAGE);
-            }
+            forImage();
         });
         binding.updateCustomer.setOnClickListener(v -> {
             if (!(isInternetOn(getActivity()))) {
@@ -239,23 +221,23 @@ public class EditCustomerFragment extends BaseFragment {
 
 
             if (selectedDivision == null) {
-                infoMessage(getActivity().getApplication(), "Please select division");
+                message(getString(R.string.division_mes));
                 return;
             }
             if (selectedDistrict == null) {
-                infoMessage(getActivity().getApplication(), "Please select district");
+                message(getString(R.string.district_mes));
                 return;
             }
 
             if (selectedThana == null) {
-                infoMessage(getActivity().getApplication(), "Please select upazila/thana");
+                message(getString(R.string.thana_mes));
                 return;
             }
             if (selectedCustomerType == null) {
-                infoMessage(getActivity().getApplication(), "Please select customer type");
+                message(getString(R.string.customer_mes));
                 return;
             }
-            updateCustomerDialog();
+            showDialog(getString(R.string.dialog_title_update_customer));
         });
 
 
@@ -329,7 +311,7 @@ public class EditCustomerFragment extends BaseFragment {
                             }
 
                             editable = String.valueOf(response.getInitialAmountEditable());
-                            if (editable.equals("2")){//
+                            if (editable.equals("2")) {//
                                 binding.dueLimit.setFocusable(false);
                             }
                             totalAmount = response.getInitialPaymentInfo().getTotalAmount();
@@ -352,7 +334,7 @@ public class EditCustomerFragment extends BaseFragment {
                             binding.nid.setText(response.getCustomerInfo().getNid());
                             binding.tin.setText(response.getCustomerInfo().getTin());
                             binding.address.setText(response.getCustomerInfo().getAddress());
-                            binding.dueLimit.setText(""+response.getInitialPaymentInfo().getTotalAmount());
+                            binding.dueLimit.setText("" + response.getInitialPaymentInfo().getTotalAmount());
                             binding.note.setText(response.getCustomerInfo().getCustomerNote());
                             try {
                                 Glide.with(getContext()).load(ImageBaseUrl.image_base_url + response.getCustomerInfo().getImage()).centerCrop().
@@ -491,62 +473,39 @@ public class EditCustomerFragment extends BaseFragment {
                 });
     }
 
-    private void ValidationAndSubmit() {
+    private void submit() {
 
-        /**
-         * for Image
-         */
-        if (imageUri != null) {//logo image not mandatory here so if user not select any logo image by default it send null
-            File file = null;
-            try {
-                file = new File(PathUtil.getPath(getActivity(), imageUri));
-            } catch (URISyntaxException e) {
-                e.printStackTrace();
-            }
-            RequestBody requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), file);
-
-            // MultipartBody.Part is used to send also the actual file name
-            logoBody = MultipartBody.Part.createFormData("image", file.getName(), requestFile);//here document is name of from data
-        } else {
-            logoBody = null;
-        }
-
-
-        /**
-         * All ok now send customer info to server
-         */
         double editAmount = 0;
-        if (!binding.dueLimit.getText().toString().isEmpty()){
-            editAmount =  Double.parseDouble(binding.dueLimit.getText().toString());
+        if (!binding.dueLimit.getText().toString().isEmpty()) {
+            editAmount = Double.parseDouble(binding.dueLimit.getText().toString());
         }
         if (editable.equals("0")) {
             double total = editAmount + Integer.parseInt(totalAmount);
-            if (logoBody == null) {
-                logoBody = null;
-                updateData(String.valueOf(editAmount), String.valueOf(total), oldImage, logoBody);
+            if (image == null) {
+                image = null;
+                updateData(String.valueOf(editAmount), String.valueOf(total), oldImage, image);
                 return;
             }
-            updateData(String.valueOf(editAmount), String.valueOf(total), "", logoBody);
+            updateData(String.valueOf(editAmount), String.valueOf(total), "", image);
 
         }
         if (editable.equals("1")) {
-
-            if (logoBody == null) {
-                logoBody = null;
-                updateData(String.valueOf(editAmount), totalAmount, oldImage, logoBody);
+            if (image == null) {
+                image = null;
+                updateData(String.valueOf(editAmount), totalAmount, oldImage, image);
                 return;
             }
 
-            updateData(String.valueOf(editAmount), totalAmount, "", logoBody);
+            updateData(String.valueOf(editAmount), totalAmount, "", image);
 
         }
         if (editable.equals("2")) {
-            if (logoBody == null) {
-                logoBody = null;
-                updateData("", totalAmount, oldImage, logoBody);
+            if (image == null) {
+                image = null;
+                updateData("", totalAmount, oldImage, image);
                 return;
             }
-            updateData("", totalAmount, "", logoBody);
+            updateData("", totalAmount, "", image);
         }
     }
 
@@ -555,15 +514,15 @@ public class EditCustomerFragment extends BaseFragment {
         progressDialog.show();
 
         customerViewModel.editCustomer(getActivity(), binding.companyName.getText().toString(),
-                binding.ownerName.getText().toString(), binding.phone.getText().toString(), binding.altPhone.getText().toString(),
-                binding.email.getText().toString(), selectedDivision, selectedDistrict, selectedThana, binding.bazar.getText().toString(),
-                binding.nid.getText().toString(), binding.tin.getText().toString(), dueLimit, country, type, binding.address.getText().toString(),
-                totalAmount, editAmount, newImage, oldImage, binding.note.getText().toString(), binding.editNote.getText().toString(), customerId)
+                        binding.ownerName.getText().toString(), binding.phone.getText().toString(), binding.altPhone.getText().toString(),
+                        binding.email.getText().toString(), selectedDivision, selectedDistrict, selectedThana, binding.bazar.getText().toString(),
+                        binding.nid.getText().toString(), binding.tin.getText().toString(), dueLimit, country, type, binding.address.getText().toString(),
+                        totalAmount, editAmount, newImage, oldImage, binding.note.getText().toString(), binding.editNote.getText().toString(), customerId)
                 .observe(getViewLifecycleOwner(), response -> {
 
                     try {
-                        if (response == null) {
-                            errorMessage(getActivity().getApplication(), "ERROR");
+                        if (response == null || response.getStatus() == 500) {
+                            errorMes("");
                             return;
                         }
                         if (response.getStatus() == 400) {
@@ -585,84 +544,17 @@ public class EditCustomerFragment extends BaseFragment {
                 });
     }
 
-    @SneakyThrows
     @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable @org.jetbrains.annotations.Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == PICK_IMAGE && resultCode == Activity.RESULT_OK) {
-            if (data == null) {
-                //Display an error
-                return;
-            }
-
-            InputStream inputStream = getContext().getContentResolver().openInputStream(data.getData());
-            imageUri = data.getData();
-
-            //convertUriToBitmapImageAndSetInImageView(getPath(data.getData()), data.getData());
-            /**
-             * for set selected image in image view
-             */
-            Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContext().getContentResolver(), data.getData());
-            binding.image.setImageDrawable(null);
-            binding.image.setImageBitmap(bitmap);
-
-
-            /**
-             * now set licenseImageName
-             * */
-            binding.imageName.setText(String.valueOf(new File("" + data.getData()).getName()));
-
-            //Now you can do whatever you want with your inpustream, save it as file, upload to a server, decode a bitmap...
-            Log.d("LOGO_IMAGE", String.valueOf(inputStream));
-
-
-        }
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull @NotNull String[] permissions, @NonNull @NotNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        switch (requestCode) {
-            case STORAGE_PERMISSION_REQUEST_CODE:
-                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    infoMessage(requireActivity().getApplication(), "Permission Granted");
-                    Log.e("value", "Permission Granted, Now you can use local drive .");
-                } else {
-                    infoMessage(requireActivity().getApplication(), "Permission Decline");
-                    Log.e("value", "Permission Denied, You cannot use local drive .");
-                }
-                break;
-        }
+    public void save() {
+        submit();
     }
 
 
-    private void updateCustomerDialog() {
-        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(getContext());
-
-        @SuppressLint("InflateParams")
-        View view = ((Activity) getContext()).getLayoutInflater().inflate(R.layout.purchase_dialog, null);
-        //Set the view
-        builder.setView(view);
-        TextView tvTitle, tvMessage;
-        ImageView imageIcon = view.findViewById(R.id.img_icon);
-        tvMessage = view.findViewById(R.id.tv_message);
-        tvTitle = view.findViewById(R.id.tv_title);
-        tvTitle.setText("Do you want to update this Customer Info?");//set warning title
-        tvMessage.setText("SALT ERP");
-        imageIcon.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.app_sub_logo));//set warning image
-        Button bOk = view.findViewById(R.id.btn_ok);
-        Button cancel = view.findViewById(R.id.cancel);
-        android.app.AlertDialog alertDialog = builder.create();
-        Objects.requireNonNull(alertDialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        alertDialog.setCancelable(false);
-        alertDialog.setCanceledOnTouchOutside(false);
-        cancel.setOnClickListener(v -> alertDialog.dismiss());//for cancel
-        bOk.setOnClickListener(v -> {
-            alertDialog.dismiss();
-            ValidationAndSubmit();
-        });
-
-        alertDialog.show();
+    @Override
+    public void imageUri(Intent data) {
+        binding.image.setImageBitmap(getBitmapImage(data));
+        binding.imageName.setText(new File("" + data.getData()).getName());
+        image = imageLogobody(data.getData(), "");
     }
 
 

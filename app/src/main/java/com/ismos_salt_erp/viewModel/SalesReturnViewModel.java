@@ -117,25 +117,17 @@ public class SalesReturnViewModel extends CustomerViewModel {
         call.enqueue(new Callback<DuePaymentResponse>() {
             @Override
             public void onResponse(Call<DuePaymentResponse> call, Response<DuePaymentResponse> response) {
-                try {
-                    if (response.isSuccessful()) {
-
-                        if (response == null) {
-                            liveData.setValue(null);
-                            return;
-                        }
-                        if (response.body().getStatus() == 400) {
-                            liveData.postValue(response.body());
-                            return;
-                        }
-                        if (response.body().getStatus() == 200) {
-                            liveData.postValue(response.body());
-                            return;
-                        }
-                    } else {
+                if (response.isSuccessful()) {
+                    if (response == null || response.body().getStatus() ==500){
                         liveData.postValue(null);
+                        return;
                     }
-                } catch (Exception e) {
+                    if (response.body().getStatus() == 200 || response.body().getStatus() == 400) {
+                        liveData.postValue(response.body());
+
+                    }
+                }
+                else {
                     liveData.postValue(null);
                 }
             }

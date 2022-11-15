@@ -40,6 +40,17 @@ public class ReceiptPaymentHistoryList {
     @SerializedName("Full_Name")
     @Expose
     private String fullName;
+    @SerializedName("paid_amount")
+    @Expose
+    private String paidAmount;
+
+    public String getPaidAmount() {
+        return paidAmount;
+    }
+
+    public void setPaidAmount(String paidAmount) {
+        this.paidAmount = paidAmount;
+    }
 
     public String getBatchNo() {
         return batchNo;

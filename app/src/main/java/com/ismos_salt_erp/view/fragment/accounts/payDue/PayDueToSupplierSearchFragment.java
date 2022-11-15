@@ -701,26 +701,7 @@ public class PayDueToSupplierSearchFragment extends AddUpDel implements DatePick
         addPortion.setVisibility(View.GONE);
 
 
-      /*  double currentTotalDue = Double.parseDouble(totalDue.getText().toString());
-        CustomerOrderAdapter.selectedOrderList.clear();
-        if (selectedCustomerId != null && currentTotalDue > 0) {
-            Bundle bundle = new Bundle();
-            bundle.putString("customerId", selectedCustomerId);
-            bundle.putString("totalDue", totalDue.getText().toString());
-            bundle.putString("customerName", customerNameTv.getText().toString());
-            bundle.putString("customerPhone", customerPhone);
-            bundle.putString("customerAddress", customerAddress);
-            bundle.putString("paymentLimit", String.valueOf(paymentLimit));
-            bundle.putStringArrayList("selectedOrderIds", new ArrayList<>(selectedOrderList));
-            Navigation.findNavController(getView()).navigate(R.id.action_payDueToSupplier_to_supplierDuePaymentReceiveFragment, bundle);
-        } else {
-            if (currentTotalDue == 0.0) {//just for show a specific message to user
-                Toasty.info(getContext(), "You don't have any due", Toasty.LENGTH_LONG).show();
-                return;
-            }
-            Toasty.info(getContext(), "Please select a customer by search", Toasty.LENGTH_LONG).show();
-        }
-*/
+
     }
 
     @SuppressLint("NonConstantResourceId")

@@ -4703,6 +4703,21 @@ Call<ReconciliationReportMillerResponse> getReconciliationMiller(
             @Field("payment_type") String payment_type
     );
 
+    @FormUrlEncoded
+    @POST("dashboard/dashboard.php?dashboard-transaction-report=1")
+    Call<TransactionResponse> dashBoardData(
+            @Query("token") String token,
+            @Field("user_id") String user_id,
+            @Field("vendorID") String vendorID,
+            @Field("transaction_type") String transection_type,
+            @Field("start") String start,
+            @Field("end") String end,
+            @Field("store") String store,
+            @Field("company") String company,
+            @Field("usr") String usr,
+            @Field("payment_type") String payment_type
+    );
+
 
     @FormUrlEncoded
     @POST("supplier/supplier-list.php?trash-list=1")

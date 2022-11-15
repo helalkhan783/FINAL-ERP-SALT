@@ -90,7 +90,6 @@ public class TransactionListFragment extends BaseFragment implements DatePickerD
         filterData();
         binding.toolbar.setClickHandle(() -> getActivity().onBackPressed());
 
-
         binding.accountsListRv.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
@@ -134,10 +133,57 @@ public class TransactionListFragment extends BaseFragment implements DatePickerD
 
     }
 
-    private void getPageData() {
+
+    private void getAllList() {
+
+        if (portion.equals(getString(R.string.receipt_history_for_dashboard))) {
+            binding.toolbar.toolbarTitle.setText(getString(R.string.receipt_history_for_dashboard));
+            visibleSearchE();
+            manageLayout(getString(R.string.receipt_history_for_dashboard));
+            getDashboardData("1");
+
+            return;
+
+        }
+        if (portion.equals(getString(R.string.payment_history_for_dashboard))) {
+            binding.toolbar.toolbarTitle.setText(getString(R.string.payment_history_for_dashboard));
+            visibleSearchE();
+            manageLayout(getString(R.string.receipt_history_for_dashboard));
+            getDashboardData("2");
+            return;
+        }
+        if (portion.equals(AccountsUtil.transactionIn)) {
+            getTransactionInData("1");
+            visibleSearchE();
+            manageLayout("transactionInOut");
+            return;
+        }
+
+        if (portion.equals(AccountsUtil.transactionOut)) {
+            getTransactionInData("2");
+            visibleSearchE();
+            manageLayout("transactionInOut");
+            return;
+        }
+
+        if (portion.equals(AccountReportUtils.creditors)) {//only For Day Book
+            creditors("1");
+            manageLayout("debitCredit");
+            return;
+        }
+        if (portion.equals(AccountReportUtils.debitors)) {//only For Day Book
+            creditors("2");
+            manageLayout("debitCredit");
+            return;
+        }
+
+
+    }
+
+    private void getDashboardData(String type) {
         ProgressDialog progressDialog = new ProgressDialog(getContext());
         progressDialog.show();
-        transactionViewModel.getTransactionInData(getActivity(), "1", binding.startDate.getText().toString(), binding.EndDate.getText().toString(), null, null, null).observe(
+        transactionViewModel.dashBoardData(getActivity(), type, binding.startDate.getText().toString(), binding.EndDate.getText().toString(), customerId, userId, transactionId).observe(
                 getViewLifecycleOwner(), response -> {
                     progressDialog.dismiss();
                     if (response == null) {
@@ -190,39 +236,29 @@ public class TransactionListFragment extends BaseFragment implements DatePickerD
                         } catch (Exception e) {
                         }
 
-                        // now set customer
+                        if (response.getList().isEmpty() || response.getList() == null) {
+                            binding.accountsListRv.setVisibility(View.GONE);
+                            binding.dataNotFound.setVisibility(View.VISIBLE);
+                            dataOk = false;
+                            return;
+                        }
+                        binding.dataNotFound.setVisibility(View.GONE);
+                        binding.accountsListRv.setVisibility(View.VISIBLE);
+                        binding.accountsListRv.setHasFixedSize(true);
+                        binding.accountsListRv.setLayoutManager(new LinearLayoutManager(getContext()));
 
+                        addList(response.getList());
+                        TransactionInAdapter adapter = new TransactionInAdapter(getActivity(), response.getList(), getView());
+                        binding.accountsListRv.setAdapter(adapter);
+                        double total = 0.0;
+                        for (int i = 0; i < response.getList().size(); i++) {
+                            total += Double.parseDouble(ReplaceCommaFromString.replaceComma(response.getList().get(i).getTotalAmount()));
+                        }
+                        binding.totalAmount.setText(DataModify.addFourDigit(String.valueOf(total)) + MtUtils.priceUnit);
 
                     }
                 }
         );
-    }
-
-    private void getAllList() {
-        if (portion.equals(AccountsUtil.transactionIn)) {
-            getTransactionInData("1");
-            visibleSearchE();
-            manageLayout("transactionInOut");
-        }
-
-        if (portion.equals(AccountsUtil.transactionOut)) {
-            getTransactionInData("2");
-            visibleSearchE();
-            manageLayout("transactionInOut");
-        }
-
-        if (portion.equals(AccountReportUtils.creditors)) {//only For Day Book
-            creditors("1");
-            manageLayout("debitCredit");
-            return;
-        }
-        if (portion.equals(AccountReportUtils.debitors)) {//only For Day Book
-            creditors("2");
-            manageLayout("debitCredit");
-            return;
-        }
-
-
     }
 
     private void visibleSearchE() {
@@ -233,6 +269,14 @@ public class TransactionListFragment extends BaseFragment implements DatePickerD
     private void manageLayout(String from) {
         if (from.equals("transactionInOut")) {
             binding.toolbar.filterBtn.setVisibility(View.VISIBLE);
+            binding.userLayout.setVisibility(View.VISIBLE);
+            binding.transactionTypeLayout.setVisibility(View.VISIBLE);
+            binding.debitCreditLayout.setVisibility(View.GONE);
+            return;
+        }
+
+        if (from.equals(getString(R.string.receipt_history_for_dashboard))) {
+            binding.toolbar.filterBtn.setVisibility(View.GONE);
             binding.userLayout.setVisibility(View.VISIBLE);
             binding.transactionTypeLayout.setVisibility(View.VISIBLE);
             binding.debitCreditLayout.setVisibility(View.GONE);

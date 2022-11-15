@@ -49,8 +49,8 @@ public class TransactionInAdapter extends RecyclerView.Adapter<TransactionInAdap
          if (currentList.getPaymentDateTime() != null) {
             holder.itembinding.date.setText(":  " + currentList.getPaymentDateTime());
         }
-          if (currentList.getOrderID() != null) {
-            holder.itembinding.refNumber.setText(":  " + currentList.getOrderID());
+          if (currentList.getParticulars() != null) {
+            holder.itembinding.particular.setText(":  " + currentList.getParticulars());
         }
           if (currentList.getCompanyName() != null) {
             holder.itembinding.companyName.setText(":  " + currentList.getCompanyName() +" @ " + currentList.getCustomerFname());
@@ -67,6 +67,7 @@ public class TransactionInAdapter extends RecyclerView.Adapter<TransactionInAdap
           if (currentList.getCustomerFname() != null) {
             holder.itembinding.processdBy.setText(" " + currentList.getFullName());
         }
+
 
         try {
             Glide.with(context).load(ImageBaseUrl.image_base_url + currentList.getProfilePhoto()).centerCrop().

@@ -541,8 +541,9 @@ public class NotificationFragment extends BaseFragment implements DatePickerDial
             Bundle bundle = new Bundle();
             bundle.putString("TypeKey", String.valueOf(type));
             bundle.putString("RefOrderId", referrerId);
+            bundle.putString("status", approval);
             if (!(approval.equals("2"))) {
-                //bundle.putString("status", "2");
+
                 bundle.putString("portion", "PENDING_SALE");
                 bundle.putString("porson", "SaleHistoryDetails");
                 Navigation.findNavController(getView()).navigate(R.id.notificationListFragment_to_pendingPurchaseDetailsFragment, bundle);

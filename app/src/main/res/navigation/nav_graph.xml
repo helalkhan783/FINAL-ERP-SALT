@@ -55,6 +55,14 @@
             app:exitAnim="@anim/wait_anim"
             app:popEnterAnim="@anim/wait_anim"
             app:popExitAnim="@anim/slide_right" />
+
+        <action
+            android:id="@+id/action_homeFragment_to_transactionListFragmentt"
+            app:destination="@id/transactionListFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
         <action
             android:id="@+id/action_homeFragment_to_managementFragment"
             app:destination="@id/managementFragment"
@@ -811,13 +819,7 @@
         android:name="com.ismos_salt_erp.view.fragment.accounts.payDue.PayDueToSupplierSearchFragment"
         android:label="fragment_pay_due_to_supplier"
         tools:layout="@layout/fragment_pay_due_to_supplier_search_fragment">
-        <action
-            android:id="@+id/action_payDueToSupplier_to_supplierDuePaymentReceiveFragment"
-            app:destination="@id/supplierDuePaymentReceiveFragment"
-            app:enterAnim="@anim/slide_left"
-            app:exitAnim="@anim/wait_anim"
-            app:popEnterAnim="@anim/wait_anim"
-            app:popExitAnim="@anim/slide_right" />
+
         <action
             android:id="@+id/action_payDueToSupplier_to_internetConnectionFaildFragment"
             app:destination="@id/internetConnectionFaildFragment"
@@ -826,19 +828,7 @@
             app:popEnterAnim="@anim/wait_anim"
             app:popExitAnim="@anim/slide_right" />
     </fragment>
-    <fragment
-        android:id="@+id/supplierDuePaymentReceiveFragment"
-        android:name="com.ismos_salt_erp.view.fragment.accounts.payDue.SupplierDuePaymentReceiveFragment"
-        android:label="fragment_supplier_due_payment_receive"
-        tools:layout="@layout/fragment_supplier_due_payment_receive">
-        <action
-            android:id="@+id/action_supplierDuePaymentReceiveFragment_to_internetConnectionFaildFragment"
-            app:destination="@id/internetConnectionFaildFragment"
-            app:enterAnim="@anim/slide_left"
-            app:exitAnim="@anim/wait_anim"
-            app:popEnterAnim="@anim/wait_anim"
-            app:popExitAnim="@anim/slide_right" />
-    </fragment>
+
     <fragment
         android:id="@+id/searchExpenseDue"
         android:name="com.ismos_salt_erp.view.fragment.accounts.payDueExpense.SearchExpenseDue"

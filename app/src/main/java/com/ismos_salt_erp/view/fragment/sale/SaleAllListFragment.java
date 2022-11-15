@@ -109,27 +109,15 @@ public class SaleAllListFragment extends BaseFragment
         linearLayoutManager = new LinearLayoutManager(getContext());
         currentPermissionViewModel = new ViewModelProvider(this).get(CurrentPermissionViewModel.class);
 
-        /** Visible filSaleUtil.saleHistory layout for all list toolbar*/
         binding.toolbar.filterBtn.setOnClickListener(v -> {
             ExpandableView response = new ExpandableView(getActivity(), binding.expandableView);
             response.response();
         });
 
-        /** date Click*/
         setOnClick();
-        /**
-         control backpress
-         **/
 
-        /**
-         get previous fragment data
-         **/
         getFragmentData();
 
-
-        /**
-         * get All List data from server
-         */
 
         getAllListDataFromServer();
 
@@ -210,38 +198,31 @@ public class SaleAllListFragment extends BaseFragment
             binding.progress.setMax(100);
         }
 
-        /**
 
-         for Sale pending list
-         **/
         if (previousSelectedId.equals(SaleUtil.salePending)) {
             binding.toolbar.toolbarTitle.setText(" Sale Pending List");
             getSalePendingFromViewModel();
 
         }
-        /**for Sale pending list
-         **/
+
         if (previousSelectedId.equals(SaleUtil.salePendingReturn)) {
             binding.toolbar.toolbarTitle.setText("Sale Return Pending List");
             getSaleReturnPendingFromViewModel();
 
         }
 
-        /**
-         for Sale History list
-         **/
+
         if (previousSelectedId.equals(SaleUtil.saleHistory)) {
             binding.toolbar.toolbarTitle.setText("Sale History List");
             getSaleHistoryFromViewModel();
         }
-/** for sale decline*/
+
 
         if (previousSelectedId.equals(SaleUtil.declineSaleList)) {
             binding.toolbar.toolbarTitle.setText("Sale Declined List");
             getDeclineListFromViewModel();
         }
 
-        /** for return history */
         if (previousSelectedId.equals(SaleUtil.saleReturnHistory)) {
             binding.toolbar.toolbarTitle.setText("Sale Return history");
             getSaleReturnHistoryList();

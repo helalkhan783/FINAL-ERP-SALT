@@ -90,7 +90,6 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
         customiseDrawer();
 
 
-
         OnBackPressedCallback callback = new OnBackPressedCallback(true /** enabled by default**/) {
             @Override
             public void handleOnBackPressed() {
@@ -146,7 +145,6 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
         setAnimationToImage();
         return binding.getRoot();
     }
-
 
 
     private void customiseDrawer() {
@@ -431,11 +429,19 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
                 break;
 
             case R.id.receiptView:
-             //   homePageHelperClass.homePageToAccountListFragment(receipt, AccountsUtil.receiptList, destinationPath);
+                bundle = new Bundle();
+                bundle.putString("portion", getString(R.string.receipt_history_for_dashboard));
+                Navigation.findNavController(getView()).navigate(R.id.action_homeFragment_to_transactionListFragmentt, bundle);
+                //    homePageHelperClass.homePageToAccountListFragment(receipt, AccountsUtil.receiptList, destinationPath);
                 break;
 
             case R.id.paymentView:
-             //   homePageHelperClass.homePageToAccountListFragment(payment, AccountsUtil.paymentList, destinationPath);
+
+                bundle = new Bundle();
+                bundle.putString("portion", getString(R.string.payment_history_for_dashboard));
+                Navigation.findNavController(getView()).navigate(R.id.action_homeFragment_to_transactionListFragmentt, bundle);
+
+                homePageHelperClass.homePageToAccountListFragment(payment, AccountsUtil.paymentList, destinationPath);
                 break;
 
             case R.id.expenseView:

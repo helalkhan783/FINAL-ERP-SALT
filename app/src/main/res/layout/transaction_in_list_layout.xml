@@ -39,7 +39,7 @@
                         <LinearLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="2.4"
+                            android:layout_weight="3"
                             android:orientation="vertical"
                             android:weightSum="2">
 
@@ -74,7 +74,6 @@
 
                             </LinearLayout>
                             <LinearLayout
-                                android:visibility="gone"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight=".5"
@@ -92,7 +91,7 @@
                                     android:textSize="@dimen/fourteen_sp_text_size"/>
 
                                 <TextView
-                                    android:id="@+id/refNumber"
+                                    android:id="@+id/particular"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1.2"
@@ -210,7 +209,7 @@
                         </LinearLayout>
 
                         <LinearLayout
-                            android:visibility="gone"
+
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"

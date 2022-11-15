@@ -57,7 +57,6 @@ public class PurchaseHistoryAdapter extends RecyclerView.Adapter<PurchaseHistory
 
         if (!PermissionUtil.currentUserPermissionList(PreferenceManager.getInstance(context).getUserCredentials().getPermissions()).contains(1500)) {
             holder.itembinding.edit.setVisibility(View.GONE);
-
         }
         if (!PermissionUtil.currentUserPermissionList(PreferenceManager.getInstance(context).getUserCredentials().getPermissions()).contains(1501)) {
             holder.itembinding.view.setVisibility(View.GONE);
