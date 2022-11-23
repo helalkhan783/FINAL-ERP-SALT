@@ -30,15 +30,18 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.chivorn.smartmaterialspinner.SmartMaterialSpinner;
 import com.ismos_salt_erp.R;
 import com.ismos_salt_erp.clickHandle.EditUserClickHandle;
 import com.ismos_salt_erp.databinding.FragmentEditUserBinding;
+import com.ismos_salt_erp.date_time_picker.DateTimePicker;
 import com.ismos_salt_erp.serverResponseModel.BloodGroup;
 import com.ismos_salt_erp.serverResponseModel.DepartmentList;
 import com.ismos_salt_erp.serverResponseModel.DesignationList;
 import com.ismos_salt_erp.serverResponseModel.EnterpriseResponse;
 import com.ismos_salt_erp.utils.PathUtil;
 import com.ismos_salt_erp.view.fragment.BaseFragment;
+import com.ismos_salt_erp.view.fragment.customers.AddUpDel;
 import com.ismos_salt_erp.viewModel.SalesRequisitionViewModel;
 import com.ismos_salt_erp.viewModel.UserViewModel;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
@@ -62,7 +65,7 @@ import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 
 
-public class EditUserFragment extends BaseFragment implements DatePickerDialog.OnDateSetListener {
+public class EditUserFragment extends AddUpDel implements DatePickerDialog.OnDateSetListener, SmartMaterialSpinner.OnItemSelectedListener {
     private FragmentEditUserBinding binding;
     private String selectedProfileId;
     private boolean isPasswordVisible = false; // variable to detect whether password is visible or not
@@ -70,12 +73,9 @@ public class EditUserFragment extends BaseFragment implements DatePickerDialog.O
     private UserViewModel userViewModel;
     private SalesRequisitionViewModel salesRequisitionViewModel;
     private boolean isJoiningDate = false;
-    private static final int PICK_IMAGE = 200;
-    private static final int STORAGE_PERMISSION_REQUEST_CODE = 300;
-    private Uri imageUri;
-    /**
-     * For Department
-     */
+
+    private MultipartBody.Part image = null;
+
     private List<DepartmentList> departmentResponseLists;
     private List<String> departmentNameLists;
 
@@ -119,9 +119,7 @@ public class EditUserFragment extends BaseFragment implements DatePickerDialog.O
         binding.toolbar.toolbarTitle.setText("Update Employee");
         setCurrentDateToView();
         getDataFromPreviousFragment();
-        /**
-         * now get Page Data From Server
-         */
+
         getPageDataFromServer();
         binding.toolbar.setClickHandle(() -> {
             hideKeyboard(getActivity());
@@ -141,20 +139,13 @@ public class EditUserFragment extends BaseFragment implements DatePickerDialog.O
 
             @Override
             public void getProfileImage() {
-                if (!(checkStoragePermission())) {
-                    requestStoragePermission(STORAGE_PERMISSION_REQUEST_CODE);
-                } else {
-                    getLogoImageFromFile(getActivity().getApplication(), PICK_IMAGE);
-                }
+                forImage();
             }
 
             @Override
             public void submit() {
                 hideKeyboard(getActivity());
-                if (!(isInternetOn(getActivity()))) {
-                    infoMessage(getActivity().getApplication(), "Please Check Your Internet Connection");
-                    return;
-                }
+
                 if (selectedTitle == null) {
                     infoMessage(getActivity().getApplication(), "Please select title ");
                     return;
@@ -190,92 +181,23 @@ public class EditUserFragment extends BaseFragment implements DatePickerDialog.O
                 }
 
                 if (selectedEnterprise == null) {
-                    infoMessage(getActivity().getApplication(), "Please select enterprise");
+                    message(getString(R.string.enterprise_info));
                     return;
                 }
-                editUserDialog();
+                showDialog(getString(R.string.update_dialog_title));
             }
         });
-        /**
-         * now handle on item select  on dropdown
-         */
-        binding.department.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                selectedDepartment = departmentResponseLists.get(position).getDepartmentID();
-                binding.department.setEnableErrorLabel(false);
-            }
+        binding.department.setOnItemSelectedListener(this);
+        binding.designation.setOnItemSelectedListener(this);
+        binding.bloodGroup.setOnItemSelectedListener(this);
+        binding.title.setOnItemSelectedListener(this);
+        binding.gender.setOnItemSelectedListener(this);
+        binding.enterprise.setOnItemSelectedListener(this);
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
 
-            }
-        });
-        binding.designation.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                selectedDesignation = designationResponseLists.get(position).getUserDesignationId();
-                binding.designation.setEnableErrorLabel(false);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-        binding.bloodGroup.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                selectedBloodGroup = bloodGroupResponseList.get(position).getBloodGroupId();
-                binding.bloodGroup.setEnableErrorLabel(false);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-        binding.title.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                selectedTitle = titleList.get(position);
-                binding.title.setEnableErrorLabel(false);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-        binding.gender.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                selectedGender = genderList.get(position);
-                binding.gender.setEnableErrorLabel(false);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-        binding.enterprise.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                selectedEnterprise = enterpriseResponseList.get(position).getStoreID();
-                binding.enterprise.setEnableErrorLabel(false);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
         binding.passwordVisibilityImgBtn.setOnClickListener(v -> {
             if (isPasswordVisible) {
-               binding.passwordVisibilityImgBtn.setImageResource(R.drawable.ic_visibility_off_grey_24dp);
+                binding.passwordVisibilityImgBtn.setImageResource(R.drawable.ic_visibility_off_grey_24dp);
 // hide password
                 binding.password.setTransformationMethod(PasswordTransformationMethod.getInstance());
                 isPasswordVisible = false;
@@ -295,117 +217,41 @@ public class EditUserFragment extends BaseFragment implements DatePickerDialog.O
     }
 
     private void showDatePickerDialog() {
-        Calendar now = Calendar.getInstance();
-        DatePickerDialog dialog = DatePickerDialog.newInstance(
-                this,
-                now.get(Calendar.YEAR), // Initial year selection
-                now.get(Calendar.MONTH), // Initial month selection
-                now.get(Calendar.DAY_OF_MONTH) // Initial day selection
-        );
-        dialog.show(getActivity().getSupportFragmentManager(), "Datepickerdialog");
+        DateTimePicker.openDatePicker(this, getActivity());
     }
 
 
     @Override
     public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
-        int month = monthOfYear;
-        if (month == 12) {
-            month = 1;
-        } else {
-            month = monthOfYear + 1;
-        }
-        String mainMonth, mainDay;
-
-
-        if (month <= 9) {
-            mainMonth = "0" + month;
-        } else {
-            mainMonth = String.valueOf(month);
-        }
-        if (dayOfMonth <= 9) {
-            mainDay = "0" + dayOfMonth;
-        } else {
-            mainDay = String.valueOf(dayOfMonth);
-        }
-        String selectedDate = year + "-" + mainMonth + "-" + mainDay;//set the selected date
 
         if (!isJoiningDate) {
-            binding.dateOfBirth.setText(selectedDate);
+            binding.dateOfBirth.setText(DateTimePicker.dateSelect(year, monthOfYear, dayOfMonth));
             binding.dateOfBirth.setError(null);
             return;
         }
-        binding.joiningDate.setText(selectedDate);
+        binding.joiningDate.setText(DateTimePicker.dateSelect(year, monthOfYear, dayOfMonth));
         binding.joiningDate.setError(null);
 
     }
 
     private void setCurrentDateToView() {
-        /**
-         * set current date will send input from user
-         */
         binding.dateOfBirth.setText(getCustomCurrentDateTime("yyy/MM/dd"));
         binding.joiningDate.setText(getCustomCurrentDateTime("yyy/MM/dd"));
     }
 
 
-    @SneakyThrows
     @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable @org.jetbrains.annotations.Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == PICK_IMAGE && resultCode == Activity.RESULT_OK) {
-            if (data == null) {
-                //Display an error
-                return;
-            }
-
-            InputStream inputStream = null;
-            try {
-                inputStream = getContext().getContentResolver().openInputStream(data.getData());
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
-            imageUri = data.getData();
-
-            //convertUriToBitmapImageAndSetInImageView(getPath(data.getData()), data.getData());
-            /**
-             * for set selected image in image view
-             */
-            Bitmap bitmap = null;
-            try {
-                bitmap = MediaStore.Images.Media.getBitmap(getContext().getContentResolver(), data.getData());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            binding.image.setImageDrawable(null);
-            binding.image.setImageBitmap(bitmap);
-
-
-            /**
-             * now set profile Image
-             * */
-            binding.imageName.setText(String.valueOf(new File("" + data.getData()).getName()));
-
-            //Now you can do whatever you want with your inpustream, save it as file, upload to a server, decode a bitmap...
-            Log.d("LOGO_IMAGE", String.valueOf(inputStream));
-
-
-        }
+    public void save() {
+        validationAndSubmit();
     }
 
+
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull @NotNull String[] permissions, @NonNull @NotNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        switch (requestCode) {
-            case STORAGE_PERMISSION_REQUEST_CODE:
-                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    infoMessage(requireActivity().getApplication(), "Permission Granted");
-                    Log.e("value", "Permission Granted, Now you can use local drive .");
-                } else {
-                    infoMessage(requireActivity().getApplication(), "Permission Decline");
-                    Log.e("value", "Permission Denied, You cannot use local drive .");
-                }
-                break;
-        }
+    public void imageUri(Intent data) {
+        binding.image.setImageBitmap(getBitmapImage(data));
+        binding.imageName.setText(new File("" + data.getData()).getName());
+        image = imageLogobody(data.getData(), "");
+
     }
 
 
@@ -462,11 +308,11 @@ public class EditUserFragment extends BaseFragment implements DatePickerDialog.O
 
                                         binding.fullName.setText(dataResponse.getUserProfileInfos().getFullName());
                                         binding.displayName.setText(dataResponse.getUserProfileInfos().getDisplayName());
-                                        if (dataResponse.getUserProfileInfos().getDateOfBirth() !=null){
+                                        if (dataResponse.getUserProfileInfos().getDateOfBirth() != null) {
                                             binding.dateOfBirth.setText(String.valueOf(dataResponse.getUserProfileInfos().getDateOfBirth()));
                                         }
                                         binding.email.setText(String.valueOf(dataResponse.getUserProfileInfos().getEmail()));
-                                        if (dataResponse.getUserProfileInfos().getCreatedDate() !=null){
+                                        if (dataResponse.getUserProfileInfos().getCreatedDate() != null) {
                                             binding.joiningDate.setText(String.valueOf(dataResponse.getUserProfileInfos().getCreatedDate()));
                                         }
                                         binding.primaryMobile.setText(String.valueOf(dataResponse.getUserProfileInfos().getPrimaryMobile()));
@@ -679,27 +525,7 @@ public class EditUserFragment extends BaseFragment implements DatePickerDialog.O
     }
 
     private void validationAndSubmit() {
-        /**
-         * for Image
-         */
 
-        MultipartBody.Part logoBody;
-        if (imageUri != null) {//logo image not mandatory here so if user not select any logo image by default it send null
-            File file = null;
-            try {
-                file = new File(PathUtil.getPath(getActivity(), imageUri));
-            } catch (URISyntaxException e) {
-                e.printStackTrace();
-            }
-            RequestBody requestFile =
-                    RequestBody.create(MediaType.parse("multipart/form-data"), file);
-
-            // MultipartBody.Part is used to send also the actual file name
-            logoBody =
-                    MultipartBody.Part.createFormData("user_photo", file.getName(), requestFile);//here user_photo is name of from data
-        } else {
-            logoBody = null;
-        }
         ProgressDialog progressDialog = new ProgressDialog(getContext());
         progressDialog.show();
         userViewModel.submitEditUserInfo(
@@ -708,7 +534,7 @@ public class EditUserFragment extends BaseFragment implements DatePickerDialog.O
                 binding.email.getText().toString(), selectedEnterprise, binding.description.getText().toString(),
                 binding.dateOfBirth.getText().toString(), selectedBloodGroup, binding.nationality.getText().toString(),
                 binding.altEmail.getText().toString(), binding.altMobile.getText().toString(),
-                binding.website.getText().toString(), binding.joiningDate.getText().toString(), logoBody
+                binding.website.getText().toString(), binding.joiningDate.getText().toString(), image
         ).observe(getViewLifecycleOwner(), response -> {
             progressDialog.dismiss();
             if (response == null) {
@@ -726,34 +552,36 @@ public class EditUserFragment extends BaseFragment implements DatePickerDialog.O
     }
 
 
-    public void editUserDialog() {
-        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(getContext());
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        if (parent.getId() == R.id.department) {
+            selectedDepartment = departmentResponseLists.get(position).getDepartmentID();
 
-        @SuppressLint("InflateParams")
-        View view = ((Activity) getContext()).getLayoutInflater().inflate(R.layout.purchase_dialog, null);
-        //Set the view
-        builder.setView(view);
-        TextView tvTitle, tvMessage;
-        ImageView imageIcon = view.findViewById(R.id.img_icon);
-        tvMessage = view.findViewById(R.id.tv_message);
-        tvTitle = view.findViewById(R.id.tv_title);
-        tvTitle.setText("Do you want to update user info?");//set warning title
-        tvMessage.setText("SALT ERP");
-        imageIcon.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.unicef_main));//set warning image
-        Button bOk = view.findViewById(R.id.btn_ok);
-        Button cancel = view.findViewById(R.id.cancel);
-        android.app.AlertDialog alertDialog = builder.create();
-        Objects.requireNonNull(alertDialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        alertDialog.setCancelable(false);
-        alertDialog.setCanceledOnTouchOutside(false);
-        cancel.setOnClickListener(v -> alertDialog.dismiss());//for cancel
-        bOk.setOnClickListener(v -> {
-            alertDialog.dismiss();
-            validationAndSubmit();
-        });
+        }
+        if (parent.getId() == R.id.designation) {
+            selectedDesignation = designationResponseLists.get(position).getUserDesignationId();
 
-        alertDialog.show();
+        }
+        if (parent.getId() == R.id.bloodGroup) {
+            selectedBloodGroup = bloodGroupResponseList.get(position).getBloodGroupId();
+
+        }
+        if (parent.getId() == R.id.title) {
+            selectedTitle = titleList.get(position);
+
+        }
+        if (parent.getId() == R.id.gender) {
+            selectedGender = genderList.get(position);
+
+        }
+        if (parent.getId() == R.id.enterprise) {
+            selectedEnterprise = enterpriseResponseList.get(position).getStoreID();
+
+        }
     }
 
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
 
+    }
 }

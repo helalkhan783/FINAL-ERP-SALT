@@ -71,6 +71,7 @@ import com.ismos_salt_erp.utils.ManagementUtils;
 import com.ismos_salt_erp.utils.PathUtil;
 import com.ismos_salt_erp.utils.PermissionUtil;
 import com.ismos_salt_erp.view.fragment.BaseFragment;
+import com.ismos_salt_erp.view.fragment.customers.AddUpDel;
 import com.ismos_salt_erp.view.fragment.items.brand_edit.BrandEdit;
 import com.ismos_salt_erp.viewModel.BrandViewModel;
 import com.ismos_salt_erp.viewModel.CurrentPermissionViewModel;
@@ -96,7 +97,7 @@ import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 
-public class ItemListFragment extends BaseFragment implements View.OnClickListener, ItemManageBYInterface , BrandEdit {
+public class ItemListFragment extends AddUpDel implements View.OnClickListener, ItemManageBYInterface , BrandEdit {
     private FragmentItemListBinding binding;
     private ItemListViewModel itemListViewModel;
     private ItemCategoryViewModel categoryListViewModel;
@@ -110,11 +111,10 @@ public class ItemListFragment extends BaseFragment implements View.OnClickListen
     /**
      * For get Image
      */
-    private static final int PICK_IMAGE = 200;
-    private static final int STORAGE_PERMISSION_REQUEST_CODE = 300;
-    private Uri imageUri;
+
     ImageView brandImage;
     String selectPacketId;
+    MultipartBody.Part image = null;
 
     /**
      * for pagination
@@ -666,11 +666,7 @@ public class ItemListFragment extends BaseFragment implements View.OnClickListen
         alertDialog.setCancelable(false);
         alertDialog.setCanceledOnTouchOutside(false);
         brandImage.setOnClickListener(v -> {
-            if (!(checkStoragePermission())) {
-                requestStoragePermission(STORAGE_PERMISSION_REQUEST_CODE);
-            } else {
-                getLogoImageFromFile(getActivity().getApplication(), PICK_IMAGE);
-            }
+        forImage();
         });
 
 
@@ -689,30 +685,12 @@ public class ItemListFragment extends BaseFragment implements View.OnClickListen
             }
 
 
-            /**
-             * for Image
-             */
 
-            MultipartBody.Part logoBody;
-            if (imageUri != null) {//logo image not mandatory here so if user not select any logo image by default it send null
-                File file = null;
-                try {
-                    file = new File(PathUtil.getPath(getActivity(), imageUri));
-                } catch (URISyntaxException e) {
-                    e.printStackTrace();
-                }
-                RequestBody requestFile =
-                        RequestBody.create(MediaType.parse("multipart/form-data"), file);
 
-                // MultipartBody.Part is used to send also the actual file name
-                logoBody =
-                        MultipartBody.Part.createFormData("distributor", file.getName(), requestFile);//here distributor is name of from data
-            } else {
-                logoBody = null;
-            }
+
             ProgressDialog progressDialog = new ProgressDialog(getContext());
             progressDialog.show();
-            brandViewModel.addNewBrand(getActivity(), logoBody, brandName.getText().toString())
+            brandViewModel.addNewBrand(getActivity(), image, brandName.getText().toString())
                     .observe(getViewLifecycleOwner(), response -> {
                         progressDialog.dismiss();
                         if (response == null) {
@@ -741,54 +719,16 @@ public class ItemListFragment extends BaseFragment implements View.OnClickListen
     }
 
 
-    @SneakyThrows
     @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable @org.jetbrains.annotations.Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == PICK_IMAGE && resultCode == Activity.RESULT_OK) {
-            if (data == null) {
-                //Display an error
-                return;
-            }
+    public void save() {
 
-            InputStream inputStream = getContext().getContentResolver().openInputStream(data.getData());
-            imageUri = data.getData();
-
-            //convertUriToBitmapImageAndSetInImageView(getPath(data.getData()), data.getData());
-            /**
-             * for set selected image in image view
-             */
-            Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContext().getContentResolver(), data.getData());
-            brandImage.setImageDrawable(null);
-            brandImage.setImageBitmap(bitmap);
-
-
-            /**
-             * now set licenseImageName
-             * */
-            //  binding.imageName.setText(String.valueOf(new File("" + data.getData()).getName()));
-
-            //Now you can do whatever you want with your inpustream, save it as file, upload to a server, decode a bitmap...
-            Log.d("LOGO_IMAGE", String.valueOf(inputStream));
-
-
-        }
     }
 
+
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull @NotNull String[] permissions, @NonNull @NotNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        switch (requestCode) {
-            case STORAGE_PERMISSION_REQUEST_CODE:
-                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    infoMessage(requireActivity().getApplication(), "Permission Granted");
-                    Log.e("value", "Permission Granted, Now you can use local drive .");
-                } else {
-                    infoMessage(requireActivity().getApplication(), "Permission Decline");
-                    Log.e("value", "Permission Denied, You cannot use local drive .");
-                }
-                break;
-        }
+    public void imageUri(Intent data) {
+       brandImage.setImageBitmap(getBitmapImage(data));
+         image = imageLogobody(data.getData(), "");
     }
 
     @Override
@@ -1060,7 +1000,7 @@ public class ItemListFragment extends BaseFragment implements View.OnClickListen
         alertDialog.show();
     }
 
-    private void editBrand(String brandSlId, String brandNamee, String image) {
+    private void editBrand(String brandSlId, String brandNamee, String image1) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
 
         @SuppressLint("InflateParams")
@@ -1079,10 +1019,7 @@ public class ItemListFragment extends BaseFragment implements View.OnClickListen
         brandImage.setImageDrawable(null);
 
         try {
-            Glide.with(getContext()).load(ImageBaseUrl.image_base_url + image)
-                    .placeholder(R.mipmap.ic_launcher)
-                    .error(R.mipmap.ic_launcher)
-                    .into(brandImage);
+            Glide.with(getContext()).load(ImageBaseUrl.image_base_url + image1).into(brandImage);
 
         } catch (NullPointerException e) {
             Log.d("ERROR", e.getMessage());
@@ -1090,11 +1027,7 @@ public class ItemListFragment extends BaseFragment implements View.OnClickListen
         alertDialog.setCancelable(false);
         alertDialog.setCanceledOnTouchOutside(false);
         brandImage.setOnClickListener(v -> {
-            if (!(checkStoragePermission())) {
-                requestStoragePermission(STORAGE_PERMISSION_REQUEST_CODE);
-            } else {
-                getLogoImageFromFile(getActivity().getApplication(), PICK_IMAGE);
-            }
+         forImage();
         });
 
 
@@ -1111,33 +1044,9 @@ public class ItemListFragment extends BaseFragment implements View.OnClickListen
                 infoMessage(getActivity().getApplication(), "Please Check your Internet Connection");
                 return;
             }
-
-
-            /**
-             * for Image
-             */
-
-            MultipartBody.Part logoBody;
-            if (imageUri != null) {//logo image not mandatory here so if user not select any logo image by default it send null
-                File file = null;
-                try {
-                    file = new File(PathUtil.getPath(getActivity(), imageUri));
-                } catch (URISyntaxException e) {
-                    e.printStackTrace();
-                }
-                RequestBody requestFile =
-                        RequestBody.create(MediaType.parse("multipart/form-data"), file);
-
-                // MultipartBody.Part is used to send also the actual file name
-                logoBody =
-                        MultipartBody.Part.createFormData("distributor", file.getName(), requestFile);//here distributor is name of from data
-            } else {
-                logoBody = null;
-            }
-
             ProgressDialog progressDialog = new ProgressDialog(getContext());
             progressDialog.show();
-            brandViewModel.editBrand(getActivity(), logoBody, brandName.getText().toString(), brandSlId).observe(getViewLifecycleOwner(), new Observer<DuePaymentResponse>() {
+            brandViewModel.editBrand(getActivity(), image, brandName.getText().toString(), brandSlId).observe(getViewLifecycleOwner(), new Observer<DuePaymentResponse>() {
                 @Override
                 public void onChanged(DuePaymentResponse response) {
                     progressDialog.dismiss();

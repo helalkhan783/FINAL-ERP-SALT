@@ -20,11 +20,17 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import lombok.AllArgsConstructor;
 
-@AllArgsConstructor
+
 public class ExpenseDuePaymentApprovalAdapter extends RecyclerView.Adapter<ExpenseDuePaymentApprovalAdapter.MyHolder> {
     FragmentActivity context;
     List<ExpensePaymentDueList> lists;
+    String typeKey;
 
+    public ExpenseDuePaymentApprovalAdapter(FragmentActivity context, List<ExpensePaymentDueList> lists, String typeKey) {
+        this.context = context;
+        this.lists = lists;
+        this.typeKey = typeKey;
+    }
 
     @NonNull
     @NotNull
@@ -37,6 +43,13 @@ public class ExpenseDuePaymentApprovalAdapter extends RecyclerView.Adapter<Expen
     @Override
     public void onBindViewHolder(@NonNull @NotNull MyHolder holder, int position) {
         ExpensePaymentDueList currentDue = lists.get(position);
+        if (typeKey.equals("37")){
+            holder.typeLevel.setText("PO.ID");
+        }if (typeKey.equals("36")){
+            holder.typeLevel.setText("Invoice");
+        }if (typeKey.equals("4")){
+            holder.typeLevel.setText("SO.ID");
+        }
         holder.date.setText(currentDue.getPayment_date());
         holder.invoiceNo.setText(currentDue.getOrderID());
         holder.paidAmount.setText(currentDue.getPaidAmount());
@@ -54,6 +67,8 @@ public class ExpenseDuePaymentApprovalAdapter extends RecyclerView.Adapter<Expen
         TextView invoiceNo;
         @BindView(R.id.paidAmount)
         TextView paidAmount;
+        @BindView(R.id.typeLevel)
+        TextView typeLevel;
 
         public MyHolder(@NonNull @NotNull View itemView) {
             super(itemView);

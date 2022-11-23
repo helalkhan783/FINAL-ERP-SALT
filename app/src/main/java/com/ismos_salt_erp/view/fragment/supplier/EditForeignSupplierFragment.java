@@ -37,6 +37,7 @@ import com.ismos_salt_erp.serverResponseModel.MillerProfileInfoResponse;
 import com.ismos_salt_erp.utils.ImageBaseUrl;
 import com.ismos_salt_erp.utils.PathUtil;
 import com.ismos_salt_erp.view.fragment.BaseFragment;
+import com.ismos_salt_erp.view.fragment.customers.AddUpDel;
 import com.ismos_salt_erp.viewModel.CustomerViewModel;
 import com.ismos_salt_erp.viewModel.MillerProfileInfoViewModel;
 
@@ -55,15 +56,14 @@ import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 
-public class EditForeignSupplierFragment extends BaseFragment {
+public class EditForeignSupplierFragment extends AddUpDel {
     FragmentEditForeignSupplierBinding binding;
 
     MillerProfileInfoViewModel millerProfileInfoViewModel;
     private CustomerViewModel customerViewModel;
 
-    private static final int PICK_IMAGE = 200;
-    private static final int STORAGE_PERMISSION_REQUEST_CODE = 300;
-    private Uri imageUri;
+    MultipartBody.Part image = null;
+
 
 
     /**
@@ -90,25 +90,14 @@ public class EditForeignSupplierFragment extends BaseFragment {
         customerViewModel = new ViewModelProvider(this).get(CustomerViewModel.class);
 
         binding.toolbar.toolbarTitle.setText("Update Foreign Supplier");
-        binding.toolbar.setClickHandle(new ToolbarClickHandle() {
-            @Override
-            public void backBtn() {
-                hideKeyboard(getActivity());
-                getActivity().onBackPressed();
-            }
+        binding.toolbar.setClickHandle(() -> {
+            hideKeyboard(getActivity());
+            getActivity().onBackPressed();
         });
-/**
- * getPrevious Fragment data
- */
 
         getPreviousFragmentData();
-        /**
-         * get page data
-         */
+
         getPageData();
-        /**
-         * update data
-         */
 
         binding.updateBtn.setOnClickListener(v -> {
             if (!(isInternetOn(getActivity()))) {
@@ -162,7 +151,7 @@ public class EditForeignSupplierFragment extends BaseFragment {
                 return;
             }
             hideKeyboard(getActivity());
-            updateForeignSupplierDialog();
+             showDialog(getString(R.string.update_dialog_title));
         });
 
 
@@ -190,16 +179,7 @@ public class EditForeignSupplierFragment extends BaseFragment {
 
             }
         });
-        binding.image.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!(checkStoragePermission())) {
-                    requestStoragePermission(STORAGE_PERMISSION_REQUEST_CODE);
-                } else {
-                    getLogoImageFromFile(getActivity().getApplication(), PICK_IMAGE);
-                }
-            }
-        });
+        binding.image.setOnClickListener(v -> forImage());
 
 
         return binding.getRoot();
@@ -230,9 +210,7 @@ public class EditForeignSupplierFragment extends BaseFragment {
                 }
 
                 if (response.getStatus() == 200) {
-                    /**
-                     * now set division list
-                     */
+
                     countryResponsesList = new ArrayList<>();
                     countryResponsesList.clear();
                     countryResponsesList.addAll(response.getCountries());
@@ -346,56 +324,33 @@ public class EditForeignSupplierFragment extends BaseFragment {
 
 
     private void ValidationAndSubmit() {
-        /**
-         * for Image
-         */
-        if (imageUri != null) {//logo image not mandatory here so if user not select any logo image by default it send null
-            File file = null;
-            try {
-                file = new File(PathUtil.getPath(getActivity(), imageUri));
-            } catch (URISyntaxException e) {
-                e.printStackTrace();
-            }
-            RequestBody requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), file);
-
-            // MultipartBody.Part is used to send also the actual file name
-            logoBody = MultipartBody.Part.createFormData("image", file.getName(), requestFile);//here document is name of from data
-        } else {
-            logoBody = null;
-        }
-
-
-        /**
-         * All ok now send customer info to server
-         */
-
         double editAmount = 100;
         if (editable.equals("0")) {
             double total = editAmount + Integer.parseInt(totalAmount);
-            if (logoBody == null) {
-                logoBody = null;
-                updateData(String.valueOf(editAmount), String.valueOf(total), oldImage, logoBody);
+            if (image == null) {
+                image = null;
+                updateData(String.valueOf(editAmount), String.valueOf(total), oldImage, image);
                 return;
             }
-            updateData(String.valueOf(editAmount), String.valueOf(total), "", logoBody);
+            updateData(String.valueOf(editAmount), String.valueOf(total), "", image);
         }
         if (editable.equals("1")) {
-            if (logoBody == null) {
-                logoBody = null;
-                updateData(String.valueOf(editAmount), totalAmount, oldImage, logoBody);
+            if (image == null) {
+                image = null;
+                updateData(String.valueOf(editAmount), totalAmount, oldImage, image);
                 return;
             }
 
-            updateData(String.valueOf(editAmount), totalAmount, "", logoBody);
+            updateData(String.valueOf(editAmount), totalAmount, "", image);
 
         }
         if (editable.equals("2")) {
-            if (logoBody == null) {
-                logoBody = null;
-                updateData("", totalAmount, oldImage, logoBody);
+            if (image == null) {
+                image = null;
+                updateData("", totalAmount, oldImage, image);
                 return;
             }
-            updateData("", totalAmount, "", logoBody);
+            updateData("", totalAmount, "", image);
         }
     }
 
@@ -431,83 +386,19 @@ public class EditForeignSupplierFragment extends BaseFragment {
                 });
     }
 
-    @SneakyThrows
     @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable @org.jetbrains.annotations.Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == PICK_IMAGE && resultCode == Activity.RESULT_OK) {
-            if (data == null) {
-                //Display an error
-                return;
-            }
-
-            InputStream inputStream = getContext().getContentResolver().openInputStream(data.getData());
-            imageUri = data.getData();
-
-            //convertUriToBitmapImageAndSetInImageView(getPath(data.getData()), data.getData());
-            /**
-             * for set selected image in image view
-             */
-            Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContext().getContentResolver(), data.getData());
-            binding.image.setImageDrawable(null);
-            binding.image.setImageBitmap(bitmap);
-
-
-            /**
-             * now set licenseImageName
-             * */
-            binding.imageName.setText(String.valueOf(new File("" + data.getData()).getName()));
-
-            //Now you can do whatever you want with your inpustream, save it as file, upload to a server, decode a bitmap...
-            Log.d("LOGO_IMAGE", String.valueOf(inputStream));
-
-
-        }
+    public void save() {
+        ValidationAndSubmit();
     }
+
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull @NotNull String[] permissions, @NonNull @NotNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        switch (requestCode) {
-            case STORAGE_PERMISSION_REQUEST_CODE:
-                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    infoMessage(requireActivity().getApplication(), "Permission Granted");
-                    Log.e("value", "Permission Granted, Now you can use local drive .");
-                } else {
-                    infoMessage(requireActivity().getApplication(), "Permission Decline");
-                    Log.e("value", "Permission Denied, You cannot use local drive .");
-                }
-                break;
-        }
+    public void imageUri(Intent data) {
+        binding.image.setImageBitmap(getBitmapImage(data));
+        binding.imageName.setText(new File("" + data.getData()).getName());
+        image = imageLogobody(data.getData(), "");
+
     }
 
-    public void updateForeignSupplierDialog() {
-        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(getContext());
-
-        @SuppressLint("InflateParams")
-        View view = ((Activity) getContext()).getLayoutInflater().inflate(R.layout.purchase_dialog, null);
-        //Set the view
-        builder.setView(view);
-        TextView tvTitle, tvMessage;
-        ImageView imageIcon = view.findViewById(R.id.img_icon);
-        tvMessage = view.findViewById(R.id.tv_message);
-        tvTitle = view.findViewById(R.id.tv_title);
-        tvTitle.setText("Do you want to update ?");//set warning title
-        tvMessage.setText("SALT ERP");
-        imageIcon.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.unicef_main));//set warning image
-        Button bOk = view.findViewById(R.id.btn_ok);
-        Button cancel = view.findViewById(R.id.cancel);
-        android.app.AlertDialog alertDialog = builder.create();
-        Objects.requireNonNull(alertDialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        alertDialog.setCancelable(false);
-        alertDialog.setCanceledOnTouchOutside(false);
-        cancel.setOnClickListener(v -> alertDialog.dismiss());//for cancel
-        bOk.setOnClickListener(v -> {
-            alertDialog.dismiss();
-            ValidationAndSubmit();
-        });
-
-        alertDialog.show();
-    }
 
 }

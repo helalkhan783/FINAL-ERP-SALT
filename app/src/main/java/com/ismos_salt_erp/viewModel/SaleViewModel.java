@@ -27,6 +27,8 @@ import retrofit2.Response;
 
 public class SaleViewModel extends ViewModel {
 
+
+
     public MutableLiveData<SearchTransport> searchTransport(FragmentActivity context, String key) {
         MutableLiveData<SearchTransport> liveData = new MutableLiveData<>();
 

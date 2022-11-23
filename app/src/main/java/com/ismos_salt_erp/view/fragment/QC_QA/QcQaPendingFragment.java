@@ -357,11 +357,11 @@ public class QcQaPendingFragment extends BaseFragment implements DatePickerDialo
                 break;
 
             case R.id.startDate:
-                timePicker();
+                DateTimePicker.openDatePicker(this, getActivity());
                 isStartDate = true;
                 break;
             case R.id.EndDate:
-                timePicker();
+                DateTimePicker.openDatePicker(this, getActivity());
                 break;
 
             case R.id.filterSearchBtn:
@@ -425,9 +425,6 @@ public class QcQaPendingFragment extends BaseFragment implements DatePickerDialo
         binding.pendingQcQaListRV.setVisibility(View.VISIBLE);
     }
 
-    private void timePicker() {
-        DateTimePicker.openDatePicker(this, getActivity());
-    }
 
     @Override
     public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {

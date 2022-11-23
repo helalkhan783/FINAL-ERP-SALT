@@ -22,12 +22,12 @@ import androidx.core.content.ContextCompat;
 import com.ismos_salt_erp.R;
 import com.ismos_salt_erp.utils.PathUtil;
 import com.ismos_salt_erp.view.fragment.BaseFragment;
-
 import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.sql.Date;
 import java.util.Objects;
 
 import es.dmoral.toasty.Toasty;
@@ -36,9 +36,9 @@ import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 
-public abstract class AddUpDel extends BaseFragment {
-    private static final int PICK_IMAGE = 200;
-    private static final int STORAGE_PERMISSION_REQUEST_CODE = 300;
+public abstract class AddUpDel extends BaseFragment  {
+    private  final int PICK_IMAGE = 200;
+    private  final int STORAGE_PERMISSION_REQUEST_CODE = 300;
 
     public void showDialog(String title) {
         android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(getContext());

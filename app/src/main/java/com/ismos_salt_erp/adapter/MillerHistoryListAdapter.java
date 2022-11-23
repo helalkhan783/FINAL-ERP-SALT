@@ -108,8 +108,7 @@ public class MillerHistoryListAdapter extends RecyclerView.Adapter<MillerHistory
                 Bundle bundle = new Bundle();
                 bundle.putString("slID", lists.get(holder.getAdapterPosition()).getSl());
                 bundle.putString("portion", MillerUtils.millerHistoryList);
-                Navigation.findNavController(holder.itembinding.getRoot()).navigate(R.id.action_millerAllListFragment_to_editMillerFragment, bundle);
-            }
+             }
         });
         holder.itembinding.viewDetails.setOnClickListener(new View.OnClickListener() {
             @Override

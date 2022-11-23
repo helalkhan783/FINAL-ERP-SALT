@@ -28,6 +28,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.chivorn.smartmaterialspinner.SmartMaterialSpinner;
 import com.ismos_salt_erp.R;
 import com.ismos_salt_erp.clickHandle.ToolbarClickHandle;
 import com.ismos_salt_erp.databinding.FragmentEditLocalSupplierBinding;
@@ -37,6 +38,7 @@ import com.ismos_salt_erp.serverResponseModel.ThanaList;
 import com.ismos_salt_erp.utils.ImageBaseUrl;
 import com.ismos_salt_erp.utils.PathUtil;
 import com.ismos_salt_erp.view.fragment.BaseFragment;
+import com.ismos_salt_erp.view.fragment.customers.AddUpDel;
 import com.ismos_salt_erp.viewModel.CustomerViewModel;
 import com.ismos_salt_erp.viewModel.MillerProfileInfoViewModel;
 
@@ -56,38 +58,25 @@ import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 
 
-public class EditLocalSupplierFragment extends BaseFragment {
+public class EditLocalSupplierFragment extends AddUpDel implements SmartMaterialSpinner.OnItemSelectedListener {
     private FragmentEditLocalSupplierBinding binding;
     private MillerProfileInfoViewModel millerProfileInfoViewModel;
     private CustomerViewModel customerViewModel;
 
-    private static final int PICK_IMAGE = 200;
-    private static final int STORAGE_PERMISSION_REQUEST_CODE = 300;
-    private Uri imageUri;
-
-    /**
-     * For Division
-     */
     private List<DivisionResponse> divisionResponseList;
     private List<String> divisionNameList;
-    /**
-     * For District
-     */
+
     private List<DistrictListResponse> districtListResponseList;
     private List<String> districtNameList;
-    /**
-     * For Thana
-     */
+
     private List<ThanaList> thanaListsResponse;
-    private List<String> thanaNameList;
-    /**
-     * For Selected Customer
-     */
+
+
     private List<String> selectedCustomerTypeName;
     private List<String> selectedCustomerTypeIdList;
 
     private String editable, dueLimit, country, oldImage, type, totalAmount, selectedDistrict, selectedDivision, selectedThana, customerId, selectedCustomerType;
-    MultipartBody.Part logoBody;
+     MultipartBody.Part image = null;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -95,109 +84,22 @@ public class EditLocalSupplierFragment extends BaseFragment {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_edit_local_supplier, container, false);
         millerProfileInfoViewModel = new ViewModelProvider(this).get(MillerProfileInfoViewModel.class);
         customerViewModel = new ViewModelProvider(this).get(CustomerViewModel.class);
-        binding.toolbar.setClickHandle(new ToolbarClickHandle() {
-            @Override
-            public void backBtn() {
-                getActivity().onBackPressed();
-            }
-        });
+        binding.toolbar.setClickHandle(() -> getActivity().onBackPressed());
         binding.toolbar.toolbarTitle.setText("Update Local Supplier");
-        /**
-         * get previous fragment data
-         */
+
         previousfragmentData();
-        /**
-         * get page data
-         */
+
 
         getPageDataFromServer();
 
+        binding.division.setOnItemSelectedListener(this);
+        binding.district.setOnItemSelectedListener(this);
+        binding.thana.setOnItemSelectedListener(this);
+        binding.customerType.setOnItemSelectedListener(this);
 
-        /**
-         * Now handle division item click
-         */
-        binding.division.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-                selectedDivision = divisionResponseList.get(position).getDivisionId();
-                binding.division.setEnableErrorLabel(false);
-                /**
-                 * Now get district list based on division id
-                 */
-                getDistrictListByDivisionId(selectedDivision);
-            }
+        binding.image.setOnClickListener(v -> forImage());
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-        /**
-         * Nw handle district item click
-         */
-        binding.district.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-                selectedDistrict = districtListResponseList.get(position).getDistrictId();
-                binding.district.setEnableErrorLabel(false);
-                /**
-                 * Now get Thana list based on district
-                 */
-                getThanaListByDistrictId(selectedDistrict);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-        /**
-         * now handle Thana item click
-         */
-        binding.thana.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-                selectedThana = thanaListsResponse.get(position).getUpazilaId();
-                binding.thana.setEnableErrorLabel(false);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-        /**
-         * now handle selected customer item click
-         */
-
-        binding.customerType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-                selectedCustomerType = selectedCustomerTypeIdList.get(position);
-                binding.customerType.setEnableErrorLabel(false);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-        binding.image.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!(checkStoragePermission())) {
-                    requestStoragePermission(STORAGE_PERMISSION_REQUEST_CODE);
-                } else {
-                    getLogoImageFromFile(getActivity().getApplication(), PICK_IMAGE);
-                }
-            }
-        });
         binding.updateCustomer.setOnClickListener(v -> {
             if (binding.companyName.getText().toString().isEmpty()) {
                 binding.companyName.setError("Empty");
@@ -240,29 +142,24 @@ public class EditLocalSupplierFragment extends BaseFragment {
 
 
             if (selectedDivision == null) {
-                infoMessage(getActivity().getApplication(), "Please select division");
+                message(getString(R.string.division_mes));
                 return;
             }
             if (selectedDistrict == null) {
-                infoMessage(getActivity().getApplication(), "Please select district");
-                return;
+                message(getString(R.string.district_mes));
+                 return;
             }
 
             if (selectedThana == null) {
-                infoMessage(getActivity().getApplication(), "Please select upazila/thana");
-
+                message(getString(R.string.thana_mes));
                 return;
             }
             if (selectedCustomerType == null) {
-                infoMessage(getActivity().getApplication(), "Please select supplier type");
-                return;
+                message(getString(R.string.supplier_mes));
+                 return;
             }
             hideKeyboard(getActivity());
-            if (!(isInternetOn(getActivity()))) {
-                infoMessage(getActivity().getApplication(), "Please check your internet connection");
-                return;
-            }
-            updateLocalSupplierDialog();
+            showDialog(getString(R.string.update_dialog_title));
         });
 
         return binding.getRoot();
@@ -279,9 +176,6 @@ public class EditLocalSupplierFragment extends BaseFragment {
             infoMessage(getActivity().getApplication(), "Please Check Your Internet Connection");
             return;
         }
-        /**
-         * For get Division list from This Api
-         */
         ProgressDialog progressDialog = new ProgressDialog(getContext());
         progressDialog.show();
         millerProfileInfoViewModel.getProfileInfoResponse(getActivity())
@@ -292,9 +186,6 @@ public class EditLocalSupplierFragment extends BaseFragment {
                         return;
                     }
 
-                    /**
-                     * now set division list
-                     */
                     divisionResponseList = new ArrayList<>();
                     divisionResponseList.clear();
                     divisionResponseList.addAll(response.getDivisions());
@@ -333,9 +224,9 @@ public class EditLocalSupplierFragment extends BaseFragment {
                         }
 
                         editable = String.valueOf(response.getInitialAmountEditable());
-                        if (editable.equals("2")){//
+                        if (editable.equals("2")) {//
                             binding.initialAmount.setFocusable(false);
-                         }
+                        }
                         totalAmount = response.getInitialPaymentInfo().getTotalAmount();
                         dueLimit = response.getCustomerInfo().getDueLimit();
                         country = response.getCustomerInfo().getCountry();
@@ -471,7 +362,7 @@ public class EditLocalSupplierFragment extends BaseFragment {
                     }
                     thanaListsResponse = new ArrayList<>();
                     thanaListsResponse.clear();
-                    thanaNameList = new ArrayList<>();
+                    List<String> thanaNameList = new ArrayList<>();
                     thanaNameList.clear();
 
                     thanaListsResponse.addAll(response.getLists());
@@ -493,74 +384,50 @@ public class EditLocalSupplierFragment extends BaseFragment {
                 });
     }
 
-    private void ValidationAndSubmit() {
-        /**
-         * for Image
-         */
-
-
-        if (imageUri != null) {//logo image not mandatory here so if user not select any logo image by default it send null
-            File file = null;
-            try {
-                file = new File(PathUtil.getPath(getActivity(), imageUri));
-            } catch (URISyntaxException e) {
-                e.printStackTrace();
-            }
-            RequestBody requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), file);
-
-            // MultipartBody.Part is used to send also the actual file name
-            logoBody = MultipartBody.Part.createFormData("image", file.getName(), requestFile);//here document is name of from data
-        } else {
-            logoBody = null;
-        }
-
-
-        /**
-         * All ok now send customer info to server
-         */
+    private void submit() {
 
         double editAmount = 0;
-        if (!binding.initialAmount.getText().toString().isEmpty()){
-            editAmount =  Double.parseDouble(binding.initialAmount.getText().toString());
+        if (!binding.initialAmount.getText().toString().isEmpty()) {
+            editAmount = Double.parseDouble(binding.initialAmount.getText().toString());
         }
         if (editable.equals("0")) {
             double total = editAmount + Integer.parseInt(totalAmount);
-            if (logoBody == null) {
-                logoBody = null;
-                updateData(String.valueOf(editAmount), String.valueOf(total), oldImage, logoBody);
+            if (image == null) {
+
+                updateData(String.valueOf(editAmount), String.valueOf(total), oldImage, image);
                 return;
             }
-            updateData(String.valueOf(editAmount), String.valueOf(total), "", logoBody);
+            updateData(String.valueOf(editAmount), String.valueOf(total), "", image);
 
         }
         if (editable.equals("1")) {
 
-            if (logoBody == null) {
-                logoBody = null;
-                updateData(String.valueOf(editAmount), totalAmount, oldImage, logoBody);
+            if (image == null) {
+
+                updateData(String.valueOf(editAmount), totalAmount, oldImage, image);
                 return;
             }
 
-            updateData(String.valueOf(editAmount), totalAmount, "", logoBody);
+            updateData(String.valueOf(editAmount), totalAmount, "", image);
 
         }
         if (editable.equals("2")) {
-            if (logoBody == null) {
-                logoBody = null;
-                updateData("", totalAmount, oldImage, logoBody);
+            if (image == null) {
+
+                updateData("", totalAmount, oldImage, image);
                 return;
             }
-            updateData("", totalAmount, "", logoBody);
+            updateData("", totalAmount, "", image);
         }
     }
 
     private void updateData(String editAmount, String totalAmount, String oldImage, MultipartBody.Part newImage) {
         ProgressDialog progressDialog = new ProgressDialog(getContext());
         customerViewModel.editCustomer(getActivity(), binding.companyName.getText().toString(),
-                binding.ownerName.getText().toString(), binding.phone.getText().toString(), binding.altPhone.getText().toString(),
-                binding.email.getText().toString(), selectedDivision, selectedDistrict, selectedThana, binding.bazar.getText().toString(),
-                binding.nid.getText().toString(), binding.tin.getText().toString(), dueLimit, country, "1", binding.address.getText().toString(),
-                totalAmount, editAmount, newImage, oldImage, binding.note.getText().toString(), binding.editNote.getText().toString(), customerId)
+                        binding.ownerName.getText().toString(), binding.phone.getText().toString(), binding.altPhone.getText().toString(),
+                        binding.email.getText().toString(), selectedDivision, selectedDistrict, selectedThana, binding.bazar.getText().toString(),
+                        binding.nid.getText().toString(), binding.tin.getText().toString(), dueLimit, country, "1", binding.address.getText().toString(),
+                        totalAmount, editAmount, newImage, oldImage, binding.note.getText().toString(), binding.editNote.getText().toString(), customerId)
                 .observe(getViewLifecycleOwner(), response -> {
                     try {
                         if (response == null) {
@@ -585,87 +452,43 @@ public class EditLocalSupplierFragment extends BaseFragment {
                 });
     }
 
-    @SneakyThrows
     @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable @org.jetbrains.annotations.Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == PICK_IMAGE && resultCode == Activity.RESULT_OK) {
-            if (data == null) {
-                //Display an error
-                return;
-            }
-
-            InputStream inputStream = getContext().getContentResolver().openInputStream(data.getData());
-            imageUri = data.getData();
-
-            //convertUriToBitmapImageAndSetInImageView(getPath(data.getData()), data.getData());
-            /**
-             * for set selected image in image view
-             */
-            Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContext().getContentResolver(), data.getData());
-            binding.image.setImageDrawable(null);
-            binding.image.setImageBitmap(bitmap);
+    public void save() {
+        submit();
+    }
 
 
-            /**
-             * now set licenseImageName
-             * */
-            binding.imageName.setText(String.valueOf(new File("" + data.getData()).getName()));
+    @Override
+    public void imageUri(Intent data) {
+        binding.image.setImageBitmap(getBitmapImage(data));
+        binding.imageName.setText(new File("" + data.getData()).getName());
+        image = imageLogobody(data.getData(), "");
 
-            //Now you can do whatever you want with your inpustream, save it as file, upload to a server, decode a bitmap...
-            Log.d("LOGO_IMAGE", String.valueOf(inputStream));
+    }
 
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        if (parent.getId() == R.id.division) {
+            selectedDivision = divisionResponseList.get(position).getDivisionId();
+            getDistrictListByDivisionId(selectedDivision);
+        }
+        if (parent.getId() == R.id.district) {
+            selectedDistrict = districtListResponseList.get(position).getDistrictId();
+            getThanaListByDistrictId(selectedDistrict);
+        }
+        if (parent.getId() == R.id.thana) {
+            selectedThana = thanaListsResponse.get(position).getUpazilaId();
+
+        }
+        if (parent.getId() == R.id.customerType) {
+            selectedCustomerType = selectedCustomerTypeIdList.get(position);
 
         }
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull @NotNull String[] permissions, @NonNull @NotNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        switch (requestCode) {
-            case STORAGE_PERMISSION_REQUEST_CODE:
-                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    infoMessage(requireActivity().getApplication(), "Permission Granted");
-                    Log.e("value", "Permission Granted, Now you can use local drive .");
-                } else {
-                    infoMessage(requireActivity().getApplication(), "Permission Decline");
-                    Log.e("value", "Permission Denied, You cannot use local drive .");
-                }
-                break;
-        }
-    }
-
-
-    public void updateLocalSupplierDialog() {
-
-        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(getContext());
-
-        @SuppressLint("InflateParams")
-        View view = ((Activity) getContext()).getLayoutInflater().inflate(R.layout.purchase_dialog, null);
-        //Set the view
-        builder.setView(view);
-        TextView tvTitle, tvMessage;
-        ImageView imageIcon = view.findViewById(R.id.img_icon);
-        tvMessage = view.findViewById(R.id.tv_message);
-        tvTitle = view.findViewById(R.id.tv_title);
-        tvTitle.setText("Do you want to Update ?");//set warning title
-        tvMessage.setText("SALT ERP");
-        imageIcon.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.app_sub_logo));//set warning image
-        Button bOk = view.findViewById(R.id.btn_ok);
-        Button cancel = view.findViewById(R.id.cancel);
-        android.app.AlertDialog alertDialog = builder.create();
-        Objects.requireNonNull(alertDialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        alertDialog.setCancelable(false);
-        alertDialog.setCanceledOnTouchOutside(false);
-        cancel.setOnClickListener(v -> alertDialog.dismiss());//for cancel
-        bOk.setOnClickListener(v -> {
-            alertDialog.dismiss();
-            ValidationAndSubmit();        });
-
-        alertDialog.show();
-
+    public void onNothingSelected(AdapterView<?> parent) {
 
     }
-
-
 }

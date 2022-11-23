@@ -16,7 +16,7 @@
 
 
     <LinearLayout
-        android:layout_below="@+id/appbar"
+         android:layout_below="@+id/appbar"
         android:id="@+id/shimmerViewContainerLay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -32,9 +32,9 @@
         android:layout_below="@+id/appbar">
 
         <LinearLayout
-            android:id="@+id/mainLayout"
             android:visibility="gone"
-            android:layout_width="match_parent"
+            android:id="@+id/mainLayout"
+             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
@@ -44,7 +44,7 @@
                 android:background="@color/app_color"
                 android:gravity="center_vertical"
                 android:paddingLeft="5dp"
-                android:text="Company Information"
+                android:text="Information"
                 android:textColor="@color/white"
                 android:textSize="@dimen/sixteen_sp_size"
                 android:textStyle="bold" />
@@ -98,6 +98,122 @@
                         android:layout_height="wrap_content"
                         android:layout_weight=".8"
                         android:maxLines="1"
+                        android:text="Processed By"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/fourteen_sp_text_size"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/processedBy"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.2"
+                        android:maxLines="1"
+                        android:text=":"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/fourteen_sp_text_size" />
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".8"
+                        android:maxLines="1"
+                        android:text="Date"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/fourteen_sp_text_size"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/date"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.2"
+                        android:maxLines="1"
+                        android:text=":"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/fourteen_sp_text_size" />
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".8"
+                        android:maxLines="1"
+                        android:text="Note"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/fourteen_sp_text_size"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/note"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.2"
+                        android:maxLines="1"
+                        android:text=":"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/fourteen_sp_text_size" />
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".8"
+                        android:maxLines="1"
+                        android:text="Payment Type"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/fourteen_sp_text_size"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/paymentType"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.2"
+                        android:maxLines="1"
+                        android:text=":"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/fourteen_sp_text_size" />
+
+
+                </LinearLayout>
+   <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".8"
+                        android:maxLines="1"
                         android:text="Company Name"
                         android:textColor="@color/black"
                         android:textSize="@dimen/fourteen_sp_text_size"
@@ -108,7 +224,6 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1.2"
-                        android:maxLines="1"
                         android:text=":"
                         android:textColor="@color/gray"
                         android:textSize="@dimen/fourteen_sp_text_size" />

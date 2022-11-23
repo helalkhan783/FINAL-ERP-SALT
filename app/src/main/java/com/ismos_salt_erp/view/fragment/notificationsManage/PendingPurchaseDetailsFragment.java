@@ -305,14 +305,23 @@ public class PendingPurchaseDetailsFragment extends AddUpDel {
                         companyNameTv.setText(":  " + response.getCustomer().getCompanyName());
                         supplierPhoneTv.setText(":  " + response.getCustomer().getPhone());
                         addressTv.setText(":  " + response.getCustomer().getAddress());
-                        paidAmount.setText("" + DataModify.addFourDigit(String.valueOf(response.getPaymentInfo().getBill_time_paid())) + MtUtils.priceUnit);
-                        dueTv.setText("" + DataModify.addFourDigit(String.valueOf(response.getPaymentInfo().getTotal_paid())) + MtUtils.priceUnit);
-                        totalAmountTv.setText("" + DataModify.addFourDigit(response.getOrderInfo().getTotal()) + MtUtils.priceUnit);
+                        String billTimePai, paid, total, dis, vatt, carry;
+                        billTimePai = String.valueOf(response.getPaymentInfo().getBill_time_paid());
+                        paid = String.valueOf(response.getPaymentInfo().getPaidAmount());
+                        total = response.getOrderInfo().getTotal();
+                        dis = String.valueOf(response.getPaymentInfo().getTotal_discount());
+                        vatt = response.getOrderInfo().getVat();
+                        carry = response.getOrderInfo().getCarryCost();
+
+                        paidAmount.setText("" + DataModify.addFourDigit(billTimePai) + MtUtils.priceUnit);
+                        dueTv.setText("" + DataModify.addFourDigit(paid) + MtUtils.priceUnit);
+
+                        totalAmountTv.setText("" + DataModify.addFourDigit(total) + MtUtils.priceUnit);
 
 
-                        discountTv.setText("" + DataModify.addFourDigit(String.valueOf(response.getPaymentInfo().getTotal_discount())) + MtUtils.priceUnit);
-                        vat.setText("" + DataModify.addFourDigit(response.getOrderInfo().getVat()) + MtUtils.priceUnit);
-                        carryCost.setText("" + DataModify.addFourDigit(response.getOrderInfo().getCarryCost()) + MtUtils.priceUnit);
+                        discountTv.setText("" + DataModify.addFourDigit(dis) + MtUtils.priceUnit);
+                        vat.setText("" + DataModify.addFourDigit(vatt) + MtUtils.priceUnit);
+                        carryCost.setText("" + DataModify.addFourDigit(carry) + MtUtils.priceUnit);
                         paymentTypeTv.setText("" + response.getPayment_type());
 
                         String enterPriseName = response.getEnterprise_name();

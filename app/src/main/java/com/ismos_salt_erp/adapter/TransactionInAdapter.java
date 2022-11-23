@@ -71,12 +71,12 @@ public class TransactionInAdapter extends RecyclerView.Adapter<TransactionInAdap
 
         try {
             Glide.with(context).load(ImageBaseUrl.image_base_url + currentList.getProfilePhoto()).centerCrop().
-                    error(R.mipmap.ic_launcher).placeholder(R.mipmap.ic_launcher).
+                    error(R.drawable.person).placeholder(R.drawable.person).
                     into(holder.itembinding.purchaseImage);
 
         } catch (NullPointerException e) {
             Log.d("ERROR", e.getMessage());
-            Glide.with(context).load(R.mipmap.ic_launcher).into(holder.itembinding.purchaseImage);
+            Glide.with(context).load(R.drawable.person).into(holder.itembinding.purchaseImage);
         }
 
     /*    holder.itembinding.view.setOnClickListener(v -> {

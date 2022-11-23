@@ -583,9 +583,6 @@ public class AccountsListViewModel extends CustomViewModel {
         return liveData;
     }
 
-    /**
-     * for details
-     */
     public MutableLiveData<ReceiptDetailsResponse> getAccountDetailsList(FragmentActivity activity, String batchNo,String type) {
         String token = getToken(activity.getApplication());
         String userId = getUserId(activity.getApplication());

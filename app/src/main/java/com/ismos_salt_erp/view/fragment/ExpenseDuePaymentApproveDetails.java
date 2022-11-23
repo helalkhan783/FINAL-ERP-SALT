@@ -20,6 +20,7 @@ import com.ismos_salt_erp.R;
 import com.ismos_salt_erp.adapter.ExpenseDuePaymentApprovalAdapter;
 
 import com.ismos_salt_erp.localDatabase.PreferenceManager;
+import com.ismos_salt_erp.serverResponseModel.DuePaymentResponse;
 import com.ismos_salt_erp.utils.PermissionUtil;
 import com.ismos_salt_erp.view.fragment.customers.AddUpDel;
 import com.ismos_salt_erp.viewModel.ExpenseDuePaymentPendingDetailsViewModel;
@@ -60,6 +61,16 @@ public class ExpenseDuePaymentApproveDetails extends AddUpDel {
     RecyclerView expenseDuePaymentApprovalRv;
     @BindView(R.id.noteEditText)
     TextView noteEditText;
+
+
+    @BindView(R.id.processedBy)
+    TextView processedBy;
+    @BindView(R.id.date)
+    TextView date;
+    @BindView(R.id.note)
+    TextView note;
+    @BindView(R.id.paymentType)
+    TextView paymentType;
 
     String batch, customer, status, typeKey; // here typekey 4 means receipt
     private boolean approval;
@@ -134,9 +145,13 @@ public class ExpenseDuePaymentApproveDetails extends AddUpDel {
                         return;
                     }
 
-                    companyName.setText(":  " + response.getCustomerInfo().getCompanyName() + "@" + response.getCustomerInfo().getCustomerFname());
+                    companyName.setText(":  " + response.getCustomerInfo().getCompanyName() + " @ " + response.getCustomerInfo().getCustomerFname());
                     phone.setText(":  " + response.getCustomerInfo().getPhone());
                     address.setText(":  " + response.getCustomerInfo().getAddress());
+                    processedBy.setText(":  " + "");
+                    date.setText(":  " + response.getLists().get(0).getPayment_date());
+                    note.setText(":  " + "");
+                    paymentType.setText(":  " + "");
                     /**
                      * now show all pending payment approval in recyclerview
                      */
@@ -149,14 +164,12 @@ public class ExpenseDuePaymentApproveDetails extends AddUpDel {
                     }
                     expenseDuePaymentApprovalRv.setLayoutManager(new LinearLayoutManager(getContext()));
                     expenseDuePaymentApprovalRv.setHasFixedSize(true);
-                    ExpenseDuePaymentApprovalAdapter approvalAdapter = new ExpenseDuePaymentApprovalAdapter(getActivity(), response.getLists());
+                    ExpenseDuePaymentApprovalAdapter approvalAdapter = new ExpenseDuePaymentApprovalAdapter(getActivity(), response.getLists(),typeKey);
                     expenseDuePaymentApprovalRv.setAdapter(approvalAdapter);
 
                     shimmerViewContainerLay.setVisibility(View.GONE);
                     shimmerViewContainer.startShimmer();
                     mainLayout.setVisibility(View.VISIBLE);
-
-
                 });
     }
 
@@ -170,7 +183,7 @@ public class ExpenseDuePaymentApproveDetails extends AddUpDel {
             return;
         }
         approval = true;
-        showDialog("Do you want to approve ?");
+        showDialog(getString(R.string.approve_dialog_title));
     }
 
     @OnClick(R.id.declineBtn)
@@ -182,7 +195,7 @@ public class ExpenseDuePaymentApproveDetails extends AddUpDel {
             return;
         }
         approval = false;
-        showDialog("Do you want to decline ?");
+        showDialog(getString(R.string.decline_dialog_title));
     }
 
 
@@ -203,26 +216,29 @@ public class ExpenseDuePaymentApproveDetails extends AddUpDel {
     private void submitDecline() {
         expenseDuePaymentPendingDetailsViewModel.declineExpenseDuePaymentApprovalDetails(getActivity(), batch)
                 .observe(getViewLifecycleOwner(), response -> {
-                    Toasty.success(getContext(), "Declined", Toasty.LENGTH_LONG).show();
-                    getActivity().onBackPressed();
+                    manageResponse(response);
                 });
     }
 
     private void submitApprove() {
         expenseDuePaymentPendingDetailsViewModel.approveExpenseDuePaymentApprovalDetails(getActivity(), batch, typeKey)
                 .observe(getViewLifecycleOwner(), response -> {
-                    if (response == null || response.getStatus() == 500) {
-                        errorMessage(getActivity().getApplication(), "Something Wrong");
-                        return;
-                    }
-                    if (response.getStatus() == 400) {
-                        errorMessage(getActivity().getApplication(), "" + response.getMessage());
-                        return;
-                    }
-
-                    successMessage(getActivity().getApplication(), "" + response.getMessage());
-                    getActivity().onBackPressed();
+                   manageResponse(response);
                 });
+    }
+
+    private void manageResponse(DuePaymentResponse response) {
+        if (response == null || response.getStatus() == 500) {
+            errorMes("");
+            return;
+        }
+        if (response.getStatus() == 400) {
+            message( ""+ response.getMessage());
+            return;
+        }
+
+        message( ""+ response.getMessage());
+        getActivity().onBackPressed();
     }
 
     @Override

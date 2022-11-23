@@ -110,7 +110,6 @@ public class MillerPendingListAdapter extends RecyclerView.Adapter<MillerPending
             Bundle bundle = new Bundle();
             bundle.putString("slID", lists.get(holder.getAdapterPosition()).getSl());
             bundle.putString("portion", MillerUtils.millreProfileList);
-            Navigation.findNavController(holder.itembinding.getRoot()).navigate(R.id.action_millerAllListFragment_to_editMillerFragment, bundle);
 
         });
     }

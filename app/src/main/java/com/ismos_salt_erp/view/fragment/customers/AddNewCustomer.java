@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 
+import com.chivorn.smartmaterialspinner.SmartMaterialSpinner;
 import com.ismos_salt_erp.Common;
 import com.ismos_salt_erp.CommonNormal;
 import com.ismos_salt_erp.R;
@@ -32,7 +33,7 @@ import java.util.List;
 
 import okhttp3.MultipartBody;
 
-public class AddNewCustomer extends AddUpDel {
+public class AddNewCustomer extends AddUpDel implements SmartMaterialSpinner.OnItemSelectedListener {
     private FragmentAddNewCustomerBinding binding;
     private MillerProfileInfoViewModel millerProfileInfoViewModel;
     private CustomerViewModel customerViewModel;
@@ -147,67 +148,12 @@ public class AddNewCustomer extends AddUpDel {
             }
         });
 
-        binding.division.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                selectedDivision = divisionResponseList.get(position).getDivisionId();
-                binding.division.setEnableErrorLabel(false);
-
-                getDistrictListByDivisionId(selectedDivision);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-        binding.district.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                selectedDistrict = districtListResponseList.get(position).getDistrictId();
-                binding.district.setEnableErrorLabel(false);
-
-                getThanaListByDistrictId(selectedDistrict);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-
-        binding.thana.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                selectedThana = thanaListsResponse.get(position).getUpazilaId();
-                binding.thana.setEnableErrorLabel(false);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-        binding.customerType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                selectedCustomerType = selectedCustomerTypeIdList.get(position);
-                binding.customerType.setEnableErrorLabel(false);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
+        binding.division.setOnItemSelectedListener(this);
+        binding.district.setOnItemSelectedListener(this);
+        binding.thana.setOnItemSelectedListener(this);
+        binding.customerType.setOnItemSelectedListener(this);
         return binding.getRoot();
     }
-
-
-
 
 
     private void getCustomerList() {
@@ -395,4 +341,28 @@ public class AddNewCustomer extends AddUpDel {
     }
 
 
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        if (parent.getId() == R.id.division) {
+            selectedDivision = divisionResponseList.get(position).getDivisionId();
+            getDistrictListByDivisionId(selectedDivision);
+        }
+        if (parent.getId() == R.id.district) {
+            selectedDistrict = districtListResponseList.get(position).getDistrictId();
+            getThanaListByDistrictId(selectedDistrict);
+        }
+        if (parent.getId() == R.id.thana) {
+            selectedThana = thanaListsResponse.get(position).getUpazilaId();
+
+        }
+        if (parent.getId() == R.id.customerType) {
+            selectedCustomerType = selectedCustomerTypeIdList.get(position);
+
+        }
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
 }

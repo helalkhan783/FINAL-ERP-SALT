@@ -91,7 +91,6 @@ public class MillerOwnerListEdit extends BaseFragment implements MillerOwnerList
             try {
                 Bundle bundle = new Bundle();
                 bundle.putString("sl_id", ownerId);
-                Navigation.findNavController(getView()).navigate(R.id.fragment_edit_miller_to_fragment_miller_company_owner_info_edit, bundle);
             } catch (Exception e) {
                 Log.d("ERROR", "" + e.getMessage());
             }
@@ -103,7 +102,6 @@ public class MillerOwnerListEdit extends BaseFragment implements MillerOwnerList
                 Bundle bundle = new Bundle();
                 bundle.putString("sl_id", ownerId);
                 bundle.putString("profileID", profileId);
-                Navigation.findNavController(getView()).navigate(R.id.fragment_edit_miller_to_fragment_millerLicenseinfoEdit, bundle);
 
             } catch (Exception e) {
                 Log.d("ERROR", "" + e.getMessage());

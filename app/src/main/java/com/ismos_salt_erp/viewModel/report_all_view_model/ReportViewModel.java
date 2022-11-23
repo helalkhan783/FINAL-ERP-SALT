@@ -21,9 +21,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ReportViewModel extends CustomViewModel {
-    /**
-     * for purchase report by the ( Start date And End Date )
-     */
+
     public MutableLiveData<PurchaseReportByDateResponse> getPurchaseReportByDate(FragmentActivity context, String startDate, String endDate
             , String brandId, String millerprofileId, String categoryId, String supplierId, String storeId) {
 
@@ -65,9 +63,7 @@ public class ReportViewModel extends CustomViewModel {
         return liveData;
     }
 
-    /**
-     * for purchase report (optional)
-     */
+
     public MutableLiveData<PurchaseReportResponse> getPurchaseReportPageData(FragmentActivity context, String profileId) {
 
         MutableLiveData<PurchaseReportResponse> liveData = new MutableLiveData<>();
@@ -108,52 +104,6 @@ public class ReportViewModel extends CustomViewModel {
     }
 
 
-    /**
-     * for miller  by association id (optional)
-     */
-    public MutableLiveData<MillerReportByAssociationResponse> getPurchaseReportByAssociationId(FragmentActivity context, String associationId) {
-
-        MutableLiveData<MillerReportByAssociationResponse> liveData = new MutableLiveData<>();
-
-        String token = getToken(context.getApplication());
-        String vendorId = getVendorId(context.getApplication());
-        String storeId = getStoreId(context.getApplication());
-        String profileTypeId = getProfileTypeId(context.getApplication());
-        String storeAccessId = getStoreAccessId(context.getApplication());
-
-        Call<MillerReportByAssociationResponse> call = RetrofitClient.getInstance().getApi()
-                .getPurchaseReportByAssociationId(token, profileTypeId, storeId, vendorId, associationId, storeAccessId);
-        call.enqueue(new Callback<MillerReportByAssociationResponse>() {
-            @Override
-            public void onResponse(Call<MillerReportByAssociationResponse> call, Response<MillerReportByAssociationResponse> response) {
-                if (response.isSuccessful()) {
-                    assert response.body() != null;
-                    if (response == null) {
-                        liveData.setValue(null);
-                        return;
-                    }
-
-                    if (response.body().getStatus() == 400) {
-                        liveData.setValue(response.body());
-                        return;
-                    }
-                    if (response.body().getStatus() == 200) {
-                        liveData.setValue(response.body());
-                        response.body().getMillerList();
-                        return;
-                    }
-                }
-            }
-
-            @Override
-            public void onFailure(Call<MillerReportByAssociationResponse> call, Throwable t) {
-                Log.d("ERROR", t.getMessage());
-                liveData.setValue(null);
-            }
-        });
-        return liveData;
-
-    }
 
     /**
      * for store

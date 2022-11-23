@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Toast;
 
+import com.chivorn.smartmaterialspinner.SmartMaterialSpinner;
 import com.ismos_salt_erp.R;
 import com.ismos_salt_erp.clickHandle.ToolbarClickHandle;
 import com.ismos_salt_erp.databinding.FragmentCustomerReportBinding;
@@ -43,7 +44,7 @@ import es.dmoral.toasty.Toasty;
 
 
 public class CustomerReportFragment extends BaseFragment implements DatePickerDialog.OnDateSetListener,
-        View.OnClickListener {
+        View.OnClickListener, SmartMaterialSpinner.OnItemSelectedListener {
     private FragmentCustomerReportBinding binding;
     private CustomerReportViewModel customerReportViewModel;
     private String portion, pageName, valueForManageLayout;
@@ -70,6 +71,8 @@ public class CustomerReportFragment extends BaseFragment implements DatePickerDi
     SharedPreferenceForReport sharedPreferenceForReport;
     private ExpenseType response1;
     private List<PaymentTypes> paymentTypes;
+    List<String> periodNameList;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_customer_report, container, false);
@@ -102,74 +105,13 @@ public class CustomerReportFragment extends BaseFragment implements DatePickerDi
         getDataPageData();
         transactionSpinnerHandle();
         setOnClick();
-        binding.transactioSpinnerForReceipt.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                transactionId = paymentTypes.get(position).getId();
-            }
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
 
-            }
-        });
-
-        binding.store.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                storeId = storeList.get(position).getStoreID();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-        binding.customer.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                customerId = supplierResponseLists.get(position).getCustomerID();
-                customerName = supplierResponseLists.get(position).getCustomerFname();
-                companyName = supplierResponseLists.get(position).getCompanyName();
-
-                sharedPreferenceForReport.saveCustomerId(supplierResponseLists.get(position).getCustomerID());
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-        binding.supplierSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                SupplierID = supplierResponseLists.get(position).getCustomerID();
-                customerName = supplierResponseLists.get(position).getCustomerFname();
-                companyName = supplierResponseLists.get(position).getCompanyName();
-                sharedPreferenceForReport.saveCustomerId(supplierResponseLists.get(position).getCustomerID());
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-        // for bank ledger
-        binding.withDrawType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                withdrawPosition = withdrawType[position].getValue();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
+        periodNameList = new ArrayList<>();
+        periodNameList.clear();
+        periodNameList.add("All Time");
+        periodNameList.add("Custom Range");
+        binding.selectPeriod.setItem(periodNameList);
         binding.search.setOnClickListener(v -> {
 
 
@@ -229,78 +171,17 @@ public class CustomerReportFragment extends BaseFragment implements DatePickerDi
             Navigation.findNavController(getView()).navigate(R.id.action_customerReportFragment_to_purchaseReturnListFragment, bundle);
         });
 
-        // for time period
+        binding.transactioSpinnerForReceipt.setOnItemSelectedListener(this);
+        binding.store.setOnItemSelectedListener(this);
+        binding.customer.setOnItemSelectedListener(this);
+        binding.supplierSpinner.setOnItemSelectedListener(this);
+        binding.withDrawType.setOnItemSelectedListener(this);
+        binding.selectPeriod.setOnItemSelectedListener(this);
+        binding.transactionType.setOnItemSelectedListener(this);
+        binding.bank.setOnItemSelectedListener(this);
+        binding.user.setOnItemSelectedListener(this);
+        binding.expenseType.setOnItemSelectedListener(this);
 
-
-        List<String> periodNameList = new ArrayList<>();
-        periodNameList.clear();
-        periodNameList.add("All Time");
-        periodNameList.add("Custom Range");
-        binding.selectPeriod.setItem(periodNameList);
-
-        binding.selectPeriod.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (periodNameList.get(position).equals("Custom Range")) {
-                    visible = "1";
-                    binding.datePortion.setVisibility(View.VISIBLE);
-                } else {
-                    visible = "0";
-                    binding.datePortion.setVisibility(View.GONE);
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-        binding.transactionType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                transactionId = typeList[position].getValue();
-                Toast.makeText(getContext(), "" + transactionId, Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-        binding.bank.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                bankId = bankList.get(position).getBankID();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-        binding.user.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                userId = userLists.get(position).getUserId();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-        binding.expenseType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                expenseTypeId = response1.getLists().get(position).getExpenseTypeID();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
 
         return binding.getRoot();
     }
@@ -495,7 +376,7 @@ public class CustomerReportFragment extends BaseFragment implements DatePickerDi
     }
 
     private void getTransactionTypeData() {
-          AccountsListViewModel accountsListViewModel = new ViewModelProvider(this).get(AccountsListViewModel.class);
+        AccountsListViewModel accountsListViewModel = new ViewModelProvider(this).get(AccountsListViewModel.class);
         accountsListViewModel.receiptHistory(getActivity(), "", "", "", "", "", "", "")
                 .observe(getViewLifecycleOwner(), response -> {
 
@@ -726,4 +607,61 @@ public class CustomerReportFragment extends BaseFragment implements DatePickerDi
     }
 
 
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        if (parent.getId() == R.id.transactioSpinnerForReceipt) {
+            transactionId = paymentTypes.get(position).getId();
+
+        }
+        if (parent.getId() == R.id.store) {
+            storeId = storeList.get(position).getStoreID();
+
+        }
+        if (parent.getId() == R.id.customer) {
+            customerId = supplierResponseLists.get(position).getCustomerID();
+            customerName = supplierResponseLists.get(position).getCustomerFname();
+            companyName = supplierResponseLists.get(position).getCompanyName();
+
+            sharedPreferenceForReport.saveCustomerId(supplierResponseLists.get(position).getCustomerID());
+
+        }
+        if (parent.getId() == R.id.supplierSpinner) {
+            SupplierID = supplierResponseLists.get(position).getCustomerID();
+            customerName = supplierResponseLists.get(position).getCustomerFname();
+            companyName = supplierResponseLists.get(position).getCompanyName();
+            sharedPreferenceForReport.saveCustomerId(supplierResponseLists.get(position).getCustomerID());
+
+        }
+        if (parent.getId() == R.id.withDrawType) {
+            withdrawPosition = withdrawType[position].getValue();
+
+
+        }
+        if (parent.getId() == R.id.selectPeriod) {
+            if (periodNameList.get(position).equals("Custom Range")) {
+                visible = "1";
+                binding.datePortion.setVisibility(View.VISIBLE);
+            } else {
+                visible = "0";
+                binding.datePortion.setVisibility(View.GONE);
+            }
+        }
+        if (parent.getId() == R.id.transactionType) {
+            transactionId = typeList[position].getValue();
+
+        }
+        if (parent.getId() == R.id.bank) {
+            bankId = bankList.get(position).getBankID();
+
+        }
+        if (parent.getId() == R.id.expenseType) {
+            expenseTypeId = response1.getLists().get(position).getExpenseTypeID();
+
+        }
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
 }

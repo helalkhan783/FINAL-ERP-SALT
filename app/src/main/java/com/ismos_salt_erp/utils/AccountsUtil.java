@@ -25,7 +25,7 @@ public class AccountsUtil {
 
 
 
-    public static String cash = "Cash Book";
+    public static  String cash = "Cash Book";
     public static String dayBook = "Day Book";
     public static String payInstruction = "Payment Instruction";//
     public static String payInstructionList = "Payment Instruction List";//

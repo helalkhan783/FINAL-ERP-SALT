@@ -157,7 +157,7 @@ public class LoginFragment extends BaseFragment {
 
 // Toast.makeText(getContext(), " " + token, Toast.LENGTH_SHORT).show();
             progressDialog = new ACProgressCustom.Builder(getContext())
-                    .useImages(R.drawable.erp_exit).build();
+                    .useImages(R.drawable.erp_exit1).build();
             progressDialog.setCanceledOnTouchOutside(false);
 
             if (!(isInternetOn(getActivity()))) {

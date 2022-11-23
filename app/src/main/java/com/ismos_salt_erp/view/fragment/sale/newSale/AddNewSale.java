@@ -48,11 +48,8 @@ public class AddNewSale extends BaseFragment implements ItemClickOne {
     private MyDatabaseHelper myDatabaseHelper;
     private SalesRequisitionViewModel salesRequisitionViewModel;
     private SaleViewModel saleViewModel;
-    List<SalesRequisitionItems> itemsList = new ArrayList<>();
-    public static boolean isOk = false;
-    public static List<SalesRequisitionItems> initProductListResponse;
-    private List<SalesRequisitionItemsResponse> searchProductLists;
-    AddnewSaleCustomAdapter adapter1;
+     public static boolean isOk = false;
+     AddnewSaleCustomAdapter adapter1;
 
     List<EnterpriseResponse> enterpriseResponseList;
     List<String> enterpriseNameList;
@@ -79,34 +76,25 @@ public class AddNewSale extends BaseFragment implements ItemClickOne {
         salesRequisitionViewModel = new ViewModelProvider(this).get(SalesRequisitionViewModel.class);
         saleViewModel = new ViewModelProvider(this).get(SaleViewModel.class);
         myDatabaseHelper = new MyDatabaseHelper(getContext());
-        initProductListResponse = new ArrayList<>();
-        initProductListResponse.clear();
+
         toolbarTitle = binding.toolbar.toolbarTitle;
         binding.toolbar.totalQtyTv.setVisibility(View.VISIBLE);
         getLocalDataIfHave();
         binding.toolbar.setClickHandle(() -> {
             sharedPreferenceForStore.deleteData();
             myDatabaseHelper.deleteAllData();
-            hideKeyboard(getActivity());
-            cursor = myDatabaseHelper.displayAllData();
+             cursor = myDatabaseHelper.displayAllData();
             if (cursor.getCount() != 0) {//means didn't have any data
                 if (list != null || list.isEmpty()) {
                     list.clear();
                 }
             }
-
             getActivity().onBackPressed();
         });
         binding.itemSearchEt.setText("");
 
-
-        /**
-         * for set Page Data
-         */
         getPageDataFromServer();
-        /**
-         * for handle total btn click
-         */
+
         binding.setClickHandle(() -> {
             if (ifAddAllDataToLoca == false) {
                 return;
@@ -120,9 +108,7 @@ public class AddNewSale extends BaseFragment implements ItemClickOne {
                 return;
             }
 
-            /**
-             * validation and save
-             */
+
             validationRecyclerData();
         });
 
@@ -189,26 +175,16 @@ public class AddNewSale extends BaseFragment implements ItemClickOne {
                 binding.store.setErrorText("");
                 binding.store.setEnableErrorLabel(false);
 
-
-
-                /**
-                 * after set store load all product stock data------
-                 */
                 List<String> productIdList = new ArrayList<>();
-                /**
-                 * for handle stock
-                 */
+
                 if (selectedStore != null) {
                     productIdList.clear();
-                    if (itemsList == null) {
+                    if (list == null) {
                         return;
                     }
-                    try {
-                        for (int i = 0; i < itemsList.size(); i++) {
-                            productIdList.add(itemsList.get(i).getProductID());
-                        }
-                    } catch (Exception e) {
-                        Log.d("ERROR", "" + e.getMessage());
+
+                    for (int i = 0; i < list.size(); i++) {
+                        productIdList.add(list.get(i).getProductID());
                     }
                     saleViewModel.getProductStockDataByProductId(getActivity(), productIdList, selectedStore)
                             .observe(getViewLifecycleOwner(), response -> {
@@ -251,43 +227,6 @@ public class AddNewSale extends BaseFragment implements ItemClickOne {
     private void HandleClick() {
     }
 
-    private void filterData() {
-        binding.searchEt.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence query, int start, int count, int after) {
-                query = query.toString().toLowerCase();
-
-                if (searchProductLists == null) {
-                    Toast.makeText(getContext(), "Empty list", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                List<SalesRequisitionItemsResponse> filteredList = FilterClass.productFilter(searchProductLists, query);
-                if (filteredList.isEmpty()) {
-                    binding.productList.setVisibility(View.GONE);
-                    binding.jkl.setVisibility(View.GONE);
-                    binding.dataNoFound.setVisibility(View.VISIBLE);
-                    return;
-                }
-                binding.productList.setVisibility(View.VISIBLE);
-                binding.jkl.setVisibility(View.VISIBLE);
-                binding.dataNoFound.setVisibility(View.GONE);
-               // setDataToRv(filteredList);
-
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
-
-    }
 
     private void validationRecyclerData() {
         try {
@@ -310,55 +249,7 @@ public class AddNewSale extends BaseFragment implements ItemClickOne {
         }
 
 
-//        saleViewModel.getProductStockDataByProductId(getActivity(), idList, selectedStore)
-//                .observe(getViewLifecycleOwner(), response -> {
-//                    try {
-//                        for (int i = 0; i < response.getLists().size(); i++) {
-//                            if (response.getLists().get(i).getStockQty() == 0) {
-//                                if (Integer.parseInt(updatedQuantityProductList.get(i).getQuantity()) == 0) {
-//                                } else {
-//                                    if (Integer.parseInt(updatedQuantityProductList.get(i).getQuantity()) > 0) {
-//                                        (binding.productList.getLayoutManager().findViewByPosition(i).findViewById(R.id.stock)).setVisibility(View.VISIBLE);
-//                                        ((TextView) binding.productList.getLayoutManager()
-//                                                .findViewByPosition(i).findViewById(R.id.stock)).setText(response.getLists().get(i).getStockQty() + "");
-//                                        allOk = false;
-//                                        return;
-//                                    }
-//                                }
-//
-//                            }
-//                            if (Integer.parseInt(updatedQuantityProductList.get(i).getQuantity()) > response.getLists().get(i).getStockQty()) {
-//                                (binding.productList.getLayoutManager().findViewByPosition(i).findViewById(R.id.stock)).setVisibility(View.VISIBLE);
-//                                ((TextView) binding.productList.getLayoutManager().findViewByPosition(i).findViewById(R.id.stock)).setText(response.getLists().get(i).getStockQty() + "");
-//                                allOk = false;
-//                                return;
-//                            }
-//                            allOk = true;
-//                        }
-//
-//                    } catch (Exception e) {
-//                    }
-//                    if (allOk) {//now all ok
-//                        try {
-//                            sharedPreferenceForStore.saveStoreId(selectedEnterPrice, selectedStore);
-//                            Bundle bundle = new Bundle();
-//                            if (selectedEnterPrice == null) {
-//                                bundle.putString("selectedEnterpriseId", "");
-//                            } else {
-//                                bundle.putString("selectedEnterpriseId", selectedEnterPrice);
-//                            }
-//                            if (selectedStore == null) {
-//                                bundle.putString("selectedStoreId", "");
-//                            } else {
-//                                bundle.putString("selectedStoreId", selectedStore);
-//                            }
-//                            hideKeyboard(getActivity());
-//                            Navigation.findNavController(getView()).navigate(R.id.action_addNewSale_to_confirmNewSale, bundle);
-//                        } catch (Exception e) {
-//                            Log.d("ERROR", "error");
-//                        }
-//                    }
-//                });
+
     }
 
     private void getLocalDataIfHave() {
@@ -376,29 +267,20 @@ public class AddNewSale extends BaseFragment implements ItemClickOne {
         saleViewModel.getSearchProduct(getActivity(), currentText, Arrays.asList("736", "737", "738", "739", "740", "741"))
                 .observe(getViewLifecycleOwner(), response -> {
                     if (response == null) {
-                        //       errorMessage(getActivity().getApplication(), "Something Wrong");
-                        return;
+                         return;
                     }
                     if (response.getStatus() != 200) {
-                        //    errorMessage(getActivity().getApplication(), "Something Wrong");
-                        return;
+                         return;
                     }
+                    adapter1 = new AddnewSaleCustomAdapter(getActivity(), response.getItems(), AddNewSale.this);
+                    binding.productList.setAdapter(adapter1);
+                    binding.productList.setLayoutManager(new LinearLayoutManager(getContext()));
 
-                    searchProductLists = new ArrayList<>();
-                    searchProductLists.clear();
-                    searchProductLists.addAll(response.getItems());
-                    // here start customise
-                    setDataToRv(searchProductLists);
 
                 });
 
     }
 
-    private void setDataToRv(List<SalesRequisitionItemsResponse> searchProductLists) {
-        adapter1 = new AddnewSaleCustomAdapter(getActivity(), searchProductLists, AddNewSale.this);
-        binding.productList.setAdapter(adapter1);
-        binding.productList.setLayoutManager(new LinearLayoutManager(getContext()));
-    }
 
     private void nowSetStoreListByEnterPriseId() {
         saleViewModel.getStoreListByOptionalEnterpriseId(getActivity(), selectedEnterPrice)
@@ -542,7 +424,7 @@ public class AddNewSale extends BaseFragment implements ItemClickOne {
     }
 
     @Override
-    public void removeBtn(int position) {
+    public void removeBtn(int i) {
 
     }
 
@@ -560,23 +442,9 @@ public class AddNewSale extends BaseFragment implements ItemClickOne {
 
     private void getDatFromLocal() {
         list.clear();
-        Cursor cursor = myDatabaseHelper.displayAllData();
-        if (cursor.getCount() == 0) {//means didn't have any data
-            return;
-        }
-        while (cursor.moveToNext()) {
-            SalesRequisitionItems item = new SalesRequisitionItems();
-            item.setProductID(cursor.getString(1));
-            item.setProductTitle(cursor.getString(2));
-            item.setQuantity(cursor.getString(3));
-            item.setUnit(cursor.getString(4));
-            item.setUnit_name(cursor.getString(5));
-            item.setPrice(cursor.getString(6));
-            item.setDiscount(cursor.getString(7));
-            item.setTotalPrice(cursor.getString(8));
-            list.add(item);
-            itemsList.add(item);
-        }
+        list.addAll(myDatabaseHelper.getDataFromLoca());
+
+
 
 
         if (list != null || !list.isEmpty()) {

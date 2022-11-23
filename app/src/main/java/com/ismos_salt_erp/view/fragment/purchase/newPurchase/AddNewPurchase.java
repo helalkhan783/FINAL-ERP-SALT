@@ -386,66 +386,11 @@ public class AddNewPurchase extends BaseFragment implements ItemClickOne {
     }
 
     private void getLocalDataIfHave() {
-
         cursor = myDatabaseHelper.displayAllData();
         if (cursor.getCount() == 0) {//means didn't have any data
             return;
         }
         setDataToView();
-
-//
-//        Cursor cursor = myDatabaseHelper.displayAllData();
-//        if (cursor.getCount() == 0) {//means didn't have any data
-//            // Toast.makeText(getContext(), "There Is No Data", Toast.LENGTH_SHORT).show();
-//            return;
-//        }
-//
-//        itemsList = new ArrayList<>();
-//        itemsList.clear();
-//        while (cursor.moveToNext()) {
-//            SalesRequisitionItems item = new SalesRequisitionItems();
-//            item.setProductID(cursor.getString(1));
-//            item.setProductTitle(cursor.getString(2));
-//            item.setQuantity(cursor.getString(3));
-//            item.setUnit(cursor.getString(4));
-//            item.setUnit_name(cursor.getString(5));
-//            item.setPrice(cursor.getString(6));
-//            item.setDiscount(cursor.getString(7));
-//            item.setTotalPrice(cursor.getString(8));
-//            itemsList.add(item);
-//        }
-//        List<String> productIdList = new ArrayList<>();
-//        /**
-//         * for handle stock
-//         */
-//        if (selectedStore != null) {
-//            productIdList.clear();
-//            for (int i = 0; i < itemsList.size(); i++) {
-//                productIdList.add(itemsList.get(i).getProductID());
-//            }
-//            saleViewModel.getProductStockDataByProductId(getActivity(), productIdList, selectedStore)
-//                    .observe(getViewLifecycleOwner(), response -> {
-//                        if (response == null) {
-//                            errorMessage(getActivity().getApplication(), "Something Wrong");
-//                            return;
-//                        }
-//                        if (response.getStatus() != 200) {
-//                            errorMessage(getActivity().getApplication(), "Something Wrong");
-//                            return;
-//                        }
-//
-//
-//                        try {
-////                            adapter = new NewPurchaseProductListAdapter(getActivity(), itemsList, null, this, response.getLists());
-////                            binding.productList.setLayoutManager(new LinearLayoutManager(getActivity()));
-////                            binding.productList.setAdapter(adapter);
-//
-//
-//                        } catch (Exception e) {
-//                        }
-//
-//                    });
-//        }
     }
 
     private void setDataToView() {

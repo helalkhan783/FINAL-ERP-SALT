@@ -51,7 +51,7 @@ public class ReceiptHistoryListAdapter extends RecyclerView.Adapter<ReceiptHisto
     @Override
     public void onBindViewHolder(@NonNull ReceiptHistoryListAdapter.MyHolder holder, int position) {
         ReceiptPaymentHistoryList currentPosition = lists.get(position);
-        if (portion.equals(AccountsUtil.paymentList) || portion.equals(AccountsUtil.vendorPaymentList)) {
+        if (portion.equals(AccountsUtil.paymentList) || portion.equals(AccountsUtil.paymentPendingList) || portion.equals(AccountsUtil.paymentDeclinedList) || portion.equals(AccountsUtil.vendorPaymentList)) {
             holder.binding.receiptAmountTvLevel.setText("Payment Amount");
         }
         if (whoseFor.equals("receipt")) {
@@ -97,7 +97,14 @@ public class ReceiptHistoryListAdapter extends RecyclerView.Adapter<ReceiptHisto
                 return;
             }
             if (portion.equals(AccountsUtil.receiptPendingList)) {
-                gotoDetails(holder, position, "Receipt Pending Details", "1", currentPosition.getBatchNo());
+                Bundle bundle = new Bundle();
+                bundle.putString("typeKey",  "4");
+                bundle.putString("RefOrderId", currentPosition.getCustomerID());
+                bundle.putString("batch", currentPosition.getBatchNo());
+                bundle.putString("customer", currentPosition.getCustomerID());
+                bundle.putString("status", "2");
+                Navigation.findNavController(holder.itemView).navigate(R.id.action_accountsListFragment_to_expenseDuePaymentApproveDetails,bundle);
+                //   gotoDetails(holder, position, "Receipt Pending Details", "1", currentPosition.getBatchNo());
                 return;
             }
             if (portion.equals(AccountsUtil.receiptDeclinedList)) {
@@ -109,7 +116,14 @@ public class ReceiptHistoryListAdapter extends RecyclerView.Adapter<ReceiptHisto
                 return;
             }
             if (portion.equals(AccountsUtil.paymentPendingList)) {
-                gotoDetails(holder, position, "Payment Pending Details", "2", currentPosition.getBatchNo());
+                Bundle bundle = new Bundle();
+                bundle.putString("typeKey",  "37");
+                bundle.putString("RefOrderId", currentPosition.getCustomerID());
+                bundle.putString("batch", currentPosition.getBatchNo());
+                bundle.putString("customer", currentPosition.getCustomerID());
+                bundle.putString("status", "2");
+                Navigation.findNavController(holder.itemView).navigate(R.id.action_accountsListFragment_to_expenseDuePaymentApproveDetails,bundle);
+                //     gotoDetails(holder, position, "Payment Pending Details", "2", currentPosition.getBatchNo());
                 return;
             }
             if (portion.equals(AccountsUtil.paymentDeclinedList)) {
@@ -120,10 +134,20 @@ public class ReceiptHistoryListAdapter extends RecyclerView.Adapter<ReceiptHisto
             if (portion.equals(AccountsUtil.vendorPaymentList)) {
                 gotoDetails(holder, position, AccountsUtil.vendorPaymentList + " Details", "3", currentPosition.getBatchNo());
                 return;
-            }  if (portion.equals(AccountsUtil.pendingVendorPayment)) {
-                gotoDetails(holder, position, AccountsUtil.vendorPaymentList + " Details", "3", currentPosition.getBatchNo());
+            }
+            if (portion.equals(AccountsUtil.pendingVendorPayment)) {
+                Bundle bundle = new Bundle();
+                bundle.putString("typeKey",  "36");
+                bundle.putString("RefOrderId", currentPosition.getCustomerID());
+                bundle.putString("batch", currentPosition.getBatchNo());
+                bundle.putString("customer", currentPosition.getCustomerID());
+                bundle.putString("status", "2");
+                Navigation.findNavController(holder.itemView).navigate(R.id.action_accountsListFragment_to_expenseDuePaymentApproveDetails,bundle);
+
+                //  gotoDetails(holder, position, AccountsUtil.vendorPaymentList + " Details", "3", currentPosition.getBatchNo());
                 return;
-            }  if (portion.equals(AccountsUtil.declinedVendorPayments)) {
+            }
+            if (portion.equals(AccountsUtil.declinedVendorPayments)) {
                 gotoDetails(holder, position, AccountsUtil.vendorPaymentList + " Details", "3", currentPosition.getBatchNo());
                 return;
             }

@@ -9,6 +9,11 @@ import android.util.Log;
 
 import androidx.annotation.Nullable;
 
+import com.ismos_salt_erp.serverResponseModel.SalesRequisitionItems;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class MyDatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "New_Sale.db";
     public static final String TABLE_NAME = "New_Product_Sale";
@@ -114,6 +119,26 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
         Cursor cursor = sqLiteDatabase.rawQuery(select_all, null);
         return cursor;
+    }
+    public List<SalesRequisitionItems>   getDataFromLoca(){
+        List<SalesRequisitionItems> itemsList = new ArrayList<>();
+        Cursor cursor = this.displayAllData();
+        if (cursor.getCount() > 0) {//means didn't have any data
+            while (cursor.moveToNext()) {
+                SalesRequisitionItems item = new SalesRequisitionItems();
+                item.setProductID(cursor.getString(1));
+                item.setProductTitle(cursor.getString(2));
+                item.setQuantity(cursor.getString(3));
+                item.setUnit(cursor.getString(4));
+                item.setUnit_name(cursor.getString(5));
+                item.setPrice(cursor.getString(6));
+                item.setDiscount(cursor.getString(7));
+                item.setTotalPrice(cursor.getString(8));
+                itemsList.add(item);
+            }
+        }
+
+        return itemsList;
     }
 
 

@@ -33,4 +33,67 @@ public class ItemsResponse {
     @Expose
     private String discount;
 
+    public String getProductTitle() {
+        return productTitle;
+    }
+
+    public void setProductTitle(String productTitle) {
+        this.productTitle = productTitle;
+    }
+
+    public String getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(String quantity) {
+        this.quantity = quantity;
+    }
+
+    public String getProductID() {
+        return productID;
+    }
+
+    public void setProductID(String productID) {
+        this.productID = productID;
+    }
+
+    public String getBuyingPrice() {
+        return buyingPrice;
+    }
+
+    public void setBuyingPrice(String buyingPrice) {
+        this.buyingPrice = buyingPrice;
+    }
+
+    public String getSoldFrom() {
+        return soldFrom;
+    }
+
+    public void setSoldFrom(String soldFrom) {
+        this.soldFrom = soldFrom;
+    }
+
+    public Object getOthers() {
+        return others;
+    }
+
+    public void setOthers(Object others) {
+        this.others = others;
+    }
+
+    public String getUnit() {
+        return unit;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
+    }
+
+    public String getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(String discount) {
+        this.discount = discount;
+    }
 }

@@ -1522,13 +1522,7 @@
         android:id="@+id/millerAllListFragment"
         android:name="com.ismos_salt_erp.view.fragment.miller.MillerAllListFragment"
         android:label="MillerAllListFragment">
-        <action
-            android:id="@+id/action_millerAllListFragment_to_editMillerFragment"
-            app:destination="@id/editMillerFragment"
-            app:enterAnim="@anim/slide_left"
-            app:exitAnim="@anim/wait_anim"
-            app:popEnterAnim="@anim/wait_anim"
-            app:popExitAnim="@anim/slide_right" />
+
 
         <action
             android:id="@+id/action_millerAllListFragment_to_millerDetailsViewFragment"
@@ -1551,13 +1545,8 @@
             app:exitAnim="@anim/wait_anim"
             app:popEnterAnim="@anim/wait_anim"
             app:popExitAnim="@anim/slide_right" />
-        <action
-            android:id="@+id/itemListFragment_to_addInitialQuantity"
-            app:destination="@id/addInitialQuantity"
-            app:enterAnim="@anim/slide_left"
-            app:exitAnim="@anim/wait_anim"
-            app:popEnterAnim="@anim/wait_anim"
-            app:popExitAnim="@anim/slide_right" />
+
+
         <action
             android:id="@+id/itemListFragment_to_varientlistFragment"
             app:destination="@id/varientlistFragment"
@@ -1631,13 +1620,7 @@
             app:exitAnim="@anim/wait_anim"
             app:popEnterAnim="@anim/wait_anim"
             app:popExitAnim="@anim/slide_right" />
-        <!-- <action
-             android:id="@+id/action_saleAllListFragment_to_pendingPurchaseDetailsFragment"
-             app:destination="@id/pendingPurchaseDetailsFragment"
-             app:enterAnim="@anim/slide_left"
-             app:exitAnim="@anim/wait_anim"
-             app:popEnterAnim="@anim/wait_anim"
-             app:popExitAnim="@anim/slide_right" />-->
+
 
         <action
             android:id="@+id/action_saleAllListFragment_to_pendingSalesReturnDetails"
@@ -1865,30 +1848,7 @@
         android:name="com.ismos_salt_erp.view.fragment.production.unpacket.UnPacketFragment"
         android:label="fragment_un_packet"
         tools:layout="@layout/fragment_un_packet" />
-    <fragment
-        android:id="@+id/editMillerFragment"
-        android:name="com.ismos_salt_erp.view.fragment.miller.editmiller.EditMillerFragment"
-        android:label="fragment_edit_miller"
-        tools:layout="@layout/fragment_edit_miller">
 
-        <action
-            android:id="@+id/fragment_edit_miller_to_fragment_miller_company_owner_info_edit"
-            app:destination="@id/millerCompanyOwnerInfoEdit"
-            app:enterAnim="@anim/slide_left"
-            app:exitAnim="@anim/wait_anim"
-            app:popEnterAnim="@anim/wait_anim"
-            app:popExitAnim="@anim/slide_right" />
-
-        <action
-            android:id="@+id/fragment_edit_miller_to_fragment_millerLicenseinfoEdit"
-            app:destination="@id/millerLicenseinfoEdit"
-            app:enterAnim="@anim/slide_left"
-            app:exitAnim="@anim/wait_anim"
-            app:popEnterAnim="@anim/wait_anim"
-            app:popExitAnim="@anim/slide_right" />
-
-
-    </fragment>
     <fragment
         android:id="@+id/millerProfileinformationEdit"
         android:name="com.ismos_salt_erp.view.fragment.miller.editmiller.MillerProfileInformationEdit"
@@ -1910,11 +1870,7 @@
         android:name="com.ismos_salt_erp.view.fragment.miller.editmiller.MillerCompanyOwnerInfoEdit"
         android:label="fragment_miller_company_owner_info_edit"
         tools:layout="@layout/fragment_miller_company_owner_info_edit" />
-    <fragment
-        android:id="@+id/millerLicenseinfoEdit"
-        android:name="com.ismos_salt_erp.view.fragment.miller.editmiller.MillerLicenseInfoEdit"
-        android:label="fragment_miller_licenseinfo_edit"
-        tools:layout="@layout/fragment_miller_licenseinfo_edit" />
+
     <fragment
         android:id="@+id/millerQcInformationEdit"
         android:name="com.ismos_salt_erp.view.fragment.miller.editmiller.MillerQcInformationEdit"
@@ -1984,19 +1940,7 @@
     </fragment>
 
 
-    <!-- <fragment
-         android:id="@+id/millerEmployeeReportFragment"
-         android:name="com.miserp.view.fragment.all_report.employee_report.MillerEmployeeReportFragment"
-         android:label="MillerEmployeeReportFragment">
-         <action
-             android:id="@+id/action_millerEmployeeReportFragment_to_purchaseReturnListFragment"
-             app:destination="@id/purchaseReturnListFragment"
-             app:enterAnim="@anim/slide_left"
-             app:exitAnim="@anim/wait_anim"
-             app:popEnterAnim="@anim/wait_anim"
-             app:popExitAnim="@anim/slide_right" />
-     </fragment>
- -->
+
 
     <fragment
         android:id="@+id/purchaseReturnListFragment"
@@ -2005,19 +1949,6 @@
         tools:layout="@layout/fragment_purchase_return_list" />
 
 
-    <!--<fragment
-        android:id="@+id/millerLicenceExpireReportFragment"
-        android:name="com.miserp.view.fragment.all_report.licence_expire_report.MillerLicenceExpireReportFragment"
-        android:label="MillerLicenceExpireReportFragment">
-        <action
-            android:id="@+id/action_millerLicenceExpireReportFragment_to_purchaseReturnListFragment"
-            app:destination="@id/purchaseReturnListFragment"
-            app:enterAnim="@anim/slide_left"
-            app:exitAnim="@anim/wait_anim"
-            app:popEnterAnim="@anim/wait_anim"
-            app:popExitAnim="@anim/slide_right" />
-    </fragment>
--->
 
     <fragment
         android:id="@+id/reportLicenceFragment2"
@@ -2033,22 +1964,7 @@
     </fragment>
 
 
-    <!--<fragment
-        android:id="@+id/purchaseReturnReportFragment"
-        android:name="com.miserp.view.fragment.all_report.sale_and_purchase_report.purchase_return_report.PurchaseReturnReportFragment"
-        android:label="fragment_purchase_return_report"
-        tools:layout="@layout/fragment_purchase_return_report">
-        <action
-            android:id="@+id/action_purchaseReturnReportFragment_to_purchaseReturnListFragment"
-            app:destination="@id/purchaseReturnListFragment"
-            app:enterAnim="@anim/slide_left"
-            app:exitAnim="@anim/wait_anim"
-            app:popEnterAnim="@anim/wait_anim"
-            app:popExitAnim="@anim/slide_right" />
 
-
-    </fragment>
--->
     <fragment
         android:id="@+id/reconciliationReportFragment"
         android:name="com.ismos_salt_erp.view.fragment.all_report.reconcilation_report.ReconciliationReportFragment"
@@ -2080,13 +1996,6 @@
 
     </fragment>
 
-    <!--
-        <fragment
-            android:id="@+id/allReportListFragment"
-            android:name="com.miserp.view.fragment.all_report.sale_and_purchase_report.purchase_report.AllReportListFragment"
-            android:label="fragment_all_report_list"
-            tools:layout="@layout/fragment_all_report_list" />
-    -->
 
     <fragment
         android:id="@+id/dashboardFragment"
@@ -2118,68 +2027,6 @@
     </fragment>
 
 
-    <!--   <fragment
-            android:id="@+id/saleReportFragment"
-            android:name="com.miserp.view.fragment.all_report.sale_and_purchase_report.sale_report.SaleReportFragment"
-            android:label="SaleReportFragment"
-            tools:layout="@layout/fragment_sale_report">
-            <action
-                android:id="@+id/action_saleReportFragment_to_saleReportListFragment"
-                app:destination="@id/saleReportListFragment"
-                app:enterAnim="@anim/slide_left"
-                app:exitAnim="@anim/wait_anim"
-                app:popEnterAnim="@anim/wait_anim"
-                app:popExitAnim="@anim/slide_right"/>
-        </fragment>
-     -->
-
-    <!--<fragment
-        android:id="@+id/saleReturnReportFragment"
-        android:name="com.miserp.view.fragment.all_report.sale_and_purchase_report.sale_return_report.SaleReturnReportFragment"
-        android:label="SaleReturnReportFragment">
-
-        <action
-            android:id="@+id/action_saleReturnReportFragment_to_saleReturnReportList"
-            app:destination="@id/saleReturnReportList"
-            app:enterAnim="@anim/slide_left"
-            app:exitAnim="@anim/wait_anim"
-            app:popEnterAnim="@anim/wait_anim"
-            app:popExitAnim="@anim/slide_right" />
-    </fragment>
--->
-    <!-- <fragment
-         android:id="@+id/saleReportListFragment"
-         android:name="com.miserp.view.fragment.all_report.sale_and_purchase_report.sale_report.SaleReportListFragment"
-         android:label="fragment_sale_report_list"
-         tools:layout="@layout/fragment_sale_report_list" />
- -->
-
-    <!--  <fragment
-          android:id="@+id/saleReturnReportList"
-          android:name="com.miserp.view.fragment.all_report.sale_and_purchase_report.sale_return_report.SaleReturnReportList"
-          android:label="SaleReturnReportList">
-
-      </fragment>-->
-
-
-    <!--  <fragment
-          android:id="@+id/stockInOutReportFragment"
-          android:name="com.miserp.view.fragment.all_report.stock_in_out_report.StockInOutReportFragment"
-          android:label="StockInOutReportFragment">
-          <action
-              android:id="@+id/action_stockInOutReportFragment_to_stockIOReportListFragment"
-              app:destination="@id/stockIOReportListFragment"
-              app:enterAnim="@anim/slide_left"
-              app:exitAnim="@anim/wait_anim"
-              app:popEnterAnim="@anim/wait_anim"
-              app:popExitAnim="@anim/slide_right" />
-      </fragment>
-  -->
-    <!--    <fragment
-            android:id="@+id/stockIOReportListFragment"
-            android:name="com.miserp.view.fragment.all_report.stock_in_out_report.StockIOReportListFragment"
-            android:label="fragment_stock_i_o_report_list"
-            tools:layout="@layout/fragment_stock_i_o_report_list" />-->
     <fragment
         android:id="@+id/editWashingCrushing"
         android:name="com.ismos_salt_erp.view.fragment.production.washingAndCrushing.edit.EditWashingCrushing"
@@ -2279,13 +2126,7 @@
             app:popEnterAnim="@anim/wait_anim"
             app:popExitAnim="@anim/slide_right" />
 
-        <action
-            android:id="@+id/action_addNewItem_to_addInitialQuantity"
-            app:destination="@id/addInitialQuantity"
-            app:enterAnim="@anim/slide_left"
-            app:exitAnim="@anim/wait_anim"
-            app:popEnterAnim="@anim/wait_anim"
-            app:popExitAnim="@anim/slide_right" />
+
     </fragment>
     <fragment
         android:id="@+id/confirmAddNewItem"
@@ -2356,38 +2197,7 @@
             app:popExitAnim="@anim/slide_right" />
 
     </fragment>
-    <!--<fragment
-        android:id="@+id/packagingReportFragment"
-        android:name="com.miserp.view.fragment.all_report.packaging_report.PackagingReportFragment"
-        android:label="fragment_packaging_report"
-        tools:layout="@layout/fragment_packaging_report">
-        <action
-            android:id="@+id/action_packagingReportFragment_to_packaetPackegIodineReportListFragment"
-            app:destination="@id/packaetPackegIodineReportListFragment"
-            app:enterAnim="@anim/slide_left"
-            app:exitAnim="@anim/wait_anim"
-            app:popEnterAnim="@anim/wait_anim"
-            app:popExitAnim="@anim/slide_right" />
-    </fragment>-->
 
-    <!-- <fragment
-         android:id="@+id/iodineUsedReportFragment"
-         android:name="com.miserp.view.fragment.all_report.iodine_used_report.IodineUsedReportFragment"
-         android:label="fragment_iodine_used_report"
-         tools:layout="@layout/fragment_iodine_used_report">
-         <action
-             android:id="@+id/action_iodineUsedReportFragment_to_packaetPackegIodineReportListFragment"
-             app:destination="@id/packaetPackegIodineReportListFragment"
-             app:enterAnim="@anim/slide_left"
-             app:exitAnim="@anim/wait_anim"
-             app:popEnterAnim="@anim/wait_anim"
-             app:popExitAnim="@anim/slide_right" />
-     </fragment>-->
-    <!-- <fragment
-         android:id="@+id/packaetPackegIodineReportListFragment"
-         android:name="com.miserp.view.fragment.all_report.packeting_report.PackaetPackegIodineReportListFragment"
-         android:label="fragment_packaet_packeg_iodine_report_list"
-         tools:layout="@layout/fragment_packaet_packeg_iodine_report_list" />-->
     <fragment
         android:id="@+id/addNewTransfer"
         android:name="com.ismos_salt_erp.view.fragment.transfer.addNew.AddNewTransfer"
@@ -2598,6 +2408,14 @@
             app:popEnterAnim="@anim/wait_anim"
             app:popExitAnim="@anim/slide_right" />
 
+        <action
+            android:id="@+id/action_accountsListFragment_to_expenseDuePaymentApproveDetails"
+            app:destination="@id/expenseDuePaymentApproveDetails"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
+
     </fragment>
     <fragment
         android:id="@+id/receiptHistoryDetailsFragment"
@@ -2627,11 +2445,8 @@
             app:popEnterAnim="@anim/wait_anim"
             app:popExitAnim="@anim/slide_right" />
     </fragment>
-    <fragment
-        android:id="@+id/addInitialQuantity"
-        android:name="com.ismos_salt_erp.view.fragment.monitoring.AddInitialQuantity"
-        android:label="fragment_add_initial_quantity"
-        tools:layout="@layout/fragment_add_initial_quantity" />
+
+
 
     <fragment
         android:id="@+id/updateProfileFragment"

@@ -18,15 +18,15 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:orientation="vertical">
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"
+        android:background="@drawable/my_shape"
+         android:orientation="vertical">
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:scaleType="fitXY"
+             android:scaleType="fitXY"
             android:src="@drawable/login_background_child2"
             app:layout_constraintBottom_toBottomOf="@+id/relativeLayout2"
             app:layout_constraintEnd_toEndOf="parent"
@@ -40,7 +40,7 @@
             android:id="@+id/relativeLayout2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#FFFFFF"
+
             android:orientation="vertical"
             android:padding="20dp">
 
@@ -67,6 +67,7 @@
                         android:layout_marginTop="5dp"
                         android:layout_marginEnd="5dp"
                         android:layout_marginBottom="5dp"
+                        android:padding="3dp"
                         android:scaleType="fitCenter"
                         android:src="@drawable/phone"
                         tools:ignore="ContentDescription" />
@@ -115,6 +116,7 @@
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginEnd="5dp"
+                        android:padding="3dp"
                         android:layout_marginBottom="5dp"
                         android:src="@drawable/padlock"
                         tools:ignore="ContentDescription" />
@@ -176,7 +178,7 @@
                         android:layout_alignParentStart="true"
                         android:layout_alignParentLeft="true"
                         android:layout_marginTop="5dp"
-                        android:buttonTint="#9846B1"
+
                         android:text="Forgot Password"
                         android:textColor="@color/black"
                         android:textSize="@dimen/fifteen_sp_txt" />
@@ -184,11 +186,11 @@
                     <Button
                         android:id="@+id/card_login_btn"
                         style="@style/Widget.AppCompat.Button.Borderless"
-                        android:layout_width="100dp"
+                        android:layout_width="110dp"
                         android:layout_height="30dp"
                         android:layout_alignParentRight="true"
                         android:layout_gravity="end"
-                        android:background="@drawable/login_btns"
+                        android:background="@drawable/login_btn_shape1"
                         android:text="Login"
                         android:textAllCaps="false" />
 

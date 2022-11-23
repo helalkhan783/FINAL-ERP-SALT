@@ -27,6 +27,7 @@ import androidx.fragment.app.FragmentActivity;
 
 import com.ismos_salt_erp.R;
 import com.ismos_salt_erp.dialog.MyApplication;
+import com.ismos_salt_erp.localDatabase.MyDatabaseHelper;
 import com.ismos_salt_erp.localDatabase.PreferenceManager;
 
 import java.text.DateFormat;
@@ -42,6 +43,9 @@ import es.dmoral.toasty.Toasty;
 
 
 public abstract class BaseFragment extends Fragment {
+    private MyDatabaseHelper myDatabaseHelper;
+
+
     public boolean clickEvent;
 
     /**
@@ -73,19 +77,7 @@ public abstract class BaseFragment extends Fragment {
         return true;
     }
 
-    /**
-     * For Handle conditional backPress
-     */
-    public void handleBackPressWithDialog(FragmentActivity activity) {
-        OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
-            @Override
-            public void handleOnBackPressed() {
-                // Handle the back button event
-                MyApplication.exitApp(getActivity());//for show exit app dialog
-            }
-        };
-        requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), callback);
-    }
+
 
     public static String getCustomCurrentDateTime(String pattern) {//like yyy/MM/dd
         DateFormat df = new SimpleDateFormat(pattern, Locale.getDefault());
@@ -152,9 +144,6 @@ public abstract class BaseFragment extends Fragment {
         return PreferenceManager.getInstance(application).getUserCredentials().getProfileId();
     }
 
-    public String getSubscriptionEndDate(Application application) {
-        return PreferenceManager.getInstance(application).getUserCredentials().getSubscriptionEndDate();
-    }
 
 
     public void successMessage(Application context, String message) {
@@ -170,9 +159,7 @@ public abstract class BaseFragment extends Fragment {
         Toasty.info(context, "" + message, Toasty.LENGTH_LONG).show();
     }
 
-    public void warningMessage(Application context, String message) {
-        Toasty.warning(context, "" + message, Toasty.LENGTH_LONG).show();
-    }
+
 
 
     public boolean checkStoragePermission() {
