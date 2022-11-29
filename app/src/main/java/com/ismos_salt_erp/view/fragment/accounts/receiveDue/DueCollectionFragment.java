@@ -153,7 +153,7 @@ public class DueCollectionFragment extends AddUpDel
 
     List<String> selectedOrderList;
 
-    private String selectedEnterPrice = "0";
+    private String selectedEnterPrice;
     private DuePaymentReceivedViewModel duePaymentReceivedViewModel;
     private PayDueAmountViewModel payDueAmountViewModel;
     List<Order> orders = new ArrayList<>();
@@ -702,12 +702,18 @@ public class DueCollectionFragment extends AddUpDel
 
         paymentTypeVal = selectedReceiptMethod;
         paymentSubType = selectPaymentSubType;
+
+        if (selectedEnterPrice == null) {
+            message(getString(R.string.enterprise_info));
+            return;
+
+        }
         if (!paymentTypeVal.equals("1")) {//here 1 means cash
 
             if (!paymentTypeVal.equals("2")) {
 
                 if (selectedReceiptMethod == null) {
-                  message("please select receipt method");
+                    message("please select receipt method");
                     return;
                 }
 
@@ -717,7 +723,7 @@ public class DueCollectionFragment extends AddUpDel
                 }
 
                 if (selectedBankId == null) {
-                 message("Please select bank");
+                    message("Please select bank");
                     return;
                 }
 
@@ -757,12 +763,9 @@ public class DueCollectionFragment extends AddUpDel
     }
 
 
-
-
-
     @OnClick(R.id.date)
     public void getDate() {
-     DateTimePicker.openDatePicker(this,getActivity());
+        DateTimePicker.openDatePicker(this, getActivity());
 
     }
 
@@ -770,7 +773,7 @@ public class DueCollectionFragment extends AddUpDel
     @Override
     public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
 
-        date.setText(DateTimePicker.dateSelect(year,monthOfYear,dayOfMonth));
+        date.setText(DateTimePicker.dateSelect(year, monthOfYear, dayOfMonth));
     }
 
 

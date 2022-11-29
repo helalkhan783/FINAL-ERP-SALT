@@ -1915,7 +1915,8 @@ public interface Api {
             @Query("token") String token,
             @Field("vendorID") String vendorID,
             @Field("batch") String batch,
-            @Field("user_id") String user_id
+            @Field("user_id") String user_id,
+            @Field("type") String type
     );
 
 

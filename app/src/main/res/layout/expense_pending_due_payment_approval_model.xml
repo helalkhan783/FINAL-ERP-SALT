@@ -37,6 +37,7 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/amountTvLevel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -66,8 +67,9 @@
             android:maxLines="1"
             android:singleLine="true"
             android:text="Date"
+            android:textSize="@dimen/twelve_sp_txt_size"
             android:textColor="@color/gray"
-            android:textStyle="bold" />
+            />
 
         <TextView
             android:id="@+id/invoiceNo"
@@ -78,6 +80,8 @@
             android:singleLine="true"
             android:text="Invoice no."
             android:textColor="@color/gray"
+            android:textSize="@dimen/twelve_sp_txt_size"
+
             android:textStyle="bold" />
 
         <TextView
@@ -89,6 +93,8 @@
             android:singleLine="true"
             android:text="Paid amount"
             android:textColor="@color/gray"
+            android:textSize="@dimen/twelve_sp_txt_size"
+
             android:textStyle="bold" />
 
 

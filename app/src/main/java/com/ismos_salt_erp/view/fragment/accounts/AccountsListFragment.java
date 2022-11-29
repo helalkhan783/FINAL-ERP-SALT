@@ -174,9 +174,7 @@ public class AccountsListFragment extends BaseFragment implements View.OnClickLi
         if (!new InternetCheckerRecyclerBuddy(getActivity()).isInternetAvailableHere(binding.accountsRv, binding.noDataFound)) {
             return;
         }
-        if (pageNumber == 1) {
 
-        }
         if (pageNumber > 1) {
             binding.progress.setVisibility(View.VISIBLE);
             binding.progress.setProgress(20);

@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.ismos_salt_erp.R;
 import com.ismos_salt_erp.serverResponseModel.ExpensePaymentDueList;
+import com.ismos_salt_erp.utils.MtUtils;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -43,16 +44,17 @@ public class ExpenseDuePaymentApprovalAdapter extends RecyclerView.Adapter<Expen
     @Override
     public void onBindViewHolder(@NonNull @NotNull MyHolder holder, int position) {
         ExpensePaymentDueList currentDue = lists.get(position);
-        if (typeKey.equals("37")){
+        if (typeKey.equals(MtUtils.PAYMENT_TYPE)){
             holder.typeLevel.setText("PO.ID");
-        }if (typeKey.equals("36")){
+        }if (typeKey.equals(MtUtils.EXPENSE_TYPE)){
             holder.typeLevel.setText("Invoice");
-        }if (typeKey.equals("4")){
+        }if (typeKey.equals(MtUtils.RECEIPT_TYPE)){
             holder.typeLevel.setText("SO.ID");
+            holder.amountTvLevel.setText("Receipt Amount");
         }
-        holder.date.setText(currentDue.getPayment_date());
-        holder.invoiceNo.setText(currentDue.getOrderID());
-        holder.paidAmount.setText(currentDue.getPaidAmount());
+        holder.date.setText(""+currentDue.getPaymentDate());
+        holder.invoiceNo.setText(""+currentDue.getParticulars());
+        holder.paidAmount.setText(""+currentDue.getPaidAmount());
     }
 
     @Override
@@ -68,7 +70,8 @@ public class ExpenseDuePaymentApprovalAdapter extends RecyclerView.Adapter<Expen
         @BindView(R.id.paidAmount)
         TextView paidAmount;
         @BindView(R.id.typeLevel)
-        TextView typeLevel;
+        TextView typeLevel;   @BindView(R.id.amountTvLevel)
+        TextView amountTvLevel;
 
         public MyHolder(@NonNull @NotNull View itemView) {
             super(itemView);

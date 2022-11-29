@@ -27,7 +27,7 @@ public class ExpensePaymentDueCustomerInfo {
     private String phone;
     @SerializedName("due_limit")
     @Expose
-    private Object dueLimit;
+    private String dueLimit;
     @SerializedName("address")
     @Expose
     private String address;
@@ -49,4 +49,116 @@ public class ExpensePaymentDueCustomerInfo {
     @SerializedName("status")
     @Expose
     private Integer status;
+
+    public String getCustomerFname() {
+        return customerFname;
+    }
+
+    public void setCustomerFname(String customerFname) {
+        this.customerFname = customerFname;
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
+    public String getTypeID() {
+        return typeID;
+    }
+
+    public void setTypeID(String typeID) {
+        this.typeID = typeID;
+    }
+
+    public Object getCustomerLname() {
+        return customerLname;
+    }
+
+    public void setCustomerLname(Object customerLname) {
+        this.customerLname = customerLname;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getDueLimit() {
+        return dueLimit;
+    }
+
+    public void setDueLimit(String dueLimit) {
+        this.dueLimit = dueLimit;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(String createDate) {
+        this.createDate = createDate;
+    }
+
+    public String getBazar() {
+        return bazar;
+    }
+
+    public void setBazar(String bazar) {
+        this.bazar = bazar;
+    }
+
+    public String getNid() {
+        return nid;
+    }
+
+    public void setNid(String nid) {
+        this.nid = nid;
+    }
+
+    public String getTin() {
+        return tin;
+    }
+
+    public void setTin(String tin) {
+        this.tin = tin;
+    }
+
+    public Integer getRemainingDue() {
+        return remainingDue;
+    }
+
+    public void setRemainingDue(Integer remainingDue) {
+        this.remainingDue = remainingDue;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
 }

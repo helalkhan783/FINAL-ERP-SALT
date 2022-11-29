@@ -119,6 +119,8 @@ public class PayDueToSupplierSearchFragment extends AddUpDel implements DatePick
     TextView dueLimitTv;
     @BindView(R.id.paidAmountEtSupplier)
     TextView paidAmountEt;
+    @BindView(R.id.paidAmountLayout)
+    LinearLayout paidAmountLayout;
     @BindView(R.id.paymentToOptionSupplier)
     SmartMaterialSpinner paymentToOptionSupplier;
     @BindView(R.id.receiptMethodTvSupplier)
@@ -414,6 +416,10 @@ public class PayDueToSupplierSearchFragment extends AddUpDel implements DatePick
             }
         });
         getPageDataFromServer();
+
+
+
+
         return view;
     }
 
@@ -697,6 +703,10 @@ public class PayDueToSupplierSearchFragment extends AddUpDel implements DatePick
         }
         receivableDue.setText("" + DataModify.addFourDigit(String.valueOf(currentSelectedTotal)));
         totalDueTv.setText("" + DataModify.addFourDigit(String.valueOf(totalDue)));
+        if (currentSelectedTotal <= 0){
+            paidAmountLayout.setVisibility(View.GONE);
+        }
+
         savePortion.setVisibility(View.VISIBLE);
         addPortion.setVisibility(View.GONE);
 
@@ -731,17 +741,17 @@ public class PayDueToSupplierSearchFragment extends AddUpDel implements DatePick
     @OnClick(R.id.saveBtnSupplier)
     public void saveBtnClick() {
         String customDiscount = "0";
-
+        if (selectedEnterPrice == null) {
+            message(getString(R.string.enterprise_info));
+            return;
+        }
         if (paidAmountEt.getText().toString().isEmpty()) {
             paidAmountEt.setError("Paid amount mandatory");
             paidAmountEt.requestFocus();
             return;
         }
 
-        if (selectedEnterPrice == null) {
-            message(getString(R.string.enterprise_info));
-            return;
-        }
+
         if (Integer.parseInt(selectedReceiptMethod) != 1) {//here 1 means cash without cash branch and account no is mandatory
             if (Integer.parseInt(selectedReceiptMethod) != 2) {//here 2 means cheque without cash branch and account no is mandatory
 
@@ -844,9 +854,7 @@ public class PayDueToSupplierSearchFragment extends AddUpDel implements DatePick
 
     @Override
     public void save() {
-
-            submitData();
-
+        submitData();
     }
 
     @Override

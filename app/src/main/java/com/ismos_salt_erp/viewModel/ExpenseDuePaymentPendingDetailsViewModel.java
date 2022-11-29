@@ -20,7 +20,7 @@ import retrofit2.Response;
 @AllArgsConstructor
 public class ExpenseDuePaymentPendingDetailsViewModel extends ViewModel {
 
-    public MutableLiveData<DuePaymentResponse> declineExpenseDuePaymentApprovalDetails(FragmentActivity context, String batch) {
+    public MutableLiveData<DuePaymentResponse> declineExpenseDuePaymentApprovalDetails(FragmentActivity context, String batch,String typeKey) {
         MutableLiveData<DuePaymentResponse> liveData = new MutableLiveData<>();
 
         ProgressDialog progressDialog = new ProgressDialog(context);
@@ -32,7 +32,7 @@ public class ExpenseDuePaymentPendingDetailsViewModel extends ViewModel {
 
 
         Call<DuePaymentResponse> call = RetrofitClient.getInstance().getApi()
-                .declineDuePaymentApprovalDetails(token, vendorId, batch, userId);
+                .declineDuePaymentApprovalDetails(token, vendorId, batch, userId,typeKey);
         call.enqueue(new Callback<DuePaymentResponse>() {
             @Override
             public void onResponse(Call<DuePaymentResponse> call, Response<DuePaymentResponse> response) {

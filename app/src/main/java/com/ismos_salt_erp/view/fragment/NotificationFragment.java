@@ -33,6 +33,10 @@ import com.ismos_salt_erp.manage_notification_click.GotoDetails;
 import com.ismos_salt_erp.serverResponseModel.LoginResponse;
 import com.ismos_salt_erp.serverResponseModel.NotificationListResponse;
 
+import com.ismos_salt_erp.utils.AccountsUtil;
+import com.ismos_salt_erp.utils.MtUtils;
+import com.ismos_salt_erp.utils.PermissionUtil;
+import com.ismos_salt_erp.view.fragment.accounts.AccountsListFragment;
 import com.ismos_salt_erp.view.fragment.accounts.receiveDue.DueCollectionFragment;
 import com.ismos_salt_erp.viewModel.CurrentPermissionViewModel;
 import com.ismos_salt_erp.viewModel.NotificationListViewModel;
@@ -41,7 +45,6 @@ import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 import net.cachapa.expandablelayout.ExpandableLayout;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 import butterknife.BindView;
@@ -744,14 +747,50 @@ public class NotificationFragment extends BaseFragment implements DatePickerDial
         //here 4 means receipt or  payment details
         //here 36 means expense or vendor payment
         //here 37 means Payment or  payment details
-        if (type == 4 || type == 36 || type == 37) {
+        if (type == Integer.parseInt(MtUtils.RECEIPT_TYPE) || type == Integer.parseInt(MtUtils.EXPENSE_TYPE) || type == Integer.parseInt(MtUtils.PAYMENT_TYPE)) {
             Bundle bundle = new Bundle();
             bundle.putString("typeKey", String.valueOf(type));
             bundle.putString("RefOrderId", referrerId);
             bundle.putString("batch", batchId);
             bundle.putString("customer", customerId);
             bundle.putString("status", status);
-            Navigation.findNavController(getView()).navigate(R.id.action_notificationFragment_to_expenseDuePaymentApproveDetails, bundle);
+            //status 1 means approved,2 means pending, 4 means declined,0 means edited old
+            if (status.equals(MtUtils.STATUS_PENDING)) {
+                Navigation.findNavController(getView()).navigate(R.id.action_notificationFragment_to_expenseDuePaymentApproveDetails, bundle);
+                return;
+            }
+            if (status.equals(MtUtils.STATUS_APPROVED)) {
+                if (type == Integer.parseInt(MtUtils.PAYMENT_TYPE)) {
+                    gotoNext(AccountsUtil.paymentList, 1063, "Payment History List");
+                    return;
+                }
+                if (type == Integer.parseInt(MtUtils.RECEIPT_TYPE)) {
+                    gotoNext(AccountsUtil.receiptList, 1063, "Receipt History List");
+                    return;
+                }
+                if (type == Integer.parseInt(MtUtils.EXPENSE_TYPE)) {
+                    gotoNext(AccountsUtil.vendorPaymentList, 1063, "Payment History List");
+                    return;
+                }
+            }
+
+
+            if (status.equals(MtUtils.STATUS_DECLINED)) {
+                if (type == Integer.parseInt(MtUtils.PAYMENT_TYPE)) {
+                    gotoNext(AccountsUtil.paymentDeclinedList, 1063, "Payment Declined List");
+                    return;
+                }
+                if (type == Integer.parseInt(MtUtils.RECEIPT_TYPE)) {
+                    gotoNext(AccountsUtil.receiptDeclinedList, 1063, "Receipt Declined List");
+                    return;
+                }
+                if (type ==  Integer.parseInt(MtUtils.EXPENSE_TYPE)) {
+                    gotoNext(AccountsUtil.declinedVendorPayments, 1063, "Declined Vendor Payment");
+                    return;
+                }
+            }
+
+
 
         }
 
@@ -761,9 +800,9 @@ public class NotificationFragment extends BaseFragment implements DatePickerDial
             bundle.putString("TypeKey", String.valueOf(type));
             bundle.putString("RefOrderId", refOrderId);
             bundle.putString("portion", "SALES_WHOLE_ORDER_CANCEL");
-            if (approval.equals("2")) {
+            if (approval.equals(MtUtils.STATUS_PENDING)) {
                 bundle.putString("pageName", "Pending Sales Return Cancel Details");
-                bundle.putString("status", "2");
+                bundle.putString("status",MtUtils.STATUS_PENDING);
                 Navigation.findNavController(getView()).navigate(R.id.notificationListFragment_to_pendingPurchaseDetailsFragment, bundle);
                 return;
             } else {
@@ -777,4 +816,20 @@ public class NotificationFragment extends BaseFragment implements DatePickerDial
 
 
     }
+
+
+    private void gotoNext(String s1, int permission, String pageName) {
+        if (PermissionUtil.currentUserPermissionList(PreferenceManager.getInstance(getContext()).getUserCredentials().getPermissions()).contains(permission)) {
+            Bundle bundle = new Bundle();
+            bundle.putString("portion", s1);
+            bundle.putString("PageName", pageName);
+            AccountsListFragment.pageNumber = 1;
+            AccountsListFragment.isFirstLoad = 0;
+            Navigation.findNavController(getView()).navigate(R.id.notificationListFragment_to_accountsListFragment, bundle);
+            return;
+        }
+        Toasty.info(getContext(), PermissionUtil.permissionMessage, Toasty.LENGTH_LONG).show();
+        return;
+    }
+
 }

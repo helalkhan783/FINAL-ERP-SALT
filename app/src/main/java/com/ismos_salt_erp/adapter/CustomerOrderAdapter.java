@@ -25,7 +25,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class CustomerOrderAdapter extends RecyclerView.Adapter<CustomerOrderAdapter.MyHolder> {
-    public static Set<String> selectedOrderList = new HashSet<>();//store the selected order list for send server
+    public static Set<String> selectedOrderList; //store the selected order list for send server
 
     FragmentActivity context;
     List<Order> ordersList;
@@ -35,6 +35,8 @@ public class CustomerOrderAdapter extends RecyclerView.Adapter<CustomerOrderAdap
         this.context = activity;
         this.ordersList = orders;
         this.from = from;
+        selectedOrderList = new HashSet<>();
+        selectedOrderList.clear();
     }
 
     @NonNull

@@ -19,7 +19,7 @@
          android:layout_below="@+id/appbar"
         android:id="@+id/shimmerViewContainerLay"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+         android:layout_height="wrap_content">
         <include
             android:id="@+id/shimmerViewContainerAccess"
             layout="@layout/shimmer_layout" />
@@ -32,7 +32,7 @@
         android:layout_below="@+id/appbar">
 
         <LinearLayout
-            android:visibility="gone"
+android:visibility="gone"
             android:id="@+id/mainLayout"
              android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -185,7 +185,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight=".8"
                         android:maxLines="1"
-                        android:text="Payment Type"
+                        android:text="Trx. Type"
                         android:textColor="@color/black"
                         android:textSize="@dimen/fourteen_sp_text_size"
                         android:textStyle="bold" />
@@ -294,6 +294,7 @@
             </LinearLayout>
 
             <TextView
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
                 android:background="@color/app_color"
@@ -306,6 +307,7 @@
 
 
             <LinearLayout
+                android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
@@ -314,6 +316,16 @@
                     android:id="@+id/expenseDuePaymentApprovalRv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/totalTv"
+                    android:padding="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/sixteen_sp_size"
+                     android:textAlignment="textEnd"
+                    android:textColor="@color/app_color"
+                    android:textStyle="bold"/>
 
                 <TextView
                     android:id="@+id/orderNotFound"

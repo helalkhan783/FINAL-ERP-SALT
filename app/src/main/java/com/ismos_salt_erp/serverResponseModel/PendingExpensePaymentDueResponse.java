@@ -15,12 +15,23 @@ public class PendingExpensePaymentDueResponse {
     @SerializedName("message")
     @Expose
     private String message;
+    @SerializedName("payment_info")
+    @Expose
+    private PaymentInformation paymentInfo;
     @SerializedName("lists")
     @Expose
     private List<ExpensePaymentDueList> lists = null;
     @SerializedName("customer_info")
     @Expose
     private ExpensePaymentDueCustomerInfo customerInfo;
+
+    public PaymentInformation getPaymentInfo() {
+        return paymentInfo;
+    }
+
+    public void setPaymentInfo(PaymentInformation paymentInfo) {
+        this.paymentInfo = paymentInfo;
+    }
 
     public String getMessage() {
         return message;

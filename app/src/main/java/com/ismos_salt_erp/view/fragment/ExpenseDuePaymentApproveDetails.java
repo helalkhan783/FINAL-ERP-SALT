@@ -21,7 +21,9 @@ import com.ismos_salt_erp.adapter.ExpenseDuePaymentApprovalAdapter;
 
 import com.ismos_salt_erp.localDatabase.PreferenceManager;
 import com.ismos_salt_erp.serverResponseModel.DuePaymentResponse;
+import com.ismos_salt_erp.utils.MtUtils;
 import com.ismos_salt_erp.utils.PermissionUtil;
+import com.ismos_salt_erp.utils.replace.DataModify;
 import com.ismos_salt_erp.view.fragment.customers.AddUpDel;
 import com.ismos_salt_erp.viewModel.ExpenseDuePaymentPendingDetailsViewModel;
 
@@ -67,6 +69,8 @@ public class ExpenseDuePaymentApproveDetails extends AddUpDel {
     TextView processedBy;
     @BindView(R.id.date)
     TextView date;
+    @BindView(R.id.totalTv)
+    TextView totalTv;
     @BindView(R.id.note)
     TextView note;
     @BindView(R.id.paymentType)
@@ -99,27 +103,23 @@ public class ExpenseDuePaymentApproveDetails extends AddUpDel {
         status = getArguments().getString("status");
         typeKey = getArguments().getString("typeKey");
 
-        if (typeKey.equals("4")) {// 4 means receipt details
-            titleSet("Receipt Details");
-            if (status.equals("2") && PermissionUtil.currentUserPermissionList(PreferenceManager.getInstance(getContext()).getUserCredentials().getPermissions()).contains(1318)) {//here 2 means pending
-                titleSet("Receipt Pending Details");
+        if (typeKey.equals(MtUtils.RECEIPT_TYPE)) {// 4 means receipt details
+             titleSet("Receipt Pending Details");
+            if (status.equals(MtUtils.STATUS_PENDING) && PermissionUtil.currentUserPermissionList(PreferenceManager.getInstance(getContext()).getUserCredentials().getPermissions()).contains(1318)) {//here 2 means pending
                 approvalOption.setVisibility(View.VISIBLE);
             }
         }
-
-        if (typeKey.equals("37")) {//   means Payment details
-            titleSet("Payment Details");
-            if (status.equals("2") && PermissionUtil.currentUserPermissionList
+        if (typeKey.equals(MtUtils.PAYMENT_TYPE)) {//   means Payment details
+             titleSet("Payment Pending Details");
+            if (status.equals(MtUtils.STATUS_PENDING) && PermissionUtil.currentUserPermissionList
                     (PreferenceManager.getInstance(getContext()).getUserCredentials()
                             .getPermissions()).contains(1868)) {//here 2 means pending
-                titleSet("Payment Pending Details");
                 approvalOption.setVisibility(View.VISIBLE);
             }
         }
-        if (typeKey.equals("36")) {//   means expense details
-            titleSet("Expense Details");
-            if (status.equals("2") && PermissionUtil.currentUserPermissionList(PreferenceManager.getInstance(getContext()).getUserCredentials().getPermissions()).contains(1319)) {//here 2 means pending
-                titleSet("Expense Pending Details");
+        if (typeKey.equals(MtUtils.EXPENSE_TYPE)) {//   means expense details
+             titleSet("Vendor Payment Pending Details");
+            if (status.equals(MtUtils.STATUS_PENDING) && PermissionUtil.currentUserPermissionList(PreferenceManager.getInstance(getContext()).getUserCredentials().getPermissions()).contains(1319)) {//here 2 means pending
                 approvalOption.setVisibility(View.VISIBLE);
             }
         }
@@ -148,10 +148,10 @@ public class ExpenseDuePaymentApproveDetails extends AddUpDel {
                     companyName.setText(":  " + response.getCustomerInfo().getCompanyName() + " @ " + response.getCustomerInfo().getCustomerFname());
                     phone.setText(":  " + response.getCustomerInfo().getPhone());
                     address.setText(":  " + response.getCustomerInfo().getAddress());
-                    processedBy.setText(":  " + "");
-                    date.setText(":  " + response.getLists().get(0).getPayment_date());
-                    note.setText(":  " + "");
-                    paymentType.setText(":  " + "");
+                    processedBy.setText(":  " + response.getPaymentInfo().getFullName());
+                    date.setText(":  " + response.getPaymentInfo().getDate());
+                    note.setText(":  " + response.getPaymentInfo().getPaymentRemarks());
+                    paymentType.setText(":  " + response.getPaymentInfo().getPaymentTypeName());
                     /**
                      * now show all pending payment approval in recyclerview
                      */
@@ -160,16 +160,27 @@ public class ExpenseDuePaymentApproveDetails extends AddUpDel {
                     if (response.getLists().isEmpty() || response.getLists() == null) {
                         expenseDuePaymentApprovalRv.setVisibility(View.GONE);
                         orderNotFound.setVisibility(View.VISIBLE);
+                        shimmerViewContainerLay.setVisibility(View.GONE);
+                        shimmerViewContainer.startShimmer();
+                        mainLayout.setVisibility(View.VISIBLE);
                         return;
                     }
                     expenseDuePaymentApprovalRv.setLayoutManager(new LinearLayoutManager(getContext()));
                     expenseDuePaymentApprovalRv.setHasFixedSize(true);
-                    ExpenseDuePaymentApprovalAdapter approvalAdapter = new ExpenseDuePaymentApprovalAdapter(getActivity(), response.getLists(),typeKey);
+                    ExpenseDuePaymentApprovalAdapter approvalAdapter = new ExpenseDuePaymentApprovalAdapter(getActivity(), response.getLists(), typeKey);
                     expenseDuePaymentApprovalRv.setAdapter(approvalAdapter);
+
 
                     shimmerViewContainerLay.setVisibility(View.GONE);
                     shimmerViewContainer.startShimmer();
                     mainLayout.setVisibility(View.VISIBLE);
+                    double total = 0.0;
+                    try {
+                        for (int i = 0; i < response.getLists().size(); i++) {
+                            total = total + response.getLists().get(i).getPaidAmount();
+                        }
+                    } catch (Exception e) {}
+                    totalTv.setText("Total Amount : "+ DataModify.addFourDigit(total) + MtUtils.priceUnit);
                 });
     }
 
@@ -214,7 +225,7 @@ public class ExpenseDuePaymentApproveDetails extends AddUpDel {
     }
 
     private void submitDecline() {
-        expenseDuePaymentPendingDetailsViewModel.declineExpenseDuePaymentApprovalDetails(getActivity(), batch)
+        expenseDuePaymentPendingDetailsViewModel.declineExpenseDuePaymentApprovalDetails(getActivity(), batch, typeKey)
                 .observe(getViewLifecycleOwner(), response -> {
                     manageResponse(response);
                 });
@@ -223,7 +234,7 @@ public class ExpenseDuePaymentApproveDetails extends AddUpDel {
     private void submitApprove() {
         expenseDuePaymentPendingDetailsViewModel.approveExpenseDuePaymentApprovalDetails(getActivity(), batch, typeKey)
                 .observe(getViewLifecycleOwner(), response -> {
-                   manageResponse(response);
+                    manageResponse(response);
                 });
     }
 
@@ -233,11 +244,11 @@ public class ExpenseDuePaymentApproveDetails extends AddUpDel {
             return;
         }
         if (response.getStatus() == 400) {
-            message( ""+ response.getMessage());
+            message("" + response.getMessage());
             return;
         }
 
-        message( ""+ response.getMessage());
+        message("" + response.getMessage());
         getActivity().onBackPressed();
     }
 
