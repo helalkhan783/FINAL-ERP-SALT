@@ -266,7 +266,7 @@
                                    android:maxLines="1"
                                    android:padding="7dp"
                                    android:singleLine="true"
-                                   android:text="Received Now"
+                                   android:text="Receipt Now"
                                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                                    android:textColor="@color/colorWhite"
                                    android:textSize="19sp" />

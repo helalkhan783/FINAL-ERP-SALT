@@ -26,6 +26,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.chivorn.smartmaterialspinner.SmartMaterialSpinner;
@@ -81,6 +82,8 @@ public class PayDueToSupplierSearchFragment extends AddUpDel implements DatePick
     TextView customerNameTv;
     @BindView(R.id.ordersRvSupplier)
     RecyclerView ordersRv;
+    @BindView(R.id.rl_bottom_section_root)
+    RelativeLayout rl_bottom_section_root;
     @BindView(R.id.tv_noticeSupplier)
     TextView noOrderFound;
     List<String> customerNameList;
@@ -365,7 +368,11 @@ public class PayDueToSupplierSearchFragment extends AddUpDel implements DatePick
         selectBankTv.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
+              if (selectedEnterPrice == null ){
+                  message("Please select enterprise");
+                  selectBankTv.clearSelection();
+                  return;
+              }
                 selectedBankId = banks.get(position).getMainBankID();
                 accountList(selectedBankId, selectedEnterPrice);
 
@@ -580,6 +587,7 @@ public class PayDueToSupplierSearchFragment extends AddUpDel implements DatePick
 
             if (!mainDueOrderList.isEmpty()) {
                 ordersRv.setVisibility(View.VISIBLE);
+                rl_bottom_section_root.setVisibility(View.VISIBLE);
                 noOrderFound.setVisibility(View.GONE);
                 CustomerOrderAdapter adapter = new CustomerOrderAdapter(getActivity(), mainDueOrderList, "payment");
                 ordersRv.setAdapter(adapter);
@@ -641,6 +649,7 @@ public class PayDueToSupplierSearchFragment extends AddUpDel implements DatePick
                 return;
             } else {
                 ordersRv.setVisibility(View.GONE);
+                rl_bottom_section_root.setVisibility(View.GONE);
                 noOrderFound.setText("No order Found");
                 noOrderFound.setVisibility(View.VISIBLE);
             }

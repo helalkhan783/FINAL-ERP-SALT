@@ -313,6 +313,12 @@ public class DueCollectionFragment extends AddUpDel
         selectBankTv.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (selectedEnterPrice == null) {
+                    message("Please select enterprise");
+                    selectBankTv.clearSelection();
+                    return;
+
+                }
                 selectedBankId = banks.get(position).getMainBankID();
                 accountList(selectedBankId, selectedEnterPrice);
             }

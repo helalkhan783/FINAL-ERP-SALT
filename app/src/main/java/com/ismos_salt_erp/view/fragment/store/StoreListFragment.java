@@ -621,6 +621,19 @@ public class StoreListFragment extends AddUpDel implements View.OnClickListener,
                 endScroll = false;
                 isFirstLoad = 0;
                 stockLists.clear();
+
+
+                if(!binding.stockFilter.itemNameEt.getText().toString().isEmpty()){
+                    storeSelectedId=null;
+                    brandId=null;
+                    categoryId=null;
+                    millerProfileId=null;
+                    binding.stockFilter.store.clearSelection();
+                    binding.stockFilter.selectBrand.clearSelection();
+                    binding.stockFilter.selectCategory.clearSelection();
+                    binding.stockFilter.enterprise.clearSelection();
+                }
+
                 getAllListFromServer();
                 break;
             case R.id.resetBtn:
